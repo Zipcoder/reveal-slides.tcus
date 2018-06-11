@@ -184,9 +184,9 @@ A protocol providing full-duplex communication channels over a single TCP connec
 A **servlet** is a small Java program that runs within a Web server. **Servlets** receive and respond to requests from Web clients, usually across HTTP, the HyperText Transfer Protocol.
 
 -
-### Aspect Oriented Programming
+### Aspect-Oriented Programming
 
-Aspect-Oriented Programming (**AOP**) complements Object-Oriented Programming (OOP) by providing another way of thinking about program structure. The key unit of modularity in OOP is the class, whereas in **AOP** the unit of modularity is the aspect. Aspects enable the modularization of concerns such as transaction management that cut across multiple types and objects.
+Aspect-Oriented Programming (**AOP**) complements Object-Oriented Programming (OOP) by providing another way of thinking about program structure. The key unit of modularity in OOP is the class, whereas in **AOP** the unit of modularity is the aspect. Aspects enable the modularization of concerns, such as transaction management that cut across multiple types and objects.
 
 -
 ### ORM
