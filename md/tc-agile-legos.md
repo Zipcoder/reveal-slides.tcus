@@ -11,11 +11,49 @@
 
 
 -
+# User stories
+* A user story is a description of a product feature from an end-user perspective.
+* The user story describes the type of user, what they want, and why.
+* Helps to create a simplified description of a requirement.
+* Usually expressed using verbiage like
+	* "As a `specific-role` I would like to `specific-ability` to `facilitate need`."
+	* "As an `instructor` I would like to use `a microphone` to `be heard by students`.
+
+
+-
 # Backlogs
-* A backlog is an invitation for collaboration between a customer and teams
+* Set of user stories that need have not been assigned to during sprint
+* list of prioritized features, containing short descriptions of all functionality desired in the product
 * Should trigger ideating
 * Description should be alterable upon further discussion
-* Requirements should be nonsystematic
+
+
+-
+# Backlogs
+* typically comprises
+	* features
+	* bugs
+	* technical work
+	* knowledge acquisition
+* [source](https://www.mountaingoatsoftware.com/agile/scrum/scrum-tools/product-backlog)
+
+
+-
+# Example Backlog
+* The following slide is an example of a backlog
+
+
+
+-
+# Lego City Backlog
+### Transit
+* As a lego person, I would like to live in an isolated forested area.
+* As a lego person, I would I like to be within walking distance to a bus stop.
+
+### Entertainment
+* As a lego person, I would like to be within 20 minute bus-range of a train station
+* As a lego person, I would like to be within 20 minute bus-range of a classical art gallery
+
 
 
 -
@@ -31,12 +69,17 @@
 
 -
 # Production Metrics
-* Establish convention for measuring productivity
+* Establish convention for measuring productivity.
+* Typically the task-effort and task-completion is used to derive this information.
 
 
 -
 # Continuous Improvements
 * Sprints should yield progressively more productive results
+* With each Sprint, a team further establishes a `velocity` which allows them to better estimate and execute their commitments.
+* `Velocity` is a measure of the amount of work a team can tackle during a single sprint.
+	* the key metric in Scrum.
+	* calculated at the end of the sprint by totaling the points for all fully completed User Stories.
 
 
 
@@ -80,10 +123,12 @@
 * product is a city
 * building elements are Legos
 * product owner is the maker of the product
-* product owners will be available to dev for questions	
+* product owners will be available to dev for questions
+
 
 -
-#City Features
+# Sample City Features
+* _dependent on product owner_
 * one story building (at least 2)
 * two story building (at least 1)
 * shop
@@ -92,9 +137,6 @@
 * kindergarten
 * bus stop
 * park
-* river
-* bridge
-
 
 
 
@@ -113,25 +155,36 @@
 
 -
 -
-# _Planning_
+# _Planning First Sprint_
 
 -
-# Planning Wall<br>_(2 minutes)_
+## Establishing  Initial User Stories<br>_(5 minutes)_
+* Request a list of features from your product owner to establish a backlog of user-stories.
+* Time begins [now](http://www.online-timers.com/timer-5-minutes)
+
+-
+## User Stories
+* A user story is a description of a product feature from an end-user perspective.
+* The user story describes the type of user, what they want, and why.
+* Usually expressed using verbiage like
+	* As a `specific-role` I would like to `perform-ability` to `facilitate-need`.
+	* As an `instructor` I would like to use `a microphone` to `be heard by students`.
+
+
+-
+# First Sprint Planning Wall<br>_(5 minutes)_
 * Using paper, implement planning wall to aggregate plans
 	* 4 columns:
 		* index
 		* feature
 		* t-shirt size (estimated effort)
 		* scrum number (estimated points)
-* Time begins when I click [here](https://www.google.com/search?q=stopwatch&oq=stopwatch&aqs=chrome..69i57j0l5.1863j0j7&sourceid=chrome&ie=UTF-8) 
+* Time begins when I click [here](http://www.online-timers.com/timer-5-minutes)
 
 
 
-
-
-		
 -
-# Convert to Swim Lane _(1 minute)_
+# Convert to Swim Lane _(5 minutes)_
 * Convert planning wall to swimlane structure
 	* 5 columns:
 		* 1 point
@@ -139,16 +192,57 @@
 		* 3 points
 		* 5 points
 		* 8 points
-* Time begins when I click [here](https://www.google.com/search?q=stopwatch&oq=stopwatch&aqs=chrome..69i57j0l5.1863j0j7&sourceid=chrome&ie=UTF-8) 
+* Time begins when I click [here](http://www.online-timers.com/timer-5-minutes)
 
 
 
 
 -
-# Team Sprint Box
+# Team Sprint Box _(2 minutes)_
 * Pull stories into the team's sprint box
 * Ask if teams are comfortable with commitment
 * Assign Scrum masters to each team
+* Time begins when I click [here](http://www.online-timers.com/timer-2-minutes)
+
+
+
+
+
+
+
+
+
+-
+-
+# Begin First Sprint Development Phase!<br>_(7 minutes)_
+* Time begins when I click [here](http://www.online-timers.com/timer-7-minutes)
+
+-
+# End First Sprint Development Phase
+* The sprint has ended
+* Hands should be off Legos
+* Development should temporarily cease
+
+
+-
+# First Sprint and Product Review _(2 minutes)_
+* Time begins when I click [here](http://www.online-timers.com/timer-2-minutes)
+* At the end of each sprint, the team establishes what has been accomplished during the sprint.
+* Product owners ensure the product has the requested features.
+	* Do buildings have windows?
+	* Do buildings have doors?
+	* Are buildings different colors?
+
+
+-
+# First Sprint Retrospective<br>_(2 minutes)_
+* Time begins when I click [here](http://www.online-timers.com/timer-2-minutes)
+* Typically the last thing done in a sprint.
+* Often preceded by the sprint review
+* Usually, these questions are answered
+	* What went well during the sprint cycle?
+	* What went wrong during the sprint cycle?
+	* What could we do differently to improve?
 
 
 
@@ -159,51 +253,25 @@
 
 -
 -
-# Begin Sprint 1!<br>_(7 minutes)_
-* Begin executing plans once the [timer](https://www.google.com/search?q=stopwatch&oq=stopwatch&aqs=chrome..69i57j0l5.1863j0j7&sourceid=chrome&ie=UTF-8) starts
-
+# _Planning Second Sprint_
 
 -
--
-#Product Review
-* Do buildings have windows?
-* Do buildings have doors?
-* Are buildings different colors?
-
-
-
--
--
-# Retrospective<br>_(3 minutes)_
-* What went well during the sprint cycle?
-* What went wrong during the sprint cycle?
-* What could we do differently to improve?
-
-
-
-
-
--
--
-# _Planning_
-
--
-# Planning Wall<br>_(2 minutes)_
+# Second Sprint Planning Wall<br>_(2 minutes)_
 * Using paper, implement planning wall to aggregate plans
 	* 4 columns:
 		* index
 		* feature
 		* t-shirt size (estimated effort)
 		* scrum number (estimated points)
-* Time begins when I click [here](https://www.google.com/search?q=stopwatch&oq=stopwatch&aqs=chrome..69i57j0l5.1863j0j7&sourceid=chrome&ie=UTF-8) 
+* Time begins when I click [here](http://www.online-timers.com/timer-2-minutes)
 
 
 
 
 
-		
+
 -
-# Convert to Swim Lane _(1 minute)_
+# Convert to Swim Lane _(2 minutes)_
 * Convert planning wall to swimlane structure
 	* 5 columns:
 		* 1 point
@@ -211,15 +279,46 @@
 		* 3 points
 		* 5 points
 		* 8 points
-* Time begins when I click [here](https://www.google.com/search?q=stopwatch&oq=stopwatch&aqs=chrome..69i57j0l5.1863j0j7&sourceid=chrome&ie=UTF-8) 
+* Time begins when I click [here](http://www.online-timers.com/timer-2-minutes)
 
 
 
 
 -
-# Team Sprint Box
+# Team Sprint Box _(2 minutes)_
 * Pull stories into the team's sprint box
 * Ask if teams are comfortable with commitment
+* Assign Scrum masters to each team
+* Time begins when I click [here](http://www.online-timers.com/timer-2-minutes)
+
+
+
+
+-
+# Begin Second Sprint Development Phase!<br>_(5 minutes)_
+* Time begins when I click [here](http://www.online-timers.com/timer-7-minutes)
+
+-
+# End Second Sprint Development Phase
+* The sprint has ended
+* Hands should be off Legos
+* Development should temporarily cease
+
+
+-
+# Second Sprint and Product Review _(2 minutes)_
+* Time begins when I click [here](http://www.online-timers.com/timer-2-minutes)
+
+-
+# Second Sprint and Product Review _(2 minutes)_
+* At the end of each sprint, the team establishes what has been accomplished during the sprint.
+* Product owners ensure the product has the requested features.
+	* Do buildings have windows?
+		* Are windows vertically aligned?
+	* Do buildings have doors?
+	* Are buildings different colors?
+
+
 
 
 
@@ -229,53 +328,25 @@
 
 -
 -
-# Begin Sprint 2!<br>_(7 minutes)_
-* Begin executing plans once the [timer](https://www.google.com/search?q=stopwatch&oq=stopwatch&aqs=chrome..69i57j0l5.1863j0j7&sourceid=chrome&ie=UTF-8) starts
-
+# _Planning Final Sprint_
 
 -
--
-#Product Review
-* Do buildings have windows?
-	* Are windows vertically aligned?
-* Do buildings have doors?
-* Are buildings different colors?
-
-
-
--
--
-# Retrospective<br>_(3 minutes)_
-* What went well during the sprint cycle?
-* What went wrong during the sprint cycle?
-* What could we do differently to improve?
-
-
-
-
-
-
--
--
-# _Planning_
-
--
-# Planning Wall<br>_(2 minutes)_
+# Final Sprint Planning Wall<br>_(2 minutes)_
 * Using paper, implement planning wall to aggregate plans
 	* 4 columns:
 		* index
 		* feature
 		* t-shirt size (estimated effort)
 		* scrum number (estimated points)
-* Time begins when I click [here](https://www.google.com/search?q=stopwatch&oq=stopwatch&aqs=chrome..69i57j0l5.1863j0j7&sourceid=chrome&ie=UTF-8) 
+* Time begins when I click [here](http://www.online-timers.com/timer-2-minutes)
 
 
 
 
 
-		
+
 -
-# Convert to Swim Lane _(1 minute)_
+# Convert to Swim Lane _(1 minutes)_
 * Convert planning wall to swimlane structure
 	* 5 columns:
 		* 1 point
@@ -283,15 +354,52 @@
 		* 3 points
 		* 5 points
 		* 8 points
-* Time begins when I click [here](https://www.google.com/search?q=stopwatch&oq=stopwatch&aqs=chrome..69i57j0l5.1863j0j7&sourceid=chrome&ie=UTF-8) 
+* Time begins when I click [here](http://www.online-timers.com/timer-1-minutes)
 
 
 
 
 -
-# Team Sprint Box
+# Team Sprint Box _(1 minutes)_
 * Pull stories into the team's sprint box
 * Ask if teams are comfortable with commitment
+* Assign Scrum masters to each team
+* Time begins when I click [here](http://www.online-timers.com/timer-1-minutes)
+
+
+
+
+
+
+
+
+
+-
+# Begin Final Sprint Development Phase!<br>_(5 minutes)_
+* Time begins when I click [here](http://www.online-timers.com/timer-7-minutes)
+
+
+
+-
+# End Final Sprint Development Phase
+* The sprint has ended
+* Hands should be off Legos
+* Development should temporarily cease
+
+
+
+-
+# Final Sprint and Product Review _(2 minutes)_
+* Time begins when I click [here](http://www.online-timers.com/timer-2-minutes)
+* Product owners ensure the product has the requested features.
+	* Do buildings have windows?
+		* Are windows vertically aligned?
+	* Do buildings have doors?
+	* Are buildings different colors?
+		* Is each building a solid color?
+	* Is the school next to the hospital?
+	* Is the park next to the school and away from the hospital?
+	* Is the river next to the park but away from the school?
 
 
 
@@ -301,36 +409,7 @@
 
 -
 -
-# Begin Sprint 3!<br>_(7 minutes)_
-* Begin executing plans once the [timer](https://www.google.com/search?q=stopwatch&oq=stopwatch&aqs=chrome..69i57j0l5.1863j0j7&sourceid=chrome&ie=UTF-8) starts
-
-
--
--
-#Product Review
-* Do buildings have windows?
-	* Are windows vertically aligned?
-* Do buildings have doors?
-* Are buildings different colors?
-	* Is each building a solid color?
-* Is the school next to the hospital?
-* Is the park next to the school and away from the hospital?
-* Is the river next to the park but away from the school?
-
--
--
-# Retrospective<br>_(3 minutes)_
-* What went well during the sprint cycle?
-* What went wrong during the sprint cycle?
-* What could we do differently to improve?
-
-
-
-
-
--
--
-# Post Game Retro
+# Post Game Retrospective
 * Observations?
 * How did it feel being on a Scrum team?
 * How did short iterations go?
