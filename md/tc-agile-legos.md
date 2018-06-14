@@ -3,11 +3,11 @@
 
 -
 # Relation to Agile
-* Open backlogs that trigger ideating rather than detailed instructions to follow
-* Mindful product development rather than a series of tasks to accomplish
-* Teams collaborating toward common success rather than competition for score.
-* Useful metrics to assess benefits of agile rather than figures the trainers asked to collect
-* Continuous improvements rather than winning or losing the game with one try
+* Opens backlogs that trigger ideating rather than detailed instructions to follow.
+* Promotes mindful product development rather than a series of tasks to accomplish.
+* Establishes useful metrics to assess benefits of agile rather than figures the trainers asked to collect.
+* Demonstrates continuous improvements rather than winning or losing the game with one try.
+* Ensures teams collaborate toward common success rather than competition for score.
 
 
 -
@@ -16,13 +16,13 @@
 * The user story describes the type of user, what they want, and why.
 * Helps to create a simplified description of a requirement.
 * Usually expressed using verbiage like
-	* "As a `specific-role` I would like to `specific-ability` to `facilitate need`."
-	* "As an `instructor` I would like to use `a microphone` to `be heard by students`.
+	* As a `specific-role` I would like to `perform-ability` to `facilitate need`.
+	* As an `instructor` I would like to use `a whiteboard` to `express abstractions to students`.
 
 
 -
 # Backlogs
-* Set of user stories that need have not been assigned to during sprint
+* Set of user stories that need have not been fulfilled by nor assigned to the current sprint
 * list of prioritized features, containing short descriptions of all functionality desired in the product
 * Should trigger ideating
 * Description should be alterable upon further discussion
@@ -70,16 +70,15 @@
 -
 # Production Metrics
 * Establish convention for measuring productivity.
-* Typically the task-effort and task-completion is used to derive this information.
+* `Velocity` is a measure of the amount of work a team can tackle during a single sprint.
+	* is the key metric in Scrum.
+	* is calculated at the end of the sprint by totaling the points for all fully completed User Stories.
 
 
 -
 # Continuous Improvements
 * Sprints should yield progressively more productive results
 * With each Sprint, a team further establishes a `velocity` which allows them to better estimate and execute their commitments.
-* `Velocity` is a measure of the amount of work a team can tackle during a single sprint.
-	* the key metric in Scrum.
-	* calculated at the end of the sprint by totaling the points for all fully completed User Stories.
 
 
 
@@ -129,14 +128,14 @@
 -
 # Sample City Features
 * _dependent on product owner_
-* one story building (at least 2)
-* two story building (at least 1)
-* shop
-* school
-* hospital
-* kindergarten
-* bus stop
-* park
+	* one story building (at least 2)
+	* two story building (at least 1)
+	* shop
+	* school
+	* hospital
+	* kindergarten
+	* bus stop
+	* park
 
 
 
@@ -155,11 +154,12 @@
 
 -
 -
-# _Planning First Sprint_
+# _Planning<br>First Sprint_
 
 -
-## Establishing  Initial User Stories<br>_(5 minutes)_
+## Establishing Initial User Stories<br>_(5 minutes)_
 * Request a list of features from your product owner to establish a backlog of user-stories.
+* Be sure to gain clarity with each request.
 * Time begins [now](http://www.online-timers.com/timer-5-minutes)
 
 -
@@ -253,7 +253,7 @@
 
 -
 -
-# _Planning Second Sprint_
+# _Planning<br>Second Sprint_
 
 -
 # Second Sprint Planning Wall<br>_(2 minutes)_
@@ -328,7 +328,7 @@
 
 -
 -
-# _Planning Final Sprint_
+# _Planning<br>Final Sprint_
 
 -
 # Final Sprint Planning Wall<br>_(2 minutes)_
