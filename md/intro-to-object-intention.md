@@ -25,7 +25,7 @@
 * Utilities
 * Creation
 * Storing
-* Managing / Handling
+* Managing / Handling / Decorating
 * Entity Scope
 
 
@@ -239,9 +239,9 @@ public class PersonFactory {
     public static Person createRandomPerson() {
         String name = RandomUtils.createString('a', 'z', 5);
         int age = RandomUtils.createInteger(0, 100);
-        boolean isMale = RandomUtils.createBoolean(50);
+        boolean isFemale = RandomUtils.createBoolean(50);
 
-        Person randomPerson = new Person(name, age, isMale);
+        Person randomPerson = new Person(name, age, isFemale);
         return randomPerson;
     }
 }
@@ -250,21 +250,21 @@ public class PersonFactory {
 
 
 -
-# Warehouse Classes
+# Container Classes
 * store of data accumulated from within an ecosystem
 
 ```java
 public class PersonWarehouse {
     private static final Logger logger = Logger.getGlobal();
-    private static final ArrayList<Person> people = new ArrayList<>();
+    private static final List<Person> people = new ArrayList<>();
 
     public static void addPerson(Person person) {
         logger.info("Registering a new person object to the person warehouse...");
         people.add(person);
     }
 
-    public static Person[] getPeople() {
-    	return people.stream().toArray(Person[]::new);
+    public static List<Person> getPeople() {
+    	return this.people;
     }
 }
 ```
@@ -300,11 +300,12 @@ public class PersonHandler {
 ```java
 public class Main {
     public static void main(String[] args) {
-        PersonFactory.createRandomPerson();
-        PersonFactory.createRandomPerson();
-        PersonFactory.createRandomPerson();
-        PersonFactory.createRandomPerson();
-        PersonFactory.createRandomPerson();
+				Person person1 = PersonFactory.createRandomPerson();
+				Person person2 = PersonFactory.createRandomPerson();
+				Person person3 = PersonFactory.createRandomPerson();
+				PersonWarehouse.addPerson(person1);
+				PersonWarehouse.addPerson(person2);
+        PersonWarehouse.addPerson(person3);
 
         Person[] people = PersonWarehouse.getPeople();
 
