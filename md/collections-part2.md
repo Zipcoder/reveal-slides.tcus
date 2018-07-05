@@ -69,6 +69,103 @@ System.out.println(new ArrayList<>().remove(new Object()));
 
 
 
+
+
+
+
+
+
+
+
+-
+# Iterator Interface
+* `Collection` extends `Iterator`, therefore all `Collection` types are valid candidates for the `foreach` loop
+* Is used to visit the elements in the collection one by one.
+
+```java
+public interface Iterator<E> {	E next();	boolean hasNext();	void remove();	default void forEachRemaining(Consumer<? super E> action);}
+```
+
+
+
+-
+-
+## Iterator Interface
+* Repeatedly calling the `next()` method enables you to visit each element from the collection, one by one.
+*  `NoSuchElementException` is thrown upon invoking `next()` on an `Iterator` that has reached the end of the collection.
+	* This can be prevented by evaluating the `hasNext()` method before calling `next()`.
+	* The compiler translates `foreach` loops into a loop with an iterator.
+
+```java
+public static void printIterable(Iterable<Object> iterable) {
+    Iterator iterator = iterable.iterator();
+    while(iterator.hasNext()) {
+        System.out.println("Current Element = " + iterator.next());
+    }
+}
+```
+
+
+
+
+
+-
+-
+## Iterator Interface
+* As of Java8, you can call the `forEachRemaining` method with a `Consumer` lambda expression.
+* The lambda expression is invoked with each element of the iterator, until there are none left.```
+public static void printIterable(Iterable<Object> iterable) {
+    Iterator iterator = iterable.iterator();
+	iterator.forEachRemaining((element) -> System.out.println(element));
+}
+```
+
+
+-
+-
+## Iterator Interface<br>`next()`
+* Think of Java iterators as being _between_ elements.
+* When you call `next`, the iterator jumps over the next element, and it returns a reference to the element that it just passed.
+<br><img src = "https://i.giphy.com/media/AkEctVBhHuvtu/giphy-downsized.gif">
+
+
+
+
+
+
+
+
+-
+-
+## Iterator Interface<br>`remove()`
+* removes the element that was returned by the last call to `next()`
+* Often, you may need to view an element before deciding to delete it.
+* It is illegal to call `remove()` if it wasn’t preceded by a call to `next()`.
+
+```java
+public void deleteFirstElement(Iterator<String> iterator) {
+	iterator.next(); // skip first element
+	iterator.remove(); // remove first element
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -
 ## `Set` Interface
 * Identical to `Collection` interface, except
@@ -119,86 +216,6 @@ System.out.println(new ArrayList<>().remove(new Object()));
 
 
 -
-# Iterator Interface
-* `Collection` extends `Iterator`, therefore all `Collection` types are valid candidates for the `foreach` loop
-* Is used to visit the elements in the collection one by one.
-
-```java
-public interface Iterator<E> {	E next();	boolean hasNext();	void remove();	default void forEachRemaining(Consumer<? super E> action);}
-```
-
-
-
--
--
-## Iterator Interface
-* Repeatedly calling the `next()` method enables you to visit each element from the collection, one by one.
-*  `NoSuchElementException` is thrown upon invoking `next()` on an `Iterator` that has reached the of the collection.
-	* This can be prevented by evaluating the `hasNext()` method before calling `next()`.
-	* The compiler translates `foreach` loops into a loop with an iterator.
-
-```java
-public static void printIterable(Iterable<Object> iterable) {
-    Iterator iterator = iterable.iterator();
-    while(iterator.hasNext()) {
-        System.out.println("Current Element = " + iterator.next());
-    }
-}
-```
-
-
-
-
-
--
--
-## Iterator Interface
-* As of Java8, you can call the `forEachRemaining` method with a `Consumer` lambda expression.
-* The lambda expression is invoked with each element of the iterator, until there are none left.```
-public static void printIterable(Iterable<Object> iterable) {
-    Iterator iterator = iterable.iterator();
-	iterator.forEachRemaining((element) -> System.out.println(element));
-}
-```
-
-
--
--
-## Iterator Interface<br>`next()`
-* Think of Java iterators as being _between_ elements.
-* When you call `next`, the iterator jumps over the next element, and it returns a reference to the element that it just passed.
-<br><img src = "https://i.giphy.com/media/AkEctVBhHuvtu/giphy-downsized.gif">
-
-
-
-
-
-
-
-
--
--
-## Iterator Interface<br>`remove()`
-* removes the element that was returned by the last call to next
-* Often, you may need to view an element before deciding to delete it.
-* It is illegal to call `remove()` if it wasn’t preceded by a call to `next()`.
-
-```java
-public void deleteFirstElement(Iterator<String> iterator) {
-	iterator.next(); // skip first element
-	iterator.remove(); // remove first element
-}
-```
-
-
-
-
-
-
-
-
-
--
 ## `AbstractCollection` Class
 * The `Collection` interface declares 18 methods.
 * To avoid implementing a lot of the fundamental methods, the `Collection` library developers created an `AbstractCollection` class.
@@ -206,6 +223,29 @@ public void deleteFirstElement(Iterator<String> iterator) {
 
 
 
+
+-
+-
+### Sample `AbstractCollection` implementation
+
+```java
+public class MyCollection<E> extends AbstractCollection<E>  {
+    private final Iterable<E> iterable;
+    public MyCollection(Iterable<E> iterable) {
+    	this.iterable = iterable;
+    }
+    
+    @Override
+    public Iterator<E> iterator() {  return iterable.iterator(); }
+    
+    @Override
+    public int size() {
+        List<E> list = new ArrayList<>();
+        iterator().forEachRemaining(list::add);
+        return list.size();
+    }
+}
+``` 
 
 
 
@@ -230,7 +270,7 @@ public void deleteFirstElement(Iterator<String> iterator) {
 -
 -
 ### Minimal Form of a Queue Interface
-* The interface tells you nothing about how the queue is implemented.
+* The interface describes the intent without detailing the implementation
 
 ```java
 // a simplified form of the interface in the standard library
@@ -364,7 +404,7 @@ public interface Queue<E> {	void add(E element);
 -
 -
 ### Views which validate elements for type before insertion
-* constructs a view of the collection; the view’s methods throw a ClassCastException if an element of the wrong type is inserted.
+* Each of the following views' methods throw a `ClassCastException` if an element of the wrong type is inserted.
 <font size = 6>
 * `Collection checkedCollection(Collection, Class elementType)`* `List checkedList(List, Class elementType)`
 * `Set checkedSet(Set, Class elementType)`
@@ -384,3 +424,9 @@ public interface Queue<E> {	void add(E element);
 * This allows the user to pass the array as a `List`.
 * Any operation that would change the `size` of the `List` will throw an `UnsupportOperationException`.
 
+
+
+
+
+-
+# Puppies
