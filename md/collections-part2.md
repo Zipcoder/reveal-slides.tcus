@@ -68,6 +68,56 @@ System.out.println(new ArrayList<>().remove(new Object()));
 
 
 
+
+-
+## `Set` Interface
+* Identical to `Collection` interface, except
+	* the `add` method should reject duplicates.
+	* the `equals` method should be defined so that two sets are identical if they have the same elements, but not necessarily in the same order.
+	* the `hashCode` method should be defined so that two sets with the same elements yield the same hash code.
+
+
+
+
+
+-
+-
+## `HashSet`
+* Does not maintain order of elements
+* Positions elements by their _hash_ value.
+* Can retrieve elements quickly due to efficient hash-sorting
+* If you implement your own `HashSet` you are responsible for overriding the `hashCode` method to behave as you expect
+
+
+
+
+
+-
+-
+## `TreeSet`
+* Similar to `HashSet`
+* Maintains order of elements.
+* Can only handle objects which implement `Comparable`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -
 # Iterator Interface
 * `Collection` extends `Iterator`, therefore all `Collection` types are valid candidates for the `foreach` loop
@@ -102,7 +152,7 @@ public static void printIterable(Iterable<Object> iterable) {
 
 -
 -
-# Iterator Interface
+## Iterator Interface
 * As of Java8, you can call the `forEachRemaining` method with a `Consumer` lambda expression.
 * The lambda expression is invoked with each element of the iterator, until there are none left.```
 public static void printIterable(Iterable<Object> iterable) {
@@ -114,7 +164,7 @@ public static void printIterable(Iterable<Object> iterable) {
 
 -
 -
-# Iterator Interface<br>`next()`
+## Iterator Interface<br>`next()`
 * Think of Java iterators as being _between_ elements.
 * When you call `next`, the iterator jumps over the next element, and it returns a reference to the element that it just passed.
 <br><img src = "https://i.giphy.com/media/AkEctVBhHuvtu/giphy-downsized.gif">
@@ -128,7 +178,7 @@ public static void printIterable(Iterable<Object> iterable) {
 
 -
 -
-# Iterator Interface<br>`remove()`
+## Iterator Interface<br>`remove()`
 * removes the element that was returned by the last call to next
 * Often, you may need to view an element before deciding to delete it.
 * It is illegal to call `remove()` if it wasn’t preceded by a call to `next()`.
@@ -139,6 +189,23 @@ public void deleteFirstElement(Iterator<String> iterator) {
 	iterator.remove(); // remove first element
 }
 ```
+
+
+
+
+
+
+
+
+
+-
+## `AbstractCollection` Class
+* The `Collection` interface declares 18 methods.
+* To avoid implementing a lot of the fundamental methods, the `Collection` library developers created an `AbstractCollection` class.
+* AbstractCollection has a concrete implementation of all `Collection` methods except `size()` and `iterator()`
+
+
+
 
 
 
@@ -258,7 +325,7 @@ public interface Queue<E> {	void add(E element);
 
 
 ### All About Queues
-* Read [here](http://www.codejava.net/java-core/collections/java-queue-collection-tutorial-and-examples)
+* Read more [here](http://www.codejava.net/java-core/collections/java-queue-collection-tutorial-and-examples)
 
 
 
@@ -266,3 +333,17 @@ public interface Queue<E> {	void add(E element);
 
 
 
+## Collection Wrappers
+
+### List Wrapper
+* `Array.asList` returns a `List` wrapper around a plain Java array.
+* This allows the user to pass the array as a `List`.
+* Any operation that would change the `size` of the `List` will throw an `UnsupportOperationException`.
+
+### Other Wrappers
+* `Collections.unmodifiableCollection`
+* `Collections.unmodifiableList`
+* `Collections.unmodifiableSet`
+* `Collections.unmodifiableSortedSet`
+* `Collections.unmodifiableNavigableSet`
+* `Collections.unmodifiableMap`
