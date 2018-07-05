@@ -323,7 +323,8 @@ public interface Queue<E> {	void add(E element);
 
 
 
-
+-
+-
 ### All About Queues
 * Read more [here](http://www.codejava.net/java-core/collections/java-queue-collection-tutorial-and-examples)
 
@@ -332,14 +333,20 @@ public interface Queue<E> {	void add(E element);
 
 
 
-
+-
 ## Collection Wrappers
 
+
+-
+-
 ### List Wrapper
 * `Array.asList` returns a `List` wrapper around a plain Java array.
 * This allows the user to pass the array as a `List`.
 * Any operation that would change the `size` of the `List` will throw an `UnsupportOperationException`.
 
+
+-
+-
 ### Other Wrappers
 * `Collections.unmodifiableCollection`
 * `Collections.unmodifiableList`
