@@ -24,25 +24,20 @@
 # Object
 * an **Object** is the fundamental unit of OOP
 * EVERYTHING is an an Object.
-* Sometimes, Java Objects model real-world objects.
-
-* a Car, Truck,
-* a Person, an Address, a Printer, a Disk
-* a BankAccount, a TaxReturn, a JavaStudent
+* Often, Java Objects model real-world objects.
+* a Car, Truck, Person, Address, Printer, Disk
+* a BankAccount, TaxReturn, Student
 
 -
-# Object
-
-All **OBJECTS** have
-
-* **Identity** - how that object is distinguished from other objects of the same type. **What's its name?**
-* **State** - the value of the internal objects this object contains. **What does it store?**
-* **Behavior** - what services or actions this object can perform. **How does it act?**
+-
+## Object
+* All **OBJECTS** have
+  * **Identity** - how that object is distinguished from other objects of the same type. **What's its name?**
+  * **State** - the value of the internal objects this object contains. **What does it store?**
+  * **Behavior** - what services or actions this object can perform. **How does it act?**
 
 -
-
 # Classes
-
 * **Class** is template/blueprint for Objects
 * You **construct objects from a specific class**
 * The **object** you constructed is an **instance of that class** or an OBJECT INSTANCE
@@ -50,7 +45,8 @@ All **OBJECTS** have
 * you've used `System.out` object which is an instance of the `java.io.PrintStream` class
 
 -
-# Writing a Class
+-
+## Writing a Class
 * In Java, you basically write/debug/test Java classes all day long.
 * When you run a Java program, it creates Objects which do useful (we hope) things
 * When it doesn't, you edit a class and run/test it again - forever sometimes
@@ -64,15 +60,13 @@ All **OBJECTS** have
 * create **tests** to ensure object-state is manipulated as expected
 
 -
-# Example Class
-
-BigBossSays
-
+# BigBossSays
 * I need an object which stores a person's name and age.
 * I need to get their name and age as a single string.
 * And all the persons should be kept separate in different objects.
 
-`file Person.java`
+-
+# Example Class
 ```Java
 public class Person {
     // instance variables
@@ -95,16 +89,18 @@ public class Person {
 -
 
 # Classes/Objects and the Instance/static difference
-
 * if a **method** is declared **static**
   * you do not need to create an object to call it.
-  * e.g. Math.sin(x);
-
+  * e.g. `Math.sin(x);`
   * if it weren't you'd have to
+
 ```
-Math math = new Math(); x = math.sin(y);
+Math math = new Math();
+int x = math.sin(y);
 ```
 
+-
+# Classes/Objects and the Instance/static difference
 * if a **variable** is declared **static**
   * all objects of that class can use it.
   * `private static long lastSerialNumber`
