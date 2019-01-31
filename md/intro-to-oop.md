@@ -1,7 +1,7 @@
 # Introduction to Object-Oriented Programming
--
--
 
+-
+-
 ### Introduction to Object-Oriented Programming
 
 * Yesterday you had a lecture on procedural programming, which has its place in the world.
@@ -16,9 +16,7 @@
   * each having a single responsibility
 * An easier way of managing larger problems
 * Provides scalability of solutions over time.
-
 * Allows for greater testability of code.
-
 * Makes program easier to read understand, and debug.
 
 -
@@ -48,21 +46,22 @@ All **OBJECTS** have
 * **Class** is template/blueprint for Objects
 * You **construct objects from a specific class**
 * The **object** you constructed is an **instance of that class** or an OBJECT INSTANCE
-
 * Java has **thousands** of classes in its Standard library
 * you've used `System.out` object which is an instance of the `java.io.PrintStream` class
 
 -
 # Writing a Class
-
-* IN Java, you basically write/debug/test Java classes all day long.
+* In Java, you basically write/debug/test Java classes all day long.
 * When you run a Java program, it creates Objects which do useful (we hope) things
-* when it doesn't, you edit a class and run/test it again - forever sometimes
+* When it doesn't, you edit a class and run/test it again - forever sometimes
 
-* create **variables** to store State
-* write **methods** to describe Behavior
-* write **constructors** to construct and initialize an Object and give it an Id
-* write **tests** that test the objects and make sure they do what you want
+-
+-
+## Class-Members create orientation of objects
+* create **variables** to store state
+* create **methods** to describe behavior
+* create **constructors** to construct and initialize an Object
+* create **tests** to ensure object-state is manipulated as expected
 
 -
 # Example Class

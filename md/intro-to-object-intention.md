@@ -15,18 +15,18 @@
 * Where does `the object` come from?
 	* Who / What creates `the object`?
 * Where does `the object` live?
-	* Where will `the object` be stored?
+	* What is the scope of `the object`?
 * How does `the object` interact with `other object`?
 
 -
 -
 # Different Object Intentions
 * Encapsulation
-* Utilities
+* Utility
 * Creation
 * Storing
 * Managing / Handling / Decorating
-* Entity Scope
+* Mediation (scoping)
 
 
 -
@@ -34,7 +34,7 @@
 # Encapsulation
 * Wraps several data fields into a single entity
 
-```
+```java
 // class signature
 public class Person {
 	// instance variables (fields)
@@ -255,16 +255,16 @@ public class PersonFactory {
 
 ```java
 public class PersonWarehouse {
-    private static final Logger logger = Logger.getGlobal();
-    private static final List<Person> people = new ArrayList<>();
+    private final Logger logger = Logger.getGlobal();
+    private final List<Person> people = new ArrayList<>();
 
-    public static void addPerson(Person person) {
+    public void addPerson(Person person) {
         logger.info("Registering a new person object to the person warehouse...");
         people.add(person);
     }
 
-    public static List<Person> getPeople() {
-    	return this.people;
+    public Person[] getPeople() {
+    	return this.people.toArray(new Person[people.size()]);
     }
 }
 ```
@@ -294,7 +294,7 @@ public class PersonHandler {
 
 
 -
-## Scope
+## Mediation (Scope)
 * Where the objects live and interact collectively
 
 ```java
@@ -303,17 +303,18 @@ public class Main {
 				Person person1 = PersonFactory.createRandomPerson();
 				Person person2 = PersonFactory.createRandomPerson();
 				Person person3 = PersonFactory.createRandomPerson();
-				PersonWarehouse.addPerson(person1);
-				PersonWarehouse.addPerson(person2);
-        PersonWarehouse.addPerson(person3);
+				PersonWarehouse personWarehouse = new PersonWarehouse();
+				personWarehouse.addPerson(person1);
+				personWarehouse.addPerson(person2);
+        personWarehouse.addPerson(person3);
 
-        Person[] people = PersonWarehouse.getPeople();
+        Person[] people = personWarehouse.getPeople();
 
         int currentIndex = 0;
         while(currentIndex < people.length) {
             Person currentPerson = people[currentIndex];
             PersonHandler personHandler = new PersonHandler(currentPerson);
-            System.out.println(personHandler.sayAge());
+            personHandler.sayAge();
             currentIndex++;
         }
     }
