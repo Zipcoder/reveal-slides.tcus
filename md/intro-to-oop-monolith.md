@@ -1,23 +1,44 @@
-# Introduction to Object-Oriented Programming
+# Introduction to Object Oriented Programming
 
 -
+## What is procedural programming?
+* Procedural (structured) programming consists of designing a set of procedures (algorithms) to solve a problem.
+* The procedural paradigm suggests that a programmer will:
+	* firstly, identify *which algorithms* to manipulate data
+	* secondly, identify *which structures* use which algorithms.
+
 -
-### Introduction to Object-Oriented Programming
-
-* Yesterday you had a lecture on procedural programming, which has its place in the world.
-* The issue the bigger the problems get, the harder it is to manage the code base.
+## Why do we use procedural programming?
+* **Small** problems are easily resolved with a procedural implementation
 
 -
+## Why do we not use procedural programming?
+* Procedural implementations scale poorly.
+* As the program grows in size, its complexity increases.
+	* behaviors become tightly-coupled
+	* debugging becomes more difficult
+	* code-changes and maintainence becomes more difficult
+	* testing a single aspect becomes nearly impossible
 
 
-### Introduction to Object-Oriented Programming
+-
+## Why do we use OOP?
+* **Large** problems can more be more easily scaled using the OOP paradigm.
+* OOP allows users to break problem down into small logical objects
+* OOP allows users to view code-details within the context of a specific object
+* OOP allows users to more easily debug code
+* OOP allows greater testability of code
 
-* Breaking the problem down into small logical objects
-  * each having a single responsibility
-* An easier way of managing larger problems
-* Provides scalability of solutions over time.
-* Allows for greater testability of code.
-* Makes program easier to read understand, and debug.
+
+-
+## Object Oriented Programming (OOP)
+* An object-oriented program is made of objects
+* Each object has specific functionalities, which users access via the object's **methods**.
+* The OOP paradigm suggests that a programmer will
+	* firstly identify *which structures* to manipulate data
+	* secondly identify *what algorithms* each structure will use
+
+
 
 -
 -
@@ -201,9 +222,7 @@ How can we model this?
 -
 
 ## Relationships between Classes
-
 * For the TimeCard object to function properly, it needs the TimeClock object to be created and in scope.
-
 * Employee and TimeClock can exist and function without knowledge of TimeCard.
 
 -
