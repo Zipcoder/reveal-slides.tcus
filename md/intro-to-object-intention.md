@@ -12,11 +12,13 @@
 	* What are the properties (fields) of each object?
 	* What are the behaviors (methods) of each object?
 	* How many of each object do I need / expect?
+		* Relational cardinality: 1-1, 1-M
 * Where does `the object` come from?
-	* Who / What creates `the object`?
+	* Who / What entity creates `the object`?
 * Where does `the object` live?
 	* What is the scope of `the object`?
 * How does `the object` interact with `other object`?
+	* object mediation & scoping
 
 -
 -
@@ -110,17 +112,18 @@ public class Person { // class signature
 ## Calling Constructors<br>From Constructors
 ```java
 public class Person { // class signature
-	private String myName; // instance variable	private boolean amFemale; // instance variable
+	private String myName; // instance variable
+	private Character gender; // instance variable
 
 	// no-arg constructor
 	public Person() { // constructor signature
 		this.myName = "Leon"; // setting instance variable
-		this.amFemale = false; // setting instance variable
+		this.myGender = 'M'; // setting instance variable
 	}
 
-	public Person(String name, boolean isFemale) { // constructor signature
+	public Person(String name, Character gender) { // constructor signature
 		this.myName = name; // setting instance variable
-		this.amFemale = isFemale; // setting instance variable
+		this.myGender = gender; // setting instance variable
 	}
 }
 ```
@@ -129,16 +132,17 @@ public class Person { // class signature
 ## Calling Constructors<br>From Constructors
 ```java
 public class Person { // class signature
-	private String myName; // instance variable	private boolean amFemale; // instance variable
+	private String myName; // instance variable
+	private Character myGender; // instance variable
 
 	// no-arg constructor
 	public Person() { // constructor signature
-		this("Leon", false); // nested constructor call
+		this("Leon", 'M'); // nested constructor call
 	}
 
-	public Person(String name, boolean isFemale) { // constructor signature
+	public Person(String name, Character gender) { // constructor signature
 		this.myName = name; // setting instance variable
-		this.amFemale = isFemale; // setting instance variable
+		this.myGender = gender; // setting instance variable
 	}
 }
 ```
@@ -154,7 +158,7 @@ public class Person { // class signature
 	}
 
 	public void setName(String differentName) { // method signature
-		this.myname = differentName; // setting instance variable
+		this.myName = differentName; // setting instance variable
 	}
 }
 ```
@@ -270,7 +274,7 @@ public class PersonWarehouse {
 ```
 
 -
-## Managers / Handlers
+## Managers / Handlers / Decorators
 ```java
 public class PersonHandler {
 	private Person person;
@@ -299,24 +303,24 @@ public class PersonHandler {
 
 ```java
 public class Main {
-    public static void main(String[] args) {
-				Person person1 = PersonFactory.createRandomPerson();
-				Person person2 = PersonFactory.createRandomPerson();
-				Person person3 = PersonFactory.createRandomPerson();
-				PersonWarehouse personWarehouse = new PersonWarehouse();
-				personWarehouse.addPerson(person1);
-				personWarehouse.addPerson(person2);
-        personWarehouse.addPerson(person3);
+	public static void main(String[] args) {
+		Person person1 = PersonFactory.createRandomPerson();
+		Person person2 = PersonFactory.createRandomPerson();
+		Person person3 = PersonFactory.createRandomPerson();
+		PersonWarehouse personWarehouse = new PersonWarehouse();
+		personWarehouse.addPerson(person1);
+		personWarehouse.addPerson(person2);
+		personWarehouse.addPerson(person3);
 
-        Person[] people = personWarehouse.getPeople();
+		Person[] people = personWarehouse.getPeople();
 
-        int currentIndex = 0;
-        while(currentIndex < people.length) {
-            Person currentPerson = people[currentIndex];
-            PersonHandler personHandler = new PersonHandler(currentPerson);
-            personHandler.sayAge();
-            currentIndex++;
-        }
-    }
+		int currentIndex = 0;
+		while(currentIndex < people.length) {
+			Person currentPerson = people[currentIndex];
+			PersonHandler personHandler = new PersonHandler(currentPerson);
+			personHandler.sayAge();
+			currentIndex++;
+		}
+	}
 }
 ```
