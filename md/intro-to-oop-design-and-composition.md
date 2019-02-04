@@ -1,4 +1,7 @@
-# Object Oriented Programming
+# Object Design and Composition
+
+-
+# Object Design and Composition
 * Consider object ecosystem FIRST
 	* What are my objects?
 	* Where does `the object` come from?

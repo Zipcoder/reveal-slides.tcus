@@ -1,36 +1,49 @@
+
 # Object Relations
-* "Is assosicated with"; association
-* "Has a"; aggregation / composition
-* "Is a"; inheritance / polymorphism
-* "Uses a"; dependence
 
 
 -
 -
-## Association
-* Association a connection between two separate classes which sets up through their Objects.
-* Although, Java association can balance, one-to-many, many-to-one, and many-to-many.
+# Object Relations
+| Relation Name | Verbal Expression |
+|---|---|
+| Association | Has reference to a |
+| Aggregation | Has ownership of a |
+| Composition | Has reference to a |
+| Inheritance | Is a |
+| Dependence  | Uses a |
+
+
 
 -
-## Association
-* Now, Aggregation in Java is a special type of association. Java Aggregation has the following characteristics
-	* A has-A relationship is represented here.
-	* It is a one-way relationship, i.e. a unidirectional relationship.
-	* Ending one entity won’t affect another, both can be present independently.
+-
+## Association<br>("has reference to a")
+* Indicates that a class holds a reference to another class
+* Typically implemented in java through the use of an _instance field_.
+* Can be bi-directional with each class holding a reference to the other.
+* Is achieved through the more specific associative relations:
+	* Aggregation
+	* Composition
+
 -
 -
 ## Aggregation ("has-a")
-* denotes a has-a relationship.
-* one-way (unidirectional) relationship
-* Ending one entity won’t affect another, both can be present independently.
+* restricted form of association.
+* In technical terms it denotes that a class has ownership of another class
+	* Each class referenced is said to be a child of the referencer (parent).
+* Is a one-way (unidirectional) relationship
+* Typically implemented in java through the use of an _instance field_.
 
 
 -
-## Aggregation ("has-a")
-* Programs by nature should avoid complexity, so keep things as simple as possible.
-* The objects that you create, and the objects that you use should have a SINGLE-RESPONSIBLITY.
-	* They should have one task to do, and do it well.
-* Complexity is achieved by creating container classes, which are comprised of simple objects working together to achieve one objective.
+-
+## Aggregation ("has-a")<br>Example
+* Express that a `Person` **has a** `name`.
+```java
+public class Person {
+	private String name;
+}
+```
 
 
 -
@@ -43,6 +56,21 @@
 
 
 -
+## Composition ("has-a")
+```java
+public class Student {
+  private String name;
+  private GregorianCalendar dateOfBirth;
+  public Student(String name, int day, int month, int year)
+  {
+    this.name = name;
+    this.dateOfBirth = new GregorianCalendar(year, month, day);
+  }
+//rest of Student class..
+}
+```
+
+-
 ## Inheritance ("is-a")
 * This relationship is polymorphic in nature.
 * this relationship describes what the object is extended from.
@@ -51,10 +79,9 @@
 
 -
 -
-# Dependence Relation
+# Dependence<br>("uses-a")
 * **Dependence** describes a “uses-a” relationship.
-* Think about the objects a class needs to complete its job.
-	* Different than "has a" because
+* Typically implemented in java by ensuring a method consumes a parameter-type of the dependent.
 
 -
 ## Relationships between Classes
