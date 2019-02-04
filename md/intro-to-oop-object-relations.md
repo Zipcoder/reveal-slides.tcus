@@ -9,7 +9,7 @@
 |---|---|
 | Association | Has reference to a |
 | Aggregation | Has ownership of a |
-| Composition | Has reference to a |
+| Composition | Has ownership of a |
 | Inheritance | Is a |
 | Dependence  | Uses a |
 
