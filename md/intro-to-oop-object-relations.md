@@ -15,6 +15,12 @@
 
 
 
+
+
+
+
+
+
 -
 -
 ## Association<br>("has reference to a")
@@ -25,20 +31,31 @@
 	* Aggregation
 	* Composition
 
+
+
+
+
+
+
+
+
+
+
 -
 -
 ## Aggregation ("has-a")
-* restricted form of association.
-* In technical terms it denotes that a class has ownership of another class
-	* Each class referenced is said to be a child of the referencer (parent).
+* restricted form of **association relations**.
+* denotes that an object has ownership of another object
+	* Each object referenced is said to be a child of the referencer (parent).
 * Is a one-way (unidirectional) relationship
 * Typically implemented in java through the use of an _instance field_.
 
 
--
+
 -
 ## Aggregation ("has-a")<br>Example
-* Express that a `Person` **has a** `name`.
+* Express that a `Person` **has a** `name` using **aggregation**.
+
 ```java
 public class Person {
 	private String name;
@@ -46,56 +63,102 @@ public class Person {
 ```
 
 
+
+
+
+
+
+
+
 -
 -
 ## Composition ("has-a")
-* restricted form of aggregation.
-* quantities are highly dependent on each other.
-* represents a part-of relationship.
-* One entity cannot exist without the other.
+* restricted form of **aggregation relations**.
+* denotes that an object is responsible for the creation and destruction of another object.
 
 
 -
 ## Composition ("has-a")
+* Express that a `Person` **has a** `birthDate` using **composition**.
+
 ```java
-public class Student {
-  private String name;
-  private GregorianCalendar dateOfBirth;
-  public Student(String name, int day, int month, int year)
-  {
-    this.name = name;
-    this.dateOfBirth = new GregorianCalendar(year, month, day);
-  }
-//rest of Student class..
+public class Person {
+	private GregorianCalendar birthDate;
+	public Person(int day, int month, int year) {
+	  this.birthDate = new GregorianCalendar(year, month, day);
+	}
 }
 ```
 
+
+
+
+
+
+
+
+
+-
+-
+## Dependence<br>("uses-a")
+* **Dependence** describes a “uses-a” relationship.
+* Typically implemented in java by ensuring a method consumes a parameter-type of the dependee.
+
+
+-
+## Dependence<br>("uses-a")<br>Example
+* Express that a `Grader` **uses a** `Student` to identify the respective `Student` grade as a `Character`.
+
+```java
+public class Grader {
+	public Character grade(Student student) {
+		// ... definition ommitted for brevity ...
+	}
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+-
 -
 ## Inheritance ("is-a")
-* This relationship is polymorphic in nature.
-* this relationship describes what the object is extended from.
-* Remember that all objects in java are extended from `Object` class.
+* This relationship denotes dynamic-polymorphism.
+* denotes that a class is a specific type of a more general super class.
+	* denotes a class has inherent-members (methods / variables) from super class
+	* inherent-members are not explicitly declared in the inheriting class (super class)
+* All classes are implicitly sub-classes of the `Object` class.
 
 
 -
--
-# Dependence<br>("uses-a")
-* **Dependence** describes a “uses-a” relationship.
-* Typically implemented in java by ensuring a method consumes a parameter-type of the dependent.
+## Inheritance ("is-a")<br>Example
+* Express that a `Student` is a `Person` with a grade represented as a `Character`
 
--
-## Relationships between Classes
-* Objects are containers. Each has its own "state"
-* Each employee works slightly different hours each week.
-* But they all "punch in" on a single time-clock on the wall each with a different time-card.
-* How can we model this?
-* Think about a scenario in which you have a time-keeping application that has the following objects:
-	* Employee
-	* TimeCard
-	* TimeClock
+```java
+public class Person {
+	private String name;
+	private Date birthDate;
+	public Person(String name, Date birthDate) {
+		this.name = name;
+		this.birthDate = birthDate;
+	} // getters and setter ommitted for brevity
+}
+```
 
--
-
-## Relationships between Classes
-* For the TimeCard object to function properly, it needs the TimeClock object to be created and in scope.
-* Employee and TimeClock can exist and function without knowledge of TimeCard.
+```java
+public class Student {
+	private Character currentGrade;
+	public Student(String name, Date birthDate) {
+		super(name, birthDate);
+		this.currentGrade = 'F';
+	} // getters and setter ommitted for brevity
+}
+```
