@@ -13,11 +13,12 @@ public class FirstSample {
 
 -
 
-- Java is case sensitive
-- Class names must begin with a letter, and after that, they can have any combination of letters and digits
-- You cannot use a Java reserved word
-- You need to make the name for the source code the same as the name of the public class
-- Whitespace is irrelevant to the Java compiler
+* Java is case sensitive
+* Class names must begin with a letter, and after that, they can have any combination of letters, digits, and underscores.
+  * By convention, class names start with a capital letter.
+* You cannot use a Java reserved word to name a variable or class.
+* You need to make the name for the source code the same as the name of the public class
+* Whitespace is irrelevant to the Java compiler
 
 -
 
@@ -40,15 +41,18 @@ public class ClassName {
 -
 ##Object Stuff
 
-Since almost everything in Java is an object, for now remember that:
-- Static methods are not called on objects themselves
-  - `SomeObject.someMethod()`
-- Instance methods are called on instances of the objects directly
-  ```java
-  SomeObject so = new SomeObject();
-  so.someInstanceMethod();
-  ```
-Note the construction of `so`
+* Since almost everything in Java is an object, for now remember that:
+  * Static methods are called on a `Class`, not on objects themselves
+    * `SomeObject.someMethod()`
+  * Instance methods are called on instances of the objects directly
+
+```java
+SomeObject so = new SomeObject();
+so.someInstanceMethod();
+```
+* Note the construction of `so`
+
+
 -
 -
 

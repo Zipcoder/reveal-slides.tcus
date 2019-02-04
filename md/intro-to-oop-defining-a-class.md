@@ -45,24 +45,34 @@
 # Classes
 * A **class** is a template, or blueprint from which objects are made
 	* it is the cookie-cutter to a cookie
-* Classes *encapsulate* several data-fields and behaviors into a single entity.
-* **Encapsulation** is combining class-members (methods and variables) in a single module.
+* Class names must begin with a letter followed by any combination of letters, digits, and underscores.
+  * By convention, class names start with a capital letter.
+	* You cannot use a Java _reserved word_ to name a variable or class.
+* Whitespace is irrelevant to the Java compiler
+* Classes *encapsulate* several **data-fields** and behaviors into a single entity.
+* **Encapsulation** is combining class-members (methods and variables) in a single scope.
 
 
 -
+-
+## Instance-Fields
+* An instance-field, or instance-variable are representative of the _properties_ or _attributes_ of a `Class`.
+* By aggregating the values of an instance's fields, we derive the instance's _state_.
+
+-
 # Encapsulation
-* Wraps several data fields into a single entity
+* "Wraps" several data fields into a single entity
 
 ```java
 // class signature
 public class Person {
 	// instance variables (fields)
 	private String name;
-	private int age;
-	private boolean isFemale;
+	private Integer age;
+	private Boolean isFemale;
 
 	// constructor
-	public Person(String name, int age, boolean isFemale) {
+	public Person(String name, Integer age, Boolean isFemale) {
 		this.name = name;
 		this.age = age;
 		this.isFemale = isFemale;
