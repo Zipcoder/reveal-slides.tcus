@@ -1,6 +1,7 @@
 # Object Design and Composition
 
 -
+-
 # Object Design and Composition
 * Consider object ecosystem FIRST
 	* What are my objects?
@@ -11,17 +12,18 @@
 -
 -
 # Object Ecosystems
-* What are my objects?
-	* What are the properties (fields) of each object?
-	* What are the behaviors (methods) of each object?
-	* How many of each object do I need / expect?
-		* Relational cardinality: 1-1, 1-M
-* Where does `the object` come from?
-	* Who / What entity creates `the object`?
-* Where does `the object` live?
-	* What is the scope of `the object`?
-* How does `the object` interact with `other object`?
-	* object mediation & scoping
+* The design process of a new object oriented program begins by answering the following:
+	* What are my objects?
+		* What are the properties (fields) of each object?
+		* What are the behaviors (methods) of each object?
+		* How many of each object do I need / expect?
+			* Relational cardinality: 1-1, 1-M
+	* Where does `the object` come from?
+		* Who / What entity creates `the object`?
+	* Where does `the object` live?
+		* What is the scope of `the object`?
+	* How does `the object` interact with `other object`?
+		* object mediation
 
 -
 -
