@@ -97,7 +97,7 @@ public class Person {
 * field-values of an object are made available to users via the object's **getters**
 * variable-values of an object can be manipulated by the user via the object's **setters**
 * the aggregation of an object's variable's values determines the object's **state**.
-* fields describe a "has a" or "uses a" relationship.
+* fields describe a "has a" relationship.
 
 
 
