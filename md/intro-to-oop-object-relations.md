@@ -6,7 +6,7 @@
 -
 # Object Relations
 | Relation Name | Verbal Expression |
-|---|---|
+|---|---|---|
 | Association | Has reference to a |
 | Aggregation | Has ownership of a |
 | Composition | Has ownership of a |
@@ -23,9 +23,9 @@
 
 -
 -
-## Association<br>("has reference to a")
-* Indicates that a class holds a reference to another class
-* Typically implemented in java through the use of an _instance field_.
+## Association<br>("has-reference-to-a")
+* Indicates that a class holds a reference to another instance of a class.
+* In Java, it can be implemented through the use of an _instance field_ or _parameter list_.
 * Can be bi-directional with each class holding a reference to the other.
 * Is achieved through the more specific associative relations:
 	* Aggregation
@@ -43,24 +43,42 @@
 
 -
 -
-## Aggregation ("has-a")
+## Aggregation<br>"has-a" or "has many"
 * restricted form of **association relations**.
 * denotes that an object has ownership of another object
 	* Each object referenced is said to be a child of the referencer (parent).
 * Is a one-way (unidirectional) relationship
-* Typically implemented in java through the use of an _instance field_.
+* In Java, can be implemented through the use of an _instance field_.
 
 
 
 -
-## Aggregation ("has-a")<br>Example
-* Express that a `Person` **has a** `name` using **aggregation**.
+## Aggregation<br>"has-a" Example
+* Express that a `Person` **has a** `pet` using **aggregation**.
 
 ```java
 public class Person {
-	private String name;
+	private Animal pet;
 }
 ```
+
+
+-
+## Aggregation<br>"has-many" Example
+* Express that a `Person` **has many** `pets` using **aggregation**.
+
+```java
+public class Person {
+	private Animal[] pets;
+}
+```
+
+
+
+
+
+
+
 
 
 
@@ -89,6 +107,11 @@ public class Person {
 	}
 }
 ```
+
+
+
+
+
 
 
 
@@ -156,9 +179,14 @@ public class Person {
 ```java
 public class Student {
 	private Character currentGrade;
-	public Student(String name, Date birthDate) {
+
+	public Student(String name, Date birthDate, Character initialGrade) {
 		super(name, birthDate);
-		this.currentGrade = 'F';
+		this.currentGrade = initialGrade;
+	}
+
+	public Student(String name, Date birthDate) {
+		this(name, birthDate, 'F');
 	} // getters and setter ommitted for brevity
 }
 ```
