@@ -41,14 +41,29 @@
 
 
 -
+## The 3 aspects of an object
+* **Identity** - **What is its location?**
+	* How is that object distinguished from other objects of the same type?
+* **State** - **What does it store?**
+	* What is the value of the internal objects this object contains?
+* **Behavior** - **How does it act?**
+	* What services or actions this object can perform?
+-
 -
 # Classes
 * A **class** is a template, or blueprint from which objects are made
 	* it is the cookie-cutter to a cookie
+
+-
+## Class naming conventions
 * Class names must begin with a letter followed by any combination of letters, digits, and underscores.
   * By convention, class names start with a capital letter.
 	* You cannot use a Java _reserved word_ to name a variable or class.
 * Whitespace is irrelevant to the Java compiler
+
+
+-
+# Encapulsation
 * Classes *encapsulate* several **data-fields** and behaviors into a single entity.
 * **Encapsulation** is combining class-members (methods and variables) in a single scope.
 

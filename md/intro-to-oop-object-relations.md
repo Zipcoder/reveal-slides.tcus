@@ -25,7 +25,7 @@
 -
 ## Association<br>("has-reference-to-a")
 * Indicates that a class holds a reference to another instance of a class.
-* In Java, it can be implemented through the use of an _instance field_ or _parameter list_.
+* In Java, it can be implemented through the use of an _instance field_.
 * Can be bi-directional with each class holding a reference to the other.
 * Is achieved through the more specific associative relations:
 	* Aggregation
@@ -47,13 +47,16 @@
 * restricted form of **association relations**.
 * denotes that an object has ownership of another object
 	* Each object referenced is said to be a child of the referencer (parent).
-* Is a one-way (unidirectional) relationship
 * In Java, can be implemented through the use of an _instance field_.
+* Is a one-way (unidirectional) relationship
+* The _degree of cardinality_ can be
+	* **one to one** (`1-1`)
+	* **one to many** (`1-M`)
 
 
 
 -
-## Aggregation<br>"has-a" Example
+## Aggregation ("has-a")<br>Example
 * Express that a `Person` **has a** `pet` using **aggregation**.
 
 ```java
@@ -64,12 +67,24 @@ public class Person {
 
 
 -
-## Aggregation<br>"has-many" Example
+## Aggregation ("has-many")<br>Example 1
 * Express that a `Person` **has many** `pets` using **aggregation**.
 
 ```java
 public class Person {
 	private Animal[] pets;
+}
+```
+
+
+
+-
+## Aggregation ("has-many")<br>Example 2
+* Express that a `Person` **has many** `pets` using **aggregation**.
+
+```java
+public class Person {
+	private List<Animal> pets;
 }
 ```
 
@@ -92,11 +107,15 @@ public class Person {
 -
 ## Composition ("has-a")
 * restricted form of **aggregation relations**.
-* denotes that an object is responsible for the creation and destruction of another object.
+* denotes that an object is responsible for the creation AND destruction of another object.
+	* when `this` object is garbage collected, its _composite children_ are also garbage collected
+* The _degree of cardinality_ can be
+	* **one to one** (`1-1`)
+	* **one to many** (`1-M`)
 
 
 -
-## Composition ("has-a")
+## Composition ("has-a")<br>Example
 * Express that a `Person` **has a** `birthDate` using **composition**.
 
 ```java
@@ -130,7 +149,7 @@ public class Person {
 
 -
 ## Dependence<br>("uses-a")<br>Example
-* Express that a `Grader` **uses a** `Student` to identify the respective `Student` grade as a `Character`.
+* Express that a `Grader` **uses a** `Student` to obtain a `Character` representative of a grade.
 
 ```java
 public class Grader {
