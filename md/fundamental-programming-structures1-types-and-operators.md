@@ -116,7 +116,7 @@ There are eight primitive types in Java:
 
 The integer types are for numbers without fractional parts.
 
-| Type  | Storage requirments | Range (Inclusive)                                       |
+| Type  | Storage requirements | Range (Inclusive)                                       |
 | ----- |:------------------- | :------------------------------------------------------ |
 | int   | 4 bytes             | -2,147,483,648 to 2,147,483, 647 (just over 2 billion)  |
 | short | 2 bytes             | -32,768 to 32,767                                       |
@@ -129,7 +129,7 @@ The integer types are for numbers without fractional parts.
 
 The floating-point types denote numbers with fractional parts
 
-| Type   | Storage requirments | Range (Inclusive)                                              |
+| Type   | Storage requirements | Range (Inclusive)                                              |
 | ------ |:------------------- | :------------------------------------------------------------- |
 | float  | 4 bytes             | Approximately +/-3.40282347E+38F (6–7 significant decimal digits) |
 | double | 8 bytes             | Approximately +/-1.79769313486231570E+308 (15 significant decimal digits)|
