@@ -1,29 +1,47 @@
-# Object Design and Composition
 
--
--
 # Object Design and Composition
-* Consider object ecosystem FIRST
-	* What are my objects?
-	* Where does `the object` come from?
-	* Where does `the object` live?
-	* How does `the object` interact with `other object`?
 
 -
 -
 # Object Ecosystems
-* The design process of a new object oriented program begins by answering the following:
+* Our design process begins by answering the following:
 	* What are my objects?
-		* What are the properties (fields) of each object?
-		* What are the behaviors (methods) of each object?
-		* How many of each object do I need / expect?
-			* Relational cardinality: 1-1, 1-M
 	* Where does `the object` come from?
-		* Who / What entity creates `the object`?
 	* Where does `the object` live?
-		* What is the scope of `the object`?
 	* How does `the object` interact with `other object`?
-		* object mediation
+
+-
+## Classes
+### What are my objects?
+* What are the properties (fields) of each object?
+* What are the behaviors (methods) of each object?
+* How many of each object do I need / expect?
+	* Relational cardinality: 1-1, 1-M, M-1, M-M
+
+
+-
+## Object Scope
+### Where does `the object` _come from_?
+* Who / What entity creates `the object`?
+* What class is responsible for `the object`'s construction?
+
+
+-
+## Object Accessibility
+### Where does `the object` _go to_ (live)?
+* How do I allow `the object` to _refer_ to `other object`?
+* How do I allow `other object` to _refer_ to `the object`?
+* What is the _accessibility_ of `the object`?
+
+
+-
+## Object Mediation
+### How does `the object`<br>interact with `other object`?
+* What is the combined responsibility of this interaction?
+* What is the _scope_ of `the object`?
+* What class is responsible for causing this interaction?
+	* The mediator
+
 
 -
 -
@@ -33,7 +51,7 @@
 * Creation
 * Storing
 * Managing / Handling / Decorating
-* Mediation (scoping)
+* Contextualizing / Mediating / Scoping
 
 
 -
@@ -58,151 +76,6 @@ public class Person {
 }
 ```
 
--
-# Class Signature
-```java
-public class Person { // class signature
-}
-```
-
--
-# Instance Variables<br>(Fields)
-```java
-public class Person { // class signature
-	private String name; // instance variable
-}
-```
-
--
-# Constructor<br>(Default)
-```java
-public class Person { // class signature
-	private String name; // instance variable
-
-	public Person() { // constructor signature
-	}
-}
-```
-
--
-# Constructor<br>(Non-Default)
-```java
-public class Person { // class signature
-	private String myName; // instance variable
-
-	public Person(String name) { // constructor signature
-		this.myName = name; // setting instance variable
-	}
-}
-```
-
--
-# Multiple Constructors
-```java
-public class Person { // class signature
-	private String myName; // instance variable
-
-	// no-arg (default) constructor
-	public Person() { // constructor signature
-		this.myName = "Leon"; // setting instance variable
-	}
-
-	public Person(String name) { // constructor signature
-		this.myName = name; // setting instance variable
-	}
-}
-```
-
--
-## Calling Constructors<br>From Constructors
-```java
-public class Person { // class signature
-	private String myName; // instance variable
-	private Character gender; // instance variable
-
-	// no-arg constructor
-	public Person() { // constructor signature
-		this.myName = "Leon"; // setting instance variable
-		this.myGender = 'M'; // setting instance variable
-	}
-
-	public Person(String name, Character gender) { // constructor signature
-		this.myName = name; // setting instance variable
-		this.myGender = gender; // setting instance variable
-	}
-}
-```
-
--
-## Calling Constructors<br>From Constructors
-```java
-public class Person { // class signature
-	private String myName; // instance variable
-	private Character myGender; // instance variable
-
-	// no-arg constructor
-	public Person() { // constructor signature
-		this("Leon", 'M'); // nested constructor call
-	}
-
-	public Person(String name, Character gender) { // constructor signature
-		this.myName = name; // setting instance variable
-		this.myGender = gender; // setting instance variable
-	}
-}
-```
-
--
-# Setters<br>(Mutators)
-```java
-public class Person { // class signature
-	private String myName; // instance variable
-
-	public Person(String name) { // constructor signature
-		this.myName = name; // setting instance variable
-	}
-
-	public void setName(String differentName) { // method signature
-		this.myName = differentName; // setting instance variable
-	}
-}
-```
-
--
-# Setters<br>(Mutators)
-```java
-public class Person { // class signature
-	private String myName; // instance variable
-
-	public Person(String name) { // constructor signature
-		setName(name); // method can be overriden; bad design
-	}
-
-	public void setName(String differentName) { // method signature
-		this.myname = differentName; // setting instance variable
-	}
-}
-```
-
--
-# Getters<br>(Accessors)
-```java
-public class Person { // class signature
-	private String myName; // instance variable
-
-	public Person(String name) { // constructor signature
-		this.myName = name; // setting instance variable
-	}
-
-	public void setName(String differentName) { // method signature
-		this.myname = differentName; // setting instance variable
-	}
-
-	public String getName() {
-		return this.myName;
-	}
-}
-```
 
 -
 -
@@ -214,24 +87,16 @@ public class Person { // class signature
 public class RandomUtils {
     private static final Random random = new Random();
 
-    public static Float createFloat(float min, float max) {
-        return random.nextFloat() * (max - min) + min;
+    public static Double createDouble(Double min, Double max) {
+        return random.nextDouble() * (max - min) + min;
     }
 
     public static Integer createInteger(Integer min, Integer max) {
-        return createFloat(min, max).intValue();
+        return createDouble(min, max).intValue();
     }
 
     public static Character createCharacter(char min, char max) {
         return (char) createInteger((int) min, (int) max).intValue();
-    }
-
-    public static String createString(char min, char max, int stringLength) {
-        StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < stringLength; i++) {
-            sb.append(createCharacter(min, max));
-        }
-        return sb.toString();
     }
 }
 ```
@@ -279,7 +144,8 @@ public class PersonWarehouse {
 ```
 
 -
-## Managers / Handlers / Decorators
+#### Managers / Handlers / Decorators
+* A class _wrapper_ which limits or extends how a client can interact with an object.
 ```java
 public class PersonHandler {
 	private Person person;
@@ -311,20 +177,13 @@ public class Main {
 	public static void main(String[] args) {
 		Person person1 = PersonFactory.createRandomPerson();
 		Person person2 = PersonFactory.createRandomPerson();
-		Person person3 = PersonFactory.createRandomPerson();
 		PersonWarehouse personWarehouse = new PersonWarehouse();
 		personWarehouse.addPerson(person1);
 		personWarehouse.addPerson(person2);
-		personWarehouse.addPerson(person3);
 
 		Person[] people = personWarehouse.getPeople();
-
-		int currentIndex = 0;
-		while(currentIndex < people.length) {
-			Person currentPerson = people[currentIndex];
-			PersonHandler personHandler = new PersonHandler(currentPerson);
-			personHandler.sayAge();
-			currentIndex++;
+		for(Person person : people) {
+			person.sayAge();
 		}
 	}
 }

@@ -53,6 +53,7 @@
 # Classes
 * A **class** is a template, or blueprint from which objects are made
 	* it is the cookie-cutter to a cookie
+	* it is the _classification_ of an object.
 
 -
 ## Class naming conventions
