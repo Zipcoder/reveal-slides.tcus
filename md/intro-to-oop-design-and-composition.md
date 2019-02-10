@@ -20,24 +20,24 @@
 
 
 -
-## Object Scope
+## Object Creation
 ### Where does `the object` _come from_?
 * Who / What entity creates `the object`?
 * What class is responsible for `the object`'s construction?
 
 
 -
-## Object Accessibility
+## Object Scope
 ### Where does `the object` _go to_ (live)?
-* How do I allow `the object` to _refer_ to `other object`?
-* How do I allow `other object` to _refer_ to `the object`?
-* What is the _accessibility_ of `the object`?
+* What class _uses_ `the object`?
+* What class is _dependent on_ `the object`?
 
 
 -
 ## Object Mediation
 ### How does `the object`<br>interact with `other object`?
 * What is the combined responsibility of this interaction?
+* What is the _accessibility_ of `the object`?
 * What is the _scope_ of `the object`?
 * What class is responsible for causing this interaction?
 	* The mediator
@@ -45,7 +45,7 @@
 
 -
 -
-# Different Object Intentions
+# Object Intentions
 * Encapsulation
 * Utility
 * Creation

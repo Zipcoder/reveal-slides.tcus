@@ -196,16 +196,11 @@ public class Person {
 ```
 
 ```java
-public class Student {
+public class Student extends Person {
 	private Character currentGrade;
-
 	public Student(String name, Date birthDate, Character initialGrade) {
 		super(name, birthDate);
 		this.currentGrade = initialGrade;
-	}
-
-	public Student(String name, Date birthDate) {
-		this(name, birthDate, 'F');
 	} // getters and setter ommitted for brevity
 }
 ```
