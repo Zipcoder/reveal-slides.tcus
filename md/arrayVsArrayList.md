@@ -114,9 +114,9 @@ addarrayobject[0][0]= new Integer(8)
 
 -
 
-1. add and get method : Performance of Array and ArrayList are similar for the add and get operations .Both operations runs in constant time.
+1. add and get method : Performance of Array and ArrayList are similar for the add and get operations.
 
-2. Duplicate elements : Both array and arraylist can contain duplicate elements.
+2. Duplicate elements : Both array and arraylist can contain duplicate elements. Unlike Sets and Map(no duplicate keys)
 
 3. Null Values : Both can store null values and uses index to refer to their elements.
 
