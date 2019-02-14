@@ -48,7 +48,7 @@ One misconception that we can store primitives(int,float,double) in ArrayList , 
 Suppose we have ArrayList object,
 
 ```
-ArrayList  arraylistobject = new ArrayList();
+ArrayList<Integer>  arraylistobject = new ArrayList();
 arraylistobject.add(23);  // try to add 23 (primitive)
 ```
 
@@ -58,7 +58,7 @@ JVM through Autoboxing(converting primitives to equivalent objects internally) e
 thus , above step internally works like this :
 
 ```
-arraylistobject.add( new Integer(23));      
+arraylistobject.add(new Integer(23));      
 // Converted int primitive to Integer object and added to arraylistobject  
 ```
 
@@ -75,7 +75,7 @@ arraylength= arrayobject.length   ;  //uses arrayobject length variable
 ```
 
 ```
-ArrayList  arraylistobject = new ArrayList();
+ArrayList<Integer>  arraylistobject = new ArrayList();
 arraylistobject.add(12);
 arraylistobject.size();   //uses arraylistobject size method
 ```
@@ -91,7 +91,7 @@ addarrayobject[0]= new Integer(8)   ;  //new object is added to the array object
 ```
 
 ```
-ArrayList  arraylistobject = new ArrayList();
+ArrayList<Integer>  arraylistobject = new ArrayList();
 arraylistobject.add(12);
 ```
 
@@ -125,6 +125,8 @@ addarrayobject[0][0]= new Integer(8)
 -
 -
 
+
+
 # Difference between Array and ArrayList in Java
 
 -
@@ -133,8 +135,111 @@ addarrayobject[0][0]= new Integer(8)
 | ---------------- |:-------------------:| -------------------:|
 | Resizable        | No                  | Yes                 |
 | Primitives       | Yes                 | No                  |
-| Iterating values | for, for each       | Iterator , for each |
+| Iterating values | for, for each       | Iterator,for each   |
 | Length           | length variable     | size method         |
 | Performance      | Fast                | Slow in comparision |
 | Multidimensional | Yes                 | No                  |
 | Add Elements     | Assignment operator | add method          |
+
+-
+-
+
+# Common Array and Arraylist Tasks
+
+-
+## Declaration and Instantiation
+
+Array:
+```
+String[] villans = new String[5];
+```
+
+ArrayList:
+```
+ArrayList<String> heros = new ArrayList<String>();
+```
+
+-
+## Add Items
+
+Array:
+```
+villians[0] = "Dark Pheonix";
+villians[1] = "Deadshod";
+villians[2] = "CatWoman";
+villians[3] = "Green Goblin";
+villians[4] = "Poison Ivy";
+```
+
+ArrayList:
+```
+heros.add("Hellboy");
+heros.add("Storm");
+heros.add("Spawn");
+heros.add("Silver Surfer");
+heros.add("Mr. Fantastic");
+```
+
+-
+## Access an Item
+
+Array:
+```
+villians[3];
+```
+
+ArrayList:
+```
+heroes.get(3);
+```
+
+-
+## Change an Item
+
+Array:
+```
+vilians[4] = "Apocalypse";
+```
+
+ArrayList:
+```
+heroes.set(4, "The Tick");
+```
+
+-
+## Remove an Item
+
+Array:
+There is no way to remove and item from an array. You will need to duplicate
+values into a new array sans the value to remove.
+
+ArrayList:
+```
+heroes.remove(0);
+```
+
+-
+## Clear an Item
+
+Array:
+There is no way to remove and item from an array. You will need to create a new
+array
+
+ArrayList:
+```
+heroes.clear();
+```
+
+
+-
+## Length of Items
+
+Array:
+```
+villians.Length
+```
+
+ArrayList:
+```
+heroes.size();
+```
