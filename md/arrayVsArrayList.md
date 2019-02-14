@@ -9,7 +9,7 @@
 -
 ##  Resizable
 
-* Array is static in size that is fixed length data structure, One can not change the length after creating the Array object.
+* Array is static in size. Also known as a fixed length data structure. One can not change the length after creating the Array object.
 
 * ArrayList is dynamic in size. Each ArrayList object  has instance variable capacity which indicates the size of the ArrayList. As elements are added to an ArrayList its capacity grows automatically.
 
@@ -18,21 +18,29 @@
 
 Performance of Array and ArrayList depends on the operation you are performing
 
+
+-
+## Performance
+
 Resize() opertation : Automatic resize of ArrayList will slow down the performance as it will use temporary array to copy elements from the old array to new array.
+
+
+-
+## Performance
 
 add() or get() operation : adding an element or retrieving an element from the array or arraylist object has almost same  performance
 
 -
 ## Primitives
 
-ArrayList can not contains primitive data types (like int , float , double) it can only contains Object
+ArrayList can not contain primitive data types (like int , float , double) it can only contain Objects
 
 Array can contain both primitive data types as well as objects.
 
 -
 ## Primitives
 
-One get a misconception that we can store primitives(int,float,double) in ArrayList , but it is not true  
+One misconception that we can store primitives(int,float,double) in ArrayList , but it is not true  
 
 -
 ## Primitives
@@ -55,13 +63,9 @@ arraylistobject.add( new Integer(23));
 ```
 
 -
-## Type-Safety
-
-
--
 ## Length
 
-Length of the ArrayList is provided by the size() method while Each array object has the length variable which returns the length of the array.
+Length of the ArrayList is provided by the size() method while each array object has the length variable which returns the length of the array.
 
 for example :
 
@@ -85,6 +89,12 @@ arraylistobject.size();   //uses arraylistobject size method
 Integer addarrayobject[] = new Integer[3];
 addarrayobject[0]= new Integer(8)   ;  //new object is added to the array object
 ```
+
+```
+ArrayList  arraylistobject = new ArrayList();
+arraylistobject.add(12);
+```
+
 -
 ## Multi-dimensional
 
@@ -110,10 +120,11 @@ _
 
 3. Null Values : Both can store null values and uses index to refer to their elements.
 
-4. Unordered :  Both does not guarantee ordered  elements.
+4. Ordered :  Both guarantee ordered  elements. Unlike HashMap and HashSet
 
 -
 _
+
 # Difference between Array and ArrayList in Java
 
 |                  | Array               | ArrayList           |
