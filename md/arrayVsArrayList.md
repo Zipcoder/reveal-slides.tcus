@@ -222,7 +222,7 @@ heroes.remove(0);
 ## Clear an Item
 
 Array:
-There is no way to remove and item from an array. You will need to create a new
+There is no way to clear an array. You will need to create a new
 array
 
 ArrayList:
@@ -236,7 +236,7 @@ heroes.clear();
 
 Array:
 ```
-villians.Length
+villians.length;
 ```
 
 ArrayList:
