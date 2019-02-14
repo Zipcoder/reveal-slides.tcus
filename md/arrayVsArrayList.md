@@ -107,8 +107,8 @@ Integer addarrayobject[][] = new Integer[3][2];
 addarrayobject[0][0]= new Integer(8)  
 ```
 
-_
-_
+-
+-
 
 # Similarities Between Array and ArrayList
 
