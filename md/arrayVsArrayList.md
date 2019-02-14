@@ -127,6 +127,8 @@ addarrayobject[0][0]= new Integer(8)
 
 # Difference between Array and ArrayList in Java
 
+-
+
 |                  | Array               | ArrayList           |
 | ---------------- |:-------------------:| -------------------:|
 | Resizable        | No                  | Yes                 |
