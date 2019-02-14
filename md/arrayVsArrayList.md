@@ -123,7 +123,7 @@ addarrayobject[0][0]= new Integer(8)
 4. Ordered :  Both guarantee ordered  elements. Unlike HashMap and HashSet
 
 -
-_
+-
 
 # Difference between Array and ArrayList in Java
 
