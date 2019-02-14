@@ -18,7 +18,7 @@
 * As the program grows in size, its complexity increases.
 	* behaviors become tightly-coupled
 	* debugging becomes more difficult
-	* code-changes and maintainence becomes more difficult
+	* code-changes and maintenance becomes more difficult
 	* testing a single aspect becomes nearly impossible
 
 -

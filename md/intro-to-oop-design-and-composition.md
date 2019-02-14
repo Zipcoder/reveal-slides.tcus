@@ -58,6 +58,7 @@
 -
 # Encapsulation
 * Wraps several data fields into a single entity
+* In conversation, these _encapsulators_ are known as the "model".
 
 ```java
 // class signature
@@ -144,8 +145,8 @@ public class PersonWarehouse {
 ```
 
 -
-#### Managers / Handlers / Decorators
-* A class _wrapper_ which limits or extends how a client can interact with an object.
+### Managers / Handlers / Decorators
+* A class _wrapper_ which limits (facade) or extends (decorates) how a client can interact with an object.
 ```java
 public class PersonHandler {
 	private Person person;
@@ -155,8 +156,7 @@ public class PersonHandler {
 
 	public void speak(String message) {
 		String personName = this.person.getName();
-		String outputMessage = personName + " says, '" + message + "'";
-		System.out.println(outputMessage);
+		System.out.println(personName + " says, '" + message + "'");
 	}
 
 	public void sayAge() {
@@ -182,8 +182,9 @@ public class Main {
 		personWarehouse.addPerson(person2);
 
 		Person[] people = personWarehouse.getPeople();
-		for(Person person : people) {
-			person.sayAge();
+		for(Person currentPerson : people) {
+			PersonHandler handler = new PersonHandler(currentPerson);
+			handler.sayAge();
 		}
 	}
 }

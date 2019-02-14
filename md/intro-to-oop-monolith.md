@@ -581,9 +581,9 @@ public String canIBorrowMoney(Person person, Double amount ){
 ```
 private final Float pi = 3.14159;
 ```
--
--
 
+-
+-
 ##Static Fields and Methods
 
 **static** - lacking in movement, action, or change.

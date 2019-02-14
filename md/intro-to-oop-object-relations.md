@@ -176,7 +176,7 @@ public class Grader {
 * This relationship denotes dynamic-polymorphism.
 * denotes that a class is a specific type of a more general super class.
 	* denotes a class has **inherent**-members (methods / variables) from super class
-	* inherent-members are not explicitly declared in the inheriting class (super class)
+	* inherent-members are not explicitly declared in the inheriting class (sub class)
 * All classes are implicitly sub-classes of the `Object` class.
 
 

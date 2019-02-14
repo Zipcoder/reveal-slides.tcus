@@ -83,7 +83,7 @@ Note: `Dequeue` is often used for stacks as well
 
 - Elements are pairs of objects, called keys and values
 - keys are used to lookup values
-- Check for a specific key with `conainsKey(key)`
+- Check for a specific key with `containsKey(key)`
 - Add key-value pairs with `put(key, value)`
 - Get values with `get(key)`
 - Keys are stored in a Set, retrievable with `keySet()`

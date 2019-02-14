@@ -5,7 +5,6 @@
 -
 # Collection Interface
 * Fundamental interface for collection classes in java
-* Below is a simplified version for the sake of brevity
 
 ```java
 public interface Collection<E> implements Iterable<E> {	boolean add(E element);
@@ -49,21 +48,6 @@ System.out.println(new ArrayList<>().remove(new Object()));
 -
 ## Collection Interface<br>`Iterator<E> iterator()`
 * Returns an object that implements the `Iterator` interface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -167,55 +151,6 @@ public void deleteFirstElement(Iterator<String> iterator) {
 
 
 -
-## `Set` Interface
-* Identical to `Collection` interface, except
-	* the `add` method should reject duplicates.
-	* the `equals` method should be defined so that two sets are identical if they have the same elements, but not necessarily in the same order.
-	* the `hashCode` method should be defined so that two sets with the same elements yield the same hash code.
-
-
-
-
-
--
--
-## `HashSet`
-* Does not maintain order of elements
-* Positions elements by their _hash_ value.
-* Can retrieve elements quickly due to efficient hash-sorting
-* If you implement your own `HashSet` you are responsible for overriding the `hashCode` method to behave as you expect
-
-
-
-
-
--
--
-## `TreeSet`
-* Similar to `HashSet`
-* Maintains order of elements.
-* Can only handle objects which implement `Comparable`
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--
 ## `AbstractCollection` Class
 * The `Collection` interface declares 18 methods.
 * To avoid implementing a lot of the fundamental methods, the `Collection` library developers created an `AbstractCollection` class.
@@ -234,10 +169,10 @@ public class MyCollection<E> extends AbstractCollection<E>  {
     public MyCollection(Iterable<E> iterable) {
     	this.iterable = iterable;
     }
-    
+
     @Override
     public Iterator<E> iterator() {  return iterable.iterator(); }
-    
+
     @Override
     public int size() {
         List<E> list = new ArrayList<>();
@@ -245,184 +180,11 @@ public class MyCollection<E> extends AbstractCollection<E>  {
         return list.size();
     }
 }
-``` 
-
-
-
-
-
-
-
-
-
-
-
-
-
--
-# Queue Interface
-* Specifies that you can
-	* add elements at the tail end of the queue,
-	* remove elements at the head,
-	* find out how many elements are in the queue. 
-
-	
--
--
-### Minimal Form of a Queue Interface
-* The interface describes the intent without detailing the implementation
-
-```java
-// a simplified form of the interface in the standard library
-public interface Queue<E> {	void add(E element);
-	E remove();
-	E peek();	int size();}
 ```
 
 
 
--
--
-### Queue API Structure
-* There are 3 primary types of Queue-Operations
-	* Adding: `add(e)` /  `offer(e)`
-	* Removing: `remove()` / `poll()`
-	* Viewing: `element()` / `peek()`
 
-
-
-
--
-## Queue API Stucture: Adding
-
-
--
--
-### Queue API Stucture<br>`add(e)`
-* Adds an element to the tail of the Queue.
-* Has potential to throw `IllegalStateException`
-	* `IllegalStateException` if the element cannot be added at this time due to capacity restrictions
-	* `ClassCastException` if the class of the specified element prevents it from being added to this queue
-	* `NullPointerException` if the specified element is null and this queue does not permit null elements
-	* `IllegalArgumentException` if some property of this element prevents it from being added to this queue
-
-
--
--
-### Queue API Structure<br>`offer(e)`
-* Adds an element to the tail of the Queue.
-* Does not have potential to throw `IllegalStateException`
-	* `ClassCastException` if the class of the specified element prevents it from being added to this queue
-	* `NullPointerException` if the specified element is null and this queue does not permit null elements
-	* `IllegalArgumentException` if some property of this element prevents it from being added to this queue
-
-
-
-
-
-
--
-## Queue API Stucture: Removing
-
--
--
-### Queue API Strucutre<br>`remove()`
-* Removes element at the head of the Queue.
-* Has potential to throw an exception.
-	* `NoSuchElementException` if this queue is empty
-
--
--
-### Queue API Structure<br>`poll()`
-* Removes element at the head of the Queue.
-* Throws no exceptions
-
-
-
-
--
-## Queue API Stucture: Viewing
-
-
-
--
--
-### Queue API Structure<br>`element()`
-* Retrieves, but does not remove, the head of the queue.
-* Has the potential to throw an exception
-	* `NoSuchElementException` if this queue is empty
-
-
-
--
--
-### Queue API Structure<br>`peek()`
-* Retrieves, but does not remove, the head of the queue.
-* Throws no exceptions
-
-
-
-
--
--
-### All About Queues
-* Read more [here](http://www.codejava.net/java-core/collections/java-queue-collection-tutorial-and-examples)
-
-
-
-
-
-
--
-## Collection Views & Wrappers
-
-### Views
-* lightweight object which implements `Collection` or `Map` interface.
-* is not a _real_ collection in a traditional sense.
-* stores only references another collection, array or a single object and uses it to provide the data to a user.
-
-
--
--
-### Views with exceptional mutators
-
-* Each of the following views throws an `UnsupportedOperationException` upon attempting to mutate the data
-<font size = 6>
-* `Collection unmodifiableCollection(Collection)`* `List unmodifiableList(List)`* `Set unmodifiableSet(Set)`* `SortedSet unmodifiableSortedSet(SortedSet)`* `NavigableSet unmodifiableNavigableSet(NavigableSet)`* `Map unmodifiableMap(Map)`* `SortedMap unmodifiableSortedMap(SortedMap)`* `SortedMap unmodifiableNavigableMap(NavigableMap)`
-</font>
-
-
--
--
-### Views with synchronized methods
-* Each of the following views locks shared resources across threads.
-<font size = 6>
-* `Collection synchronizedCollection(Collection)`* `List synchronizedList(List)`* `Set synchronizedSet(Set)`* `SortedSet synchronizedSortedSet(SortedSet)`* `NavigableSet synchronizedNavigableSet(NavigableSet)`* `Map synchronizedMap(Map)`* `SortedMap synchronizedSortedMap(SortedMap)`* `NavigableMap synchronizedNavigableMap(NavigableMap)`
-</font>	
-
-
--
--
-### Views which validate elements for type before insertion
-* Each of the following views' methods throw a `ClassCastException` if an element of the wrong type is inserted.
-<font size = 6>
-* `Collection checkedCollection(Collection, Class elementType)`* `List checkedList(List, Class elementType)`
-* `Set checkedSet(Set, Class elementType)`
-* `SortedSet checkedSortedSet(SortedSet, Class elementType)`
-* `NavigableSet checkedNavigableSet(NavigableSet, Class elementType)`* `Map checkedMap(Map, Class keyType, Class valueType)`
-* `SortedMap checkedSortedMap(SortedMap, Class keyType, Class valueType)`* `NavigableMap checkedNavigableMap(NavigableMap, Class keyType, ClassvalueType)`* `Queue checkedQueue(Queue, elementType)`
-</font>
-
-
-
-
-
--
--
-### List Wrapper
-* `Array.asList` returns a `List` wrapper around a plain Java array.
-* This allows the user to pass the array as a `List`.
-* Any operation that would change the `size` of the `List` will throw an `UnsupportOperationException`.
 
 
 
