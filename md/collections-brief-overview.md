@@ -44,33 +44,6 @@ Both resize automatically (unlike Arrays).
 
 
 -
-### List types
-
-- ArrayList - Quicker with random access to elements
-- LinkedList - Quicker with removal/insertion of elements in the middle of the list
-
--
-### Set types
-
-- HashSet - keeps elements in hash order (fast, not predictable)
-- TreeSet - keeps elements in ascending sorted order
-- LinkedHashSet - provides insertion-order access to elements
-- BitSet - Optimized for storing sequences of bits
-- EnumSet - Optimized set for holding `enum` instances
-
-Sets are often used to test for membership using the `contains()` method
-
--
-### Queues, Dequeues, and Stacks
-
-- Queue -- Adds elements to one end and removes from the other (FIFO)
-- Stack -- Adds elements to one end and removes them from the same (LIFO)
-- Dequeue -- "double-ended queue" adds and removes elements at both ends
-
-Note: `Dequeue` is often used for stacks as well
-
-
--
 ## Map types
 
 - TreeMap - Keeps keys in insertion order
@@ -87,30 +60,6 @@ Note: `Dequeue` is often used for stacks as well
 - Add key-value pairs with `put(key, value)`
 - Get values with `get(key)`
 - Keys are stored in a Set, retrievable with `keySet()`
-
--
--
-## Collections Framework Part 2
-
--
--
-## Iterators
-
-Provides a way to iterate through a Collection.  
-Implicitly used in foreach loops.  
-Methods:
-
-- `hasNext()` - returns true if there are more elements available
-- `next()` - return the next element
-- `remove()` - remove the last element returned from the underlying Collection
-
--
-## ListIterators
-
-Slightly more features than Iterators:
-
-- Can iterate backward
-- Provides index for previous and next elements
 
 
 -

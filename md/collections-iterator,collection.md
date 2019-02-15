@@ -47,46 +47,173 @@ public interface Collection<E> extends Iterable<E> {
 
 -
 -
-## Collection Interface<br>`boolean add(E element)`
+## Collection Interface
+### `boolean add(E element)`
 * Attempts to add an element to the `Collection`
 * returns `true` if adding the element changes the `Collection`, else `false`.
 * Adding an already-present-object to a `Set` collection will return `false`
 
 ```java
-public void printFalse() {
-	Set<String> set = new HashSet<>();
-	String valueToBeAdded = "Hedjet"
+public void demo() {
+	Collection<String> set = new HashSet<>();
+	String valueToBeAdded = "Hedjet";
 	set.add(valueToBeAdded);
-	System.out.println(set.add(valueToBeAdded));
+	System.out.println(set.add(valueToBeAdded)); // prints false
 }
 ```
 
 
 
+
 -
 -
-## Collection Interface<br>`boolean remove(Object e)`
-* Attemps to remove an element from the collection
-* returns `true` if removing the element changes the collection
-* returns `false` if the collection is unchanged after removal
+## Collection Interface
+### `boolean addAll(Collection)`
+* Attempts to add a collection of elements to the `Collection`
+* returns `true` if adding the elements changes the `Collection`, else `false`.
+
+```java
+public void demo() {
+  Collection<String> set = new HashSet<>();
+  String[] valuesToBeAdded = {"Froilan", "Wilhem", "Leon", "Nhu", "Kris"};
+  List<String> valuesAsList = Arrays.asList(valueToBeAdded);
+  System.out.println(set.addAll(list)); // prints true
+}
+```
+
+
+
+
+
+-
+-
+## Collection Interface
+### `boolean remove(Object)`
+* Attempts to remove an object from the `Collection`
+* returns `true` if removing the element changes the `Collection`
+* returns `false` if the `Collection` is unchanged after removal
 * Removing an element that is not present in an `ArrayList` will return `false`.
 
 ```java
-public void printFalse() {
-	System.out.println(new ArrayList<>().remove(new Object()));
+public void demo() {
+  // prints false
+  System.out.println(new ArrayList<>().remove(new Object()));
 }
 ```
+
+
+
+
+-
+-
+## Collection Interface
+### `boolean removeAll(Collection)`
+* Attempts to remove a collection of elements from the `Collection`
+* returns `true` if removing the elements changes the `Collection`
+* returns `false` if the `Collection` is unchanged after removal
+
+```java
+public void demo() {
+  String[] elementsAsArray = {"The", "Quick", "Brown"};
+  List<String> elementsAsList = Arrays.asList(arrayOfStrings);
+  List<String> collectionToBeAddedTo = new ArrayList<>();
+	System.out.println(collectionToBeAddedTo.removeAll(elementsAsList)); // prints false
+}
+```
+
+
+
+
+
+
+
+-
+-
+## Collection Interface
+### `boolean retainAll(Collection)`
+* Retains only the elements in this collection that are contained in the specified collection.
+* returns `true` if retaining the elements changes the `Collection`, else returns `false`
+
+```java
+public void demo() {
+  String[] elementsInOriginalList = {"The", "Quick", "Brown"};
+  String[] elementsToBeRetained = {"The", "Quick"};
+  List<String> originalList = Arrays.asList(elementsInOriginalList);
+  List<String> retentionList = Arrays.asList(elementsToBeRetained);
+	System.out.println(elementsInOriginalList.retainAll(retentionList))); // prints true
+}
+```
+
+
+
+
+
+
+
+
+
+
+-
+-
+## Collection Interface
+### `boolean isEmpty()`
+* returns `true` if the size of the `Collection` is `0`, else returns `false`.
+
+```java
+public void demo() {
+  String[] elementsAsArray = {"The", "Quick", "Brown"};
+  List<String> elementsAsList = Arrays.asList(arrayOfStrings);
+	System.out.println(elementsAsList.isEmpty()); // prints false
+}
+```
+
+
+-
+-
+## Collection Interface
+### `int size()`
+* Returns the number of elements in the Collection
+
+```java
+public void demo() {
+  String[] elementsAsArray = {"The", "Quick", "Brown"};
+  List<String> elementsAsList = new ArrayList<>(Arrays.asList(arrayOfStrings));
+	System.out.println(elementsAsList.isEmpty()); // prints true
+}
+```
+
+
+
+
+-
+-
+## Collection Interface
+### `void clear()`
+* Removes all elements from the Collection.
+
+```java
+public void demo() {
+  String[] elementsAsArray = {"The", "Quick", "Brown"};
+  List<String> elementsAsList = new ArrayList<>(Arrays.asList(arrayOfStrings));
+  elementsAsList.clear();
+	System.out.println(elementsAsList.isEmpty()); // prints true
+}
+```
+
+
+
+
+
+
+
+
+
 
 
 -
 -
 ## Collection Interface<br>`Iterator<E> iterator()`
 * Returns an object that implements the `Iterator` interface
-
-
-
-
-
 
 
 
