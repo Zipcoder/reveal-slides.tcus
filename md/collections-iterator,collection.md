@@ -1,46 +1,80 @@
 # Collections Framework
-## Part 2
+## `Iterator` and `Collection` interface
+
+-
+## What is a `Collection`?
+* `Collection` is an interface which ensures a class has the ability to hold a series of objects.
+* `Collection`s hold a series of individual elements.
+* Often, we consider `Map` objects to be a `Collection`, although they do not _implement_ the `Collection` interface.
 
 
 -
-# Collection Interface
-* Fundamental interface for collection classes in java
+-
+### Collections and Maps
+
+| List | Set | Map
+| ---------- | ------------- | --------------- |
+| ArrayList  | EnumSet       | EnumMap         |
+| LinkedList | LinkedHashSet | LinkedHashMap   |
+| ArrayDeque | PriorityQueue | WeakHashMap     |
+| HashSet    | HashMap       | IdentityHashMap |
+| TreeSet    | TreeMap       |                 |
+||||
+
+
+-
+## Collection Interface
+* Fundamental interface for `Collection` classes in java
 
 ```java
-public interface Collection<E> implements Iterable<E> {	boolean add(E element);
-	boolean remove(E element);
-	int size();
-	Iterator<E> iterator();}
+public interface Collection<E> extends Iterable<E> {
+    boolean add(E element);
+    boolean addAll(Collection<? extends E> collection);
+    void clear();
+    boolean contains(Object object);
+    boolean containsAll(Collection<?> collection);
+    boolean isEmpty();
+    Iterator<E> iterator();
+    boolean remove(Object object);
+    boolean removeAll(Collection<?> collection);
+    boolean retainAll(Collection<?> collection);
+    int size();
+    Object[] toArray();
+    <T> T[] toArray(T[] array);
+}
 ```
 
 
 -
 -
 ## Collection Interface<br>`boolean add(E element)`
-* Attempts to add an element to the collection
-* returns `true` if adding the element changes the collection
-* returns `false` if the collection is unchanged after the addition
+* Attempts to add an element to the `Collection`
+* returns `true` if adding the element changes the `Collection`, else `false`.
 * Adding an already-present-object to a `Set` collection will return `false`
 
-```
-// prints `false`
-Set<String> set = new HashSet<String>(stringArrayList);
-System.out.println(set.add("The"));
+```java
+public void printFalse() {
+	Set<String> set = new HashSet<>();
+	String valueToBeAdded = "Hedjet"
+	set.add(valueToBeAdded);
+	System.out.println(set.add(valueToBeAdded));
+}
 ```
 
 
 
 -
 -
-## Collection Interface<br>`boolean remove(E e)`
+## Collection Interface<br>`boolean remove(Object e)`
 * Attemps to remove an element from the collection
 * returns `true` if removing the element changes the collection
 * returns `false` if the collection is unchanged after removal
 * Removing an element that is not present in an `ArrayList` will return `false`.
 
 ```java
-// prints `false`
-System.out.println(new ArrayList<>().remove(new Object()));
+public void printFalse() {
+	System.out.println(new ArrayList<>().remove(new Object()));
+}
 ```
 
 
@@ -67,7 +101,11 @@ System.out.println(new ArrayList<>().remove(new Object()));
 * Is used to visit the elements in the collection one by one.
 
 ```java
-public interface Iterator<E> {	E next();	boolean hasNext();	void remove();	default void forEachRemaining(Consumer<? super E> action);}
+public interface Iterator<E> {
+  	E next();
+    boolean hasNext();
+    void remove();
+    default void forEachRemaining(Consumer<? super E> action);}
 ```
 
 
@@ -181,6 +219,7 @@ public class MyCollection<E> extends AbstractCollection<E>  {
     }
 }
 ```
+
 
 
 

@@ -713,7 +713,23 @@ public Map<String, List<Locale>> groupingByDemo() {
 
 
 -
-#Relevant Functional Interfaces
+# Relevant Functional Interfaces
+| Name       | Returns | Takes Argument 1 | Takes Argument 2 |
+|------------|---------|------------------|------------------|
+| Runnnable  | No      | No       | No      |
+| Supplier   | Yes     | No       | No      |
+| Consumer   | No      | Yes      | No      |
+| BiConsumer | No      | Yes      | Yes     |
+| Function   | Yes     | Yes      | No      |
+| BiFunction | Yes     | Yes      | Yes     |
+
+
+-
+#
+
+
+-
+# Relevant Functional Interfaces
 * A `Function` is a single-argument, non-void-returning operation.
 * A `Predicate` is a single-argument, boolean-returning operation.
 * A `Consumer` is a single-argument, void-returning operation.

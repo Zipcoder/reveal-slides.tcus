@@ -1,37 +1,83 @@
 # Collections Framework
 
 
--
-## `Set` Interface
-* Identical to `Collection` interface, except
-	* the `add` method should reject duplicates.
-	* the `equals` method should be defined so that two sets are identical if they have the same elements, but not necessarily in the same order.
-	* the `hashCode` method should be defined so that two sets with the same elements yield the same hash code.
-
-
-
 
 
 -
 -
-## `HashSet`
-* Does not maintain order of elements
-* Positions elements by their _hash_ value.
-* Can retrieve elements quickly due to efficient hash-sorting
-* If you implement your own `HashSet` you are responsible for overriding the `hashCode` method to behave as you expect
+### Stack Class
+* pop
+* push
+* peek
+* isEmpty
+
+
+-
+### Short comings of Stack class
+* Should have been interface
 
 
 
 -
 -
-## `TreeSet`
-* Similar to `HashSet`
-* Maintains order of elements.
-* Can only handle objects which implement `Comparable`
+### `pop`
+* Blah blah about pop
+
+-
+### `pop` example
 
 
 
 
+-
+-
+### `push`
+* Blah blah about push
+
+
+
+-
+### `push` example
+
+
+
+
+
+-
+-
+### `peek`
+* blah blah about peek
+
+-
+### `peek` example
+
+
+
+-
+-
+### `isEmpty`
+* blah blah about isEmpty
+
+
+-
+### `isEmpty` example
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-
 -
 # Queue Interface
 * Specifies that you can
@@ -40,7 +86,6 @@
 	* find out how many elements are in the queue.
 
 
--
 -
 ### Minimal Form of a Queue Interface
 * The interface describes the intent without detailing the implementation
@@ -134,6 +179,14 @@ public interface Queue<E> {	void add(E element);
 * Throws no exceptions
 
 
+-
+### Queues, Dequeues, and Stacks
+
+- Queue -- Adds elements to one end and removes from the other (FIFO)
+- Stack -- Adds elements to one end and removes them from the same (LIFO)
+- Dequeue -- "double-ended queue" adds and removes elements at both ends
+
+Note: `Dequeue` is often used for stacks as well
 
 
 -
