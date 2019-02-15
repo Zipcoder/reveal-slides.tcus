@@ -37,7 +37,7 @@ public interface List<E> extends Collection<E> {
 
 -
 -
-# `LinkedList`
+# LinkedList
 * Quicker with removal/insertion of elements in the middle of the list
 
 
@@ -46,7 +46,7 @@ public interface List<E> extends Collection<E> {
 -
 -
 ## `Set` Interface
-* Identical to `Collection` interface, except
+* Very similar to `List` interface, except
 	* the `add` method should reject duplicates.
 	* the `equals` method should be defined so that two sets are identical if they have the same elements, but not necessarily in the same order.
 	* the `hashCode` method should be defined so that two sets with the same elements yield the same hash code.
@@ -82,6 +82,7 @@ public void test() {
     System.out.println(Arrays.toString(set.toArray()));
 }
 ```
+
 * Output
 ```
 [Charles, Tuskegee, John, Cutler]

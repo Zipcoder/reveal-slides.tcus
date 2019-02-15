@@ -172,7 +172,7 @@ public void demo() {
 -
 ## Collection Interface
 ### `int size()`
-* Returns the number of elements in the Collection
+* Returns the number of elements in the `Collection`.
 
 ```java
 public void demo() {
@@ -189,7 +189,7 @@ public void demo() {
 -
 ## Collection Interface
 ### `void clear()`
-* Removes all elements from the Collection.
+* Removes all elements from the `Collection`.
 
 ```java
 public void demo() {
@@ -197,6 +197,42 @@ public void demo() {
   List<String> elementsAsList = new ArrayList<>(Arrays.asList(arrayOfStrings));
   elementsAsList.clear();
 	System.out.println(elementsAsList.isEmpty()); // prints true
+}
+```
+
+
+-
+-
+## Collection Interface
+### `Object[] toArray()`
+* Populates a new `Object[]` with the elements from this `Collection`
+
+```java
+public void demo() {
+  String[] elementsToAdd = {"The", "Quick", "Brown"};
+  List<String> elementList = new ArrayList<>();
+  elementList.foreach(element -> elementList.add(element));
+  Object[] listAsArray = elementList.toArray();
+}
+```
+
+
+
+
+-
+-
+## Collection Interface
+### `Object[] toArray(E[])`
+* Populates a new array of the _respective type_ with the elements from this `Collection`
+
+```java
+public void demo() {
+  String[] elementsToAdd = {"The", "Quick", "Brown"};
+  List<String> elementList = new ArrayList<>();
+  elementList.foreach((element) -> elementList.add(element));
+  int newArrayLength = elementList.size();
+  String[] arrayToBePopulated = new String[newArrayLength];
+  String[] listAsArray = elementList.toArray(arrayToBePopulated);
 }
 ```
 
@@ -229,10 +265,11 @@ public void demo() {
 
 ```java
 public interface Iterator<E> {
-  	E next();
-    boolean hasNext();
-    void remove();
-    default void forEachRemaining(Consumer<? super E> action);}
+  E next();
+  boolean hasNext();
+  void remove();
+  default void forEachRemaining(Consumer<? super E> action);
+}
 ```
 
 
@@ -262,10 +299,12 @@ public static void printIterable(Iterable<Object> iterable) {
 -
 ## Iterator Interface
 * As of Java8, you can call the `forEachRemaining` method with a `Consumer` lambda expression.
-* The lambda expression is invoked with each element of the iterator, until there are none left.```
+* The lambda expression is invoked with each element of the iterator, until there are none left.
+
+```java
 public static void printIterable(Iterable<Object> iterable) {
-    Iterator iterator = iterable.iterator();
-	iterator.forEachRemaining((element) -> System.out.println(element));
+  Iterator iterator = iterable.iterator();
+  iterator.forEachRemaining((element) -> System.out.println(element));
 }
 ```
 
