@@ -90,8 +90,7 @@ public void demo() {
 ## Collection Interface
 ### `boolean remove(Object)`
 * Attempts to remove an object from the `Collection`
-* returns `true` if removing the element changes the `Collection`
-* returns `false` if the `Collection` is unchanged after removal
+* returns `true` if removing the element changes the `Collection`, else returns `false`
 * Removing an element that is not present in an `ArrayList` will return `false`.
 
 ```java
@@ -109,8 +108,7 @@ public void demo() {
 ## Collection Interface
 ### `boolean removeAll(Collection)`
 * Attempts to remove a collection of elements from the `Collection`
-* returns `true` if removing the elements changes the `Collection`
-* returns `false` if the `Collection` is unchanged after removal
+* returns `true` if removing the elements changes the `Collection`, else returns `false`
 
 ```java
 public void demo() {
@@ -259,9 +257,16 @@ public void demo() {
 
 
 -
-# Iterator Interface
-* `Collection` extends `Iterator`, therefore all `Collection` types are valid candidates for the `foreach` loop
-* Is used to visit the elements in the collection one by one.
+# Iterable Interface
+* `Collection` extends `Iterable`, therefore all `Collection` types are valid candidates for the `foreach` loop.
+* All `Iterable`s must provide an implementation for `Iterator<E> iterator()`.
+* `Iterable` ensures the implementing class is a valid candidate for the `foreach` loop
+* Is **NOT** the same as the `Iterator` interface.
+
+
+-
+# Iterator interface
+* `Iterator` is used to visit the elements in the `Collection`, one by one.
 
 ```java
 public interface Iterator<E> {
