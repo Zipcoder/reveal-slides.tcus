@@ -1,5 +1,3 @@
-
--
 # Lists, ArrayLists, LinkedLists, sets
 
 -
@@ -32,13 +30,36 @@ public interface List<E> extends Collection<E> {
 
 -
 ## ArrayList
-* Quicker with  access to random (arbitrary) elements.
+* Quicker than `LinkedList` with access to random (arbitrary) elements.
 
 
 -
 -
-# LinkedList
-* Quicker with removal/insertion of elements in the middle of the list
+## LinkedList
+* Values are stored as `Node` objects
+* Each `Node` is a separate object with a `data` and `address` field.
+* Quicker than `ArrayList` at removal/insertion of elements in the middle of the list.
+
+
+-
+### LinkedList
+
+```java
+class LinkedList {
+  Node head;
+
+  class Node {
+    int data;
+    Node next;
+
+    Node(int d) {
+      data = d;
+      next = null;
+    }
+  }
+
+}
+```
 
 
 
@@ -83,7 +104,8 @@ public void test() {
 }
 ```
 
-* Output
+Output
+
 ```
 [Charles, Tuskegee, John, Cutler]
 ```
@@ -95,8 +117,9 @@ public void test() {
 -
 ## `TreeSet`
 * Similar to `HashSet`
-* Maintains order of elements.
-* Can only handle objects which implement `Comparable`
+* Can only be populated by objects which implement `Comparable`
+* Sorts elements after each insertion
+  * Sort is dependent on implementation of `compareTo`
 
 
 -
@@ -109,7 +132,8 @@ public void test() {
     System.out.println(Arrays.toString(set.toArray()));
 }
 ```
-* Output
+
+Output
 ```
 [Charles, Cutler, John, Tuskegee]
 ```
