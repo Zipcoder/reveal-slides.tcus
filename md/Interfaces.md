@@ -5,11 +5,16 @@
 ## Interfaces
 
 -
-An interface is a contract that all classes implementing it must follow.  It means that code can be written against the interface without worrying about what an actual object will do with it.
+* An interface is a contract that all classes implementing it must follow.
+* It means that code can be written against the interface without worrying about what an actual object will do with it.
+* Couples a class to a behavior
 
 
-Think about the `Comparable` interface.
+
 -
+## Comparable Interface
+* Consider the `Comparable` interface.
+
 
 ```java
 public interface Comparable<T> {

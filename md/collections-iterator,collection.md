@@ -12,13 +12,13 @@
 -
 ### Collections and Maps
 
-| List | Set | Map
+| List       | Set           | Map
 | ---------- | ------------- | --------------- |
-| ArrayList  | EnumSet       | EnumMap         |
-| LinkedList | LinkedHashSet | LinkedHashMap   |
+| ArrayList  | HashSet       | TreeMap         |
+| LinkedList | TreeSet       | HashMap         |
 | ArrayDeque | PriorityQueue | WeakHashMap     |
-| HashSet    | HashMap       | IdentityHashMap |
-| TreeSet    | TreeMap       |                 |
+|            | EnumSet       | IdentityHashMap |
+|            | LinkedHashSet | LinkedHashMap   |
 ||||
 
 
