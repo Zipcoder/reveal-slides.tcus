@@ -112,10 +112,12 @@ public void demo() {
 
 ```java
 public void demo() {
+  List<String> originalCollection = new ArrayList<>();
   String[] elementsAsArray = {"The", "Quick", "Brown"};
   List<String> elementsAsList = Arrays.asList(arrayOfStrings);
-  List<String> collectionToBeAddedTo = new ArrayList<>();
-	System.out.println(collectionToBeAddedTo.removeAll(elementsAsList)); // prints false
+
+  // prints false
+  System.out.println(originalCollection.removeAll(elementsAsList));
 }
 ```
 
@@ -138,7 +140,9 @@ public void demo() {
   String[] elementsToBeRetained = {"The", "Quick"};
   List<String> originalList = Arrays.asList(elementsInOriginalList);
   List<String> retentionList = Arrays.asList(elementsToBeRetained);
-	System.out.println(elementsInOriginalList.retainAll(retentionList))); // prints true
+
+  // prints true  
+  System.out.println(elementsInOriginalList.retainAll(retentionList)));
 }
 ```
 
@@ -161,7 +165,7 @@ public void demo() {
 public void demo() {
   String[] elementsAsArray = {"The", "Quick", "Brown"};
   List<String> elementsAsList = Arrays.asList(arrayOfStrings);
-	System.out.println(elementsAsList.isEmpty()); // prints false
+  System.out.println(elementsAsList.isEmpty()); // prints false
 }
 ```
 
@@ -176,7 +180,7 @@ public void demo() {
 public void demo() {
   String[] elementsAsArray = {"The", "Quick", "Brown"};
   List<String> elementsAsList = new ArrayList<>(Arrays.asList(arrayOfStrings));
-	System.out.println(elementsAsList.isEmpty()); // prints true
+  System.out.println(elementsAsList.isEmpty()); // prints true
 }
 ```
 
@@ -194,7 +198,7 @@ public void demo() {
   String[] elementsAsArray = {"The", "Quick", "Brown"};
   List<String> elementsAsList = new ArrayList<>(Arrays.asList(arrayOfStrings));
   elementsAsList.clear();
-	System.out.println(elementsAsList.isEmpty()); // prints true
+  System.out.println(elementsAsList.isEmpty()); // prints true
 }
 ```
 
