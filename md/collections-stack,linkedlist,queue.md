@@ -1,4 +1,6 @@
-# Collections Framework
+# Collections<br>Stack, LinkedList, Queue
+
+
 
 
 
@@ -65,6 +67,48 @@
 
 
 
+
+
+
+
+
+
+-
+-
+## LinkedList
+* Values are stored as `Node` objects
+* Each `Node` is a separate object with a `data` and `address` field.
+* Quicker than `ArrayList` at removal/insertion of elements in the middle of the list.
+
+
+
+-
+### Node
+```
+class Node {
+	int data;
+	Node next;
+
+	Node(int d) {
+		data = d;
+		next = null;
+	}
+}
+```
+
+
+
+
+
+-
+### LinkedList
+
+```java
+class LinkedList {
+  Node head;
+
+}
+```
 
 
 

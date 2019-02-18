@@ -1,4 +1,4 @@
-# Lists, ArrayLists, LinkedLists, sets
+# Lists, ArrayLists, Sets
 
 -
 ## What is a `List`?
@@ -22,44 +22,11 @@ public interface List<E> extends Collection<E> {
 ```
 
 -
--
-## List types
-* `ArrayList`
-* `LinkedList`
-
-
--
 ## ArrayList
-* Quicker than `LinkedList` with access to random (arbitrary) elements.
-
-
--
--
-## LinkedList
-* Values are stored as `Node` objects
-* Each `Node` is a separate object with a `data` and `address` field.
-* Quicker than `ArrayList` at removal/insertion of elements in the middle of the list.
-
-
--
-### LinkedList
-
-```java
-class LinkedList {
-  Node head;
-
-  class Node {
-    int data;
-    Node next;
-
-    Node(int d) {
-      data = d;
-      next = null;
-    }
-  }
-
-}
-```
+* Dynamic in capacity (size)
+  * size increases upon being populated, decreases upon removal
+* Quicker than `LinkedList` with random access to elements.
+* Can only handle _non-primitive_ types.
 
 
 
@@ -88,9 +55,8 @@ class LinkedList {
 -
 ## `HashSet`
 * Does not maintain order of elements
-* Positions elements by their _hash_ value.
+* Elements are positioned by their _hash_ value.
 * Can retrieve elements quickly due to efficient hash-sorting
-* If you implement your own `HashSet` you are responsible for overriding the `hashCode` method to behave as you expect
 
 
 

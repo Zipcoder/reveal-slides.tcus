@@ -24,7 +24,7 @@
 
 -
 ## Collection Interface
-* Fundamental interface for `Collection` classes in java
+* Fundamental interface for `Collection` classes in java.
 
 ```java
 public interface Collection<E> extends Iterable<E> {
@@ -51,7 +51,7 @@ public interface Collection<E> extends Iterable<E> {
 ### `boolean add(E element)`
 * Attempts to add an element to the `Collection`
 * returns `true` if adding the element changes the `Collection`, else `false`.
-* Adding an already-present-object to a `Set` collection will return `false`
+* Adding an already-present-object to a `Set` collection will return `false`.
 
 ```java
 public void demo() {
@@ -112,7 +112,7 @@ public void demo() {
 
 ```java
 public void demo() {
-  List<String> originalCollection = new ArrayList<>();
+  Collection<String> originalCollection = new ArrayList<>();
   String[] elementsAsArray = {"The", "Quick", "Brown"};
   List<String> elementsAsList = Arrays.asList(arrayOfStrings);
 
@@ -142,7 +142,7 @@ public void demo() {
   List<String> retentionList = Arrays.asList(elementsToBeRetained);
 
   // prints true  
-  System.out.println(elementsInOriginalList.retainAll(retentionList)));
+  System.out.println(originalList.retainAll(retentionList)));
 }
 ```
 
@@ -267,6 +267,24 @@ public void demo() {
 * `Iterable` ensures the implementing class is a valid candidate for the `foreach` loop
 * Is **NOT** the same as the `Iterator` interface.
 
+-
+-
+## Collection Interface
+### `void clear()`
+* Removes all elements from the `Collection`.
+
+-
+-
+## Collection Interface
+### `int size()`
+* Returns the number of elements in the `Collection`.
+
+
+-
+-
+## Collection Interface
+### `boolean isEmpty()`
+* returns `true` if the size of the `Collection` is `0`, else returns `false`.
 
 -
 # Iterator interface
