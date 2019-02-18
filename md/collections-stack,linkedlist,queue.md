@@ -14,18 +14,39 @@
 
 
 -
-### Short comings of Stack class
+### Short comings of Java's Stack class
+* Is a subclass of `Vector` is a subclass of `List`
 * Should have been interface
 
 
 
--
--
-### `pop`
-* Blah blah about pop
+
+
+
+
 
 -
-### `pop` example
+-
+### `isEmpty`
+* returns true if `Stack` contains no elements
+
+
+-
+### `isEmpty` example
+
+```java
+@Test
+public void demo() {
+		Stack<String> stack = new Stack<>();
+		System.out.println(stack.isEmpty()); // prints true
+}
+```
+
+Output
+```
+true
+```
+
 
 
 
@@ -33,12 +54,30 @@
 -
 -
 ### `push`
-* Blah blah about push
+* populates the `Stack` with the respective argument
+* newly inserted element is considered to be the `head` or top-of-stack
 
 
 
 -
 ### `push` example
+
+```java
+@Test
+public void demo() {
+		Stack<String> stack = new Stack<>();
+		stack.push("Hello world");
+		System.out.println(stack.isEmpty()); // prints false
+}
+```
+
+Output
+```
+false
+```
+
+
+
 
 
 
@@ -47,21 +86,58 @@
 -
 -
 ### `peek`
-* blah blah about peek
+* views the most recently added item
 
 -
 ### `peek` example
 
+```java
+@Test
+public void demo() {
+		Stack<String> stack = new Stack<>();
+		stack.push("Hello world");
+		System.out.println(stack.peek());
+}
+```
+
+Output
+```
+Hello world
+```
+
+
+
+
+
 
 
 -
 -
-### `isEmpty`
-* blah blah about isEmpty
-
+### `pop`
+* removes and returns the most recently added element
 
 -
-### `isEmpty` example
+### `pop` example
+```java
+@Test
+public void demo() {
+		Stack<String> stack = new Stack<>();
+		System.out.println(stack.isEmpty()); // prints true
+		stack.push("Hello world");
+		System.out.println(stack.isEmpty()); // prints false
+		String topValue = stack.pop();
+		System.out.println(topValue); // throws EmptyStackException
+}
+```
+
+Output
+```
+true
+false
+java.util.EmptyStackException
+	at java.base/java.util.Stack.peek(Stack.java:102)
+```
+
 
 
 
@@ -76,20 +152,20 @@
 -
 -
 ## LinkedList
-* Values are stored as `Node` objects
-* Each `Node` is a separate object with a `data` and `address` field.
-* Quicker than `ArrayList` at removal/insertion of elements in the middle of the list.
+* `LinkedList` is quicker than `ArrayList` at removal/insertion of elements in the middle of the list.
+* `LinkedList` values are stored as `Node` objects.
+	* Each `Node` is a separate object with a `data` and `next` field.
 
 
 
 -
 ### Node
 ```
-class Node {
-	int data;
+class Node<DataType> {
+	DataType data;
 	Node next;
 
-	Node(int d) {
+	Node(DataType d) {
 		data = d;
 		next = null;
 	}
@@ -104,11 +180,16 @@ class Node {
 ### LinkedList
 
 ```java
-class LinkedList {
-  Node head;
-
+class LinkedList<DataType> {
+  Node<DataType> head;
 }
 ```
+
+
+-
+### LinkedList
+* Iterating a linked list
+* Requires client to continually check if `next` is null, if not `this.head = next`
 
 
 
