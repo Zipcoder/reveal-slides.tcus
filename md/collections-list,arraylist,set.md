@@ -13,6 +13,28 @@
 * `List` is an interface which _extends_ `Collection`.
 
 
+-
+## Collection Interface
+* Fundamental interface for `Collection` classes in java.
+
+```java
+public interface Collection<E> extends Iterable<E> {
+    boolean add(E element);
+    boolean addAll(Collection<? extends E> collection);
+    void clear();
+    boolean contains(Object object);
+    boolean containsAll(Collection<?> collection);
+    boolean isEmpty();
+    Iterator<E> iterator();
+    boolean remove(Object object);
+    boolean removeAll(Collection<?> collection);
+    boolean retainAll(Collection<?> collection);
+    int size();
+    Object[] toArray();
+    <T> T[] toArray(T[] array);
+}
+```
+
 
 -
 -
@@ -37,34 +59,13 @@ public interface List<E> extends Collection<E> {
 ```
 
 
--
-## Collection Interface
-* Fundamental interface for `Collection` classes in java.
-
-```java
-public interface Collection<E> extends Iterable<E> {
-    boolean add(E element);
-    boolean addAll(Collection<? extends E> collection);
-    void clear();
-    boolean contains(Object object);
-    boolean containsAll(Collection<?> collection);
-    boolean isEmpty();
-    Iterator<E> iterator();
-    boolean remove(Object object);
-    boolean removeAll(Collection<?> collection);
-    boolean retainAll(Collection<?> collection);
-    int size();
-    Object[] toArray();
-    <T> T[] toArray(T[] array);
-}
-```
-
 
 
 -
-## java.util.ArrayList
+## ArrayList
+* `java.util.ArrayList`
 * Dynamic in capacity (size)
-  * size increases upon being populated, decreases upon removal
+  * size increases upon insertion, decreases upon removal
 * Quicker than `LinkedList` with random access to elements.
 * Can only handle _non-primitive_ types.
 
@@ -74,15 +75,16 @@ public interface Collection<E> extends Iterable<E> {
 
 
 -
-## java.util.Arrays.ArrayList
-* An unmodifiable list, with a stupid name.
-* Should have been named `UnmodifiableList`.
+## Unmodifiable List
+* `java.util.Arrays.ArrayList`
+  * An unmodifiable list, with a stupid name.
+  * Should have been named `UnmodifiableList`.
 
 ```java
 public void demo() {
   String[] array = {"The", "Quick", "Brown", "Fox"};
   List<String> unmodifiableList = Arrays.asList(array);
-  unmodifiableList.add("Jumps"); // throws UnsupportOperationException
+  unmodifiableList.add("Jumps"); // throws Exception
 }
 ```
 
