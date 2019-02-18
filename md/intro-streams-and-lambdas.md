@@ -133,6 +133,7 @@ public Stream<String> fromEmpty() {
 }
 ```
 
+-
 #`.iterate`
 ```Java
 public Stream<String> fromIterator() {
@@ -724,19 +725,24 @@ public Map<String, List<Locale>> groupingByDemo() {
 | BiFunction | Yes     | Yes      | Yes     |
 
 
--
-#
-
 
 -
 # Relevant Functional Interfaces
 * A `Function` is a single-argument, non-void-returning operation.
 * A `Predicate` is a single-argument, boolean-returning operation.
 * A `Consumer` is a single-argument, void-returning operation.
+* A `Supplier` is a no-argument, non-void-returning operation.
+* A `BiConsumer` is a two-argument, void-returning operation.
+* A `BiFunction` is a two-argument, non-void-returning operation.
+
+
+
+
+-
+# Relevant Jargon
 * A `classifier` is a predicate used to group a stream.
 * A `lambda` is a function which can be created without belonging to any class.
 * A `method reference` is how java handles the nuance of passing methods as arguments.
-
 
 
 
