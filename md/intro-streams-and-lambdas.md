@@ -728,6 +728,7 @@ public Map<String, List<Locale>> groupingByDemo() {
 
 -
 # Relevant Functional Interfaces
+* A `Runnable` is a no-argument, void-returning operation.
 * A `Function` is a single-argument, non-void-returning operation.
 * A `Predicate` is a single-argument, boolean-returning operation.
 * A `Consumer` is a single-argument, void-returning operation.
