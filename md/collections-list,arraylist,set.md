@@ -1,5 +1,20 @@
+# Collections
+
+
+-
+-
 # Lists, ArrayLists, Sets
 
+
+-
+-
+## What is a `Collection`?
+* `Collection` is an interface which ensures a class has the ability to hold a series of objects.
+* `List` is an interface which _extends_ `Collection`.
+
+
+
+-
 -
 ## What is a `List`?
 * An ordered collection of elements.

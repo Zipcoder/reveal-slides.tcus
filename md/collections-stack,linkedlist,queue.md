@@ -1,4 +1,4 @@
-# Collections<br>Stack, LinkedList, Queue
+# Collections
 
 
 
@@ -6,17 +6,35 @@
 
 -
 -
-### Stack Class
-* pop
-* push
-* peek
-* isEmpty
+# Stack, LinkedList, Queue
+
 
 
 -
-### Short comings of Java's Stack class
-* Is a subclass of `Vector` is a subclass of `List`
+-
+## What is a Stack?
+* Models a real-life stack.
+* Gives client access to a `Stack` with only the top-most card accessible.
+* Insertions can only be to the top of the `Stack`
+	* The indices of other elements in the stack are shifted up 1.
+* Removals can only be from the top of the `Stack`
+	* The indices of other elements in the stack are shifted down 1.
+
+
+
+-
+## Short comings of Java's Stack class
 * Should have been interface
+* Stack is a subclass of `Vector` is a subclass of `AbstractList`
+	* client has ability to insert into/remove from anywhere in the stack.
+	* violates the nature of a stack
+
+-
+## Stack interface
+	* pop
+	* push
+	* peek
+	* isEmpty
 
 
 

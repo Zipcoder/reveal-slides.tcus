@@ -1,6 +1,17 @@
 # Collections
 
 -
+-
+# Maps
+
+
+-
+## What is a `Collection`?
+* `Collection` is an interface which ensures a class has the ability to hold a series of objects.
+* Often, we consider `Map` to be a `Collection`, however it does not _implement_ the `Collection` interface.
+
+
+-
 ## What is a Map?
 * Maps are sometimes called _dictionaries_ or _associative arrays_.
 * Maps store associated <u>pairs</u> of objects, or _key-value pairs_.

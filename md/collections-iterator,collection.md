@@ -1,11 +1,15 @@
 # Collections Framework
-## `Iterator` and `Collection` interface
+
+-
+-
+# `Iterator` and `Collection` interface
+
 
 -
 ## What is a `Collection`?
 * `Collection` is an interface which ensures a class has the ability to hold a series of objects.
-* `Collection`s hold a series of individual elements.
 * Often, we consider `Map` objects to be a `Collection`, although they do not _implement_ the `Collection` interface.
+
 
 
 -
