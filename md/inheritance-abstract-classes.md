@@ -60,7 +60,7 @@ abstract public class Shape {
 
 -
 ### Declaring Abstract Method
-* Interface method-declarations are implicitly _abstract_.
+* Interface method-declarations are implicitly _abstract_ and _public_.
 
 ```java
 public interface Shape {
