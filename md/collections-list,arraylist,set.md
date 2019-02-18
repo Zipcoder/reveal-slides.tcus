@@ -41,20 +41,24 @@ public interface List<E> extends Collection<E> {
 
 
 -
-### `Set` types
-* `HashSet` - keeps elements in hash order (fast, not predictable)
-* `TreeSet` - keeps elements in ascending sorted order
-* `LinkedHashSet` - provides insertion-order access to elements
-* `BitSet` - Optimized for storing sequences of bits
-* `EnumSet` - Optimized set for holding `enum` instances
-* Sets are often used to test for membership using the `contains()` method
+-
+### Sets
+||||
+| --------------- | ------------ |
+| `HashSet`         | sorts elements in hash order (fast, not predictable)
+| `TreeSet`         | sorts elements in ascending sorted order
+| `LinkedHashSet`   | provides insertion-order access to elements
+| `EnumSet`         | Optimized set for holding `enum` instances
+| `BitSet`          | Optimized for storing sequences of bits
+||||
+
 
 
 
 -
 -
 ## `HashSet`
-* Does not maintain order of elements
+* Does not maintain insertion-order of elements
 * Elements are positioned by their _hash_ value.
 * Can retrieve elements quickly due to efficient hash-sorting
 
@@ -66,7 +70,7 @@ public interface List<E> extends Collection<E> {
 public void test() {
     String[] words = {"John", "Charles", "Cutler", "Tuskegee"};
     Set<String> set = new HashSet<>(Arrays.asList(words));
-    System.out.println(Arrays.toString(set.toArray()));
+    System.out.println(set);
 }
 ```
 
@@ -83,9 +87,15 @@ Output
 -
 ## `TreeSet`
 * Similar to `HashSet`
-* Can only be populated by objects which implement `Comparable`
 * Sorts elements after each insertion
-  * Sort is dependent on implementation of `compareTo`
+  * Sort is dependent on implementation of `compareTo` or `toString` if elements not `Comparable`
+
+
+
+
+
+
+
 
 
 -
@@ -95,11 +105,39 @@ Output
 public void test() {
     String[] words = {"John", "Charles", "Cutler", "Tuskegee"};
     Set<String> set = new TreeSet<>(Arrays.asList(words));
-    System.out.println(Arrays.toString(set.toArray()));
+    System.out.println(set);
 }
 ```
 
 Output
 ```
 [Charles, Cutler, John, Tuskegee]
+```
+
+
+
+
+
+
+
+-
+-
+## `LinkedHashSet`
+* provides insertion-order access to element
+
+
+-
+### `LinkedHashSet` example
+
+```java
+public void test() {
+    String[] words = {"John", "Charles", "Cutler", "Tuskegee"};
+    Set<String> set = new TreeSet<>(Arrays.asList(words));
+    System.out.println(set);
+}
+```
+
+Output
+```
+[John, Charles, Cutler, Tuskegee]
 ```
