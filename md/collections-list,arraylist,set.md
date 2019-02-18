@@ -62,11 +62,59 @@ public interface Collection<E> extends Iterable<E> {
 
 
 -
-## ArrayList
+## java.util.ArrayList
 * Dynamic in capacity (size)
   * size increases upon being populated, decreases upon removal
 * Quicker than `LinkedList` with random access to elements.
 * Can only handle _non-primitive_ types.
+
+
+
+
+
+
+-
+## java.util.Arrays.ArrayList
+* An unmodifiable list, with a stupid name.
+* Should have been named `UnmodifiableList`.
+
+```java
+public void demo() {
+  String[] array = {"The", "Quick", "Brown", "Fox"};
+  List<String> unmodifiableList = Arrays.asList(array);
+  unmodifiableList.add("Jumps"); // throws UnsupportOperationException
+}
+```
+
+Output
+```
+java.lang.UnsupportedOperationException
+```
+
+
+
+
+
+
+
+
+
+
+-
+## Converting Array to ArrayList
+```java
+public void demo() {
+  String[] array = {"The", "Quick", "Brown", "Fox"};
+  List<String> unmodifiableList = Arrays.asList(array);
+  List<String> arrayList = new ArrayList<>(unmodifiableList);
+  System.out.println(arrayList);
+}
+```
+
+Output
+```
+[The, Quick, Brown, Fox]
+```
 
 
 
