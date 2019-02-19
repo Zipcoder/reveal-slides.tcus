@@ -9,6 +9,8 @@
 * Is used to couple subclasses to common construction & behaviors
 * Is used by creating an inheriting subclass that can be instantiated.
 
+
+
 -
 ### How does it affect its children classes?
 * An abstract class does a few things for the inheriting subclass:
@@ -38,7 +40,7 @@ abstract public class Shape {
     this.width = width;
     this.height = height;
   }
-  // getters & setters ommitted
+  // getters & setters omitted
 }
 ```
 

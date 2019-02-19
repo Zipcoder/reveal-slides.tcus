@@ -43,8 +43,8 @@ public interface Collection<E> extends Iterable<E> {
 * Users of `List` objects can:
   * access elements by their integer index (position in `List`)
   * insert elements into `List`
-  * remove elements from the `List` by their integer index
-  * search for the presence of element in the `List` by their integer index
+  * remove elements from the `List`
+  * search for the presence of element in the `List`
 
 
 -
@@ -222,7 +222,7 @@ Output
 ```java
 public void test() {
     String[] words = {"John", "Charles", "Cutler", "Tuskegee"};
-    Set<String> set = new TreeSet<>(Arrays.asList(words));
+    Set<String> set = new LinkedHashSet<>(Arrays.asList(words));
     System.out.println(set);
 }
 ```
