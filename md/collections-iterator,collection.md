@@ -233,11 +233,11 @@ public void demo() {
 ```java
 public void demo() {
   String[] elementsToAdd = {"The", "Quick", "Brown"};
-  List<String> elementList = new ArrayList<>();
-  elementList.foreach((element) -> elementList.add(element));
+  List<String> elementList = new ArrayList<>(Arrays.asList(elementsToAdd));
+
   int newArrayLength = elementList.size();
   String[] arrayToBePopulated = new String[newArrayLength];
-  String[] listAsArray = elementList.toArray(arrayToBePopulated);
+  String[] listAsStringArray = elementList.toArray(arrayToBePopulated);
 }
 ```
 
