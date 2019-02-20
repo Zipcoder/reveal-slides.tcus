@@ -100,7 +100,7 @@ public void demo() {
 ```java
 public void demo() {
   // prints false
-  System.out.println(new ArrayList<>().remove(new Object()));
+  System.out.println(new ArrayList().remove(new Object()));
 }
 ```
 
@@ -168,7 +168,7 @@ public void demo() {
 ```java
 public void demo() {
   String[] elementsAsArray = {"The", "Quick", "Brown"};
-  List<String> elementsAsList = Arrays.asList(arrayOfStrings);
+  Collection<String> elementsAsList = Arrays.asList(arrayOfStrings);
   System.out.println(elementsAsList.isEmpty()); // prints false
 }
 ```
@@ -183,8 +183,8 @@ public void demo() {
 ```java
 public void demo() {
   String[] elementsAsArray = {"The", "Quick", "Brown"};
-  List<String> elementsAsList = new ArrayList<>(Arrays.asList(arrayOfStrings));
-  System.out.println(elementsAsList.isEmpty()); // prints true
+  Collection<String> elementsAsList = Arrays.asList(arrayOfStrings);
+  System.out.println(elementsAsList.size()); // prints 3
 }
 ```
 
@@ -216,8 +216,7 @@ public void demo() {
 ```java
 public void demo() {
   String[] elementsToAdd = {"The", "Quick", "Brown"};
-  List<String> elementList = new ArrayList<>();
-  elementList.foreach(element -> elementList.add(element));
+  List<String> elementList = new ArrayList<>(Arrays.asList(elementsToAdd));
   Object[] listAsArray = elementList.toArray();
 }
 ```
