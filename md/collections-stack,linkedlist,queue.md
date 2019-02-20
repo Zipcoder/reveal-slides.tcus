@@ -342,4 +342,4 @@ Note: `Dequeue` is often used for stacks as well
 
 
 -
-# Puppies
+<img src="../img/bunnies/confused-bunny.jpg">
