@@ -80,7 +80,7 @@ public void demo() {
 public void demo() {
   Collection<String> set = new HashSet<>();
   String[] valuesToBeAdded = {"Froilan", "Wilhem", "Leon", "Nhu", "Kris"};
-  List<String> valuesAsList = Arrays.asList(valueToBeAdded);
+  Collection<String> valuesAsList = Arrays.asList(valueToBeAdded);
   System.out.println(set.addAll(list)); // prints true
 }
 ```
@@ -100,7 +100,7 @@ public void demo() {
 ```java
 public void demo() {
   // prints false
-  System.out.println(new ArrayList<>().remove(new Object()));
+  System.out.println(new ArrayList().remove(new Object()));
 }
 ```
 
@@ -118,7 +118,7 @@ public void demo() {
 public void demo() {
   Collection<String> originalCollection = new ArrayList<>();
   String[] elementsAsArray = {"The", "Quick", "Brown"};
-  List<String> elementsAsList = Arrays.asList(arrayOfStrings);
+  Collection<String> elementsAsList = Arrays.asList(elementsAsArray);
 
   // prints false
   System.out.println(originalCollection.removeAll(elementsAsList));
@@ -140,9 +140,9 @@ public void demo() {
 
 ```java
 public void demo() {
-  String[] elementsInOriginalList = {"The", "Quick", "Brown"};
+  String[] originalArray = {"The", "Quick", "Brown"};
   String[] elementsToBeRetained = {"The", "Quick"};
-  List<String> originalList = Arrays.asList(elementsInOriginalList);
+  List<String> originalList = new ArrayList<>(Arrays.asList(originalArray));
   List<String> retentionList = Arrays.asList(elementsToBeRetained);
 
   // prints true  
@@ -168,7 +168,7 @@ public void demo() {
 ```java
 public void demo() {
   String[] elementsAsArray = {"The", "Quick", "Brown"};
-  List<String> elementsAsList = Arrays.asList(arrayOfStrings);
+  Collection<String> elementsAsList = Arrays.asList(arrayOfStrings);
   System.out.println(elementsAsList.isEmpty()); // prints false
 }
 ```
@@ -183,8 +183,8 @@ public void demo() {
 ```java
 public void demo() {
   String[] elementsAsArray = {"The", "Quick", "Brown"};
-  List<String> elementsAsList = new ArrayList<>(Arrays.asList(arrayOfStrings));
-  System.out.println(elementsAsList.isEmpty()); // prints true
+  Collection<String> elementsAsList = Arrays.asList(arrayOfStrings);
+  System.out.println(elementsAsList.size()); // prints 3
 }
 ```
 
@@ -216,9 +216,8 @@ public void demo() {
 ```java
 public void demo() {
   String[] elementsToAdd = {"The", "Quick", "Brown"};
-  List<String> elementList = new ArrayList<>();
-  elementList.foreach(element -> elementList.add(element));
-  Object[] listAsArray = elementList.toArray();
+  List<String> elementList = new ArrayList<>(Arrays.asList(elementsToAdd));
+  Object[] listAsObjectArray = elementList.toArray();
 }
 ```
 
@@ -228,17 +227,17 @@ public void demo() {
 -
 -
 ## Collection Interface
-### `Object[] toArray(E[])`
+### `E[] toArray(E[])`
 * Populates a new array of the _respective type_ with the elements from this `Collection`
 
 ```java
 public void demo() {
   String[] elementsToAdd = {"The", "Quick", "Brown"};
-  List<String> elementList = new ArrayList<>();
-  elementList.foreach((element) -> elementList.add(element));
+  List<String> elementList = new ArrayList<>(Arrays.asList(elementsToAdd));
+
   int newArrayLength = elementList.size();
   String[] arrayToBePopulated = new String[newArrayLength];
-  String[] listAsArray = elementList.toArray(arrayToBePopulated);
+  String[] listAsStringArray = elementList.toArray(arrayToBePopulated);
 }
 ```
 

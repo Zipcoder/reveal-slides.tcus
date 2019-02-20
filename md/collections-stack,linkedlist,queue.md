@@ -23,7 +23,7 @@
 
 
 -
-## Short comings of Java's Stack class
+## Shortcomings of Java's Stack class
 * Should have been interface
 * Stack is a subclass of `Vector` is a subclass of `AbstractList`
 	* client has ability to insert into/remove from anywhere in the stack.
@@ -144,7 +144,8 @@ public void demo() {
 		stack.push("Hello world");
 		System.out.println(stack.isEmpty()); // prints false
 		String topValue = stack.pop();
-		System.out.println(topValue); // throws EmptyStackException
+		System.out.println(topValue); //prints "Hello World"
+		String topValue2 = stack.pop(); // throws EmptyStackException
 }
 ```
 
@@ -152,6 +153,8 @@ Output
 ```
 true
 false
+Hello world
+
 java.util.EmptyStackException
 	at java.base/java.util.Stack.peek(Stack.java:102)
 ```
@@ -322,13 +325,13 @@ public interface Queue<E> {	void add(E element);
 
 
 -
-### Queues, Dequeues, and Stacks
+### Queues, Deques, and Stacks
 
 - Queue -- Adds elements to one end and removes from the other (FIFO)
 - Stack -- Adds elements to one end and removes them from the same (LIFO)
-- Dequeue -- "double-ended queue" adds and removes elements at both ends
+- Deque -- "double-ended queue" adds and removes elements at both ends
 
-Note: `Dequeue` is often used for stacks as well
+Note: `Deque` is often used for stacks as well
 
 
 -
@@ -339,4 +342,4 @@ Note: `Dequeue` is often used for stacks as well
 
 
 -
-# Puppies
+<img src="./img/bunnies/confused-bunny.jpg">
