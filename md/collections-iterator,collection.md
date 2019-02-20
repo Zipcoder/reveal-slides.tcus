@@ -80,7 +80,7 @@ public void demo() {
 public void demo() {
   Collection<String> set = new HashSet<>();
   String[] valuesToBeAdded = {"Froilan", "Wilhem", "Leon", "Nhu", "Kris"};
-  List<String> valuesAsList = Arrays.asList(valueToBeAdded);
+  Collection<String> valuesAsList = Arrays.asList(valueToBeAdded);
   System.out.println(set.addAll(list)); // prints true
 }
 ```
@@ -118,7 +118,7 @@ public void demo() {
 public void demo() {
   Collection<String> originalCollection = new ArrayList<>();
   String[] elementsAsArray = {"The", "Quick", "Brown"};
-  List<String> elementsAsList = Arrays.asList(arrayOfStrings);
+  Collection<String> elementsAsList = Arrays.asList(elementsAsArray);
 
   // prints false
   System.out.println(originalCollection.removeAll(elementsAsList));
@@ -140,9 +140,9 @@ public void demo() {
 
 ```java
 public void demo() {
-  String[] elementsInOriginalList = {"The", "Quick", "Brown"};
+  String[] originalArray = {"The", "Quick", "Brown"};
   String[] elementsToBeRetained = {"The", "Quick"};
-  List<String> originalList = Arrays.asList(elementsInOriginalList);
+  List<String> originalList = new ArrayList<>(Arrays.asList(originalArray));
   List<String> retentionList = Arrays.asList(elementsToBeRetained);
 
   // prints true  
