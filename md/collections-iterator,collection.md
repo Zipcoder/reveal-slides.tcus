@@ -217,7 +217,7 @@ public void demo() {
 public void demo() {
   String[] elementsToAdd = {"The", "Quick", "Brown"};
   List<String> elementList = new ArrayList<>(Arrays.asList(elementsToAdd));
-  Object[] listAsArray = elementList.toArray();
+  Object[] listAsObjectArray = elementList.toArray();
 }
 ```
 
@@ -227,7 +227,7 @@ public void demo() {
 -
 -
 ## Collection Interface
-### `Object[] toArray(E[])`
+### `E[] toArray(E[])`
 * Populates a new array of the _respective type_ with the elements from this `Collection`
 
 ```java
