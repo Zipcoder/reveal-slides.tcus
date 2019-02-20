@@ -325,13 +325,13 @@ public interface Queue<E> {	void add(E element);
 
 
 -
-### Queues, Dequeues, and Stacks
+### Queues, Deques, and Stacks
 
 - Queue -- Adds elements to one end and removes from the other (FIFO)
 - Stack -- Adds elements to one end and removes them from the same (LIFO)
-- Dequeue -- "double-ended queue" adds and removes elements at both ends
+- Deque -- "double-ended queue" adds and removes elements at both ends
 
-Note: `Dequeue` is often used for stacks as well
+Note: `Deque` is often used for stacks as well
 
 
 -
