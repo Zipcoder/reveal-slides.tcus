@@ -49,9 +49,7 @@ abstract public class Shape {
 
 -
 ### Deciding on declaring a method Abstract
-* An abstract method is
-* An abstract method should be created when an entity should be instantiable, but contains data-members which should be used by subclasses.
-
+* An abstract method should be created when an entity should not be instantiable, but contains data-members which should be used by subclasses.
 
 -
 ### Declaring Abstract Method
