@@ -49,7 +49,7 @@ abstract public class Shape {
 
 -
 ### Deciding on declaring a method Abstract
-* An abstract method is
+* An abstract method is a deferral of implementation
 * An abstract method should be created when an entity should be instantiable, but contains data-members which should be used by subclasses.
 
 

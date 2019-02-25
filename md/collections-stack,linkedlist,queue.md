@@ -15,6 +15,7 @@
 ## What is a Stack?
 * Models a real-life stack.
 * Gives client access to a `Stack` with only the top-most card accessible.
+	* FIFO
 * Insertions can only be to the top of the `Stack`
 	* The indices of other elements in the stack are shifted up 1.
 * Removals can only be from the top of the `Stack`
@@ -229,6 +230,7 @@ class LinkedList<DataType> {
 	* add elements at the tail end of the queue,
 	* remove elements at the head,
 	* find out how many elements are in the queue.
+* LIFO implementation
 
 
 -

@@ -521,6 +521,56 @@ Optional<U> = s.f().flatMap(T::g);
 #*Section 8.8*<br>Collecting Results
 
 -
+# Relevant Functional Interfaces
+| Name       | Returns | Takes Argument 1 | Takes Argument 2 |
+|------------|---------|------------------|------------------|
+| Runnnable  | No      | No       | No      |
+| Supplier   | Yes     | No       | No      |
+| Consumer   | No      | Yes      | No      |
+| BiConsumer | No      | Yes      | Yes     |
+| Function   | Yes     | Yes      | No      |
+| BiFunction | Yes     | Yes      | Yes     |
+
+
+
+-
+# Relevant Functional Interfaces
+* A `Runnable` is a no-argument, void-returning operation.
+* A `Function` is a single-argument, non-void-returning operation.
+* A `Predicate` is a single-argument, boolean-returning operation.
+* A `Consumer` is a single-argument, void-returning operation.
+* A `Supplier` is a no-argument, non-void-returning operation.
+* A `BiConsumer` is a two-argument, void-returning operation.
+* A `BiFunction` is a two-argument, non-void-returning operation.
+
+
+
+
+-
+# Relevant Jargon
+* A `classifier` is a predicate used to group a stream.
+* A `lambda` is a function which can be created without belonging to any class.
+* A `method reference` is how java handles the nuance of passing methods as arguments.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-
 #Method References `::`
 * Because Java 7 has no syntax to enable a method being passed as an argument, the `::` syntax was introduced in Java 8 to reference methods.
 
@@ -710,40 +760,6 @@ public Map<String, List<Locale>> groupingByDemo() {
 -
 #`.partitioningBy()`
 * Partitioning is a another grouping approach, in which the resultant Map contains two different groups, one for true values and another for false values.
-
-
-
--
-# Relevant Functional Interfaces
-| Name       | Returns | Takes Argument 1 | Takes Argument 2 |
-|------------|---------|------------------|------------------|
-| Runnnable  | No      | No       | No      |
-| Supplier   | Yes     | No       | No      |
-| Consumer   | No      | Yes      | No      |
-| BiConsumer | No      | Yes      | Yes     |
-| Function   | Yes     | Yes      | No      |
-| BiFunction | Yes     | Yes      | Yes     |
-
-
-
--
-# Relevant Functional Interfaces
-* A `Runnable` is a no-argument, void-returning operation.
-* A `Function` is a single-argument, non-void-returning operation.
-* A `Predicate` is a single-argument, boolean-returning operation.
-* A `Consumer` is a single-argument, void-returning operation.
-* A `Supplier` is a no-argument, non-void-returning operation.
-* A `BiConsumer` is a two-argument, void-returning operation.
-* A `BiFunction` is a two-argument, non-void-returning operation.
-
-
-
-
--
-# Relevant Jargon
-* A `classifier` is a predicate used to group a stream.
-* A `lambda` is a function which can be created without belonging to any class.
-* A `method reference` is how java handles the nuance of passing methods as arguments.
 
 
 
