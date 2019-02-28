@@ -24,6 +24,7 @@ public interface Collection<E> extends Iterable<E> {
     void clear();
     boolean contains(Object object);
     boolean containsAll(Collection<?> collection);
+    void foreach(Consumer<E> consumer);
     boolean isEmpty();
     Iterator<E> iterator();
     boolean remove(Object object);
@@ -62,12 +63,14 @@ public interface List<E> extends Collection<E> {
 
 
 -
+-
 ## ArrayList
 * `java.util.ArrayList`
 * Dynamic in capacity (size)
   * size increases upon insertion, decreases upon removal
 * Quicker than `LinkedList` with random access to elements.
 * Can only handle _non-primitive_ types.
+
 
 
 
@@ -104,6 +107,7 @@ java.lang.UnsupportedOperationException
 
 -
 ## Converting Array to ArrayList
+* populates `ArrayList` upon construction
 ```java
 public void demo() {
   String[] array = {"The", "Quick", "Brown", "Fox"};
@@ -116,6 +120,34 @@ public void demo() {
 Output
 ```
 [The, Quick, Brown, Fox]
+```
+
+
+
+-
+* populates `ArrayList` with `for` each loop (behavior of `Iterable`)
+
+```java
+public void demo() {
+  String[] phrase = {"The", "Quick", "Brown", "Fox"};
+  List<String> list = new ArrayList<>();
+  for(String word : phrase) {
+    list.add(word);
+  }
+}
+```
+
+
+-
+
+* populates `ArrayList` with inherited method `Collection.foreach`
+
+```java
+public void demo() {
+  String[] phrase = {"The", "Quick", "Brown", "Fox"};
+  List<String> list = new ArrayList<>();
+  list.foreach(word -> list.add(word));
+}
 ```
 
 

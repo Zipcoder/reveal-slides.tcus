@@ -116,8 +116,8 @@ public void demo() {
 
 ```java
 public void demo() {
-  Collection<String> originalCollection = new ArrayList<>();
   String[] elementsAsArray = {"The", "Quick", "Brown"};
+  Collection<String> originalCollection = new ArrayList<>();
   Collection<String> elementsAsList = Arrays.asList(elementsAsArray);
 
   // prints false
@@ -245,6 +245,24 @@ public void demo() {
 
 
 
+-
+# Iterator interface
+* `Iterator` is used to visit the elements in the `Collection`, one by one.
+
+```java
+public interface Iterator<E> {
+  E next();
+  boolean hasNext();
+  void remove();
+  default void forEachRemaining(Consumer<? super E> action);
+}
+```
+
+
+
+
+
+
 
 
 
@@ -265,42 +283,25 @@ public void demo() {
 
 -
 # Iterable Interface
+* `Iterable` ensures the implementing class is a valid candidate for the `foreach` loop
 * `Collection` extends `Iterable`, therefore all `Collection` types are valid candidates for the `foreach` loop.
 * All `Iterable`s must provide an implementation for `Iterator<E> iterator()`.
-* `Iterable` ensures the implementing class is a valid candidate for the `foreach` loop
 * Is **NOT** the same as the `Iterator` interface.
 
--
--
-## Collection Interface
-### `void clear()`
-* Removes all elements from the `Collection`.
-
--
--
-## Collection Interface
-### `int size()`
-* Returns the number of elements in the `Collection`.
 
 
 -
--
-## Collection Interface
-### `boolean isEmpty()`
-* returns `true` if the size of the `Collection` is `0`, else returns `false`.
-
--
-# Iterator interface
-* `Iterator` is used to visit the elements in the `Collection`, one by one.
+# Iterable Interface
 
 ```java
 public interface Iterator<E> {
-  E next();
-  boolean hasNext();
-  void remove();
-  default void forEachRemaining(Consumer<? super E> action);
+  Iterator<E> iterator();
+  forEach(Consumer<? super E> E);
 }
 ```
+
+
+
 
 
 
@@ -331,7 +332,9 @@ public static void printIterable(Iterable<Object> iterable) {
 * As of Java8, you can call the `forEachRemaining` method with a `Consumer` lambda expression.
 * The lambda expression is invoked with each element of the iterator, until there are none left.
 
-```java
+
+
+```java
 public static void printIterable(Iterable<Object> iterable) {
   Iterator iterator = iterable.iterator();
   iterator.forEachRemaining((element) -> System.out.println(element));
@@ -345,11 +348,6 @@ public static void printIterable(Iterable<Object> iterable) {
 * Think of Java iterators as being _between_ elements.
 * When you call `next`, the iterator jumps over the next element, and it returns a reference to the element that it just passed.
 <br><img src = "https://i.giphy.com/media/AkEctVBhHuvtu/giphy-downsized.gif">
-
-
-
-
-
 
 
 
