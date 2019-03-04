@@ -267,32 +267,76 @@ public class GameEngine implements GameEngineInterface {
 
 
 
+-
+### Abstracting Generic Structures<br>Parameterizing Game Engine Interface
+* Parameterizing _abstract_ `GameEngineInterface`
 
 
+```java
+public interface GameEngineInterface<
+        PlayerType extends Player,
+        GameType extends Game<PlayerType>> {
 
+    void start();
+    GameType getGame();
+    Iterable<PlayerType> getPlayers();
+}
+```
+
+
+-
+### Abstracting Generic Structures<br>Parameterizing Game Engine Class
+* Parameterizing _abstract_ `GameEngine`
+
+```java
+public abstract class GameEngine<
+        PlayerType extends PlayerType,
+        GameType extends Game<PlayerType>>
+        implements GameEngineInterface<PlayerType, GameType> {
+
+    private Game game;
+    private List<Player> players;
+    public GameEngine(Game game, List<Player> players) {
+        this.game = game;
+        this.players = players;
+    }
+
+    public void start() {
+        game.addPlayers(players);
+
+        while (!game.isOver()) {
+            game.evaluateTurns(players);
+        }
+    }
+}
+```
 
 
 
 
 -
-### Abstracting Generic Structures<br> Parameterizing Game Engine Interface
-* Defining _abstract_ `GameEngine`
+### Abstracting Generic Structures
+* Parameterizing `GoFishGameEngine`
 
 ```java
-public class GameEngine implements GameEngineInterface {
-  private Game game;
-  private List<Player> players;
-  public GameEngine(Game game, List<Player> players) {
-    this.game = game;
-    this.players = players;
+public class GoFishGameEngine extends GameEngine<GoFishPlayer, GoFishGame> {
+  public GoFishGameEngine(GoFishGame game, List<GoFishPlayer> players){
+    super(game, players);
   }
+}
+```
 
-  public void start() {
-    game.addPlayers(players);
 
-    while(!game.isOver()) {
-      game.evaluateTurns(players);
-    }
+
+
+-
+### Abstracting Generic Structures
+* Parameterizing `BlackJackGameEngine`
+
+```java
+public class BlackJackGameEngine extends GameEngine<BlackJackPlayer, BlackJackGame> {
+  public BlackJackGameEngine(BlackJackGame game, List<BlackJackPlayer> players){
+    super(game, players);
   }
 }
 ```
