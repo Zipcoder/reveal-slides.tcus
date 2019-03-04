@@ -121,7 +121,7 @@ public class BlackJackGame implements Game {
 
 -
 ### Noticing Design Flaw
-* Notice that the `Game` interface enforces mediation of a `Player` but ignores player-type.
+* Notice that the `Game` interface enforces mediation of a `Player` but ignores specific player-type.
 * This design flaw allows for strange orientation
 
 ```java

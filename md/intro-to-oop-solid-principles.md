@@ -38,12 +38,20 @@
 -
 ## Single Responsibility Principle (SRP)
 * **Every class should have responsibility over a single part of the functionality provided by the software.**
-* The responibility of a class should be entirely encapsulated by the class.
+* The responsibility of a class should be entirely encapsulated by the class.
 * The services of a class should be narrowly aligned with the responsibility of that module.
 * Robert C. Martin expresses the principle as, "A class should have only one reason to change."
 
+-
+-
+### Single Responsibility Principle (SRP)<br>Example
+* `String` class has a single responsibility of managing an array of `Character`
+* Violations of SRP enforce an _WET_ design.
+	* WET design promotes an _anti-pattern_ known as _God Object_
 
 
+
+-
 -
 ## Open/closed principle (OCP)
 * **Software entities should be open for extension, but closed for modification.**
@@ -54,17 +62,177 @@
 	* A module will be said to be closed if it is available for use by other modules.
 		* Closed since it may be compiled, stored in a library, baselined, and used by client classes.
 
+
+-
+### Open/closed principle (OCP)<br>Example
+* _jarred_ projects ensure that a client can use & and compose packaged classes, but prevents client from modifying class.
+* `junit.org.Test` is made available for client use & extension, but closed to modification
+
+
+-
 -
 ## Liskov substitution principle (LSP)
 * **objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.**
 * [Illustrating LSP](https://stackoverflow.com/questions/56860/what-is-an-example-of-the-liskov-substitution-principle)
 
 -
+### Liskov substitution principle (LSP)<br>Example (Coupled)
+* Here, we have coupled a `Classroom` to a specific `List` implementation, `ArrayList`
+
+```java
+public class Classroom {
+    private ArrayList<Student> students;
+    public Classroom(ArrayList<Student> student) {
+        this.students = students;
+    }
+}
+```
+
+```java
+public void demo() {
+	ArrayList<Student> students = new ArrayList<>();
+	Classroom classroom = new Classroom(students);
+}
+```
+
+-
+### Liskov substitution principle (LSP)<br>Example (Decoupled)
+* Here, we have decoupled a `Classroom` from a specific `List` implementation
+
+```java
+public class Classroom {
+    private List<Student> students;
+    public Classroom(List<Student> student) {
+        this.students = students;
+    }
+}
+```
+
+```java
+public void demo() {
+	List<Student> studentArrayList = new ArrayList<>();
+	List<Student> studentLinkedList = new LinkedList<>();
+
+	Classroom classroom1 = new Classroom(studentArrayList);
+	Classroom classroom2 = new Classroom(studentLinkedList);
+}
+```
+
+
+
+
+
+-
+-
 ## Interface segregation principle (ISP)
 * **many client-specific interfaces are better than one general-purpose interface.**
 * No client should be forced to depend on methods it does not use.
 * Splits large, vague interfaces into smaller, specific ones giving the client access to only methods that are of interest to them.
 * This principle should arise naturally from a project properly abiding by SRP
+
+
+
+-
+### Interface segregation principle (ISP)<br>Example Part 1
+* Here, we have coupled a `Person` to an `identify` and `serialize` behavior
+
+```java
+public class Person {
+	private Long id;
+	private String serial;
+	public Person(Long id, String serial) {
+		this.id = id;
+		this.serial = serial;
+	}
+
+	public Long identify() { return id; }
+	public String serialize() { return serial; }
+}
+```
+
+
+-
+### Interface segregation principle (ISP)<br>Example Part 2
+* If other classes are _identifiable_, or _serializable_ they have no common class; it makes most sense to create an `Identifiable` and `Serializable` interface
+* This decoupling allows us to couple a single behavior at a time to a class
+
+```java
+public interface Identifiable { Long identify(); }
+```
+
+```java
+public interface Serializable { String serialize(); }
+```
+
+-
+### Interface segregation principle (ISP)<br>Example Part 3
+* Creating an `Identifiable` person
+
+```java
+public class Person implements Identifiable {
+	private Long id;
+	public Person(Long id) {
+			this.id = id;
+	}
+
+	public Long identify() { return id; }
+}
+```
+
+
+
+
+
+-
+### Interface segregation principle (ISP)<br>Example Part 4
+* Creating a `Serializable` person
+
+```java
+public class Person implements Identifiable {
+	private String serial;
+	public Person(String serial) {
+			this.serial = serial;
+	}
+
+	public String serialize() { return serial; }
+}
+```
+
+
+
+
+-
+### Interface segregation principle (ISP)<br>Example Part 5
+* Creating a `Serializable` & `Identifiable` person
+
+```java
+public class Person implements Identifiable, Serializable {
+	private Long id;
+	public IdentifiablePerson(Long id, String serial) {
+			this.id = id;
+			this.serial = serial;
+	}
+
+	public Long identify() { return id; }
+	public String serialize() { return serial; }
+}
+```
+
+-
+### Interface segregation principle (ISP)<br>Example Part 6
+* The decoupling allows us to:
+	* program to very specific interfaces
+	* interchange different implementations of the interface
+
+```java
+public void demo() {
+	Person person = new Person(0L, "Blah Blah Serial");
+	Identifiable identiable = person;
+	Serializable serializable = person;
+}
+```
+
+
 
 -
 ## Dependency inversion principle (DIP)
