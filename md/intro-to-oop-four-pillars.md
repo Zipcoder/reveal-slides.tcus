@@ -30,6 +30,22 @@
 * mechanism of wrapping the data (variables) and code acting on the data (methods) together as a single unit.
 * variables of a class are hidden from other classes, and can be accessed only through the methods of their current class.
 
+-
+## Achieving Encapsulation
+* Achieved by grouping wrapping several data fields and methods in a single entity
+
+```java
+public class Person {
+  private String name;
+  private Integer age;
+  public Person(String name, Integer age) {
+    this.name = name;
+    this.age = age;
+  }
+  // getters and setters omitted for brevity
+}
+```
+
 
 
 
@@ -115,7 +131,7 @@ public void demo() {
 
 -
 ### How to achieve Inheritance
-* Inheritance is achieved in java by use of the key word _extends_ or _implements_
+* Inheritance is achieved in java by use of the keyword _extends_ or _implements_
 
 
 -
@@ -187,8 +203,8 @@ null
 * _protected_ members are only accessible from within the scope of the inheriting _subclass_.
 ```java
 public void demo() {
-  Fox fox = new Fox();
-  String speechPhrase = fox.speechPhrase; // invalid reference
+    Fox fox = new Fox();
+    String speechPhrase = fox.speechPhrase; // invalid reference
 }
 ```
 
@@ -248,9 +264,11 @@ public void demo() {
 
 ```java
 public interface Flyer { void fly(int distance); }
-
+```
+```java
 public abstract class Animal { String speak(); }
-
+```
+```java
 public class Bird extends Animal implements Flyer {
   @Override
   public void fly(int distance) {
