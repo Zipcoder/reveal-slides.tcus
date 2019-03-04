@@ -227,7 +227,7 @@ public class Person implements Identifiable, Serializable {
 ```java
 public void demo() {
 	Person person = new Person(0L, "Blah Blah Serial");
-	Identifiable identiable = person;
+	Identifiable identifiable = person;
 	Serializable serializable = person;
 }
 ```
