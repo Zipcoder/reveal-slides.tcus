@@ -46,13 +46,13 @@
 
 -
 ### Relevant Functional Interfaces
-* A `Runnable` is a no-argument, void-returning operation.
-* A `Function` is a single-argument, non-void-returning operation.
-* A `Predicate` is a single-argument, boolean-returning operation.
-* A `Consumer` is a single-argument, void-returning operation.
-* A `Supplier` is a no-argument, non-void-returning operation.
-* A `BiConsumer` is a two-argument, void-returning operation.
-* A `BiFunction` is a two-argument, non-void-returning operation.
+* A `Runnable` is no-argument, void-returning.
+* A `Function` is single-argument, non-void-returning.
+* A `Predicate` is single-argument, boolean-returning.
+* A `Consumer` is single-argument, void-returning.
+* A `Supplier` is no-argument, non-void-returning.
+* A `BiConsumer` is two-argument, void-returning.
+* A `BiFunction` is two-argument, non-void-returning.
 
 
 
