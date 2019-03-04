@@ -163,7 +163,7 @@ public class MainClass {
   public String someSupplierMethod() {
       return new StringBuilder()
               .append("I don't take any arguments and ")
-              .append("I don't return anything!")
+              .append("I return a String!")
               .toString();
   }
 }
@@ -184,7 +184,7 @@ public class MainClass {
   public static String someSupplierMethod() {
       return new StringBuilder()
               .append("I don't take any arguments and ")
-              .append("I don't return anything!")
+              .append("I return a String!")
               .toString();
   }
 }
@@ -203,9 +203,9 @@ public class MainClass {
 public class MainClass {
   public void demo() {
     Supplier<String> supplier = () -> new StringBuilder()
-              .append("I don't take any arguments and ")
-              .append("I don't return anything!")
-              .toString();
+            .append("I don't take any arguments and ")
+            .append("I return a String!")
+            .toString();
     String result = supplier.get();
   }
 }
@@ -351,7 +351,8 @@ public class MainClass {
 ```java
 public class MainClass {
   public void demo() {
-    BiConsumer<String> consumer = (str1, str2) -> System.out.println(str1 + str2);
+    BiConsumer<String> consumer
+      = (str1, str2) -> System.out.println(str1 + str2);
     consumer.accept("Hello", "World");
   }
 }
