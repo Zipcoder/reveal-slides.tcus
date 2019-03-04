@@ -82,11 +82,13 @@ public class GoFishGameEngine {
 public interface Player {
   void play();
 }
-
+```
+```java
 public class GoFishPlayer implements Player {
   // definition omitted for brevity
 }
-
+```
+```java
 public class BlackJackPlayer implements Player {
   // definition omitted for brevity
 }
@@ -104,11 +106,13 @@ public interface Game {
   void addPlayer(Player player);
   Boolean isOver();
 }
-
+```
+```java
 public class GoFishGame implements Game {
   // definition omitted for brevity
 }
-
+```
+```java
 public class BlackJackGame implements Game {
   // definition omitted for brevity
 }
@@ -155,7 +159,8 @@ public interface Game<PlayerType extends Player> {
 public class GoFishGame implements Game<GoFishPlayer> {
   // definition omitted for brevity
 }
-
+```
+```java
 public class BlackJackGame implements Game<BlackJackPlayer> {
   // definition omitted for brevity
 }
