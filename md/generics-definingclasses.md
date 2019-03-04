@@ -148,6 +148,7 @@ public interface Game<PlayerType extends Player> {
 
 -
 #### Parameterizing GoFish and BlackJack
+* It follows that the implementing classes should be parameterized respectively
 
 ```java
 
@@ -162,7 +163,7 @@ public class BlackJackGame implements Game<BlackJackPlayer> {
 
 
 -
-### Noticing Design Flaw<br>Part 1
+### Noticing Design Advantage<br>Part 1
 * Notice that the `Game` interface refuses mediation of invalid `Player`-types
 
 ```java
@@ -180,7 +181,7 @@ public void demo() {
 
 
 -
-### Noticing Design Flaw<br>Part 2
+### Noticing Design Advantage<br>Part 2
 * Notice that the `Game` interface refuses mediation of invalid `Player`-types
 
 ```java
@@ -198,7 +199,7 @@ public void demo() {
 
 
 -
-### Noticing Design Advantage<br>Part 1
+### Noticing Design Advantage<br>Part 3
 * Notice that the `Game` interface enforces valid `Player`-types
 
 ```java
@@ -286,7 +287,7 @@ public interface GameEngineInterface<
 
 -
 ### Abstracting Generic Structures<br>Parameterizing Game Engine Class
-* Parameterizing _abstract_ `GameEngine`
+* It follows that implementing classes should be parameterized respectively
 
 ```java
 public abstract class GameEngine<
@@ -302,11 +303,7 @@ public abstract class GameEngine<
     }
 
     public void start() {
-        game.addPlayers(players);
-
-        while (!game.isOver()) {
-            game.evaluateTurns(players);
-        }
+      // definition omitted
     }
 }
 ```
@@ -330,6 +327,30 @@ public class GoFishGameEngine extends GameEngine<GoFishPlayer, GoFishGame> {
 
 
 -
+### Former Definition
+* `GoFishGameEngine`
+
+```java
+public class GoFishGameEngine {
+  private GoFishGame game;
+  private List<GoFishPlayer> players;
+  public GoFishGameEngine(GoFishGame game, List<GoFishPlayer> players) {
+    this.game = game;
+    this.players = players;
+  }
+
+  public void start() {
+    game.addPlayers(players);
+
+    while(!game.isOver()) {
+      game.evaluateTurns(players);
+    }
+  }
+}
+```
+
+
+-
 ### Abstracting Generic Structures
 * Parameterizing `BlackJackGameEngine`
 
@@ -337,6 +358,33 @@ public class GoFishGameEngine extends GameEngine<GoFishPlayer, GoFishGame> {
 public class BlackJackGameEngine extends GameEngine<BlackJackPlayer, BlackJackGame> {
   public BlackJackGameEngine(BlackJackGame game, List<BlackJackPlayer> players){
     super(game, players);
+  }
+}
+```
+
+
+
+
+
+-
+### Former Definition
+* `BlackJackGameEngine`
+
+```java
+public class BlackJackGameEngine {
+  private BlackJackGame game;
+  private List<BlackJackPlayer> players;
+  public BlackJackGameEngine(BlackJackGame game, List<BlackJackPlayer> players) {
+    this.game = game;
+    this.players = players;
+  }
+
+  public void start() {
+    game.addPlayers(players);
+
+    while(!game.isOver()) {
+      game.evaluateTurns(players);
+    }
   }
 }
 ```
