@@ -32,12 +32,17 @@
 * Interface Segregation Principle
 * Dependency Inversion Principle
 
+
+
+-
 -
 ## Single Responsibility Principle (SRP)
 * **Every class should have responsibility over a single part of the functionality provided by the software.**
 * The responibility of a class should be entirely encapsulated by the class.
 * The services of a class should be narrowly aligned with the responsibility of that module.
 * Robert C. Martin expresses the principle as, "A class should have only one reason to change."
+
+
 
 -
 ## Open/closed principle (OCP)

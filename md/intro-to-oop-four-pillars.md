@@ -32,7 +32,7 @@
 
 -
 ## Achieving Encapsulation
-* Achieved by grouping wrapping several data fields and methods in a single entity
+* Achieved by wrapping several data fields and methods in a single entity
 
 ```java
 public class Person {
