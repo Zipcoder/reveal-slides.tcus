@@ -5,7 +5,7 @@
 -
 -
 ## Defining generic classes
-* You know to define a generic class when classes share signatures but have variable Type
+* You know to define a generic class when classes share method signatures but have variable Type
 
 
 -
@@ -175,7 +175,7 @@ public class BlackJackGame implements Game<BlackJackPlayer> {
 public void demo() {
   Player player = new BlackJackPlayer();
   Game<GoFishPlayer> game = new GoFishGame();
-  game.addPlayer(player); // runtime exception
+  game.addPlayer(player); // compile-time exception
 }
 ```
 
@@ -193,7 +193,7 @@ public void demo() {
 public void demo() {
   Player player = new GoFishPlayer();
   Game<BlackJackPlayer> game = new BlackJackGame();
-  game.addPlayer(player); // runtime exception
+  game.addPlayer(player); // compile-time exception
 }
 ```
 
@@ -209,7 +209,7 @@ public void demo() {
 
 ```java
 public void demo() {
-    Player player = new GoFishPlayer();
+    GoFishPlayer player = new GoFishPlayer();
     GoFishGame<GoFishPlayer> game = new GoFishGame();
     game.addPlayer(player); // valid
 }
@@ -217,19 +217,6 @@ public void demo() {
 
 
 
-
-
--
-### Noticing Design Advantage<br>Part 2
-* Notice that the `Game` interface enforces valid `Player`-types
-
-```java
-public void demo() {
-    Player player = new BlackJackPlayer();
-    BlackJackGame<BlackJackPlayer> game = new BlackJackGame();
-    game.addPlayer(player); // valid
-}
-```
 
 
 
@@ -296,13 +283,13 @@ public interface GameEngineInterface<
 
 ```java
 public abstract class GameEngine<
-        PlayerType extends PlayerType,
+        PlayerType extends Player,
         GameType extends Game<PlayerType>>
         implements GameEngineInterface<PlayerType, GameType> {
 
-    private Game game;
-    private List<Player> players;
-    public GameEngine(Game game, List<Player> players) {
+    private GameType game;
+    private List<PlayerType> players;
+    public GameEngine(GameType game, List<PlayerType> players) {
         this.game = game;
         this.players = players;
     }

@@ -50,7 +50,7 @@ public class Person {
 
 
 -
-### Encapsulation<br>Managing person-date<br>without Encapsulation
+### Encapsulation<br>Managing person-data<br>without Encapsulation
 * Unrelated variables coexist in scope
 
 ```java
