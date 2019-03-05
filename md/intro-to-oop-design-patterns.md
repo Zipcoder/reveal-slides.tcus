@@ -134,6 +134,32 @@
 	* Helps make a system independent of how its objects are created, composed, or represented
 
 
+-
+### Brief Example
+
+```java
+public class License {
+    String name, addressLine1, addressLine2, city, state;
+    Date birthDate, issuedDate, expirationDate;
+    Integer licenseNumber, zipcode;
+
+    public License(String name, String addressLine1, String addressLine2,
+                   String city, String state, Date birthDate,
+                   Date issuedDate, Date expirationDate,
+                   Integer licenseNumber, Integer zipcode) {
+        this.name = name;
+        this.addressLine1 = addressLine1;
+        this.addressLine2 = addressLine2;
+        this.city = city;
+        this.state = state;
+        this.birthDate = birthDate;
+        this.issuedDate = issuedDate;
+        this.expirationDate = expirationDate;
+        this.licenseNumber = licenseNumber;
+        this.zipcode = zipcode;
+    }
+}
+```
 
 -
 -
