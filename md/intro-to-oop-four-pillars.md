@@ -142,11 +142,9 @@ public void demo() {
 ```java
 public class Animal {
   private Point position;
-  protected String speechPhrase;
+  protected String phrase;
 
-  public Animal(String speechPhrase) {
-    this.speechPhrase = speechPhrase;
-  }
+  public Animal(String phrase) { this.phrase = phrase; }
 
   public void setPosition(Integer xPosition, Integer yPosition) {
     this.position = new Point(xPosition, yPosition);
@@ -161,7 +159,7 @@ public class Animal {
 ### Inheritance<br>Designing a Fox class
 * The class which inherits the members of other is known as _subclass_ (derived class)
   * Here, the `Fox` class inherits members from `Animal`
-  * Notice, `Fox`'s reference to _protected_ member of `speechPhrase`.
+  * Notice, `Fox`'s reference to _protected_ member of `phrase`.
 
 ```java
 public class Fox extends Animal {
@@ -170,7 +168,7 @@ public class Fox extends Animal {
   }
 
   public void useSpeech() {
-    System.out.println(super.speechPhrase); // inherited member
+    System.out.println(super.phrase); // inherited member
   }
 }
 ```
@@ -204,7 +202,7 @@ null
 ```java
 public void demo() {
     Fox fox = new Fox();
-    String speechPhrase = fox.speechPhrase; // invalid reference
+    String phrase = fox.phrase; // invalid reference
 }
 ```
 
