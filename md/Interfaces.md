@@ -63,19 +63,14 @@ public interface SomeInterface {
   Object funcReturnsAnObject();
   ReturnType functionName();
 }
-...
+```
+```java
 public class SomeClass implements SomeInterface {
-  public SomeClass() {
-    // Constructor
-  }
+  public SomeClass() { }
 
-  public boolean someBoolFunc() {
-    return true;
-  }
+  public boolean someBoolFunc() { return true; }
 
-  public Object funcReturnsAnObject() {
-    return new Object();
-  }
+  public Object funcReturnsAnObject() { return new Object(); }
 
   public ReturnType functionName() {
     // Must return some ReturnType
@@ -105,30 +100,28 @@ We can, however, write some code to make sure that the cast will be okay using `
 -
 
 ```java
-public interface SomeInterface {
-  boolean someBoolFunc();
-}
-...
+public interface SomeInterface { boolean someBoolFunc(); }
+```
+```java
 public class Implementer implements SomeInterface {
-  public Implementer() {
-    // Constructor
-  }
+  public Implementer() { }
 
-  public boolean someBoolFunc() {
-    return true;
-  }
+  public boolean someBoolFunc() { return true; }
 
   public void someOtherFunc() {
     System.out.println("Some Other Function");
   }
 }
-...
-SomeInterface something = // something;
-if(something instanceof Implementer) {
-  Implementer letsUseIt = (Implementer) something;
-  something.someOtherFunc();
-} else {
-  // not an instance of Implementer
+```
+```java
+public void demo() {
+  SomeInterface something = // something;
+  if(something instanceof Implementer) {
+    Implementer letsUseIt = (Implementer) something;
+    something.someOtherFunc();
+  } else {
+    // not an instance of Implementer
+  }
 }
 ```
 
@@ -143,32 +136,31 @@ Any class implementing an extended interface must implement all of the methods f
 public interface SomeInterface {
   boolean someBoolFunc();
 }
-...
+```
+```java
 public interface ExtendoInterface extends SomeInterface{
   int someIntFunc();
 }
-...
+```
+```java
 public class Usage implements ExtendoInterface {
-  public Usage() {
-    // empty constructor
-  }
+  public Usage() {}
 
-  public int someIntFunc() {
-    return 42;
-  }
+  public int someIntFunc() { return 42; }
 
-  public boolean someBoolFunc() {
-    return true;
-  }
+  public boolean someBoolFunc() {return true; }
 }
 ```
+
 
 -
 ## Implementing Multiple Interfaces
 
 ```java
-public class Something implements AnInterface,
-             AnotherInterface, ThirdInterface
+public class Something implements
+      AnInterface,
+      AnotherInterface,
+      ThirdInterface {}
 ```
 
 -
@@ -206,9 +198,13 @@ public interface Example {
 public interface FirstExample {
   default boolean isTrue() { return true; }
 }
+```
+```java
 public interface SecondExample {
   default boolean isTrue() { return false; }
 }
+```
+```java
 public class Example implements FirstExample, SecondExample {
   // must have
   public boolean isTrue() { return true; }
