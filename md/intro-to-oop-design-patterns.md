@@ -150,6 +150,8 @@
 -
 # Behavioral Patterns
 * Characterize the ways in which classes or objects interact and distribute responsibility.
+* Concerned with algorithms and the assignment of responsibilities between objects
+* Describes object / class patterns as well as the resulting communication patterns between them
 * Some Examples:
 	* Observer
 	* Command
