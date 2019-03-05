@@ -134,32 +134,50 @@
 	* Helps make a system independent of how its objects are created, composed, or represented
 
 
+
+
+
+-
+-
+### Singleton Pattern
+* Problem:
+	* Ensure a class only has one instance and provide a global access point to it.
+
+-
+### Brief Example
+* Consider a Casino application wherein a `Player` instance require reference to an _externally persistent_ `Profile`.
+
+```java
+public class GoFishGame {
+  private List<GoFishPlayer> playerList;
+
+  public void createPlayer() {
+    String userPrompt = "What is your profile ID?";
+    IOConsole console = new IOConsole();
+    ProfileManager profileManager = ProfileManager.getInstance();
+
+    Integer profileId = console.getIntegerInput(userPrompt);
+    Profile profile = profileManager.getById(profileId);
+    GoFishPlayer player = new GoFishPlayer(profile);
+    playerList.add(player);
+  }
+}
+```
+
+* Here, the `ProfileManager` is a singleton.
+
+
+
+-
+-
+### Builder Pattern
+* Problem:
+	* Blah
+
 -
 ### Brief Example
 
-```java
-public class License {
-    String name, addressLine1, addressLine2, city, state;
-    Date birthDate, issuedDate, expirationDate;
-    Integer licenseNumber, zipcode;
 
-    public License(String name, String addressLine1, String addressLine2,
-                   String city, String state, Date birthDate,
-                   Date issuedDate, Date expirationDate,
-                   Integer licenseNumber, Integer zipcode) {
-        this.name = name;
-        this.addressLine1 = addressLine1;
-        this.addressLine2 = addressLine2;
-        this.city = city;
-        this.state = state;
-        this.birthDate = birthDate;
-        this.issuedDate = issuedDate;
-        this.expirationDate = expirationDate;
-        this.licenseNumber = licenseNumber;
-        this.zipcode = zipcode;
-    }
-}
-```
 
 -
 -
