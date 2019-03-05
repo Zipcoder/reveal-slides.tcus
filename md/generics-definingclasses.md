@@ -104,6 +104,7 @@ public class BlackJackPlayer implements Player {
 public interface Game {
   void evaluateTurn(Player player);
   void addPlayer(Player player);
+  void addPlayers(Iterable<Player> players);
   Boolean isOver();
 }
 ```
