@@ -153,9 +153,32 @@
 * Concerned with algorithms and the assignment of responsibilities between objects
 * Describes object / class patterns as well as the resulting communication patterns between them
 * Some Examples:
+	* Template
 	* Observer
 	* Command
 
+-
+### Template Pattern
+* Create an abstract definition of an algorithm to be used by more specific algorithms
+
+```java
+public static Integer[] getRange(int start) {
+    return getRange(0, start, 1);
+}
+
+public static Integer[] getRange(int start, int stop) {
+    return getRange(start, stop, 1);
+}
+
+// template method
+public static Integer[] getRange(int start, int stop, int step) {
+    List<Integer> list = new ArrayList<>();
+    for(int i = start; i<stop; i+=step) {
+        list.add(i);
+    }
+    return list.toArray(new Integer[list.size()]);
+}
+```
 
 -
 -
