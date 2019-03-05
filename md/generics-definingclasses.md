@@ -104,7 +104,7 @@ public class BlackJackPlayer implements Player {
 public interface Game {
   void evaluateTurn(Player player);
   void addPlayer(Player player);
-  void addPlayers(Iterable<Player> players);
+https://github.com/Zipcoder/CashMachine
   Boolean isOver();
 }
 ```
@@ -211,7 +211,7 @@ public void demo() {
 ```java
 public void demo() {
     GoFishPlayer player = new GoFishPlayer();
-    GoFishGame<GoFishPlayer> game = new GoFishGame();
+    Game<GoFishPlayer> game = new GoFishGame();
     game.addPlayer(player); // valid
 }
 ```
