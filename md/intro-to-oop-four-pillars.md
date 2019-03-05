@@ -398,6 +398,30 @@ BLUE
 
 
 
+-
+### Static (compile-time) Polymorphism<br>Person Example
+* _Nullary_ constructor of `Person` class
+
+```java
+public void demo() {
+  Person person = new Person();
+
+  System.out.println(person.getName());
+  System.out.println(person.getAge());
+  System.out.println(person.getEyeColor());
+}
+```
+
+Output
+```java
+John
+50
+BLACK
+```
+
+
+
+
 
 
 
