@@ -46,8 +46,8 @@
 -
 ### Single Responsibility Principle (SRP)<br>Example
 * `String` class has a single responsibility of managing an array of `Character`
-* Violations of SRP enforce an _WET_ design.
-	* WET design promotes an _anti-pattern_ known as _God Object_
+* Violations of SRP enforce a _WET_ design.
+	* WET design promotes an _anti-pattern_ known as _God Object Pattern_
 
 
 
