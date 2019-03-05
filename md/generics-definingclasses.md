@@ -5,7 +5,7 @@
 -
 -
 ## Defining generic classes
-* You know to define a generic class when classes share method signatures but have variable Type
+* You know to define a generic class when classes share signatures but have variable Type
 
 
 -
