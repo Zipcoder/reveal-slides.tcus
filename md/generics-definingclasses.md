@@ -240,7 +240,7 @@ public interface GameEngineInterface {
 * Defining _abstract_ `GameEngine`
 
 ```java
-public class GameEngine implements GameEngineInterface {
+public abstract class GameEngine implements GameEngineInterface {
   private Game game;
   private List<Player> players;
   public GameEngine(Game game, List<Player> players) {
