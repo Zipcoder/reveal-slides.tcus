@@ -13,7 +13,8 @@
 
 -
 ### Template Pattern
-* Create an abstract definition of an algorithm to be used by more specific algorithms
+* Create a method of high variability to define methods of lesser variability
+	* _Degree of variability_ is determined by the number of arguments of a method
 
 ```java
 public static Integer[] getRange(int start) {
