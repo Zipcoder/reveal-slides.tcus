@@ -104,7 +104,7 @@ public class BlackJackPlayer implements Player {
 public interface Game {
   void evaluateTurn(Player player);
   void addPlayer(Player player);
-https://github.com/Zipcoder/CashMachine
+
   Boolean isOver();
 }
 ```
