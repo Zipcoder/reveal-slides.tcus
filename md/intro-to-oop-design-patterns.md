@@ -135,6 +135,50 @@
 
 
 
+
+
+-
+-
+### Singleton Pattern
+* Problem:
+	* Ensure a class only has one instance and provide a global access point to it.
+
+-
+### Brief Example
+* Consider a Casino application wherein a `Player` instance require reference to an _externally persistent_ `Profile`.
+
+```java
+public class GoFishGame {
+  private List<GoFishPlayer> playerList;
+
+  public void createPlayer() {
+    String userPrompt = "What is your profile ID?";
+    IOConsole console = new IOConsole();
+    ProfileManager profileManager = ProfileManager.getInstance();
+
+    Integer profileId = console.getIntegerInput(userPrompt);
+    Profile profile = profileManager.getById(profileId);
+    GoFishPlayer player = new GoFishPlayer(profile);
+    playerList.add(player);
+  }
+}
+```
+
+* Here, the `ProfileManager` is a singleton.
+
+
+
+-
+-
+### Builder Pattern
+* Problem:
+	* Blah
+
+-
+### Brief Example
+
+
+
 -
 -
 # Structural Patterns
