@@ -212,7 +212,7 @@ public class GoFishGame {
 * Abstract Factory Class Pattern
 	* Provides an interface for creating families of related or dependent objects without specifying their concrete classes.
 * Factory Pattern
-	* _Informal pattern_ in there exists a class solely responsible for creation of another.
+	* _Informal pattern_ in which there exists a class solely responsible for creation of another.
 
 -
 ### Factory Methods; Example 1
