@@ -1,6 +1,13 @@
 # Design patterns
 
+-
+-
 ## Creational Patterns
+* Defers part of object creation to another class
+* Some Examples:
+	* Singleton
+	* Factory
+	* Builder
 
 
 -
@@ -17,8 +24,7 @@
 -
 -
 ### Singleton Pattern
-* Problem:
-	* Ensure a class only has one instance and provide a global access point to it.
+* Problem - Ensure a class only has one instance and provide a global access point to it.
 
 -
 ### Brief Example
@@ -28,7 +34,7 @@
 public class GoFishGame {
   private List<GoFishPlayer> playerList;
 
-  public void createPlayer() {
+  public void addNewPlayer() {
     String userPrompt = "What is your profile ID?";
     IOConsole console = new IOConsole();
     ProfileManager profileManager = ProfileManager.getInstance();
@@ -78,7 +84,7 @@ public class ProfileManager implements Container<Profile> {
 public class GoFishGame {
   private List<GoFishPlayer> playerList;
 
-  public void createPlayer() {
+  public void addNewPlayer() {
     String userPrompt = "What is your profile ID?";
     IOConsole console = new IOConsole();
 
@@ -126,7 +132,7 @@ public class ProfileManager implements Container<Profile> {
 public class GoFishGame {
   private List<GoFishPlayer> playerList;
 
-  public void createPlayer() {
+  public void addNewPlayer() {
     String userPrompt = "What is your profile ID?";
     IOConsole console = new IOConsole();
 
@@ -169,7 +175,7 @@ public enum ProfileManager implements Container<Profile> {
 public class GoFishGame {
   private List<GoFishPlayer> playerList;
 
-  public void createPlayer() {
+  public void addNewPlayer() {
     String userPrompt = "What is your profile ID?";
     IOConsole console = new IOConsole();
 
@@ -187,25 +193,85 @@ public class GoFishGame {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 -
 -
 ## Creational Patterns: Factory
 * Defers some part of object construction to another class
 * [Factory Method](_)
 	* A method which is responsible for instantiating and returning an object.
-* [Factory Pattern](_)
-	* A system which includes a class solely responsible for creation of another.
 * Abstract Factory Class Pattern
 	* Provides an interface for creating families of related or dependent objects without specifying their concrete classes.
+* [Factory Pattern](_)
+	* _Informal pattern_ in there exists a class solely responsible for creation of another.
 
+-
+### Factory Methods; Example 1
+* Each `String`-returning method in the `String` class is a _factory method_.
+  * Each of such methods returns a new instance of a `String`
+
+```java
+public void demo() {
+  String string = "Hello world";
+  string.replaceAll("Hello", "");
+  System.out.println(string);
+}
+```
+
+Output
+```java
+Hello world
+```
+
+-
+### Factory Methods; Example 2
+* Here, the `PersonFactory` acts as a _factory class_ and the `createRandomPerson` method acts as a _factory method_.
+
+```java
+public class PersonFactory {
+  // factory method
+  public Person createRandomPerson() {
+    return createRandomlyAgedPerson(RandomUtils.createInteger(0, 100));
+  }
+
+  // factory method
+  public Person createRandomlyAgedPerson(String name) {
+    Integer randomAge = RandomUtils.createInteger(0, 100);
+    return new Person(name, randomAge);
+  }
+}
+```
+
+
+## Abstract Factory Pattern Example
+* Read the book...
 
 
 -
+### Issues with Factory Pattern
+* Too many arguments to pass from client program to the Factory class that can be error prone
+  * Often argument-types are same. From client side its hard to maintain the order of the argument.
+2. Factory pattern does not optional parameters well.
+  * We are forced to send all the parameters and optional parameters need to send as NULL.
+3. If the object is heavy and its creation is complex, then the complexity will be part of Factory.
 
-There are three major issues with Factory and Abstract Factory design patterns when the Object contains a lot of attributes.
-1. Too Many arguments to pass from client program to the Factory class that can be error prone because most of the time, the type of arguments are same and from client side its hard to maintain the order of the argument.
-2. Some of the parameters might be optional but in Factory pattern, we are forced to send all the parameters and optional parameters need to send as NULL.
-3. If the object is heavy and its creation is complex, then all that complexity will be part of Factory classes that is confusing.
+
+
+
+
+
+
+
 
 
 
@@ -213,8 +279,7 @@ There are three major issues with Factory and Abstract Factory design patterns w
 -
 ## Creational Patterns: Builder
 * Separate the construction of a complex object from its representation so that the same construction process can create different representations
-
-* Builder pattern was introduced to solve some of the problems with Factory and Abstract Factory design patterns when the Object contains a lot of attributes.
+* Resolves issues with large construction involving a lot of attributes.
 
 
 -
@@ -232,20 +297,12 @@ public class License {
     Date birthDate, issuedDate, expirationDate;
     Integer licenseNumber, zipcode;
 
-    public License(String name, String addressLine1, String addressLine2,
-                   String city, String state, Date birthDate,
+    public License(String name, String addressLine1,
+                   String addressLine2, String city,
+                   String state, Date birthDate,
                    Date issuedDate, Date expirationDate,
                    Integer licenseNumber, Integer zipcode) {
-        this.name = name;
-        this.addressLine1 = addressLine1;
-        this.addressLine2 = addressLine2;
-        this.city = city;
-        this.state = state;
-        this.birthDate = birthDate;
-        this.issuedDate = issuedDate;
-        this.expirationDate = expirationDate;
-        this.licenseNumber = licenseNumber;
-        this.zipcode = zipcode;
+       // definition omitted
     }
 }
 ```
@@ -282,6 +339,7 @@ public void demo() {
 ### Brief Example, Part 3
 * Notice the setter's return-type
   * This allows setting fields to be chained
+
 ```java
 public class LicenseBuilder {
     private String name;
@@ -301,18 +359,20 @@ public class LicenseBuilder {
 }
 ```
 
+-
 ### Constructing a License with LicenseBuilder
 * Notice the fields are initialized in arbitrary order
+* Notice that `null` values are ignored
 ```java
 public void demo() {
 		License license = new LicenseBuilder()
             .setBirthDate(new Date()),
-						.setName("John"),
-						.setAddressLine1("123 Square Lane"),
-						.setCity("Milford"),
-						.setState("Delaware"),
+            .setName("John"),
+            .setAddressLine1("123 Square Lane"),
+            .setCity("Milford"),
+            .setState("Delaware"),
             .setZipCode(19720);
-						.setLicenseNumber(1238913312)
+            .setLicenseNumber(1238913312)
             .build();
 }
 ```
