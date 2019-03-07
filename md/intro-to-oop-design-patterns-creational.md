@@ -207,12 +207,11 @@ public class GoFishGame {
 -
 -
 ## Creational Patterns: Factory
-* Defers some part of object construction to another class
-* [Factory Method](_)
+* Factory Method
 	* A method which is responsible for instantiating and returning an object.
 * Abstract Factory Class Pattern
 	* Provides an interface for creating families of related or dependent objects without specifying their concrete classes.
-* [Factory Pattern](_)
+* Factory Pattern
 	* _Informal pattern_ in there exists a class solely responsible for creation of another.
 
 -
@@ -278,7 +277,7 @@ public class PersonFactory {
 -
 -
 ## Creational Patterns: Builder
-* Separate the construction of a complex object from its representation so that the same construction process can create different representations
+* Problem - Separate the construction of a complex object from its representation so that the same construction process can create different representations
 * Resolves issues with large construction involving a lot of attributes.
 
 
@@ -363,6 +362,7 @@ public class LicenseBuilder {
 ### Constructing a License with LicenseBuilder
 * Notice the fields are initialized in arbitrary order
 * Notice that `null` values are ignored
+
 ```java
 public void demo() {
 		License license = new LicenseBuilder()

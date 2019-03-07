@@ -164,18 +164,90 @@ public class GoFishGame {
 }
 ```
 
-* Here, the `ProfileManager` is a singleton.
+
 
 
 
 -
 -
-### Builder Pattern
-* Problem:
-	* Blah
+## Creational Patterns: Factory
+* Problem - Separate the construction of a complex object from its representation so that the same construction process can create different representations
 
 -
 ### Brief Example
+* Here, the `LicenseBuilder` is a _builder_ of `License` objects.
+```java
+public void demo() {
+		License license = new LicenseBuilder()
+            .setBirthDate(new Date()),
+            .setName("John"),
+            .setAddressLine1("123 Square Lane"),
+            .setCity("Milford"),
+            .setState("Delaware"),
+            .setZipCode(19720);
+            .setLicenseNumber(1238913312)
+            .build();
+}
+```
+
+
+
+-
+-
+## Creational Patterns: Builder
+* Problem - Separate the construction of a complex object from its representation so that the same construction process can create different representations
+
+-
+### Brief Example
+* Here, the `LicenseBuilder` is a _builder_ of `License` objects.
+```java
+public void demo() {
+		License license = new LicenseBuilder()
+            .setBirthDate(new Date()),
+            .setName("John"),
+            .setAddressLine1("123 Square Lane"),
+            .setCity("Milford"),
+            .setState("Delaware"),
+            .setZipCode(19720);
+            .setLicenseNumber(1238913312)
+            .build();
+}
+```
+
+
+-
+-
+## Creational Patterns: Factory
+* Create a class solely responsible for creation instances of another.
+
+-
+### Brief Example
+* Here, the `PersonFactory` acts as a _factory class_ and the `createRandomPerson` method acts as a _factory method_.
+
+```java
+public class PersonFactory {
+  // factory method
+  public Person createRandomPerson() {
+    return createRandomlyAgedPerson(RandomUtils.createInteger(0, 100));
+  }
+
+  // factory method
+  public Person createRandomlyAgedPerson(String name) {
+    Integer randomAge = RandomUtils.createInteger(0, 100);
+    return new Person(name, randomAge);
+  }
+}
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -188,6 +260,19 @@ public class GoFishGame {
 	* Decorator
 	* Adapter
 	* Proxy
+
+-
+## Brief Example
+* Ensures that a _new instance_ of type `T` wraps the behavior of a _pre-existing_ instance of type `T`.
+	* This allows the _pre existing_ instance to gain functionality during run-time rather than creating an explicit subclass.
+
+```java
+public void demo() {
+	CasinoPlayerProfile player = ProfileManager.getCurrentPlayer();
+	CasinoPlayerProfile blackJackPlayer = new BlackJackPlayer(player);
+	blackJackPlayer.increaseProfileBalance(100);
+}
+```
 
 
 -
