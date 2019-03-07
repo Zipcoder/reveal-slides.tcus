@@ -13,19 +13,21 @@
 
 -
 ### Template Pattern
-* Create a method of high variability to define methods of lesser variability
-	* _Degree of variability_ is determined by the number of arguments of a method
+* Create a method of high degree of freedom to define methods of lesser variability
+	* _Degree of freedom_ is determined by the number of arguments of a method
 
 ```java
+// degree of 1
 public static Integer[] getRange(int start) {
     return getRange(0, start, 1);
 }
 
+// degree of 2
 public static Integer[] getRange(int start, int stop) {
     return getRange(start, stop, 1);
 }
 
-// template method
+// degree of 3; template method
 public static Integer[] getRange(int start, int stop, int step) {
     List<Integer> list = new ArrayList<>();
     for(int i = start; i<stop; i+=step) {
@@ -35,6 +37,8 @@ public static Integer[] getRange(int start, int stop, int step) {
 }
 ```
 
+
+-
 -
 ## Observer Pattern
 * Register observer
