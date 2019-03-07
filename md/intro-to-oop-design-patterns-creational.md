@@ -3,20 +3,25 @@
 ## Creational Patterns
 
 
+-
+### Two Recurring Themes of Creational Patterns
+1. They encapsulate knowledge about which concrete classes the system uses
+	* Abstracts the instantiation process
+2. Hide how instances of classes are created and put together
+	* Helps make a system independent of how its objects are created, composed, or represented
+
+
+
+
 
 -
 -
 ### Singleton Pattern
 * Problem:
 	* Ensure a class only has one instance and provide a global access point to it.
-* Different Archetypes:
-	* Eager initialization
-	* Lazy initialization
-	* Enum singleton
- 	* Bill Pugh singleton
 
 -
-### Requiring a global access Point
+### Brief Example
 * Consider a Casino application wherein a `Player` instance require reference to an _externally persistent_ `Profile`.
 
 ```java
@@ -40,93 +45,146 @@ public class GoFishGame {
 
 
 -
+-
+## Implementing a Singleton
+* Singleton allows you to design a class as if its use will be non-static (implementing interfaces, extending classes), but accessing it gives the appearance of static operations
+
+
+-
 ### Eager Initialization
 * **Solution:** the instance of Singleton Class is created at the time of class loading
 * **Consequence:** instance is created even if client application might not be using it.
 
+-
+### Eager Initialization Example
 ```java
-public class BankAccountManager {    
-    private static final BankAccountManager instance = new BankAccountManager();
+public class ProfileManager implements Container<Profile> {
+  private static final ProfileManager instance = new ProfileManager();
+  private final Group<Profile> profileContainer;
 
-    private BankAccountManager(){}
+  private ProfileManager(){ this.profileContainer = new Group<>(); }
 
-    public static BankAccountManager getInstance(){
-        return instance;
-    }
+  public static ProfileManager getInstance(){ return instance; }
+  public void add(Profile profile) { profileContainer.add(profile); }
+  public void remove(Profile profile) { profileContainer.remove(profile); }
+  public Profile getById(Long id) { profileContainer.getById(id);}
 }
 ```
 
 -
-### Lazy Initialization
-* **Solution:** creates the instance in the global access method.
-* **Consequence:** a bit verbose
+### Accessing Eager Initialization singleton
 
 ```java
-public class LazySingleton {
-    private static LazySingleton instance;
+public class GoFishGame {
+  private List<GoFishPlayer> playerList;
 
-    private LazySingleton(){}
+  public void createPlayer() {
+    String userPrompt = "What is your profile ID?";
+    IOConsole console = new IOConsole();
 
-    public static LazySingleton getInstance(){
-        if(instance == null){
-            instance = new LazySingleton();
-        }
-        return instance;
-    }
+    // static `getInstance` access
+    ProfileManager profileManager = ProfileManager.getInstance();
+
+    Integer profileId = console.getIntegerInput(userPrompt);
+    Profile profile = profileManager.getById(profileId);
+    GoFishPlayer player = new GoFishPlayer(profile);
+    playerList.add(player);
+  }
 }
 ```
 
 -
-### Bill Pugh Singleton
-* **Solution:**
-	* inner class is only loaded upon invokation of `getInstance`.
-	* doesn't require synchronization
-* **Consequence:**
+### Lazy Initialization Example
+* **Solution:** instance is not created until global access method is accessed
 
 ```java
-public class BillPughSingleton {
+public class ProfileManager implements Container<Profile> {
+  private static final ProfileManager instance;
+  private final Container<Profile> profileContainer;
 
-    private BillPughSingleton(){}
+  private ProfileManager(){ this.profileContainer = new Container<>(); }
 
-    private static class SingletonHelper{
-        private static final BillPughSingleton INSTANCE = new BillPughSingleton();
+  public static ProfileManager getInstance(){
+    if(instance != null) {
+      instance = new ProifleManager();
     }
-
-    public static BillPughSingleton getInstance(){
-        return SingletonHelper.INSTANCE;
-    }
+    return instance;
+  }
+  public void add(Profile profile) { profileContainer.add(profile); }
+  public void remove(Profile profile) { profileContainer.remove(profile); }
+  public Profile getById(Long id) { return profileContainer.getById(id);}
 }
 ```
 
+
+
+
 -
-### Enum Singleton
+### Accessing Lazy Initialization singleton
+
+```java
+public class GoFishGame {
+  private List<GoFishPlayer> playerList;
+
+  public void createPlayer() {
+    String userPrompt = "What is your profile ID?";
+    IOConsole console = new IOConsole();
+
+    // static `getInstance` access
+    ProfileManager profileManager = ProfileManager.getInstance();
+
+    Integer profileId = console.getIntegerInput(userPrompt);
+    Profile profile = profileManager.getById(profileId);
+    GoFishPlayer player = new GoFishPlayer(profile);
+    playerList.add(player);
+  }
+}
+```
+
+
+-
+### Enum Singleton Example
 * **Solution:** Java ensures that any enum value is instantiated only once.
 * **Consequence:** does not allow lazy initialization.
 
 ```java
-public enum EnumSingleton {
-    INSTANCE;
+public enum ProfileManager implements Container<Profile> {
+  INSTANCE;
+  private final Container<Profile> profileContainer;
+
+  private ProfileManager(){ this.profileContainer = new Container<>(); }
+
+  public void add(Profile profile) { profileContainer.add(profile); }
+  public void remove(Profile profile) { profileContainer.remove(profile); }
+  public Profile getById(Long id) { return profileContainer.getById(id);}
 }
 ```
+
+
 
 -
-### Usage
-* Notice the two different syntaxes for referencing a singleton object.
+### Accessing Enum singleton
 
 ```java
-public class Main {
-	public static void main(String[] args) {
-		PersonFactory personFactory = PersonFactory.getInstance();
-		PersonWarehouse personWarehouse = PersonWarehouse.INSTANCE;
+public class GoFishGame {
+  private List<GoFishPlayer> playerList;
 
-		Person person1 = personFactory.createPerson();
-		Person person2 = personFactory.createPerson();
-		Person person3 = personFactory.createPerson();
+  public void createPlayer() {
+    String userPrompt = "What is your profile ID?";
+    IOConsole console = new IOConsole();
 
-		personWarehouse.add(person1, person2, person3);
-	}
+    // static `INSTANCE` access
+    ProfileManager profileManager = ProfileManager.INSTANCE;
+
+    Integer profileId = console.getIntegerInput(userPrompt);
+    Profile profile = profileManager.getById(profileId);
+    GoFishPlayer player = new GoFishPlayer(profile);
+    playerList.add(player);
+  }
 }
 ```
+
+
 
 
 -
