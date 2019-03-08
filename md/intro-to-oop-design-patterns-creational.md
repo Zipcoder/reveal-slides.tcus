@@ -111,7 +111,7 @@ public class ProfileManager implements Container<Profile> {
   private ProfileManager(){ this.profileContainer = new Container<>(); }
 
   public static ProfileManager getInstance(){
-    if(instance != null) {
+    if(instance == null) {
       instance = new ProifleManager();
     }
     return instance;
@@ -151,7 +151,6 @@ public class GoFishGame {
 -
 ### Enum Singleton Example
 * **Solution:** Java ensures that any enum value is instantiated only once.
-* **Consequence:** does not allow lazy initialization.
 
 ```java
 public enum ProfileManager implements Container<Profile> {
@@ -240,7 +239,8 @@ Hello world
 public class PersonFactory {
   // factory method
   public Person createRandomPerson() {
-    return createRandomlyAgedPerson(RandomUtils.createInteger(0, 100));
+    String name = RandomUtils.createString('a', 'z', 5);
+    return createRandomlyAgedPerson(name);
   }
 
   // factory method
@@ -251,7 +251,7 @@ public class PersonFactory {
 }
 ```
 
-
+-
 ## Abstract Factory Pattern Example
 * Read the book...
 

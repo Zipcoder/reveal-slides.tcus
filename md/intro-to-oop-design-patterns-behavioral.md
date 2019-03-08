@@ -41,9 +41,33 @@ public static Integer[] getRange(int start, int stop, int step) {
 -
 -
 ## Observer Pattern
-* Register observer
-* Remove observer
-* Notify observer on state change
+* Register observer (subject) to a observable
+* Remove observer from observable
+* Notify observer on state change of observable
+
+
+-
+### Observable
+* Responsible for notifying registered observer's of state-change
+
+```java
+public interface Observable<T extends Observer> {
+	void register(T observer);
+	void unregister(T observer);
+	void notify()
+	List<Observer> getAllObservers();
+}
+```
+
+
+-
+### What is an Observer?
+* Responsible for being updated upon Observable state-change
+```java
+public interface Observer {
+	void update();
+}
+```
 
 
 -
