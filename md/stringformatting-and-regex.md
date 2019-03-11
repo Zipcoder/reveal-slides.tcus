@@ -6,9 +6,9 @@
 
 -
 ### Built-in Formatting Utilities
-- `String.format()`
-- `System.out.format()`
-- `Formatter()`
+* `String.format()`
+* `System.out.format()`
+* `Formatter()`
 
 
 
@@ -34,6 +34,9 @@
 ### Format specifiers
 * _Format specifiers_ are _flags_ which notify the compiler to insert values into a `String`.
   * always preceded by a `%`
+* Specifier syntax
+  * `%[argument_index$][flags][width][.precision]conversion`
+
 
 
 -
@@ -407,28 +410,7 @@ Hi, my age is 25!
 -
 -
 ## Regular expressions
-
--
-### Basic symbols
-- `a`, `b`, `c` - match "a", "b", "c" respectively (all numbers & letters)
-- `.` - matches any one character
-- `*` - match 0 or more occurrences of the last symbol
-- `+` - match 1 or more occurrences of the last symbol
-- `?` - match 0 or 1 occurrences of the last symbol
-
--
-### Examples
-- `S117` - matches only the string "S117"
-- `dogs?` - matches the strings "dog" or "dogs"
-- `fuzzy*` - matches the strings "fuzz", "fuzzy", "fuzzyyyyy" etc.
-- `wh?ee+!` - matches "whee!", "weee!", "wheeeee!" [and so on](https://youtu.be/lJ5g6Uq9hwQ?t=4s)
-
--
-### Regex sites
-- [regexr](http://regexr.com/) - test regular expressions
-
-
-
+* are a sequence of symbols and characters expressing a string or pattern to be searched for within a longer piece of text.
 
 
 
@@ -439,31 +421,365 @@ Hi, my age is 25!
 
 
 -
-### Format parameters
+-
+### Character classes
+| Expression                            | Description                                    |
+|---------------------------------------|------------------------------------------------|
+| `.`                                   | any character except newline
+| `\w`, `\d`, `\s`                      | word / digit / whitespace
+| `\W`, `\D`, `\S`                      | not word / not digit / not whitespace
+| `[abc]`                               | any of `a`, `b`, or `c`
+| `[^abc]`                              | not `a`, not `b`, not `c`
+| `[a-g]`                               | character between `a` and `g`
 
-- first argument: The format string with format specifiers
-- all other arguments: values to fill into the format string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -
-### Format specifier syntax
+#### Using Character Classes
+* Example 1 - Matching all characters
 
-`%[argument_index$][flags][width][.precision]conversion`
+```java
+public void demo() {
+    String text = "The Quick Brown Fox";
 
-[Example](https://repl.it/DrIh/2)
+    String patternString = ".";
+    Pattern pattern = Pattern.compile(patternString);
+    Matcher matcher = pattern.matcher(text);
+    for (int i = 0; matcher.find(); i++) {
+        System.out.println(new StringBuilder()
+                .append("\n-------------------")
+                .append("\nValue = " + matcher.group())
+                .append("\nMatch Number = " + i)
+                .append("\nStarting index = " + matcher.start())
+                .append("\nEnding index = " + matcher.end())
+                .toString());
+
+    }
+}
+```
 
 -
+### Using Character Classes
+* Example 1 output
+
+```
+-------------------
+Value = T
+Match Number = 0
+Starting index = 0
+Ending index = 1
+
+-------------------
+Value = h
+Match Number = 1
+Starting index = 1
+Ending index = 2
+
+-------------------
+Value = e
+Match Number = 2
+Starting index = 2
+Ending index = 3
+```
 
 
-![Format Conversions](img/FormatConversions.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -
-### Pitfalls
-* Some specifiers may behave in unexpected ways. eg: `%b` will produce "true" for non-null values of any other data type
+-
+### Anchors
+| Expression                            | Description                                    |
+|---------------------------------------|------------------------------------------------|
+| `^abc$`                               | start / end of the string
+| `\b`, `\B`                            | word, digit, whitespace
+
+
+
+
+
+-
+#### Using Anchors
+* Example 1 - Fetch text from beginning of string
+
+```java
+public void demo() {
+    String text = "The Quick Brown";
+    String patternString = "^The";
+    Pattern pattern = Pattern.compile(patternString);
+    Matcher matcher = pattern.matcher(text);
+    for (int i = 0; matcher.find(); i++) {
+        System.out.println(new StringBuilder()
+                .append("\n-------------------")
+                .append("\nValue = " + matcher.group())
+                .append("\nMatch Number = " + i)
+                .append("\nStarting index = " + matcher.start())
+                .append("\nEnding index = " + matcher.end())
+                .toString());
+    }
+}
+```
+
+-
+### Using Anchors
+* Example 1 output
+
+```
+-------------------
+Value = The
+Match Number = 0
+Starting index = 0
+Ending index = 3
+```
+
+
+
+
+
+
+
+-
+#### Using Anchors
+* Example 2 - Fetch text from beginning of string
+
+```java
+public void demo() {
+    String text = "The Quick Brown";
+    String patternString = "^Brown";
+    Pattern pattern = Pattern.compile(patternString);
+    Matcher matcher = pattern.matcher(text);
+    for (int i = 0; matcher.find(); i++) {
+        System.out.println(new StringBuilder()
+                .append("\n-------------------")
+                .append("\nValue = " + matcher.group())
+                .append("\nMatch Number = " + i)
+                .append("\nStarting index = " + matcher.start())
+                .append("\nEnding index = " + matcher.end())
+                .toString());
+    }
+}
+```
+
+-
+### Using Anchors
+* Example 2 output - Empty output; no matches
+
+```
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -
 -
-### Useful Resources
+### Escaped characters
+| Expression                            | Description                                    |
+|---------------------------------------|------------------------------------------------|
+| `(abc)`                               | capture group
+| `\1`                                  | backreference to group #1
+| `(?:abc)`                             | non-capturing group
+| `(?=abc)`                             | positive lookahead
+| `(?!abc)`                             | negative lookahead
 
-- [Apache Commons StringUtils](http://commons.apache.org/proper/commons-lang/javadocs/api-release/org/apache/commons/lang3/StringUtils.html)
-- [Java Strings tutorial](https://docs.oracle.com/javase/tutorial/java/data/strings.html)
-- [CSV RFC (spec)](https://tools.ietf.org/html/rfc4180) -- just read #1-7 in section 2
+
+
+
+
+-
+#### Using Escaped Characters
+* Example 1
+
+```java
+public void demo() {
+    String text = "The Quick Brown";
+    String patternString = "(Brown)";
+    Pattern pattern = Pattern.compile(patternString);
+    Matcher matcher = pattern.matcher(text);
+    for (int i = 0; matcher.find(); i++) {
+        System.out.println(new StringBuilder()
+                .append("\n-------------------")
+                .append("\nValue = " + matcher.group())
+                .append("\nMatch Number = " + i)
+                .append("\nStarting index = " + matcher.start())
+                .append("\nEnding index = " + matcher.end())
+                .toString());
+    }
+}
+```
+
+-
+### Using Escaped Characters
+* Example 1 output
+
+```
+-------------------
+Value = Brown
+Match Number = 0
+Starting index = 10
+Ending index = 15
+```
+
+
+
+
+
+
+
+
+
+
+
+-
+-
+### Quantifies and Alternation
+| Expression                            | Description                                    |
+|---------------------------------------|------------------------------------------------|
+| `a*`, `a+`, `a?`                      | 0 or more, 1 or more, 0 or 1
+| `a{5}`, `a{2, }`                      | exactly five, two or more
+| `a{1,3}`                              | between one & three
+| `a+? a{2,}?`                          | match as few as possible
+| `ab|cd`                               | match `ab` or `cd`
+
+
+
+
+
+
+-
+#### Using Quantifies and Alternation
+* Example 2 - Matching all words
+
+```java
+public void demo() {
+    String text = "The Quick Brown";
+    String patternString = "\\w+";
+    Pattern pattern = Pattern.compile(patternString);
+    Matcher matcher = pattern.matcher(text);
+    for (int i = 0; matcher.find(); i++) {
+        System.out.println(new StringBuilder()
+                .append("\n-------------------")
+                .append("\nValue = " + matcher.group())
+                .append("\nMatch Number = " + i)
+                .append("\nStarting index = " + matcher.start())
+                .append("\nEnding index = " + matcher.end())
+                .toString());
+    }
+}
+```
+
+-
+#### Using Quantifies and Alternation
+* Example 2 output
+
+```
+-------------------
+Value = The
+Match Number = 0
+Starting index = 0
+Ending index = 3
+
+-------------------
+Value = Quick
+Match Number = 1
+Starting index = 4
+Ending index = 9
+
+-------------------
+Value = Brown
+Match Number = 2
+Starting index = 10
+Ending index = 15
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-
+### More about regex symbols
+* `a`, `b`, `c` - match "a", "b", "c" respectively (all numbers & letters)
+* `.` - matches any one character
+* `*` - match 0 or more occurrences of the last symbol
+* `+` - match 1 or more occurrences of the last symbol
+* `?` - match 0 or 1 occurrences of the last symbol
+
+-
+### More regex examples
+* `S117` - matches only the string "S117"
+* `dogs?` - matches the strings "dog" or "dogs"
+* `fuzzy*` - matches the strings "fuzz", "fuzzy", "fuzzyyyyy" etc.
+* `wh?ee+!` - matches "whee!", "weee!", "wheeeee!" [and so on](https://youtu.be/lJ5g6Uq9hwQ?t=4s)
+
+-
+### Site for testing regex
+* [http://regexr.com/](http://regexr.com/)
