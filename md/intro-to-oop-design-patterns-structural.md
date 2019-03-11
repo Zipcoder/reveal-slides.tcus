@@ -11,7 +11,7 @@
 -
 ## Structural Patterns: Decorator
 * Attach additional responsibilities to an obejct dynamically
-* Provides a flexible alternatie to subclassing for extending functionality.
+* Provides a flexible alternative to subclassing for extending functionality.
 
 -
 ## Structural Patterns: Adapter

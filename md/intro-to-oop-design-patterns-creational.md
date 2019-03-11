@@ -262,7 +262,6 @@ public class PersonFactory {
   * Often argument-types are same. From client side its hard to maintain the order of the argument.
 2. Factory pattern does not optional parameters well.
   * We are forced to send all the parameters and optional parameters need to send as NULL.
-3. If the object is heavy and its creation is complex, then the complexity will be part of Factory.
 
 
 
@@ -366,12 +365,12 @@ public class LicenseBuilder {
 ```java
 public void demo() {
 		License license = new LicenseBuilder()
-            .setBirthDate(new Date()),
-            .setName("John"),
-            .setAddressLine1("123 Square Lane"),
-            .setCity("Milford"),
-            .setState("Delaware"),
-            .setZipCode(19720);
+            .setBirthDate(new Date())
+            .setName("John")
+            .setAddressLine1("123 Square Lane")
+            .setCity("Milford")
+            .setState("Delaware")
+            .setZipCode(19720)
             .setLicenseNumber(1238913312)
             .build();
 }
