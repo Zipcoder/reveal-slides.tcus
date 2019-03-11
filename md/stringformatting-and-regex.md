@@ -24,32 +24,197 @@
 
 
 
+
 -
 -
 ### Formatting: String Formatting
-* `String.format`
-* String formatting is
+* String formatting converts the value of objects to strings based on formats specified, then inserts them into another string.
+
+-
+### Format specifiers
+* _Format specifiers_ are _flags_ which notify the compiler to insert values into a `String`.
+  * always preceded by a `%`
+
 
 -
 ### Formatting: String Formatting<br>Example 1
-* Formatting `String` arguments
+* Formatting `String` arguments using `%s` specifier
+  * `%s` specifies a `String` value.
 
 ```java
 public void demo() {
-
+  String formattedString = "Hey! [ %s ] is my name!";
+  String arg1 = "John";
+  String outputString = String.format(formattedString, arg1);
+  System.out.println(outputString);
 }
 ```
 
-
+Output
+```
+Hey! [ John ] is my name!
+```
 
 
 -
 ### Formatting: String Formatting<br>Example 2
-* Formatting `Number` arguments
+* Formatting `Integer` arguments using `%d` specifier
+  * `%d` specifies an integer value
 
 ```java
 public void demo() {
+  String formattedString = "I am %d years old.";
+  Integer arg1 = 25;
+  String outputString = String.format(formattedString, arg1);
+  System.out.println(outputString);
 }
+```
+
+Output
+```
+I am 25 years old.
+```
+
+
+
+-
+### Formatting: String Formatting<br>Example 3.0
+* Formatting `Double` arguments using `%f` specifier
+  * `%f` specifies a decimal value
+  * `.` precedes positive integer value denoting precision of floating point value. (_decimal precision_)
+  * the integer value specifies the _decimal precision_ of the double to formatted.
+
+```java
+public void demo() {
+  String formattedString = "I have finished %.5f percent of my homework.";
+  Double arg1 = 79.87654321;
+  String outputString = String.format(formattedString, arg1);
+  System.out.println(outputString);
+}
+```
+
+Output
+```
+I have finished 79.87654 percent of my homework.
+```
+
+
+
+-
+### Formatting: String Formatting<br>Example 3.1
+* Specifying precision of `3` decimal places.
+
+```java
+public void demo() {
+  String formattedString = "I have finished %.3f percent of my homework.";
+  Double arg1 = 79.87654321;
+  String outputString = String.format(formattedString, arg1);
+  System.out.println(outputString);
+}
+```
+
+Output
+```
+I have finished 79.876 percent of my homework.
+```
+
+
+-
+### Formatting: String Formatting<br>Example 3.2
+* Specifying precision of `2` decimal places.
+
+```java
+public void demo() {
+  String formattedString = "I have finished %.2f percent of my homework.";
+  Double arg1 = 79.87654321;
+  String outputString = String.format(formattedString, arg1);
+  System.out.println(outputString);
+}
+```
+
+Output
+```
+I have finished 79.87 percent of my homework.
+```
+
+
+-
+### Formatting: String Formatting<br>Example 3.2
+
+```java
+public void demo() {
+  Integer precision1 = 4;
+  Integer precision2 = 5;
+  Double valueToFormat = 79.87654321;
+  String output = getHomeworkDetails(precision1, valueToFormat)
+  String output = getHomeworkDetails(precision2, valueToFormat)
+  System.out.println(output);
+}
+```
+
+```java
+public String getHomeworkDetails(Integer decimalPrecision, Double valueToFormat) {
+  String formattedString = new StringBuilder()
+    .append("I have finished %.")
+    .append(decimalPrecision)
+    .append("f percent of my homework.")
+    .toString();
+  String outputString = String.format(formattedString, arg1);
+  return outputString;
+}
+```
+
+Output
+```
+I have finished 79.8765 percent of my homework.
+I have finished 79.87654 percent of my homework.
+```
+
+
+
+
+
+
+-
+### Formatting: String Formatting<br>Example 4
+* Formatting `Character` arguments using `%c` specifier
+  * `%c` specifies a character value
+
+```java
+public void demo() {
+  String formattedString = "My first initial is %c.";
+  Character arg1 = 'J';
+  String outputString = String.format(formattedString, arg1);
+  System.out.println(outputString);
+}
+```
+
+Output
+```
+My first initial is J.
+```
+
+
+
+
+-
+### Formatting: String Formatting<br>Example 5
+* Formatting `String` and `Number` arguments
+  * Arguments are entered in the order they are specified
+
+```java
+public void demo() {
+  String formattedString = "Hey! My name is %s. I am %d years old.";
+  String arg1 = "John";
+  Integer arg2 = 25;
+  String outputString = String.format(formattedString, arg1, arg2);
+  System.out.println(outputString);
+}
+```
+
+Output
+```
+Hey! My name is John. I am 25 years old.
 ```
 
 
@@ -64,33 +229,70 @@ public void demo() {
 
 
 
--
--
-### Formatting: System Outstream
-* `System.out.format`
-* Outstream formatting is used
 
+
+-
+-
+### Formatting: System Outstream<br>
+* Outstream formatting does not return a `String` value. Rather, it _prints_ a formatted `String` to the console.
+
+-
+### Formatting: System Outstream<br>Example 1
+* Formatting `String` arguments using `%s` specifier
+  * `%s` specifies a `String` value.
+
+```java
+public void demo() {
+  String formattedString = "Hey! [ %s ] is my name!";
+  String arg1 = "John";
+  System.out.format(formattedString, arg1);
+}
+```
+
+Output
+```
+Hey! [ John ] is my name!
+```
 
 
 -
 ### Formatting: System Outstream<br>Example 2
-* Outstream formatting `String` arguments
+* Formatting `Number` arguments using `%d` specifier
+  * `%d` specifies a non-decimal integer
 
 ```java
 public void demo() {
-
+  String formattedString = "I am %d years old.";
+  Integer arg1 = 25;
+  String outputString = System.out.format(formattedString, arg1);
 }
 ```
 
+Output
+```
+I am 25 years old.
+```
+
+
+
 
 -
-### Formatting: System Outstream<br>Example 2
-* Outstream formatting `Number` arguments
+### Formatting: System Outstream<br>Example 3
+* Formatting `String` and `Number` arguments
+  * Arguments are entered in the order they are specified
 
 ```java
 public void demo() {
-
+  String formattedString = "Hey! My name is %s. I am %d years old.";
+  String arg1 = "John";
+  Integer arg2 = 25;
+  System.out.format(formattedString, arg1, arg2);
 }
+```
+
+Output
+```
+Hey! My name is John. I am 25 years old.
 ```
 
 
@@ -114,11 +316,11 @@ public void demo() {
 
 
 
+
 -
 -
-### Formatting: Formatter<br>Example 1
-* `Formatter`
-* Formatter object is used to
+### Formatting: Formatter Class
+* used to format and output data to a specific destination, such as a string or a file output stream.
 
 
 
@@ -126,96 +328,71 @@ public void demo() {
 ### Formatting: Formatter<br>Example 1
 * Formatting `String` arguments
 
+
 ```java
 public void demo() {
+  String fileName = "MyFile.txt";
+  String formattedString = "Hi, my name is %s!";
+  String arg1 = "John";
 
+  FileOutputStream outputStream = new FileOutputStream(fileName);
+  Formatter formatter = new Formatter(outputStream);
+  formatter.format(formattedString, arg1);
+  formatter.flush();
 }
+```
+
+Output: `MyFile.txt` content
+```
+Hi, my name is John!
 ```
 
 
 -
 ### Formatting: Formatter<br>Example 2
-* Outstream formatting `Number` arguments
+* Formatting `Integer` arguments
+
 
 ```java
 public void demo() {
-    Formatter f=new Formatter();
-    f.format(Locale.FRANCE,"%.5f", -1325.789);
-    System.out.println(f);
+  String fileName = "MyFile.txt";
+  String formattedString = "Hi, my age is %d!";
+  Integer arg1 = 25;
+
+  FileOutputStream outputStream = new FileOutputStream(fileName);
+  Formatter formatter = new Formatter(outputStream);
+  formatter.format(formattedString, arg1);
+  formatter.flush();
 }
 ```
 
-Output
+Output: `MyFile.txt` content
 ```
--1325,78900
+Hi, my age is 25!
 ```
 
 
 -
 ### Formatting: Formatter<br>Example 3
-* Outstream formatting `Number` arguments
+* Formatting `Double` arguments
+
 
 ```java
 public void demo() {
-    Formatter f=new Formatter();
-    f.format(Locale.Canada,"%.5f", -1325.789);
-    System.out.println(f);
+  String fileName = "MyFile.txt";
+  String formattedString = "Hi, my age is %d!";
+  Integer arg1 = 25;
+
+  FileOutputStream outputStream = new FileOutputStream(fileName);
+  Formatter formatter = new Formatter(outputStream);
+  formatter.format(formattedString, arg1);
+  formatter.flush();
 }
 ```
 
-Output
+Output: `MyFile.txt` content
 ```
--1325.78900
-```
-
-
--
-### Formatting: Formatter<br>Example 4
-* Assumes default `Locale` of System
-
-```java
-public void demo() {
-    Formatter f=new Formatter();
-    f.format("%.5f", -1325.789);
-    System.out.println(f);
-}
-```
-
-Output
-```
--1325.78900
-```
-
-
-
-
-
--
-### Formatting: Formatter<br>Example 5
-* Abstracting `Locale` numeric formattings
-
-```java
-public static void main(String[] args) {
-    String franceDecimalValue = getDecimalValueAs(Locale.FRANCE, 3, 152.65);
-    String canadaDecimalValue = getDecimalValueAs(Locale.CANADA, 3, 152.65);
-    System.out.println(franceDecimalValue);
-    System.out.println(canadaDecimalValue);
-}
-```
-
-```java
-public String getDecimalValueAs(Locale locale, Integer decimalPrecision, Number valueToFormat) {
-    Formatter f=new Formatter();
-    f.format(locale,"%." + decimalPrecision + "f", valueToFormat);
-    String output = f.toString();
-    return output;
-}
-```
-
-Output
-```
-152,650
-152.650
+Hi, my age is 25!
 ```
 
 
