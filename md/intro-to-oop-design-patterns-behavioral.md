@@ -1,17 +1,115 @@
-
-
--
--
 # Behavioral Patterns
+
+-
+
 * Characterize the ways in which classes or objects interact and distribute responsibility.
 * Concerned with algorithms and the assignment of responsibilities between objects
 * Describes object / class patterns as well as the resulting communication patterns between them
+
+-
+
 * Some Examples:
-	* Template
 	* Observer
+	* Strategy
+	* Template
 	* Command
 
 -
+-
+
+## Observer Pattern
+
+#### Concepts
+
+* One to Many Observers
+* Decoupled
+* Event Handling
+* Pub/Sub
+* M-V-C
+
+-
+
+#### Design
+
+* Subject - that needs to be observed
+	* Interface or Abstract class from which concreate implementations derive
+	* Observers will register with the Subject
+* Observer - is interface base with concrete implementations
+* Observable - interface base with concreate implementation
+* Add/Remove observer from observable
+* Notify observer on state change of observable
+
+-
+
+![alt text](https://kymr.github.io/files/design-pattern/observer-pattern/observer-pattern.png "Observer Pattern")
+
+-
+### Observable
+* Responsible for notifying registered observer's of state-change
+
+```java
+public interface Observable<T extends Observer> {
+	void register(T observer);
+	void unregister(T observer);
+	void notify()
+	List<Observer> getAllObservers();
+}
+```
+
+
+-
+### What is an Observer?
+* Responsible for being updated upon Observable state-change
+```java
+public interface Observer {
+	void update();
+}
+```
+
+-
+### Observer Summary
+
+* Decoupled communication
+* Built in functionality
+* Used with mediator
+
+-
+-
+## Strategy Pattern
+
+#### Concepts
+
+* Eliminate conditional statements
+* Behavior encapsulated in classes
+* Difficult to add new strategies
+* Client aware of strategies
+* Client chooses strategy
+
+-
+
+#### Design
+
+* Abstract base class
+* Concrete class per strategy
+* Remove if/else conditionals
+* Strategies are independent
+
+-
+
+![alt text](https://upload.wikimedia.org/wikipedia/commons/3/39/Strategy_Pattern_in_UML.png "Strategy Pattern")
+
+-
+
+### Strategy Summary
+
+* Externalizes algorithms
+* Client knows different Strategies
+* Class per Strategy
+* Reduces conditional statements
+
+-
+-
+
 ### Template Pattern
 * Create a method of high degree of freedom to define methods of lesser variability
 	* _Degree of freedom_ is determined by the number of arguments of a method
@@ -40,34 +138,6 @@ public static Integer[] getRange(int start, int stop, int step) {
 
 -
 -
-## Observer Pattern
-* Register observer (subject) to a observable
-* Remove observer from observable
-* Notify observer on state change of observable
-
-
--
-### Observable
-* Responsible for notifying registered observer's of state-change
-
-```java
-public interface Observable<T extends Observer> {
-	void register(T observer);
-	void unregister(T observer);
-	void notify()
-	List<Observer> getAllObservers();
-}
-```
-
-
--
-### What is an Observer?
-* Responsible for being updated upon Observable state-change
-```java
-public interface Observer {
-	void update();
-}
-```
 
 
 -
