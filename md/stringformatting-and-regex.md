@@ -89,7 +89,7 @@ I am 25 years old.
 
 ```java
 public void demo() {
-  String formattedString = "I have finished %.5f percent of my homework.";
+  String formattedString = "I've finished %.5f percent of homework";
   Double arg1 = 79.87654321;
   String outputString = String.format(formattedString, arg1);
   System.out.println(outputString);
@@ -98,7 +98,7 @@ public void demo() {
 
 Output
 ```
-I have finished 79.87654 percent of my homework.
+I've finished 79.87654 percent of homework
 ```
 
 
@@ -109,7 +109,7 @@ I have finished 79.87654 percent of my homework.
 
 ```java
 public void demo() {
-  String formattedString = "I have finished %.3f percent of my homework.";
+  String formattedString = "I've finished %.3f percent of homework";
   Double arg1 = 79.87654321;
   String outputString = String.format(formattedString, arg1);
   System.out.println(outputString);
@@ -118,7 +118,7 @@ public void demo() {
 
 Output
 ```
-I have finished 79.876 percent of my homework.
+I've finished 79.876 percent of homework
 ```
 
 
@@ -128,7 +128,7 @@ I have finished 79.876 percent of my homework.
 
 ```java
 public void demo() {
-  String formattedString = "I have finished %.2f percent of my homework.";
+  String formattedString = "I've finished %.2f percent of homework";
   Double arg1 = 79.87654321;
   String outputString = String.format(formattedString, arg1);
   System.out.println(outputString);
@@ -137,7 +137,7 @@ public void demo() {
 
 Output
 ```
-I have finished 79.87 percent of my homework.
+I've finished 79.87 percent of homework
 ```
 
 
@@ -157,20 +157,18 @@ public void demo() {
 
 ```java
 public String getHomeworkDetails(Integer decimalPrecision, Double valueToFormat) {
-  String formattedString = new StringBuilder()
-    .append("I have finished %.")
+  String formattedString = new StringBuilder("I've finished %.")
     .append(decimalPrecision)
-    .append("f percent of my homework.")
+    .append("f percent of homework")
     .toString();
-  String outputString = String.format(formattedString, arg1);
-  return outputString;
+  return String.format(formattedString, arg1);
 }
 ```
 
 Output
 ```
-I have finished 79.8765 percent of my homework.
-I have finished 79.87654 percent of my homework.
+I've finished 79.8765 percent of homework
+I've finished 79.87654 percent of homework
 ```
 
 
@@ -202,7 +200,7 @@ My first initial is J.
 
 -
 ### Formatting: String Formatting<br>Example 5
-* Formatting `String` and `Number` arguments
+* Formatting `String` and `Integer` arguments
   * Arguments are entered in the order they are specified
 
 ```java
@@ -242,7 +240,6 @@ Hey! My name is John. I am 25 years old.
 -
 ### Formatting: System Outstream<br>Example 1
 * Formatting `String` arguments using `%s` specifier
-  * `%s` specifies a `String` value.
 
 ```java
 public void demo() {
@@ -260,8 +257,7 @@ Hey! [ John ] is my name!
 
 -
 ### Formatting: System Outstream<br>Example 2
-* Formatting `Number` arguments using `%d` specifier
-  * `%d` specifies a non-decimal integer
+* Formatting `Integer` arguments using `%d` specifier
 
 ```java
 public void demo() {
@@ -281,8 +277,7 @@ I am 25 years old.
 
 -
 ### Formatting: System Outstream<br>Example 3
-* Formatting `String` and `Number` arguments
-  * Arguments are entered in the order they are specified
+* Formatting `String` and `Integer` arguments
 
 ```java
 public void demo() {
@@ -692,7 +687,6 @@ Ending index = 15
 | `a{5}`, `a{2, }`                      | exactly five, two or more
 | `a{1,3}`                              | between one & three
 | `a+? a{2,}?`                          | match as few as possible
-| `ab|cd`                               | match `ab` or `cd`
 
 
 
@@ -767,7 +761,7 @@ Ending index = 15
 
 -
 ### More about regex symbols
-* `a`, `b`, `c` - match "a", "b", "c" respectively (all numbers & letters)
+* `a`, `b`, `c` - match "a", "b", "c" respectively
 * `.` - matches any one character
 * `*` - match 0 or more occurrences of the last symbol
 * `+` - match 1 or more occurrences of the last symbol

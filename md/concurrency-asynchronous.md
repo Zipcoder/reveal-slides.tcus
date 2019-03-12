@@ -1,13 +1,27 @@
 # Concurrency
 
--
--
-## Threads
-* Allows tasks to run in parallel
-* Can share data between each other
-* Less overhead to create and destroy than processes
-* Threads are often scheduled according to some prioritization scheme
+## Concurrency
+* multiple sequences of operations are run in overlapping periods of time
+* distinct from _parallelism_
+  * computational task that is broken down into several, often many, very similar sub-tasks, which can be processed independently and whose results are combined afterwards, upon completion.
+  * _merge sort_ often has a _parallel_ implementation.
 
+
+
+-
+-
+## Thread Object
+* Allows tasks to run in parallel
+* Can share data with other `Thread` instances
+* Less overhead to create and destroy than processes
+* Threads are often _scheduled_ according to some prioritization scheme
+
+
+-
+## Thread scheduler
+* responsible for prioritizing thread execution
+* decides when each thread should be active
+* decides when each thread should be idle
 
 
 
@@ -24,12 +38,13 @@
 
 -
 #### Thread States<br>Runnable
-* Denotes that `Thread` is _may be running_
+* Denotes that `Thread` _may be running_
 * Only state where running is possible
 
 -
 #### Thread States<br>Blocked, Waiting, Timed Waiting
-* Denotes that `Thread` is inactive until thread-scheduler tells them to run.
+* Denotes that `Thread` is inactive until _thread-scheduler_ tells them to run.
+
 
 -
 #### Thread States<br>Terminated
@@ -130,14 +145,6 @@ I'M GONNA STOP THE THREAD NOW!
 I AM RUNNING!
 I AM RUNNING!
 ```
-
-
-
--
-## Thread scheduler
-* responsible for prioritizing thread execution.
-* decides when each thread should be interacted with
-* decides when each thread should idle
 
 
 -
