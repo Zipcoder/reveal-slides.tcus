@@ -83,7 +83,7 @@ public void demo() {
 * `interrupt` throws an `InterruptedException`, if a thread is sleeping.
 
 -
-#### Encountering `InterruptedException`
+#### Delaying Execution
 * Tells program to cease execution on current thread for 5 seconds (5000 milliseconds).
 
 ```java

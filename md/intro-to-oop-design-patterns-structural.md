@@ -19,8 +19,8 @@
 # Structural Patterns
 * eases design by identifying way to realize relationships between entities while reducing code-redundancies
 * Some examples:
-	* Decorator
 	* Facade
+	* Decorator
 	* Adapter
 
 
