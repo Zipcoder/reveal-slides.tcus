@@ -234,11 +234,11 @@ Hey! My name is John. I am 25 years old.
 
 -
 -
-### Formatting: System Outstream<br>
-* Outstream formatting does not return a `String` value. Rather, it _prints_ a formatted `String` to the console.
+### Formatting: System OutputStream
+* OutputStream formatting does not return a `String` value. Rather, it _prints_ a formatted `String` to the console.
 
 -
-### Formatting: System Outstream<br>Example 1
+### Formatting: System OutputStream<br>Example 1
 * Formatting `String` arguments using `%s` specifier
 
 ```java
@@ -256,7 +256,7 @@ Hey! [ John ] is my name!
 
 
 -
-### Formatting: System Outstream<br>Example 2
+### Formatting: System OutputStream<br>Example 2
 * Formatting `Integer` arguments using `%d` specifier
 
 ```java
@@ -276,7 +276,7 @@ I am 25 years old.
 
 
 -
-### Formatting: System Outstream<br>Example 3
+### Formatting: System OutputStream<br>Example 3
 * Formatting `String` and `Integer` arguments
 
 ```java
@@ -333,8 +333,8 @@ public void demo() {
   String formattedString = "Hi, my name is %s!";
   String arg1 = "John";
 
-  FileOutputStream outputStream = new FileOutputStream(fileName);
-  Formatter formatter = new Formatter(outputStream);
+  FileOutputStream OutputStream = new FileOutputStream(fileName);
+  Formatter formatter = new Formatter(OutputStream);
   formatter.format(formattedString, arg1);
   formatter.flush();
 }
@@ -357,8 +357,8 @@ public void demo() {
   String formattedString = "Hi, my age is %d!";
   Integer arg1 = 25;
 
-  FileOutputStream outputStream = new FileOutputStream(fileName);
-  Formatter formatter = new Formatter(outputStream);
+  FileOutputStream OutputStream = new FileOutputStream(fileName);
+  Formatter formatter = new Formatter(OutputStream);
   formatter.format(formattedString, arg1);
   formatter.flush();
 }
@@ -381,8 +381,8 @@ public void demo() {
   String formattedString = "Hi, my age is %d!";
   Integer arg1 = 25;
 
-  FileOutputStream outputStream = new FileOutputStream(fileName);
-  Formatter formatter = new Formatter(outputStream);
+  FileOutputStream OutputStream = new FileOutputStream(fileName);
+  Formatter formatter = new Formatter(OutputStream);
   formatter.format(formattedString, arg1);
   formatter.flush();
 }
@@ -449,7 +449,6 @@ Hi, my age is 25!
 ```java
 public void demo() {
     String text = "The Quick Brown Fox";
-
     String patternString = ".";
     Pattern pattern = Pattern.compile(patternString);
     Matcher matcher = pattern.matcher(text);
@@ -471,7 +470,6 @@ public void demo() {
 * Example 1 output
 
 ```
--------------------
 Value = T
 Match Number = 0
 Starting index = 0
@@ -720,7 +718,6 @@ public void demo() {
 * Example 2 output
 
 ```
--------------------
 Value = The
 Match Number = 0
 Starting index = 0
