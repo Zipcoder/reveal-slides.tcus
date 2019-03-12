@@ -69,7 +69,7 @@ public class MainApplication {
         second.start();
 
         ThreadUtils.sleep(5000); // sleep 5 seconds
-        System.out.println(runnable.getcount());
+        System.out.println(runnable.getCount());
     }
 }
 ```
@@ -87,7 +87,7 @@ THREAD FINISHED: Thread[Thread-1,5,main]
 #### Identifying Race conditions
 * Notice that the output of the previous program was a value greater than 1,000,000.
 * This is caused by threads accessing _stale_ data.
-  * Data is considered _stale_ the value of an operand changes but fetching the operand and obtains the old rather than the new value of the operand
+  * Data is considered _stale_ when the value of an operand changes but fetching the operand obtains the old, rather than the new, value of the operand
 
 
 
@@ -129,12 +129,6 @@ THREAD FINISHED: Thread[Thread-1,5,main]
 #### ReentrantLock Overview
 * Also known as _mutual exclusion Lock_
 * `java.util.concurrent.locks.ReentrantLock` is a built-in java-class that provides synchronization to methods while accessing shared resources.
-* Key features:
-  * Ability to lock interruptibly
-  * Ability to timeout while waiting for lock
-  * Ability to create fair lock
-  * API to get list thread of waiting for lock
-  * Flexibility to try for lock without blocking
 
 -
 #### ReentrantLock Tidbits
