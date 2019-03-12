@@ -33,22 +33,22 @@
 
 -
 #### Thread States<br>New
-* Denotes that `Thread` is _setting up_
-* Denotes that `Thread` is not running
+* Indicates that `Thread` is _setting up_
+* Indicates that `Thread` is not running
 
 -
 #### Thread States<br>Runnable
-* Denotes that `Thread` _may be running_
+* Indicates that `Thread` _may be running_
 * Only state where running is possible
 
 -
 #### Thread States<br>Blocked, Waiting, Timed Waiting
-* Denotes that `Thread` is inactive until _thread-scheduler_ tells them to run.
+* Indicates that `Thread` is inactive until _thread-scheduler_ tells them to run.
 
 
 -
 #### Thread States<br>Terminated
-* Denotes that `Thread` has finished running
+* Indicates that `Thread` has finished running
 
 
 
@@ -149,5 +149,5 @@ I AM RUNNING!
 
 -
 #### Asynchronous Threading
-* Notice that Example 1 does not control the _thread scheduler_. Rather, the scheduler independently decides when to prioritize each thread execution.
+* From output of Example 1, notice the lack of control of the _thread scheduler_. The scheduler independently decides when to prioritize each thread execution.
 * Asynchronous threading leads to unpredictably ordered execution.
