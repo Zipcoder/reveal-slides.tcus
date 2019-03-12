@@ -149,9 +149,10 @@ public void demo() {
   Integer precision1 = 4;
   Integer precision2 = 5;
   Double valueToFormat = 79.87654321;
-  String output = getHomeworkDetails(precision1, valueToFormat)
-  String output = getHomeworkDetails(precision2, valueToFormat)
-  System.out.println(output);
+  String output1 = getHomeworkDetails(precision1, valueToFormat);
+  String output2 = getHomeworkDetails(precision2, valueToFormat);
+  System.out.println(output1);
+  System.out.println(output2);
 }
 ```
 
@@ -161,7 +162,7 @@ public String getHomeworkDetails(Integer decimalPrecision, Double valueToFormat)
     .append(decimalPrecision)
     .append("f percent of homework")
     .toString();
-  return String.format(formattedString, arg1);
+  return String.format(formattedString, valueToFormat);
 }
 ```
 
@@ -263,7 +264,7 @@ Hey! [ John ] is my name!
 public void demo() {
   String formattedString = "I am %d years old.";
   Integer arg1 = 25;
-  String outputString = System.out.format(formattedString, arg1);
+  System.out.format(formattedString, arg1);
 }
 ```
 
@@ -378,8 +379,8 @@ Hi, my age is 25!
 ```java
 public void demo() {
   String fileName = "MyFile.txt";
-  String formattedString = "Hi, my age is %d!";
-  Integer arg1 = 25;
+  String formattedString = "Hi, my age is %.1f!";
+  Double arg1 = 25.2;
 
   FileOutputStream OutputStream = new FileOutputStream(fileName);
   Formatter formatter = new Formatter(OutputStream);
@@ -390,7 +391,7 @@ public void demo() {
 
 Output: `MyFile.txt` content
 ```
-Hi, my age is 25!
+Hi, my age is 25.2!
 ```
 
 
