@@ -334,8 +334,8 @@ public void demo() {
   String formattedString = "Hi, my name is %s!";
   String arg1 = "John";
 
-  FileOutputStream OutputStream = new FileOutputStream(fileName);
-  Formatter formatter = new Formatter(OutputStream);
+  FileOutputStream outputStream = new FileOutputStream(fileName);
+  Formatter formatter = new Formatter(outputStream);
   formatter.format(formattedString, arg1);
   formatter.flush();
 }
@@ -358,8 +358,8 @@ public void demo() {
   String formattedString = "Hi, my age is %d!";
   Integer arg1 = 25;
 
-  FileOutputStream OutputStream = new FileOutputStream(fileName);
-  Formatter formatter = new Formatter(OutputStream);
+  FileOutputStream outputStream = new FileOutputStream(fileName);
+  Formatter formatter = new Formatter(outputStream);
   formatter.format(formattedString, arg1);
   formatter.flush();
 }
@@ -382,8 +382,8 @@ public void demo() {
   String formattedString = "Hi, my age is %.1f!";
   Double arg1 = 25.2;
 
-  FileOutputStream OutputStream = new FileOutputStream(fileName);
-  Formatter formatter = new Formatter(OutputStream);
+  FileOutputStream outputStream = new FileOutputStream(fileName);
+  Formatter formatter = new Formatter(outputStream);
   formatter.format(formattedString, arg1);
   formatter.flush();
 }
@@ -396,8 +396,11 @@ Hi, my age is 25.2!
 
 
 
+-
+-
 
-
+##Reminder re: FileOutputStream
+When using **FileOutputStream**, you will need to either add a **FileNotFoundException** or use a **try/catch** block
 
 
 
