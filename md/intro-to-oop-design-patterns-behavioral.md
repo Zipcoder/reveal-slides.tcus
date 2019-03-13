@@ -39,9 +39,9 @@
 * Add/Remove observer from observable
 * Notify observer on state change of observable
 
--
+<!-- -
 
-![alt text](https://kymr.github.io/files/design-pattern/observer-pattern/observer-pattern.png "Observer Pattern")
+![alt text](https://kymr.github.io/files/design-pattern/observer-pattern/observer-pattern.png "Observer Pattern") -->
 
 -
 ### Observable
@@ -94,9 +94,9 @@ public interface Observer {
 * Remove if/else conditionals
 * Strategies are independent
 
--
+<!-- -
 
-![alt text](https://upload.wikimedia.org/wikipedia/commons/3/39/Strategy_Pattern_in_UML.png "Strategy Pattern")
+![alt text](https://upload.wikimedia.org/wikipedia/commons/3/39/Strategy_Pattern_in_UML.png "Strategy Pattern") -->
 
 -
 
