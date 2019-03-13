@@ -34,6 +34,9 @@
 * Subject - that needs to be observed
 	* Interface or Abstract class from which concreate implementations derive
 	* Observers will register with the Subject
+
+-
+
 * Observer - is interface base with concrete implementations
 * Observable - interface base with concreate implementation
 * Add/Remove observer from observable
@@ -97,6 +100,25 @@ public interface Observer {
 <!-- -
 
 ![alt text](https://upload.wikimedia.org/wikipedia/commons/3/39/Strategy_Pattern_in_UML.png "Strategy Pattern") -->
+
+-
+
+```
+Collections.sort(people, new Comparator<Person>() {
+		@Override
+		public int compare(Person o1, Person o2) {
+				if(o1.getAge() > o2.getAge()){
+						return 1;
+				}
+				if (o1.getAge() < o2.getAge()) {
+						return -1;
+				}
+				return 0;
+		}
+});
+```
+
+Collections.sort uses the Strategy pattern. The method expects a strategy to be passed as an argument. This allows the client to decide by which strategy the sort method will execute
 
 -
 
