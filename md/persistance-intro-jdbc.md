@@ -16,9 +16,9 @@ JDBC is an API for the Java programming language that defines how a client may a
 
 Part of Java SE, found in java.sql and javax.sql packages
 
-Java Applicaation <--> JDBC <--> JDBC Driver <--> DB
+-
 
-(Graphic needed)
+![alt text](https://i.ytimg.com/vi/ni1PiUgKLDE/maxresdefault.jpg "JDBC API Relationship")
 
 -
 
@@ -27,15 +27,15 @@ Java Applicaation <--> JDBC <--> JDBC Driver <--> DB
 * JDBC API - Application to JDBC Manager Connection
 * JDBC Driver API - JDBC Manager to Driver Connection
 
-(Graphic Needed)
-
 -
 
 ### Driver Manager
 
 The basic service for managing a set of jdbc drivers
 
-(Graphic Needed)
+-
+
+![alt text](https://i.ytimg.com/vi/ni1PiUgKLDE/maxresdefault.jpg "JDBC API Relationship")
 
 -
 
@@ -219,7 +219,7 @@ SQLException extendsed from the Exception class
 * Understanding Prepared Statements
 	* Retrieve (Select)
 	* Insert (Create)
-	* Update 
+	* Update
 	* Remove (Delete)
 
 -
@@ -245,6 +245,14 @@ __Methods__
 
 -
 
+```
+Connection conn DriverManager.getConnection(mySqlCS, mySqlUser, mySqlPwd);
+
+Statement stmt = conn.createStatement();
+```
+
+-
+
 ### Steps for Development Process
 
 1. Establish Connection to a Database
@@ -260,7 +268,21 @@ A ResultSet is a multidimensional array that return a database statement
 
 Java.Sql.ResultSet interface represents the result set of a database query
 
+-
+
 When the ResultSet is first returned, the starting cursor position is before the first row of data
+
+-
+
+```
+Connection conn DriverManager.getConnection(mySqlCS, mySqlUser, mySqlPwd);
+
+Statement stmt = conn.createStatement();
+
+ResultSet rs = stmt.executeQuery("select * from player");
+```
+
+-
 
 Methods of the ResultSet can be divided into 3 categories
 
@@ -292,6 +314,10 @@ Methods of the ResultSet can be divided into 3 categories
 	1. One that takes a column name
 	2. One that takes in a column index
 
+```
+rs.getString("first_name")
+```
+
 -
 
 #### Scrollable ResultSets
@@ -317,6 +343,8 @@ Updatable ResultSet allows modification to data in a table through the ResultSet
 	1. One that takes in a column name
 	2. One that takes in a colomn index
 
+-
+
 To update a String Column of the current row
 
 * public void updateString(int columnIndex, String s)
@@ -324,7 +352,11 @@ To update a String Column of the current row
 
 _All update methods throw SQLException_
 
+-
+
 Making these changes only changes the data in the ResultSet Object not the underlying Database.
+
+-
 
 The following will make changes to the actual
 
@@ -344,7 +376,11 @@ The following will make changes to the actual
 * Executing a PreparedStatement
 * Reusing a PreparedStatement
 
+-
+
 PreparedStament is a subclass of Statement
+
+-
 
 __Benefits__
 
@@ -352,12 +388,15 @@ __Benefits__
 * Easy to Set SQL parameter values
 * Prevents SQL Dependency Injection Attacks
 
+-
+
 ```
 Select * from Employees Where Salary < 10000 and department_id = 50;
 ```
 
 ```
-Select * from Employees Where Salary < {some value} and department_id = {some value};
+Select * from Employees Where Salary < {some value}
+	and department_id = {some value};
 ```
 
 ```
@@ -365,13 +404,18 @@ Select * from Employees Where Salary < ? and department_id = ?;
 
 ```
 
-To use SQL statements that take value a _?_ is used as a parameter place holder. Now we can use the same statement with different values each time we execute
+-
+
+To use SQL statements that takes variable value a _?_ is used as a parameter place holder. Now we can use the same statement with different values each time we execute
 
 __Example__
 
 ```
-PreparedStatement pstmt = conn.createStatement("select * from Employees where salary < ? and and department_id = ?");
+PreparedStatement pstmt = conn.createStatement(
+	"select * from Employees where salary < ? and
+	department_id = ?");
 ```
+-
 
 To bind the values of the parameters us:
 
@@ -385,17 +429,19 @@ __Examples__
 
 _note: P1 = Position (1 based), P2 = Value_
 
+-
 Examples of setting the values to a prepared statement
 
 ```
-PreparedStatement pstmt = conn.createStatement("select * from Employees where salary < ? and and department_id = ?");
+PreparedStatement pstmt = conn.createStatement(
+	"select * from Employees
+	where salary < ? and department_id = ?");
 
 pstmt.setDouble(1, 1000)
 pstmt.setInt(2, 50)
 ```
 
 -
-
 #### Process to execute a PreparedStatement
 
 1. Establish a Connection with the Database
@@ -406,26 +452,28 @@ pstmt.setInt(2, 50)
 -
 
 #### Inserting Data
-
 General Example SQL Insert statement
-
 ```
 Insert into TableName values(value1, value2, ...);
 ```
 
+-
 Practical Example of SQL Insert statement
 
 ```
-Insert into Employees values(435, momo, momo@gmail.com,'2019-03-22', 50000);
-```
-
-Example of Prepared Statement
-```
-PreparedStatement pstmt = conn.prepareStatement(insert into NewEmployees values (?,?,?,?,?));
+Insert into Employees values(
+		435, momo, momo@gmail.com,'2019-03-22', 50000);
 ```
 
 -
+Example of Prepared Statement
+```
+PreparedStatement pstmt = conn.prepareStatement(
+	insert into NewEmployees
+	values (?,?,?,?,?));
+```
 
+-
 #### Update Data
 
 Example Prepared Statement SQL
@@ -435,7 +483,6 @@ update Employees set salery = ? where Employee_Id = ?
 ```
 
 -
-
 #### Removing Data
 
 Example Prepared Statment SQL
@@ -445,8 +492,7 @@ delete form Employees where Employee_Id = ?
 ```
 
 -
-
-### Stored Procedure Summary
+### Prepared Statement Summary
 
 * Statement
 * ResultSet
@@ -497,4 +543,9 @@ delete form Employees where Employee_Id = ?
 ### Repository Pattern
 
 * Single-table access per class
-* 
+* Instead of joining in the database, you'll join in code
+
+-
+
+* Repository pattern allows sharding of database
+* You can store one piece of data in a seperate database to facilitate distribution
