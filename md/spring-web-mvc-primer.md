@@ -56,11 +56,11 @@ Spring Web MVC, part of the Spring Framework’s Web module, is a popular techno
 
 -
 
-The Model View Controller, or MVC, is an architectural pattern for building decoupled Web applications. This pattern decomposes the UI layer into the following three components:
+The **Model View Controller**, or **MVC**, is an architectural pattern for building decoupled Web applications. This pattern decomposes the UI layer into the following three components:
 
-* Model—The model represents data or state. In a Web-based banking application, information representing accounts, transactions, and statements are examples of the model.
-* View—Provides a visual representation of the model. This is what the user interacts with by providing inputs and viewing the output.
-* Controller—The controller is responsible for handling user actions such as button clicks. It then interacts with services or repositories to prepare the model and hands the prepared model over to an appropriate view.
+* **Model**—The model represents data or state. In a Web-based banking application, information representing accounts, transactions, and statements are examples of the model.
+* **View**—Provides a visual representation of the model. This is what the user interacts with by providing inputs and viewing the output.
+* **Controller**—The controller is responsible for handling user actions such as button clicks. It then interacts with services or repositories to prepare the model and hands the prepared model over to an appropriate view.
 
 -
 
@@ -97,4 +97,4 @@ Spring’s Web MVC implementation revolves around the **DispatcherServlet**—an
 + **8.** The **DispatcherServlet** then passes the control and model to the **View**, which generates response. This **ViewResolver** and **View** abstraction allows the **DispatcherServlet** to be decoupled from a particular **View** implementation.
 + **9.** The **DispatcherServlet** returns the generated response over to the client.
 
--
+

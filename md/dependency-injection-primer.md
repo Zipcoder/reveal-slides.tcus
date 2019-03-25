@@ -18,7 +18,7 @@ public class Instructor{
 	
 	public Instructor(){
 		rm = RosterManager.getInstance();
-		students = new Cohort(rm.getRoster("April 2017"));
+		students = new Cohort(rm.getRoster("April 2019"));
 	}
 	
 }
@@ -35,7 +35,7 @@ public class Instructor{
 	
 	public Instructor(RosterManager rm){
 		this.rm = rm;
-		students = new Cohort(rm.getRoster("April 2017"));
+		students = new Cohort(rm.getRoster("April 2019"));
 	}
 }
 ```
@@ -65,3 +65,4 @@ public class Instructor{
 - Classes are loosely coupled
   - Allows independent development of components
 - Dependencies can be selected at runtime
+ 
