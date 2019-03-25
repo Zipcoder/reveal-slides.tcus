@@ -33,12 +33,12 @@ At the heart of the Spring Framework lies Dependency Injection (DI). As the name
 
 -
 
-To better understand DI, consider the scenario of purchasing a product in an online retail store. Completing a purchase is typically implemented using a component such as an OrderService. The OrderService itself would interact with an OrderRepository that would create order details in a database and a NotificationComponent that would send out the order confirmation to the customer. In a traditional implementation, the OrderService creates (typically in its constructor) instances of OrderRepository and NotificationComponent and uses them. Even though there is nothing wrong with this approach, it can lead to hard-to-maintain, hard-to-test, and highly coupled code.
+To better understand **DI**, consider the scenario of purchasing a product in an online retail store. Completing a purchase is typically implemented using a component such as an **OrderService**. The **OrderService** itself would interact with an **OrderRepository** that would create order details in a database and a **NotificationComponent** that would send out the order confirmation to the customer. In a traditional implementation, the **OrderService** creates (typically in its constructor) instances of OrderRepository and **NotificationComponent** and uses them. Even though there is nothing wrong with this approach, it can lead to hard-to-maintain, hard-to-test, and highly coupled code.
 
 -
 
-DI, by contrast, allows us to take a different approach when dealing with dependencies. With DI,
-you let an external process such as Spring create dependencies, manage dependencies, and inject those dependencies into the objects that need them. So, with DI, Spring would create the OrderRepository and NotificationComponent and then hand over those dependencies to the OrderService. This decouples OrderService from having to deal with OrderRepository/NotificationComponent creation, making it easier to test. It allows each component to evolve independently, making development and maintenance easier. Also, it makes it easier to swap these dependencies with different implementations or use these components in a different context.
+**DI**, by contrast, allows us to take a different approach when dealing with dependencies. With DI,
+you let an external process such as Spring create dependencies, manage dependencies, and inject those dependencies into the objects that need them. So, with DI, Spring would create the **OrderRepository** and **NotificationComponent** and then hand over those dependencies to the **OrderService**. This decouples **OrderService** from having to deal with **OrderRepository**/**NotificationComponent** creation, making it easier to test. It allows each component to evolve independently, making development and maintenance easier. Also, it makes it easier to swap these dependencies with different implementations or use these components in a different context.
 
 -
 -
@@ -73,22 +73,22 @@ The Model View Controller, or MVC, is an architectural pattern for building deco
 
 -
 
-Spring’s Web MVC implementation revolves around the DispatcherServlet—an implementation of the FrontController Pattern2 that acts as an entry point for handling requests.
+Spring’s Web MVC implementation revolves around the **DispatcherServlet**—an implementation of the **FrontController Pattern** that acts as an entry point for handling requests.
 
 -
 
-![MVC](./img/spring_mvc)
+![MVC](./img/spring_mvc.png)
 
 -
 
-1. The interaction begins with the DispatcherServlet receiving the request from the client.
-2. DispatcherServlet queries one or more HandlerMapping to figure out a Handler that can service the request. A Handler is a generic way of addressing a Controller and other HTTP-based endpoints that Spring Web MVC supports.
-3. The HandlerMapping component uses the request path to determine the right Handler and passes it to the DispatcherServlet. The HandlerMapping also determines a list of Interceptors that need to get executed before (Pre-) and after (Post-) Handler execution.
-4. The DispatcherServlet then executes the Pre-Process Interceptors if any are appropriate and passes the control to the Handler.
-5. The Handler interacts with any Service(s) needed and prepares the model.
-6. The Handler also determines the name of the view that needs to get rendered in the output and sends it to DispatcherServlet. The Post-Process Interceptors then get executed.
-7. This is followed by the DispatcherServlet passing the logical View name to a ViewResolver, which determines and passes the actual View implementation.
-8. The DispatcherServlet then passes the control and model to the View, which generates response. This ViewResolver and View abstraction allows the DispatcherServlet to be decoupled from a particular View implementation.
-9. The DispatcherServlet returns the generated response over to the client.
+1. The interaction begins with the **DispatcherServlet** receiving the request from the client.
+2. **DispatcherServlet** queries one or more **HandlerMapping** to figure out a **Handler** that can service the request. A **Handler** is a generic way of addressing a **Controller** and other HTTP-based endpoints that Spring Web MVC supports.
+3. The **HandlerMapping** component uses the request path to determine the right Handler and passes it to the **DispatcherServlet**. The **HandlerMapping** also determines a list of **Interceptors** that need to get executed before (Pre-) and after (Post-) **Handler** execution.
+4. The **DispatcherServlet** then executes the **Pre-Process Interceptors** if any are appropriate and passes the control to the **Handler**.
+5. The **Handler** interacts with any **Service**(s) needed and prepares the model.
+6. The **Handler** also determines the name of the view that needs to get rendered in the output and sends it to **DispatcherServlet**. The **Post-Process Interceptors** then get executed.
+7. This is followed by the **DispatcherServlet** passing the logical View name to a **ViewResolver**, which determines and passes the actual **View** implementation.
+8. The **DispatcherServlet** then passes the control and model to the **View**, which generates response. This **ViewResolver** and **View** abstraction allows the **DispatcherServlet** to be decoupled from a particular **View** implementation.
+9. The **DispatcherServlet** returns the generated response over to the client.
 
 -
