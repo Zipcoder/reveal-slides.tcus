@@ -81,14 +81,20 @@ Spring’s Web MVC implementation revolves around the **DispatcherServlet**—an
 
 -
 
-1. The interaction begins with the **DispatcherServlet** receiving the request from the client.
-2. **DispatcherServlet** queries one or more **HandlerMapping** to figure out a **Handler** that can service the request. A **Handler** is a generic way of addressing a **Controller** and other HTTP-based endpoints that Spring Web MVC supports.
-3. The **HandlerMapping** component uses the request path to determine the right Handler and passes it to the **DispatcherServlet**. The **HandlerMapping** also determines a list of **Interceptors** that need to get executed before (Pre-) and after (Post-) **Handler** execution.
-4. The **DispatcherServlet** then executes the **Pre-Process Interceptors** if any are appropriate and passes the control to the **Handler**.
-5. The **Handler** interacts with any **Service**(s) needed and prepares the model.
-6. The **Handler** also determines the name of the view that needs to get rendered in the output and sends it to **DispatcherServlet**. The **Post-Process Interceptors** then get executed.
-7. This is followed by the **DispatcherServlet** passing the logical View name to a **ViewResolver**, which determines and passes the actual **View** implementation.
-8. The **DispatcherServlet** then passes the control and model to the **View**, which generates response. This **ViewResolver** and **View** abstraction allows the **DispatcherServlet** to be decoupled from a particular **View** implementation.
-9. The **DispatcherServlet** returns the generated response over to the client.
++ **1.** The interaction begins with the **DispatcherServlet** receiving the request from the client.
++ **2.** **DispatcherServlet** queries one or more **HandlerMapping** to figure out a **Handler** that can service the request. A **Handler** is a generic way of addressing a **Controller** and other HTTP-based endpoints that Spring Web MVC supports.
++ **3.** The **HandlerMapping** component uses the request path to determine the right Handler and passes it to the **DispatcherServlet**. The **HandlerMapping** also determines a list of **Interceptors** that need to get executed before (Pre-) and after (Post-) **Handler** execution.
+
+-
+
++ **4.** The **DispatcherServlet** then executes the **Pre-Process Interceptors** if any are appropriate and passes the control to the **Handler**.
++ **5.** The **Handler** interacts with any **Service**(s) needed and prepares the model.
++ **6.** The **Handler** also determines the name of the view that needs to get rendered in the output and sends it to **DispatcherServlet**. The **Post-Process Interceptors** then get executed.
+
+-
+
++ **7.** This is followed by the **DispatcherServlet** passing the logical View name to a **ViewResolver**, which determines and passes the actual **View** implementation.
++ **8.** The **DispatcherServlet** then passes the control and model to the **View**, which generates response. This **ViewResolver** and **View** abstraction allows the **DispatcherServlet** to be decoupled from a particular **View** implementation.
++ **9.** The **DispatcherServlet** returns the generated response over to the client.
 
 -
