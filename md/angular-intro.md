@@ -70,14 +70,14 @@ Examples
 __Angular Development Server__
 
 * Angular includes a development server that we will run during application development and will allow us to perform hot reload, get information about our angular application, etc.
-* When we are finished with our angular application we can compile it and it will output a htnl, css and javascript projefct that we can then server as though we were never even using Angular
+* When we are finished with our angular application we can compile it and it will output a html, css and javascript project that we can then server as though we were never even using Angular
 
 -
 -
 
 ## Typescript
 
-* A programming language that transpiles to Jaascript, it is similar but adds a lot of missing features that Javascript doesn't have, most notably thins that make the langueage more static and similar to established backed languages such as Java or C++
+* A programming language that transpiles to Javascript, it is similar but adds a lot of missing features that Javascript doesn't have, most notably things that make the langueage more static and similar to established backed languages such as Java or C++
 
 -
 -
@@ -86,7 +86,7 @@ __Angular Development Server__
 
 ### Modules
 
-* An Angular applications is split up into modules, wile the app will always have 1 root module, it will typically have many other feature modules which will contain feature-specific pieces of code
+* An Angular applications is split up into modules, while the app will always have 1 root module, it will typically have many other feature modules which will contain feature-specific pieces of code
 * Modules can import and export functionality from other modules
 * We create modules using the angular CLI
 
