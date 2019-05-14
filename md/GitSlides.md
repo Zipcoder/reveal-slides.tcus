@@ -3,6 +3,16 @@
 -
 -
 
+## What we'll cover
+<p class="fragment fade-up">What is Git?</p>
+<p class="fragment fade-up">Basic Git Commands</p>
+<p class="fragment fade-up">Intro to merge conflicts</p>
+<p class="fragment fade-up">Fork/Pull</p>
+<p class="fragment fade-up">.gitignore</p>
+
+-
+-
+
 ##What Is Git?
 According to Wikipedia:
 

@@ -1,6 +1,16 @@
 #Intro to Maven
 -
 -
+
+## What we'll cover
+
+<p class="fragment fade-up">About Maven</p>
+<p class="fragment fade-up">Archetypes</p>
+<p class="fragment fade-up">Pom.xml</p>
+<p class="fragment fade-up">Maven Build Process</p>
+
+-
+-
 #Maven Objectives
   <p class="fragment fade-up">- Making the build process easy</p>
   <p class="fragment fade-up">- Providing a uniform build system</p>

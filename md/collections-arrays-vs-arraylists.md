@@ -1,6 +1,15 @@
 # Array and ArrayList
 ### A tail of friendship, heartache and redemption
 
+-
+-
+
+## What we'll cover
+
+<p class="fragment fade-up">Differences Between Array and Arraylist</p>
+<p class="fragment fade-up">Similarities Between Array and Arraylist</p>
+<p class="fragment fade-up">Difference Between Array and Arraylist In Java</p>
+<p class="fragment fade-up">Common Array and Arraylist Tasks</p>
 
 -
 -
