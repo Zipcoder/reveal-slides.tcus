@@ -1,3 +1,11 @@
+
+## What we'll cover
+<p class="fragment fade-up">Scrum</p>
+<p class="fragment fade-up">Planning</p>
+<p class="fragment fade-up">Sprints</p>
+<p class="fragment fade-up">Product Review</p>
+
+-
 # _Why a LEGO Simulation?_
 
 
