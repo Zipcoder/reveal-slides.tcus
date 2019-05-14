@@ -2,6 +2,7 @@
 
 -
 -
+
 ## What we'll cover
 <p class="fragment fade-up">Abstraction</p>
 <p class="fragment fade-up">5 Pillars of OOP</p>
