@@ -1,4 +1,14 @@
-# Fundamental Programming Structures in Java
+# Fundamental Programming Structures in Java: Arrays
+
+-
+-
+
+## What we'll cover
+
+<p class="fragment fade-up">Arrays</p>
+<p class="fragment fade-up">ArrayLists</p>
+<p class="fragment fade-up">Wrapper Classes</p>
+
 
 -
 -
