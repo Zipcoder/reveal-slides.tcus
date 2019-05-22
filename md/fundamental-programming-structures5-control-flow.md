@@ -1,8 +1,27 @@
 
+
+-
+-
+#Control Flow
+
+
+-
+-
+## What we'll cover
+
+<p class="fragment fade-up">Block Scope</p>
+<p class="fragment fade-up">Conditional Statements</p>
+<p class="fragment fade-up">Loops</p>
+<p class="fragment fade-up">Switch Statements</p>
+
+-
+-
+
 ##Control Flow
 
 Java, like any programming language, supports both conditional statements and loops to determine control flow
 
+-
 -
 
 ###Block Scope
@@ -41,6 +60,8 @@ public static void main(String[] args)
     }
 }
 ```
+
+-
 -
 
 ###Conditional Statements
@@ -102,6 +123,8 @@ if(condition) {
 }
 ```
 has two branches.  One code path when the condition succeeds and one for when it fails.
+
+-
 -
 
 ###Loops
@@ -144,6 +167,8 @@ for(int i = 0; i < 5; i++) {
 ```
 
 -
+-
+
 
 ###Multiple Selections - The switch Statement
 
