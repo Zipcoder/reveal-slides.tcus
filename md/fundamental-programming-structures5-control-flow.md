@@ -101,7 +101,7 @@ if (condition)
 {
     statement1
 }
-else (condition2)
+else if (condition2)
 {
     statement2
 }
