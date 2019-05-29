@@ -6,8 +6,8 @@
 ## What we'll cover
 <p class="fragment fade-up">Class inheritance</p>
 <p class="fragment fade-up">Object Class</p>
-<p class="fragment fade-up">Abstract Classes</p>
-<p class="fragment fade-up">The Class Object</p>
+<p class="fragment fade-up">Object Methods</p>
+<p class="fragment fade-up">Super and Final Keywords</p>
 
 -
 -
