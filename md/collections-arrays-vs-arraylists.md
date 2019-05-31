@@ -1,5 +1,5 @@
 # Array and ArrayList
-### A tail of friendship, heartache and redemption
+### A tale of friendship, heartache and redemption
 
 -
 -
