@@ -1,28 +1,16 @@
 #Exceptions, Assertions, Logging
-1. Throwable Class
-2. Basic Exception Handling
-3. Better Exception Handling
-4. Finally Keyword
-5. Assertions
-6. Logging
 
 
+-
+-
+## What we'll cover
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<p class="fragment fade-up">Throwable Class</a>
+<p class="fragment fade-up">Basic Exception Handling</a>
+<p class="fragment fade-up">Better Exception Handling</a>
+<p class="fragment fade-up">Finally Keyword</a>
+<p class="fragment fade-up">Assertions</a>
+<p class="fragment fade-up">Logging</a>
 
 
 
