@@ -2,6 +2,14 @@
 
 -
 -
+## What we'll cover
+<p class="fragment fade-up">What is a collection?</p>
+<p class="fragment fade-up">The Collection Interface</p>
+<p class="fragment fade-up">The Iterator Interface</p>
+<p class="fragment fade-up">The Iterable Interface</p>
+
+-
+-
 # `Iterator` and `Collection` interface
 
 
@@ -417,11 +425,7 @@ public class MyCollection<E> extends AbstractCollection<E>  {
 
 
 
-
-
-
-
-
-
 -
-# Puppies
+-
+<img src="https://raw.githubusercontent.com/Zipcoder/reveal-slides.tcus/master/img/puppies/duck-dog.png?raw=true" >
+
