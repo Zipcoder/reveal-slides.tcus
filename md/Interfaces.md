@@ -2,6 +2,25 @@
 
 -
 -
+## What we'll cover
+
+<p class="fragment fade-up">What is an Interface?</p>
+<p class="fragment fade-up">Declaring an Interface</p>
+<p class="fragment fade-up">Implementing an Interface</p>
+<p class="fragment fade-up">Converting to an Interface Type</p>
+
+
+-
+## What we'll cover (continued)
+
+<p class="fragment fade-up">Casting and instanceof</p>
+<p class="fragment fade-up">Extending Interfaces</p>
+<p class="fragment fade-up">Constants</p>
+<p class="fragment fade-up">Static and Default Methods</p>
+
+
+-
+-
 ## Interfaces
 
 -
