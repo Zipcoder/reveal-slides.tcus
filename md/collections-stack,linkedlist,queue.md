@@ -7,8 +7,14 @@
 -
 -
 # Stack, LinkedList, Queue
-
-
+-
+-
+<p class="fragment fade-up">What is a Stack?</p>
+<p class="fragment fade-up">The Stack Interface</p>
+<p class="fragment fade-up">Stack Methods</p>
+<p class="fragment fade-up">LinkedList</p>
+<p class="fragment fade-up">The Queue Interface</p>
+<p class="fragment fade-up">Queue Methods</p>
 
 -
 -

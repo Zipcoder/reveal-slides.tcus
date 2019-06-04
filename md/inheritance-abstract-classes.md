@@ -1,8 +1,14 @@
-# Inheritance
+# Inheritance:
+## Abstract classes
+-
+-
+
+<p class="fragment fade-up">What is an Abstract Class?</p>
+<p class="fragment fade-up">Defining Abstract Classes</p>
+<p class="fragment fade-up">Abstract Methods</p>
+<p class="fragment fade-up">Final Classes</p>
 
 -
-## Abstract classes
-
 -
 ### What is an Abstract Class?
 * A class which cannot be instantiated.
