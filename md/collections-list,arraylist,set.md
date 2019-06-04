@@ -1,10 +1,13 @@
-# Collections
-
+# Collections: Lists, ArrayLists, Sets
 
 -
 -
-# Lists, ArrayLists, Sets
-
+## What we'll cover
+<p class="fragment fade-up">What is a List?</p>
+<p class="fragment fade-up">The List Interface</p>
+<p class="fragment fade-up">ArrayList</p>
+<p class="fragment fade-up">Set Interface</p>
+<p class="fragment fade-up">Types of Sets</p>
 
 -
 -
@@ -263,3 +266,9 @@ Output
 ```
 [John, Charles, Cutler, Tuskegee]
 ```
+
+
+-
+-
+<img src="https://raw.githubusercontent.com/Zipcoder/reveal-slides.tcus/master/img/crossover/bunnyducks.png?raw=true" >
+
