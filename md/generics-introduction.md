@@ -5,7 +5,7 @@
 ## What we'll cover
 <p class="fragment fade-up">What is a Generic Class?</p>
 <p class="fragment fade-up">Defining a Generic Class</p>
-<p class="fragment fade-up">What you can't do with Generics:</p>
+<p class="fragment fade-up">What you can't do with Generics</p>
 <p class="fragment fade-up">Bounds</p>
 <p class="fragment fade-up">Wildcards</p>
 <p class="fragment fade-up">Type Erasure</p>
