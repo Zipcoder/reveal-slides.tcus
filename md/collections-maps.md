@@ -4,7 +4,18 @@
 -
 # Maps
 
+-
+-
+## What we'll cover
+<p class="fragment fade-up">What is a Map?</p>
+<p class="fragment fade-up">The Map Interface</p>
+<p class="fragment fade-up">Types of Maps, Including:</p>
+<p class="fragment fade-up">- Hashmap</p>
+<p class="fragment fade-up">- Treemap</p>
+<p class="fragment fade-up">- Linked Hashmaps</p>
 
+
+-
 -
 ## What is a `Collection`?
 * `Collection` is an interface which ensures a class has the ability to hold a series of objects.
