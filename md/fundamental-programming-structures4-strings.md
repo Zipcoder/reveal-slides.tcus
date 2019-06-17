@@ -2,7 +2,7 @@
 
 Java does not have a built-in string type. Instead, the standard Java library contains a predefined class called String.
 
-```
+```Java
 String e = ""; // an empty string
 String greeting = "Hello";
 ```
@@ -13,7 +13,7 @@ String greeting = "Hello";
 
 You can extract a substring from a larger string with the substring method of the String class.
 
-```
+```Java
 String greeting = "Hello";
 String s = greeting.substring(0, 3);
 ```
@@ -26,7 +26,7 @@ The second parameter of substring is the first position that you do not want to 
 
 Use + to join (concatenate) two strings.
 
-```
+```Java
 String expletive = "Expletive"; String PG13 = "deleted";
 String message = expletive + PG13;
 ```
@@ -35,15 +35,16 @@ String message = expletive + PG13;
 
 When you concatenate a string with a value that is not a string, the latter is converted to a string.
 
-```
+```Java
 int age = 13;
 String rating = "PG" + age;
 ```
 
 -
 
-```
-String all = String.join(" / ", "S", "M", "L", "XL"); // all is the string "S / M / L / XL"
+```Java
+String all = String.join(" / ", "S", "M", "L", "XL");
+// all is the string "S / M / L / XL"
 ```
 
 -
@@ -52,7 +53,7 @@ String all = String.join(" / ", "S", "M", "L", "XL"); // all is the string "S / 
 
 The String class gives no methods that let you change a character in an existing string.
 
-```
+```Java
 greeting = greeting.substring(0, 3) + "p!";
 ```
 
@@ -64,7 +65,7 @@ Since you cannot change the individual characters in a Java string, the document
 
 To test whether two strings are equal, use the equals method.
 
-```
+```Java
 s.equals(t)
 
 "Hello".equals(greeting)
@@ -90,7 +91,7 @@ or
 
 However, a String variable can also hold a special value, called null
 
-```
+```Java
 if (str == null)
 
 if (str != null && str.length() != 0)
@@ -109,7 +110,7 @@ if (str != null && str.length() != 0)
 
 Using the StringBuilder class allows you to build a string from many small pieces.
 
-```
+```Java
 StringBuilder builder = new StringBuilder();
 
 builder.append(ch); // appends a single character
