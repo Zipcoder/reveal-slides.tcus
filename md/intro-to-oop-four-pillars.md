@@ -1,26 +1,13 @@
-# Four Pillars
-* Abstraction
-* Polymorphism
-* Inheritance
-* Encapsulation
+# Object Oriented Programming: The Four Pillars of OOP
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-
+-
+# The Four Pillars:
+<p class="fragment fade-up"> Abstraction </p>
+<p class="fragment fade-up"> Polymorphism </p>
+<p class="fragment fade-up"> Inheritance </p>
+<p class="fragment fade-up">Set Interface</p>
+<p class="fragment fade-up"> Encapsulation </p>
 
 
 -
