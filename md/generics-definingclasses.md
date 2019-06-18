@@ -1,6 +1,12 @@
-# Generics
+# Generics: Defining generic classes
 
 
+
+-
+-
+## What we'll cover
+<p class="fragment fade-up">Non-Generic vs Generic Structure</p>
+<p class="fragment fade-up">Abstracting a Generic Structure </p>
 
 -
 -
