@@ -88,7 +88,7 @@
 
 -
 # 3. Solution
-* Describes the elements that make up the design, their relationships, respobsibilities, and collaborations.
+* Describes the elements that make up the design, their relationships, responsibilities, and collaborations.
 * Provides an abstract description of a design problem and how a general arrangement of elements solves it.
 * "_Oval bisection_ allows early planning for placement of facial features"
 
