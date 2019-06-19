@@ -1,4 +1,4 @@
-# Design<br>Patterns<br>and<br>Principles
+	# Design<br>Patterns<br>and<br>Principles
 
 -
 -
@@ -15,26 +15,31 @@
 <li class="fragment fade-up"> Creational Patterns</li>
 <li class="fragment fade-up"> Structural Patterns</li>
 <li class="fragment fade-up"> Behavioral Patterns</li>
-
 </ul>
 
 
 -
 -
 # What is a Design Pattern?
-* A pattern that arises from the means by which a set of objects communicate.
-* A recognized & established way of solving a problem by object orientation patterns.
-* A named solution to a problem in a context.
-* Has been proven effective, stable, and scalable.
-* Thoroughly tested strategies which have been proven effective, stable, and scalable.
+<ul>
+<li class="fragment fade-up"> A pattern that arises from the means by which a set of objects communicate.</li>
+<li class="fragment fade-up"> A recognized & established way of solving a problem by object orientation patterns.</li>
+<li class="fragment fade-up"> A named solution to a problem in a context.</li>
+<li class="fragment fade-up"> Has been proven effective, stable, and scalable.</li>
+<li class="fragment fade-up"> Thoroughly tested strategies which have been proven effective, stable, and scalable.</li>
+</ul>
+
 
 -
-# Purpose
-* Assists with the design of a system.
-* Establish vocabulary which communicates a problem, solution, and potential consequences
+# Purpose of a Design Pattern
+<ul>
+<li class="fragment fade-up">  Assists with the design of a system.</li>
+<li class="fragment fade-up"> Establish vocabulary which communicates a problem, solution, and potential consequences</li>
 
-* This is true for chess and true for programming: Raw experience can teach you enough to play a fair game, but a master studies the game of past masters; Identify patterns of play.
-	* Uncle Bob
+<li class="fragment fade-up"> This is true for chess and true for programming: Raw experience can teach you enough to play a fair game, but a master studies the game of past masters; Identify patterns of play.
+	<ul><li class="fragment fade-up"> Uncle Bob</li></ul></li>
+</ul>
+
 
 
 
