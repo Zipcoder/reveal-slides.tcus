@@ -2,20 +2,23 @@
 -
 -
 ## What we'll cover
-<p class="fragment fade-up"> What are Design Principles? </p>
-<p class="fragment fade-up"> DRY Principle </p>
-<p class="fragment fade-up"> WET Principle </p>
-<p class="fragment fade-up"> SOLID Principle </p>
-<p class="fragment fade-up"> Single Responsibility Principle (SRP)</p>
+<ul>
+<li class="fragment fade-up"> What are Design Principles? </li>
+<li class="fragment fade-up"> DRY Principle </li>
+<li class="fragment fade-up"> WET Principle </li>
+<li class="fragment fade-up"> SOLID Principle </li>
+<li class="fragment fade-up"> Single Responsibility Principle (SRP)</li>
+</ul>
 
 -
 
 ## What we'll cover (continued)
-<p class="fragment fade-up"> Open/closed principle (OCP) </p>
-<p class="fragment fade-up"> Liskov substitution principle (LSP) </p>
-<p class="fragment fade-up"> Interface segregation principle (ISP)</p>
-<p class="fragment fade-up"> Dependency inversion principle (DIP)</p>
-
+<ul>
+<li class="fragment fade-up"> Open/closed principle (OCP) </li>
+<li class="fragment fade-up"> Liskov substitution principle (LSP) </li>
+<li class="fragment fade-up"> Interface segregation principle (ISP)</li>
+<li class="fragment fade-up"> Dependency inversion principle (DIP)</li>
+</ul>
 -
 -
 
