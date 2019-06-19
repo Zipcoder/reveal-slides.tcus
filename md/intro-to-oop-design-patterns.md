@@ -2,7 +2,26 @@
 
 -
 -
-# What is a Design Pattern
+
+## What we'll cover
+<p class="fragment fade-up"> What is a Design Pattern? </p>
+<p class="fragment fade-up"> Four Essential Elements of a Pattern
+ </p>
+<p class="fragment fade-up"> Classifying Design Patterns </p>
+<p class="fragment fade-up"> Brief introduction to: 
+ </p>
+
+<ul>
+<li class="fragment fade-up"> Creational Patterns</li>
+<li class="fragment fade-up"> Structural Patterns</li>
+<li class="fragment fade-up"> Behavioral Patterns</li>
+
+</ul>
+
+
+-
+-
+# What is a Design Pattern?
 * A pattern that arises from the means by which a set of objects communicate.
 * A recognized & established way of solving a problem by object orientation patterns.
 * A named solution to a problem in a context.
@@ -277,7 +296,7 @@ public void demo() {
 
 -
 -
-# Behavioral Patterns
+## Behavioral Patterns
 * Characterize the ways in which classes or objects interact and distribute responsibility.
 * Concerned with algorithms and the assignment of responsibilities between objects
 * Describes object / class patterns as well as the resulting communication patterns between them

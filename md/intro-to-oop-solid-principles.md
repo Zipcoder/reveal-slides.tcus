@@ -1,3 +1,24 @@
+#SOLID Design Principles
+-
+-
+## What we'll cover
+<p class="fragment fade-up"> What are Design Principles? </p>
+<p class="fragment fade-up"> DRY Principle </p>
+<p class="fragment fade-up"> WET Principle </p>
+<p class="fragment fade-up"> SOLID Principle </p>
+<p class="fragment fade-up"> Single Responsibility Principle (SRP)</p>
+
+-
+
+## What we'll cover (continued)
+<p class="fragment fade-up"> Open/closed principle (OCP) </p>
+<p class="fragment fade-up"> Liskov substitution principle (LSP) </p>
+<p class="fragment fade-up"> Interface segregation principle (ISP)</p>
+<p class="fragment fade-up"> Dependency inversion principle (DIP)</p>
+
+-
+-
+
 # Design Principles
 * A set of guidelines that helps us to avoid having a bad design.
 
