@@ -4,22 +4,25 @@
 -
 
 ## What we'll cover
-<p class="fragment fade-up"> What is a Design Pattern? </p>
-<p class="fragment fade-up"> Four Essential Elements of a Pattern
- </p>
-<p class="fragment fade-up"> Classifying Design Patterns </p>
-<p class="fragment fade-up"> Brief introduction to: 
- </p>
-
 <ul>
-<li class="fragment fade-up"> Creational Patterns</li>
-<li class="fragment fade-up"> Structural Patterns</li>
-<li class="fragment fade-up"> Behavioral Patterns</li>
+	<li class="fragment fade-up"> What is a Design Pattern? </li>
+	<li class="fragment fade-up"> Four Essential Elements of a Pattern</li>
+	<li class="fragment fade-up"> Classifying Design Patterns </li>
+	<li class="fragment fade-up"> Brief introduction to: 
+
+
+	<ul>
+		<li class="fragment fade-up"> Creational Patterns</li>
+		<li class="fragment fade-up"> Structural Patterns</li>
+		<li class="fragment fade-up"> Behavioral Patterns</li>
+	</ul>
+ </li>
 </ul>
 
 
 -
 -
+
 # What is a Design Pattern?
 <ul>
 <li class="fragment fade-up"> A pattern that arises from the means by which a set of objects communicate.</li>
