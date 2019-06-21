@@ -137,7 +137,7 @@ public class ProfileManager implements Container<Profile> {
 
   public static ProfileManager getInstance(){
     if(instance == null) {
-      instance = new ProifleManager();
+      instance = new ProfileManager();
     }
     return instance;
   }
@@ -290,7 +290,7 @@ public class PersonFactory {
 
 -
 ## Abstract Factory Pattern Example
-* Read the book...
+* Read the book...<br>(start at 4.4.4)
 
 
 -
