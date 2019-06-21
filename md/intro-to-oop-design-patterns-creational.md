@@ -7,8 +7,8 @@
 
 ## What we'll cover
 <ul>
-	<li class="fragment fade-up">What is a Creational Design Pattern? </li>	
-	<li class="fragment fade-up">Recurring Themes of Creational Patterns
+	<li class="fragment fade-up">What is a Creational Design Pattern?</li>	
+	<li class="fragment fade-up">Recurring Themes of Creational Patterns</li>
 	<li class="fragment fade-up">Singleton Pattern</li>
 	<li class="fragment fade-up">Factory Pattern</li>
 	<li class="fragment fade-up">Builder Pattern</li>
