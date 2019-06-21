@@ -321,8 +321,10 @@ public class PersonFactory {
 -
 -
 ## Creational Patterns: Builder
-* Problem - Separate the construction of a complex object from its representation so that the same construction process can create different representations
-* Resolves issues with large construction involving a lot of attributes.
+<ul>
+	<li class="fragment fade-up">Problem: Separate the construction of a complex object from its representation, so that the same construction process can create different representations</li>
+	<li class="fragment fade-up">Resolves issues with large construction involving a lot of attributes.</li>
+</ul>
 
 
 -
