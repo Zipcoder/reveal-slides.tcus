@@ -37,7 +37,7 @@
 
 -
 -
-
+##Streams, visualized:
 <img src="https://github.com/Zipcoder/reveal-slides.tcus/blob/master/img/Streams-50000-foot-view.png?raw=true">
 
 
