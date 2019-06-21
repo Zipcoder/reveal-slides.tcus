@@ -53,7 +53,7 @@
 
 -
 ### Brief Example
-* Consider a Casino application wherein a `Player` instance require reference to an _externally persistent_ `Profile`.
+* Consider a Casino application wherein a `Player` instance requires a reference to an _externally persistent_ `Profile`.
 
 ```java
 public class GoFishGame {
