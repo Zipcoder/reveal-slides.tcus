@@ -295,10 +295,18 @@ public class PersonFactory {
 
 -
 ### Issues with Factory Pattern
-* Too many arguments to pass from client program to the Factory class that can be error prone
-  * Often argument-types are same. From client side its hard to maintain the order of the argument.
-2. Factory pattern does not optional parameters well.
-  * We are forced to send all the parameters and optional parameters need to send as NULL.
+<ul>
+	<li class="fragment fade-up">Too many arguments to pass from client program to the Factory class that can be error prone
+		<ul>
+	  		<li class="fragment fade-up"> Often, argument-types are same. From client-side, it's hard to maintain the order of the argument.</li>
+	  </ul>
+  </li>
+  <li class="fragment fade-up">Factory pattern does not do optional parameters well.
+	  <ul>
+	  	<li class="fragment fade-up">We are forced to send <strong>all</strong> the parameters, and optional parameters need to send as NULL.</li>
+	  </ul>
+  </li>
+  </ul>
 
 
 
