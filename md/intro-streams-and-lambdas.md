@@ -371,9 +371,11 @@ public Optional<String> getRandom(String[] stringArray) {
 -
 -
 #More Streams...
-1. Optional Type
-2. Optional Type Usage
-3. Optional Type Misuse
+<ol>
+	<li class="fragment fade-up">Optional Type</li>
+	<li class="fragment fade-up">Optional Type Usage</li>
+	<li class="fragment fade-up">Optional Type Misuse</li>
+</ol>
 
 
 
@@ -489,7 +491,7 @@ Optional<U> = s.f().flatMap(T::g);
 
 -
 -
-#*Section 8.8*<br>Collecting Results
+#Collecting Results
 
 -
 # Relevant Functional Interfaces
@@ -807,7 +809,7 @@ class Demo {
 
 -
 -
-#*Section 8.12*<br>Reduction Operations
+#Reduction Operations
 * The `reduce` method is a general mechanism for computing a value from a stream.
 
 ```Java

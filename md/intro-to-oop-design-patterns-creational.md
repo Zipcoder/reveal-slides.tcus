@@ -12,11 +12,15 @@
 
 -
 ### Two Recurring Themes of Creational Patterns
-1. They encapsulate knowledge about which concrete classes the system uses
-	* Abstracts the instantiation process
-2. Hide how instances of classes are created and put together
-	* Helps make a system independent of how its objects are created, composed, or represented
-
+<ol>
+<li class="fragment fade-up">They encapsulate knowledge about which concrete classes the system uses
+	<ul><li class="fragment fade-up">Abstracts the instantiation process</li></ul>
+	</li>
+<li class="fragment fade-up">Hide how instances of classes are created and put together
+	<ul>
+		<li class="fragment fade-up">Helps make a system independent of how its objects are created, composed, or represented</li>
+	<ul></li>
+</ol>
 
 
 
@@ -206,12 +210,24 @@ public class GoFishGame {
 -
 -
 ## Creational Patterns: Factory
-* Factory Method
-	* A method which is responsible for instantiating and returning an object.
-* Abstract Factory Class Pattern
-	* Provides an interface for creating families of related or dependent objects without specifying their concrete classes.
-* Factory Pattern
-	* _Informal pattern_ in which there exists a class solely responsible for creation of another.
+
+<ul>
+	<li class="fragment fade-up">Factory Method
+		<ul>
+			<li class="fragment fade-up">A method which is responsible for instantiating and returning an object.</li>
+		</ul>
+	</li>
+	<li class="fragment fade-up">Abstract Factory Class Pattern
+		<ul>
+			<li class="fragment fade-up">Provides an interface for creating families of related or dependent objects without specifying their concrete classes.</li>
+		</ul>
+	</li>
+	<li class="fragment fade-up">Factory Pattern
+		<ul>
+			<li class="fragment fade-up"><span style="    font-style: italic;">Informal pattern</span> in which there exists a class solely responsible for creation of another.</li>
+		</ul>
+	</li>
+</ul>
 
 -
 ### Factory Methods; Example 1
