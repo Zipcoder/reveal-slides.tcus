@@ -231,12 +231,12 @@ public Stream<String> combineStreams(String[] array1, String[] array2) {
 * The `filter` transformation yields a new stream with elements that match the specified criteria
 
 ```Java
-public Stream<String> getStringsShorterThan(String[] stringArray, int length) {
+public Stream<String> getStringsLongerThan(String[] stringArray, int length) {
     return Arrays.stream(stringArray)
             .filter(word -> word.length() > length);
 }
 
-public Stream<String> getStringsLongerThan(String[] stringArray, int length) {
+public Stream<String>getStringsShorterThan(String[] stringArray, int length) {
     return Arrays.stream(stringArray)
             .filter(word -> word.length() < length);
 }
@@ -444,7 +444,7 @@ public static Optional<String> demoOfNullable(String arg) {
 
 
 -
-#Chaining Method Calls
+##Chaining Method Calls
 * Consider the following:
 	* `S` is a class which contains the definition of method `.f()`
 	* Method `.f()` returns `Optional<T>`
