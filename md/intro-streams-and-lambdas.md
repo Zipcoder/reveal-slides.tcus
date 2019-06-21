@@ -1,18 +1,26 @@
-
-
-
--
--
 #Streams
-1. What is
-2. Usage
-3. Section 8.2 - Stream Creation
-4. Section 8.4 - Extracting Substreams
-5. Section 8.4 - Combining Streams
-4. Section 8.3 - Stream Transformations: `filter`, `map`, `flatMap`
-5. Section 8.5 - More Stream Transformations: `distinct`, `sorted`
-6. Section 8.6 - Reductions (Terminal Operations) `count`, `max`, `min`, ... , `andMore`
 
+
+
+-
+-
+
+##What we'll cover
+
+<ul>
+	<li class="fragment fade-up">What is a Stream?</li>
+	<li class="fragment fade-up">Usage	
+	<ul>
+	<li class="fragment fade-up">Stream Creation</li>
+	<li class="fragment fade-up">Extracting Substreams</li>
+	<li class="fragment fade-up">Combining Streams</li>
+	<li class="fragment fade-up">Stream Transformations: `filter`, `map`, `flatMap`</li>
+	<li class="fragment fade-up">More Stream Transformations: `distinct`, `sorted`</li>
+	<li class="fragment fade-up">Reductions (Terminal Operations) `count`, `max`, `min`, ... , `andMore`</li>
+	</ul>
+</li>
+
+</ul>
 
 
 
@@ -56,7 +64,7 @@ public void streamPrint(String[] stringArray) {
 
 -
 -
-#*Section 8.2*<br>Stream Creation
+#Stream Creation
 
 -
 #From Array, strategy 1
@@ -154,7 +162,7 @@ public Stream<String> fromIterator() {
 
 -
 -
-#*Section 8.4*<br>Extracting substreams
+#Extracting substreams
 
 -
 #Extracting substreams
@@ -178,7 +186,7 @@ public Stream<String> getSubStream(String[] stringArray, int endIndex) {
 
 
 -
-#*Section 8.4*<br>Combining substreams
+#Combining substreams
 
 -
 #`Stream.concat`
@@ -209,7 +217,7 @@ public Stream<String> combineStreams(String[] array1, String[] array2) {
 
 -
 -
-#*Section 8.3, 8.5*<br>Transformations
+#Transformations
 
 -
 #Filter, Map, and FlatMap
@@ -302,7 +310,7 @@ public Stream<String> sort(String[] words) {
 
 -
 -
-#*Section 8.6*<br>Simple Reductions
+#Simple Reductions
 * Reductions are terminal operations
 * They reduce the stream to a nonstream value that can be used in the program.
 * Examples include: `.count`, `.max`, `.min`, `.findFirst`, `.findAny`, `.anyMatch`
@@ -360,43 +368,6 @@ public Optional<String> getRandom(String[] stringArray) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
--
--
-#END OF LECTURE
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 -
 -
 #More Streams...
@@ -420,7 +391,7 @@ public Optional<String> getRandom(String[] stringArray) {
 
 -
 -
-#*Section 8.7.3*<br>Optional Type Creation
+#Optional Type Creation
 
 
 
@@ -466,7 +437,7 @@ public static Optional<String> demoOfNullable(String arg) {
 
 -
 -
-#*Section 8.7.4*<br>Composing Optional Value Functions<br>With `.flatMap`
+#Composing Optional Value Functions<br>With `.flatMap`
 
 
 
@@ -685,7 +656,7 @@ public class CollectorsDemo {
 
 -
 -
-#*Section 8.9*<br>Collecting into Maps
+#Collecting into Maps
 
 -
 #Using `.collect()`<br>to collect to a `Map`
@@ -743,7 +714,7 @@ public class CollectorsDemo {
 
 -
 -
-#*Section 8.10*<br>Grouping and Partitioning
+#Grouping and Partitioning
 
 
 -
@@ -786,7 +757,7 @@ public Map<String, List<Locale>> groupingByDemo() {
 
 
 -
-#*Section 8.11*<br>Downstream Collectors
+#Downstream Collectors
 * The `.groupingBy` method yields a map whose values are lists
 * If you want to process those lists in some way, supply a _downstream collector_.
 * For example, if you want sets, instead of lists, you can use `Collectors.toSet`
@@ -877,7 +848,7 @@ represents the function call •(v<sub>i</sub>, v<sub>i+1</sub>)
 
 -
 -
-#*Section 8.13*<br>Primitive Type Streams
+#Primitive Type Streams
 * The stream library has specialized types `IntStream`, `LongStream`, and `DoubleStream` that store primitive values directly without using wrappers.
 * If you want to store `int`, `short`, `char`, `byte`, and `boolean`, use an `IntStream`.
 * If you want to store `float`, or `double`, use `DoubleStream`.
@@ -973,7 +944,7 @@ public class PrimitiveStreams {
 
 -
 -
-#*Section 8.14*<br>Parallel Streams
+#Parallel Streams
 * Streams make it easy to parallelize bulk operations.
 * The process is mostly automatic, but you need to take note of the following:
 	1. Use a parallel stream
