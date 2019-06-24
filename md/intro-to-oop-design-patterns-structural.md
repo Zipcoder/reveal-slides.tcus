@@ -72,15 +72,16 @@
 ### Defining a facade
 ```java
 public class ListFacade<T> {
-	private final List<T> list;
-	public ListFacade(List<T> list) { this.list = list; }
-	public ListFacade() { this(new ArrayList<>()); }
+    private final List<T> list;
+    public ListFacade(List<T> list) { this.list = list; }
+    public ListFacade() { this(new ArrayList<>()); }
 
-	public void add(T object) { list.add(object); }
-	public void remove(T object) { list.remove(object); }
-	public void get(Integer index) { list.get(index); }
-	public void size() { list.size(); }
-	public void foreach(Consumer<T> consumer) { list.foreach(consumer); }
+    public boolean add(T object) { return list.add(object); }
+    public void remove(T object) { list.remove(object); }
+    public T get(Integer index) { return list.get(index);
+    }
+    public int size() { return list.size(); }
+    public void foreach(Consumer<T> consumer) { list.forEach(consumer); }
 }
 ```
 
