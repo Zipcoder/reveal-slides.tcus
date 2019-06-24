@@ -1,9 +1,23 @@
-# Design Patterns
+# Design Patterns: Structural Patterns
 
 
 
 
 
+-
+-
+
+## What we'll cover
+
+<ul>
+<li class="fragment fade-up">What is a Structural Pattern?</li>
+	<ul>
+		<li class="fragment fade-up">Facade Pattern </li>
+		<li class="fragment fade-up">Decorator Pattern </li>
+		<li class="fragment fade-up">Adapter Pattern </li>
+	</ul>
+<li class="fragment fade-up">section</li>
+</ul>
 
 
 

@@ -3,6 +3,26 @@
 
 
 
+-
+-
+
+## What we'll cover
+
+<ul>
+<li class="fragment fade-up">What is a Functional Interface?</li>
+<li class="fragment fade-up">Relevant Jargon</li>
+<li class="fragment fade-up">Examples of Fuctional Interfaces
+	<ul>
+		<li class="fragment fade-up"> Runnable </li>
+		<li class="fragment fade-up"> Supplier </li>
+		<li class="fragment fade-up"> Consumer </li>
+		<li class="fragment fade-up"> BiConsumer </li>
+		<li class="fragment fade-up"> Function </li>
+		<li class="fragment fade-up"> BiFunction </li>
+	</ul>
+</li>
+</ul>
+
 
 
 

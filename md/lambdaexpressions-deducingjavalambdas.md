@@ -1,8 +1,10 @@
-# Lambda Expressions
+# Lambda Expressions: Deducing java Lambda Expressions
+
 
 
 -
 -
+
 ## Deducing java Lambda Expressions
 * How do I express a more complex lambda as a less complex lambda?
 
