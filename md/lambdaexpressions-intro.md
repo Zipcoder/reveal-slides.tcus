@@ -254,7 +254,7 @@ public class MainClass {
 public class MainClass {
   public void demo() {
     Consumer<String> consumer = this::someConsumerMethod;
-    String result = consumer.accept("Hello world");
+	result = consumer.accept("Hello world");
   }
 
   public void someConsumerMethod(String str) {
@@ -272,7 +272,7 @@ public class MainClass {
 public class MainClass {
   public void demo() {
     Consumer<String> consumer = MainClass::someConsumerMethod;
-    String result = consumer.accept("Hello world");
+    result = consumer.accept("Hello world");
   }
 
   public static void someConsumerMethod(String str) {
