@@ -16,7 +16,6 @@
 		<li class="fragment fade-up">Decorator Pattern </li>
 		<li class="fragment fade-up">Adapter Pattern </li>
 	</ul>
-<li class="fragment fade-up">section</li>
 </ul>
 
 
@@ -241,3 +240,10 @@ public void demo() {
 	LocalDate localDate = adapter.getLocalDate();
 }
 ```
+
+
+-
+-
+
+<img src="https://github.com/Zipcoder/reveal-slides.tcus/blob/master/img/bunnies/cute-bunnies-tongues-3.jpg?raw=true">
+
