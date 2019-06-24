@@ -222,7 +222,7 @@ public class TemporalAdapter {
 
 	public LocalDate getLocalDate() {
 		Instant instant = date.toInstant();
-		ZoneId zoneId = ZoneId.of("America/Philadelphia");
+		ZoneId zoneId = ZoneId.of("America/New_York");
 		ZonedDateTime zdt = instant.atZone(zoneId);
 		LocalDate localDate = zdt.toLocalDate();
 		return localDate;
