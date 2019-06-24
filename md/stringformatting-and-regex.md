@@ -1,7 +1,18 @@
-# Regular expressions
+# String Formatting and Regular Expressions
 
 -
 -
+
+## What we'll cover
+
+<p class="fragment fade-up">Formatting Strings</p>
+<p class="fragment fade-up">Formatting System OutputStream</p>
+<p class="fragment fade-up">Formatter Class</p>
+<p class="fragment fade-up">Regular expressions</p>
+
+-
+-
+
 ## Formatting Strings
 
 -
@@ -81,7 +92,7 @@ I am 25 years old.
 
 
 -
-### Formatting: String Formatting<br>Example 3.0
+### Formatting: String Formatting<br>Example
 * Formatting `Double` arguments using `%f` specifier
   * `%f` specifies a decimal value
   * `.` precedes positive integer value denoting precision of floating point value. (_decimal precision_)
@@ -104,7 +115,7 @@ I've finished 79.87654 percent of homework
 
 
 -
-### Formatting: String Formatting<br>Example 3.1
+### Formatting: String Formatting<br>Example
 * Specifying precision of `3` decimal places.
 
 ```java
@@ -123,7 +134,7 @@ I've finished 79.876 percent of homework
 
 
 -
-### Formatting: String Formatting<br>Example 3.2
+### Formatting: String Formatting<br>Example
 * Specifying precision of `2` decimal places.
 
 ```java
@@ -142,7 +153,7 @@ I've finished 79.87 percent of homework
 
 
 -
-### Formatting: String Formatting<br>Example 3.2
+### Formatting: String Formatting<br>Example
 
 ```java
 public void demo() {
@@ -178,7 +189,7 @@ I've finished 79.87654 percent of homework
 
 
 -
-### Formatting: String Formatting<br>Example 4
+### Formatting: String Formatting<br>Example 
 * Formatting `Character` arguments using `%c` specifier
   * `%c` specifies a character value
 
@@ -200,7 +211,8 @@ My first initial is J.
 
 
 -
-### Formatting: String Formatting<br>Example 5
+### Formatting: String Formatting<br>Example 
+
 * Formatting `String` and `Integer` arguments
   * Arguments are entered in the order they are specified
 
