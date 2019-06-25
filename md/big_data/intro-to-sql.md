@@ -477,6 +477,10 @@ END //
 DELIMITER ;
 ```
 
+```
+CALL increment_years_experience;
+```
+
 This procedure can be called instead of a developer trying to write their own update statement. This gives us control over the data and ensures it's quality remains up to a standard. 
 
 -
