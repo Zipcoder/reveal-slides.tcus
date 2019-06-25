@@ -5,9 +5,7 @@
 ### Overview
 
 - What is Docker?
-- Download Docker Desktop
-- Install Docker Desktop
-- Validate Installation
+- Getting Started
 
 -
 -
@@ -20,7 +18,6 @@
 
 "Docker is a full development platform for creating containerized apps".
 
--
 -
 
 # Getting Started
