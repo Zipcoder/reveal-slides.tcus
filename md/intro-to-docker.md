@@ -4,8 +4,8 @@
 
 ### Overview
 
-- What is Docker?
-- Getting Started
+* What is Docker?
+* Getting Started
 
 -
 -
