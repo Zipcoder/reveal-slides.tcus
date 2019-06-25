@@ -467,11 +467,14 @@ Here we are able to increment the years by setting years = to whatever it's own 
 Now that we know how to do inserts and updates, it may be useful for us to create a stored procedure for something that will be done regularly. The devs have asked us to put this update statement in a Stored Procedure. 
 
 ```
+DELIMITER //
 CREATE PROCEDURE zipcode.increment_years_experience ()
 BEGIN
   UPDATE zipcode.teacher_meta
-    SET years = years+1;
-END;
+    SET years = years+1
+    WHERE ID <> 0;
+END //
+DELIMITER ;
 ```
 
 This procedure can be called instead of a developer trying to write their own update statement. This gives us control over the data and ensures it's quality remains up to a standard. 
