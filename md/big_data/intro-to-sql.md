@@ -138,8 +138,8 @@ In order to connect to a MySQL instance, you need to know a few things
 The easiest way to install a local MySQL instance on any machine is with a docker container. The following line will start up an instance
 
 ```
-$ docker run --name local-mysql -e MYSQL_ROOT_PASSWORD=password\
--p 3306:3306 -d mysql:tag
+$ docker pull mysql
+$ docker run --name local-mysql -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 -d mysql
 ```
 
 This will allow you to connect using the following 
