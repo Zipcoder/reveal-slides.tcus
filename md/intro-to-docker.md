@@ -7,19 +7,25 @@
 - What is Docker?
 - Download Docker Desktop
 - Install Docker Desktop
-- Login to Docker Desktop
 - Validate Installation
 
 -
 -
 
-# What is Docker?
+### What is Docker?
 
 "Docker is a full development platform for creating containerized apps".
 
 - 
+-
 
-# Download Docker Desktop
+
+# Getting Started
+
+-
+
+
+#### Download Docker Desktop
 
 1. Go to dockerHub (https://hub.docker.com/).
 2. Create an account (https://hub.docker.com/signup).
@@ -28,14 +34,14 @@
 
 -
 
-# Install Docker Desktop
+### Install Docker Desktop
 
 1. Double click on the dmg file downloaded in previous step.
 2. Follow the instructions on the wizard to install application.
 
 -
 
-# Validate Docker Desktop Installation
+#### Validate Docker Desktop Installation
 
 1. Launch Docker Desktop
 2. Login to Docker Desktop
