@@ -16,7 +16,7 @@
 -
 -
 
-### What is a databse?
+### What is a database?
 
 A database is an organized collection of data. A database will usually have some sort of api to query the data. Using a Structured Query Language (SQL) will allow you to interact with the data in a predictable way. A query in this case is a statement you ask a database. A properly made database will be able to answer a query with all relevent information.
 
