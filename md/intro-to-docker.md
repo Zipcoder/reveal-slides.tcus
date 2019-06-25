@@ -19,11 +19,9 @@
 - 
 -
 
-
 # Getting Started
 
 -
-
 
 #### Download Docker Desktop
 
