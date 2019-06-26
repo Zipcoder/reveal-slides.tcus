@@ -3,22 +3,28 @@
 
 
 
-
-
-
-
 -
 -
+
 ## What we will cover this lecture
-* Deadlocks
-* Race Conditions
-* Preventing race conditions
-  * explicit mutual exclusion locking
-    * `ReentrantLock` objects
-  * implicit monitor locking
-    * `Synchronized` signature clause
-    * `Synchronous` blocks
-
+<ul>
+	<li class="fragment fade-up">Race Conditions</li>
+	<li class="fragment fade-up">Preventing race conditions
+  	<ul>
+  	     <li class="fragment fade-up">explicit mutual exclusion locking
+        <ul>
+            <li class="fragment fade-up">`ReentrantLock` objects</li>
+        </ul>
+        </li>
+        <li class="fragment fade-up">implicit monitor locking
+            <ul>
+                <li class="fragment fade-up">`Synchronized` signature clause</li>
+                <li class="fragment fade-up">`Synchronous` blocks</li>
+            </ul>
+        </li>
+    </ul>
+    <li class="fragment fade-up">Deadlocks</li>
+</ul>
 
 
 
