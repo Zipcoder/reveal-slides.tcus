@@ -5,10 +5,11 @@
 
 ## What we'll cover
 
-<p class="fragment fade-up">Regex basics</p>
-<p class="fragment fade-up">Pattern Matching</p>
-<p class="fragment fade-up">Using Regex in Java</p>
-
+<ul>
+<li class="fragment fade-up">Regex basics</li>
+<li class="fragment fade-up">Pattern Matching</li>
+<li class="fragment fade-up">Using Regex in Java</li>
+</ul>
 
 -
 -

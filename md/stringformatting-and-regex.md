@@ -5,11 +5,12 @@
 
 ## What we'll cover
 
-<p class="fragment fade-up">Formatting Strings</p>
-<p class="fragment fade-up">Formatting System OutputStream</p>
-<p class="fragment fade-up">Formatter Class</p>
-<p class="fragment fade-up">Regular expressions</p>
-
+<ul>
+<li class="fragment fade-up">Formatting Strings</li>
+<li class="fragment fade-up">Formatting System OutputStream</li>
+<li class="fragment fade-up">Formatter Class</li>
+<li class="fragment fade-up">Regular expressions</li>
+</ul>
 -
 -
 
