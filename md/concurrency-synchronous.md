@@ -648,7 +648,7 @@ public class AsynchDemo {
     }
 }
 ```
-*Output: 
+ * Output: 
 
 ```
 Thread 1: Holding lock 1...
