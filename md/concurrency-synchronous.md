@@ -448,10 +448,217 @@ public void demo() {
 
 -
 ### Encountering a Deadlock
-* Blah
+
+Let's put together a situation that would cause a deadlock with our threads...
+
+-
+### Encountering a Deadlock: ThreadDemo1
+
+
 
 ```java
-public void demo() {
+public class ThreadDemo1 extends Thread {
 
+  public static Object lock1;
+  public static Object lock2;
+
+  public ThreadDemo1(Object lock1, Object lock2) {
+    this.lock1 = lock1;
+    this.lock2 = lock2;
+  }
+
+  public void run() {
+    synchronized (lock1) {
+      System.out.println("Thread 1: Holding lock 1...");
+      try {
+        Thread.sleep(10);
+      } catch (InterruptedException e) {}
+        System.out.println("Thread 1: Waiting for lock 2...");
+
+      synchronized (lock2) {
+        System.out.println("Thread 1: Holding lock 1 & 2...");
+      }
+    }
+  }
+}
+
+```
+
+
+
+
+-
+### Encountering a Deadlock: ThreadDemo2
+
+```java
+public class ThreadDemo2 extends Thread {
+
+  public static Object lock1;
+  public static Object lock2;
+
+  public ThreadDemo2(Object lock1, Object lock2) {
+    this.lock1 = lock1;
+    this.lock2 = lock2;
+  }
+
+  public void run() {
+    synchronized (lock2) {
+      System.out.println("Thread 2: Holding lock 2...");
+      try {
+        Thread.sleep(10);
+      } catch (InterruptedException e) {}
+      System.out.println("Thread 2: Waiting for lock 1...");
+
+      synchronized (lock1) {
+          System.out.println("Thread 2: Holding lock 1 & 2...");
+      }
+    }
+  }
+}
+
+```
+
+
+-
+
+### Encountering a Deadlock
+* Run the Demo:
+
+```java
+public class AsynchDemo {
+    public static Object lock1 = new Object();
+    public static Object lock2 = new Object();
+
+    public static void main(String[] args) {
+        ThreadDemo1 T1 = new ThreadDemo1(lock1, lock2);
+        ThreadDemo2 T2 = new ThreadDemo2(lock1, lock2);
+        T1.start();
+        T2.start();
+    }
 }
 ```
+*Output: 
+
+```
+Thread 1: Holding lock 1...
+Thread 2: Holding lock 2...
+Thread 1: Waiting for lock 2...
+Thread 2: Waiting for lock 1...
+```
+
+-
+
+### Encountering a Deadlock : Fix
+
+
+
+To fix this deadlock, we'll change the order of the locks on one of our ThreadDemo classes.
+
+
+
+
+-
+### Fixing a Deadlock: ThreadDemo1
+
+(unchanged)
+
+```java
+public class ThreadDemo1 extends Thread {
+
+  public static Object lock1;
+  public static Object lock2;
+
+  public ThreadDemo1(Object lock1, Object lock2) {
+    this.lock1 = lock1;
+    this.lock2 = lock2;
+  }
+
+  public void run() {
+    synchronized (lock1) {
+      System.out.println("Thread 1: Holding lock 1...");
+      try {
+        Thread.sleep(10);
+      } catch (InterruptedException e) {}
+        System.out.println("Thread 1: Waiting for lock 2...");
+
+      synchronized (lock2) {
+        System.out.println("Thread 1: Holding lock 1 & 2...");
+      }
+    }
+  }
+}
+
+```
+
+
+-
+### Fixing a Deadlock: ThreadDemo2
+
+(changed the order of the locks on ThreadDemo2)
+
+```java
+public class ThreadDemo2 extends Thread {
+
+  public static Object lock1;
+  public static Object lock2;
+
+  public ThreadDemo2(Object lock1, Object lock2) {
+    this.lock1 = lock1;
+    this.lock2 = lock2;
+  }
+
+  public void run() {
+    synchronized (lock1) {
+      System.out.println("Thread 2: Holding lock 2...");
+      try {
+        Thread.sleep(10);
+      } catch (InterruptedException e) {}
+      System.out.println("Thread 2: Waiting for lock 1...");
+
+      synchronized (lock2) {
+          System.out.println("Thread 2: Holding lock 1 & 2...");
+      }
+    }
+  }
+}
+
+```
+-
+
+
+### Encountering a Deadlock
+* Now, run the Demo:
+
+```java
+public class AsynchDemo {
+    public static Object lock1 = new Object();
+    public static Object lock2 = new Object();
+
+    public static void main(String[] args) {
+        ThreadDemo1 T1 = new ThreadDemo1(lock1, lock2);
+        ThreadDemo2 T2 = new ThreadDemo2(lock1, lock2);
+        T1.start();
+        T2.start();
+    }
+}
+```
+*Output: 
+
+```
+Thread 1: Holding lock 1...
+Thread 1: Waiting for lock 2...
+Thread 1: Holding lock 1 & 2...
+Thread 2: Holding lock 2...
+Thread 2: Waiting for lock 1...
+Thread 2: Holding lock 1 & 2...
+
+Process finished with exit code 0
+
+```
+
+-
+-
+
+
+<img src="https://github.com/Zipcoder/reveal-slides.tcus/blob/master/img/bunnies/baby-bunnies.jpg?raw=true">
+
