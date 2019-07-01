@@ -1,12 +1,24 @@
-# Lambda Expressions: Reducing java Lambda Expressions
+# Lambda Expressions: Reducing Java Lambda Expressions
+
+
+
 
 
 
 -
 -
 
-## Reducing java Lambda Expressions
-* How do I express a more complex lambda as a less complex lambda?
+## What we'll cover:
+<ul>
+<li class="fragment fade-up"> How do I express a more complex lambda as a less complex lambda?
+<ul>
+<li class="fragment fade-up">Function as BiFunction</li>
+<li class="fragment fade-up">BiConsumer as BiFunction</li>
+<li class="fragment fade-up">Consumer as BiConsumer</li>
+<li class="fragment fade-up">Predicate as Function</li>
+<li class="fragment fade-up">Supplier as Function</li>
+<li class="fragment fade-up">Runnable as Supplier</li>
+</ul></li></ul>
 
 
 
