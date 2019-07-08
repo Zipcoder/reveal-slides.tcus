@@ -1,16 +1,30 @@
-# Intro to JDBC
+# Introduction to JDBC
 
 -
-
-## Objectives
-
-* Introduce JDBC
-* Connect to SQL Database
-* Perform CRUD operations
-
 -
 
-## Introduction
+
+### What We'll Cover:
+
+<ul>
+<li class="fragment fade-up">What is the JDBC?</li>
+<li class="fragment fade-up">Architecture of JDBC</li>
+<li class="fragment fade-up">Role of Driver Manager</li>
+<li class="fragment fade-up">Understanding JDBC Driver Types</li>
+</ul>
+
+-
+-
+
+## Objectives:
+<ul>
+<li class="fragment fade-up">Introduce JDBC</li>
+<li class="fragment fade-up">Connect to SQL Database</li>
+<li class="fragment fade-up">Perform CRUD operations</li>
+</ul>
+-
+
+## JDBC: Introduction
 
 JDBC is an API for the Java programming language that defines how a client may access a Database.
 
@@ -63,7 +77,7 @@ __Advantages__
 * It is very easy to use
 * Almost any database is supported
 
-__Disadvatages__
+__Disadvantages__
 
 * Performance will not be efficient
 * ODBC Driver needs to be installed
@@ -77,7 +91,7 @@ __Advantages__
 
 * Faster than Type 1 Driver
 
-__Disadvatages__
+__Disadvantages__
 
 * Client Side Llibrary is not available for all databases
 * Vendor Client Library needs to be installed
@@ -91,13 +105,13 @@ __Advantages__
 
 * No additional library installation is required on client system
 * No changes are required at client for any DB
-* Supprts Caching of Connection, Query Results, Load Balancing Logging and Auditing etc.
+* Supports Caching of Connection, Query Results, Load Balancing Logging and Auditing etc.
 * A Single Driver can handle any database provided the middleware supports it
 
-__Disadvatages__
+__Disadvantages__
 
 * Performance will be slow
-* Requires Database-specific codeing
+* Requires Database-specific coding
 * Maintenance of Network Protocol driver becomes costly
 
 -
@@ -109,7 +123,7 @@ __Advantages__
 * No intermediate format is required
 * Application connects directly to the database server
 * Performance will be very fast
-* JVM manage allaspects
+* JVM manages all aspects
 
 __Disadvatages__
 
@@ -117,28 +131,20 @@ __Disadvatages__
 
 -
 
-#### Overview
+#### Overview : Recommendations:
 
-* If you are accesssing one type of database such as Oracle, SQL Server, MYSQL etc. then the preferred driver is 4
-* If your jJava application is accessing multiple types of databases at the same time, type 3 is the preferred driver.
-* Type 2 drivers are useful in situations where a type 3 or type 4 driver is not available yet for your database
-* The type 1 driver is not considered a deployment-level driver and it is typically used for development and testing purposes only
+* If you are accessing **one type** of database, such as Oracle, SQL Server, MYSQL etc., then the preferred driver is **Type 4**
+* If your Java application is accessing **multiple types** of databases at the same time, **Type 3** is the preferred driver.
+* **Type 2** drivers are useful in situations where a Type 3 or Type 4 driver is not available yet for your database
+* The **Type 1** driver is not considered a deployment-level driver, and it is typically used for **development and testing purposes only**
 
--
-
-### Summary
-
-* What is the JDBC
-* Architecture of JDBC
-* Role of Driver Manager
-* Understanding JDBC Driver Types
 
 -
 -
 
 ## Connecting to a MYSQL Database
 
-First we must get the mysql connecter for java. This can be done using the pom.xml file.
+First, we must get the mysql connecter for java. This can be done using the pom.xml file.
 
 ```
 <dependency>
