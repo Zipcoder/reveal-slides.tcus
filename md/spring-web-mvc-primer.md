@@ -2,21 +2,27 @@
 
 -
 
-Topics to discuss:
-* Spring and its features
-* The Model View Controller Pattern
-* Spring Web MVC and its components
+##What we'll cover: 
+<ul>
+<li class="fragment fade-up"> Spring and its features</li>
+<li class="fragment fade-up"> The Model View Controller Pattern</li>
+<li class="fragment fade-up"> Spring Web MVC and its components</li>
+</ul>
 
 -
 
-The Java ecosystem is filled with frameworks such as Jersey and RestEasy, which allow you to develop REST applications. Spring Web MVC is one such popular web framework that simplifies Web and REST application development.
+The Java ecosystem is filled with frameworks, such as **Jersey** and **RestEasy**, which allow you to develop **REST** applications. 
+
+**Spring Web MVC** is one such popular web framework that simplifies Web and REST application development.
 
 -
 -
 
 ## Spring
 
-The Spring Framework has become the de facto standard for building Java/Java EE–based enterprise applications. Originally written by Rod Johnson in 2002, the Spring Framework is one of the suite of projects owned and maintained by Pivotal Software Inc. (http://spring.io).
+The **Spring** Framework has become a de facto standard for building Java/Java EE–based enterprise applications. 
+
+Originally written by Rod Johnson in 2002, the Spring Framework is one of the suite of projects owned and maintained by Pivotal Software Inc. (http://spring.io).
 
 -
 
@@ -29,11 +35,24 @@ The Spring Framework has become the de facto standard for building Java/Java EE�
 
 -
 
-At the heart of the Spring Framework lies Dependency Injection (DI). As the name suggests, Dependency Injection allows dependencies to be injected into components that need them. This relieves those components from having to create or locate their dependencies, allowing them to be loosely coupled.
+At the heart of the Spring Framework lies **Dependency Injection (DI)**. 
+
+As the name suggests, Dependency Injection allows dependencies to be injected into components that need them. This relieves those components from having to create or locate their dependencies, allowing them to be loosely coupled.
 
 -
+## Dependency Injection: an example
 
-To better understand **DI**, consider the scenario of purchasing a product in an online retail store. Completing a purchase is typically implemented using a component such as an **OrderService**. The **OrderService** itself would interact with an **OrderRepository** that would create order details in a database and a **NotificationComponent** that would send out the order confirmation to the customer. In a traditional implementation, the **OrderService** creates (typically in its constructor) instances of OrderRepository and **NotificationComponent** and uses them. Even though there is nothing wrong with this approach, it can lead to hard-to-maintain, hard-to-test, and highly coupled code.
+To better understand **DI**, consider the scenario of purchasing a product in an online retail store: 
+
+Completing a purchase is typically implemented using a component such as an **OrderService**. 
+
+The **OrderService** itself would interact with an **OrderRepository** that would create order details in a database and a **NotificationComponent** that would send out the order confirmation to the customer. 
+
+-
+-
+## Dependency Injection: an example
+
+In a traditional implementation, the **OrderService** creates (typically in its constructor) instances of OrderRepository and **NotificationComponent** and uses them. Even though there is nothing wrong with this approach, it can lead to hard-to-maintain, hard-to-test, and highly coupled code.
 
 -
 
