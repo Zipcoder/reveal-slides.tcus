@@ -56,8 +56,20 @@ In a traditional implementation, the **OrderService** creates (typically in its 
 
 -
 
-**DI**, by contrast, allows us to take a different approach when dealing with dependencies. With DI,
-you let an external process such as Spring create dependencies, manage dependencies, and inject those dependencies into the objects that need them. So, with DI, Spring would create the **OrderRepository** and **NotificationComponent** and then hand over those dependencies to the **OrderService**. This decouples **OrderService** from having to deal with **OrderRepository**/**NotificationComponent** creation, making it easier to test. It allows each component to evolve independently, making development and maintenance easier. Also, it makes it easier to swap these dependencies with different implementations or use these components in a different context.
+**DI**, by contrast, allows us to take a different approach when dealing with dependencies. 
+
+With DI,
+you let an external process such as Spring create dependencies, manage dependencies, and inject those dependencies into the objects that need them. 
+
+So with DI, Spring would create the **OrderRepository** and **NotificationComponent** and then hand over those dependencies to the **OrderService**. 
+
+-
+
+**OrderService** is now relieved of having to deal with **OrderRepository**/**NotificationComponent** creation, making it easier to test. 
+
+Each component can now evolve independently, making development and maintenance easier. 
+
+Also, it's easier to swap these dependencies with different implementations, or use these components in a different context.
 
 -
 -
@@ -66,7 +78,9 @@ you let an external process such as Spring create dependencies, manage dependenc
 
 -
 
-Spring Web MVC, part of the Spring Framework’s Web module, is a popular technology for building Web-based applications. It is based on the model-view-controller architecture and provides a rich set of annotations and components. Over the years, the framework has evolved; it currently provides a rich set of configuration annotations and features such as flexible view resolution and powerful data binding.
+**Spring Web MVC**, part of the Spring Framework’s Web module, is a popular technology for building Web-based applications. 
+
+It is based on the model-view-controller architecture and provides a rich set of **annotations** and components. Over the years, the framework has evolved; it currently provides a rich set of configuration annotations and features such as flexible view resolution and powerful data binding.
 
 -
 -
@@ -77,9 +91,9 @@ Spring Web MVC, part of the Spring Framework’s Web module, is a popular techno
 
 The **Model View Controller**, or **MVC**, is an architectural pattern for building decoupled Web applications. This pattern decomposes the UI layer into the following three components:
 
-* **Model**—The model represents data or state. In a Web-based banking application, information representing accounts, transactions, and statements are examples of the model.
-* **View**—Provides a visual representation of the model. This is what the user interacts with by providing inputs and viewing the output.
-* **Controller**—The controller is responsible for handling user actions such as button clicks. It then interacts with services or repositories to prepare the model and hands the prepared model over to an appropriate view.
+* **Model**— Represents data or state. In a Web-based banking application, information representing accounts, transactions, and statements are examples of the model.
+* **View**— Provides a visual representation of the model. It's what the user interacts with.
+* **Controller**— Responsible for handling user actions such as button clicks. It then interacts with services or repositories to prepare the model, and hands the prepared model over to an appropriate view.
 
 -
 
