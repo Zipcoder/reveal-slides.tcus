@@ -32,7 +32,7 @@ The Spring Framework IoC (Inversion of Control) container handles Dependency Inj
 - default in `@SpringBootApplication`
 
 -
-from [Spring Boot Reference Guide]():
+from [Spring Boot Reference Guide](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-using-springbootapplication-annotation):
 
 ```Java
 package com.example.myproject;
@@ -60,18 +60,97 @@ public class Application {
 
 
 -
--
-### Autowiring in tests
+### @Autowired:  Disambiguation - @Qualifier
+Spring resolves @Autowired entries by type. If multiple beans of the same type are available, a fatal exception will be thrown.
+(ie, if the bean share a common SuperClass or Interface)
 
 ```Java
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes=MyApplicationConfig.class)
-public class MyApplicationTest {
+@Component("tigerTony")
+public class Tony implements Tiger {
+    public String speak() {
+        return "Grrrrreat!";
+    }
+}
+```
+```Java
+@Component("tigerTigger")
+public class Tigger implements Tiger {
+    public String speak() {
+        return "hoo-hoo-hoo-hoo-oo-oo-oo!";
+    }
+}
+```
+-
+### @Autowired:  Disambiguation - @Qualifier
 
-	@Autowired
-	TestingDependency td;
-	
-	@Test
-	public void testMethod(){...}
+```Java
+public class TiggerService {
+    @Autowired
+    private Tiger tiger;
+}
 ```
 
+will result in the following error: 
+
+```Java
+Caused by: org.springframework.beans.factory.NoUniqueBeanDefinitionException: 
+No qualifying bean of type [com.autowire.sample.Tiger] is defined: 
+expected single matching bean but found 2: tigerTigger,tigerTony
+```
+
+-
+### @Autowired:  Disambiguation - @Qualifier
+
+User the @Qualifier annotation to avoid that error:
+
+```Java
+public class TiggerService {
+    @Autowired
+    @Qualifier("tigerTigger")
+    private Tiger tiger;
+ 
+}
+```
+
+-
+### @Autowired:  Disambiguation - @Profile
+Using @Profile annotation, you can applay conditional usage on beans or components of the same name:
+
+```Java
+@Component("dbJawn")
+@Profile("prod")
+public class ProdDB implements DBJawn {
+    @Override
+    public boolean isLive() {
+        return true;
+    }
+}
+```
+
+```Java
+@Component("dbJawn")
+@Profile("dev")
+public class DevDB implements DBJawn {
+    @Override
+    public boolean isLive() {
+        return false;
+    }
+}
+```
+-
+### @Autowired:  Disambiguation - @Profile
+Refine the @Autowired behavior by applying the desired @Profile to the component that uses it:
+
+```Java
+@Component
+@Profile("dev")
+public class DBJawnUser {
+    @Autowired
+    DBJawn dbJawn;
+    ...
+}
+```
+
+-
+-
+<img src="img/bunnies/11-Bunny-Picture.jpg" width="80%" style="margin:0 10%" >
