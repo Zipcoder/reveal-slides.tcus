@@ -13,11 +13,11 @@ div#header {
 div#intro {
     width: 100%;
     position: relative;
-    background: url(http://localhost:4200/intro-bg.png) center bottom no-repeat;
+    background: url(img/intro-bg.png) center bottom no-repeat;
     background-size: cover;
     padding: 16px 0 41px 20px;
 }
-}
+
 div#header h1 {
     margin: 0 auto;
     max-width: 770px;
