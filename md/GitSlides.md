@@ -93,7 +93,9 @@ The commands might not make a bunch of sense without context.  So here's some co
 -
 Consider that you've started working for a new company that is building a calculator.  They have most of the functionality built out, but they need you to implement the division function of the calculator.  So, you have some directory called `dev` where you do all your development work.  Your first step is:
 
-`git clone https://github.com/Zipcoder/Calcul8r.git`
+`git clone https://github.com:Zipcoder/CR-Calcul8r.git`
+or (ssh)
+`git clonegit@github.com:Zipcoder/CR-Calcul8r.git`
 
 -
 Now, `dev` has a `Calcul8r` directory, and a `git status` in `dev` shows that there is no git project in `dev`.  Now, you go into `Calcul8r` and do a `git status` to prove that you're up to date with the master branch of the company's `Calcul8r` repo.
@@ -237,7 +239,7 @@ https://www.github.com
 
 -
 ##Fork this repo
-https://github.com/zipcoder/calcul8r
+https://github.com/Zipcoder/CR-Calcul8r
 
 -
 ##Open the project in Eclipse
