@@ -54,4 +54,4 @@ and not the regex, use fgrep (or grep -F)
 
 -
 -
-<img src="/reveal-slides-light/img/bunnies/cute-bunnies-tongues-3.jpg" >
+<img src="/reveal-slides.tcus/img/bunnies/cute-bunnies-tongues-3.jpg" >
