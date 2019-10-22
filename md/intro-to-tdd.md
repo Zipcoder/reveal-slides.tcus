@@ -1,6 +1,16 @@
 #Introduction to TDD
 
 
+-
+-
+
+## What we'll cover
+<ul>
+<li class="fragment fade-up">What is TDD?</li>
+<li class="fragment fade-up">3 laws of TDD</li>
+<li class="fragment fade-up">Characteristics of a clean test.</li>
+<li class="fragment fade-up">F.I.R.S.T.</li>
+</ul>
 
 -
 -
@@ -127,20 +137,25 @@ Assert.equals(expectedNumber, actualNumber);
 -
 #One Assertion to Rule them All
 
-A could unit test should only come to one binary conclusion , which should also be quick and easy to understand. **SINGLE RESPONSIBLITY**
+A good unit test should only come to one binary conclusion, which should also be quick and easy to understand. 
 
-Single Concept per test
+**Remember: SINGLE RESPONSIBLITY**
 
-* Given (Sets the stage)
-* When (Performs the action)
-* Evaluate (Checks the results)
+Single Concept per test, with the following:
+<ul>
+<li class="fragment fade-up">Given (Sets the stage)</li>
+<li class="fragment fade-up">When (Performs the action)</li>
+<li class="fragment fade-up">Evaluate (Checks the results)</li>
+</uL>
 
 -
 -
 #F.I.R.S.T
 
-* **F** is for **fast** - The test should be fast. If its going to fail lets get it over with.
-* **I** is for **Independent** - every test is an island a "LONELY ISLAND". The the test should not have to fire off other methods to complete itself.
-* **R** is for **Repeatable** - every test should be able to run in any environment , local, QA, and Production.
-* **S** is for **Self-Validating** - every test should have a binary boolean output pass or fail.
-* **T** is for **Timely** - test should be written FIRST... OR ELSE!!! 
+<ul>
+<li class="fragment fade-up"> **F** is for **fast** - The test should be fast. If its going to fail lets get it over with.</li>
+<li class="fragment fade-up"> **I** is for **Independent** - every test is an island a "LONELY ISLAND". The the test should not have to fire off other methods to complete itself.</li>
+<li class="fragment fade-up"> **R** is for **Repeatable** - every test should be able to run in any environment , local, QA, and Production.</li>
+<li class="fragment fade-up"> **S** is for **Self-Validating** - every test should have a binary boolean output pass or fail.</li>
+<li class="fragment fade-up"> **T** is for **Timely** - test should be written FIRST... OR ELSE!!! </li>
+</ul>
