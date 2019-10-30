@@ -377,7 +377,7 @@ public class FilePrinterTest {
 1. If no exception are thrown.
 2. If exception outside `try` block is thrown.
 3. If an exception is thrown in a `catch` clause.
-4. The program skips the `finally` clause, if the `catch` clause does not throw an exception.
+4. The program skips to the `finally` clause, if the `catch` clause does not throw an exception.
 
 
 -
