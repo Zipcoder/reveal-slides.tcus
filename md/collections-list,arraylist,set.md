@@ -148,8 +148,8 @@ public void demo() {
 ```java
 public void demo() {
   String[] phrase = {"The", "Quick", "Brown", "Fox"};
-  List<String> list = new ArrayList<>();
-  list.foreach(word -> list.add(word));
+  List<String> list = new ArrayList<>(Arrays.asList(phrase));
+  list.forEach(word -> list.add(word));
 }
 ```
 
