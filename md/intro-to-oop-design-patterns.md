@@ -230,12 +230,12 @@ public void demo() {
 ```java
 public void demo() {
 		License license = new LicenseBuilder()
-            .setBirthDate(new Date()),
-            .setName("John"),
-            .setAddressLine1("123 Square Lane"),
-            .setCity("Milford"),
-            .setState("Delaware"),
-            .setZipCode(19720);
+            .setBirthDate(new Date())
+            .setName("John")
+            .setAddressLine1("123 Square Lane")
+            .setCity("Milford")
+            .setState("Delaware")
+            .setZipCode(19720)
             .setLicenseNumber(1238913312)
             .build();
 }
