@@ -195,7 +195,7 @@ Calling the _.getConnection()_, passing the previous aurgments with hopefully re
 
 JDBC methods throw SQLException
 
-SQLException extendsed from the Exception class
+SQLException extended from the Exception class
 
 * getMessage()
 * getLocalizedMessage()
