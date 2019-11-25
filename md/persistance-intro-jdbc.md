@@ -491,7 +491,7 @@ update Employees set salary = ? where Employee_Id = ?
 -
 #### Removing Data
 
-Example Prepared Statment SQL
+Example Prepared Statement SQL
 
 ```
 delete from Employees where Employee_Id = ?
