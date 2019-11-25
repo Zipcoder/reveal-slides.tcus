@@ -93,7 +93,7 @@ __Advantages__
 
 __Disadvantages__
 
-* Client Side Llibrary is not available for all databases
+* Client Side library is not available for all databases
 * Vendor Client Library needs to be installed
 * It is a Platform Dependent
 * Not Thread Safe
@@ -211,7 +211,7 @@ SQLException extendsed from the Exception class
 
 * Connecting to MYSQL Database using JDBC
 * Managing Database resources
-* Handling JDBC Execptions
+* Handling JDBC Exceptions
 
 -
 -
@@ -334,7 +334,7 @@ __ResultSet Types__
 * Type_ Scroll_Insensitive
 * Type_ Scroll_Sensitive
 
-__ResultSet Concerrency Type__
+__ResultSet Concurrency Type__
 
 * Concur_ Read_Only
 * Concur_Updatable
@@ -347,7 +347,7 @@ Updatable ResultSet allows modification to data in a table through the ResultSet
 
 * Each Update method has two versions
 	1. One that takes in a column name
-	2. One that takes in a colomn index
+	2. One that takes in a column index
 
 -
 
@@ -384,7 +384,7 @@ The following will make changes to the actual
 
 -
 
-PreparedStament is a subclass of Statement
+PreparedStatement is a subclass of Statement
 
 -
 
@@ -485,7 +485,7 @@ PreparedStatement pstmt = conn.prepareStatement(
 Example Prepared Statement SQL
 
 ```
-update Employees set salery = ? where Employee_Id = ?
+update Employees set salary = ? where Employee_Id = ?
 ```
 
 -
@@ -494,7 +494,7 @@ update Employees set salery = ? where Employee_Id = ?
 Example Prepared Statment SQL
 
 ```
-delete form Employees where Employee_Id = ?
+delete from Employees where Employee_Id = ?
 ```
 
 -
@@ -515,7 +515,7 @@ delete form Employees where Employee_Id = ?
 * Provides abstraction between JDBC and the rest of the code
 * Can be just abstraction or a true object
 * Most use data transfer objects(DTOs) with data access objects(DAOs)/abstract
-* Provides a clear seperation of concerns in code
+* Provides a clear separation of concerns in code
 
 -
 
@@ -554,4 +554,4 @@ delete form Employees where Employee_Id = ?
 -
 
 * Repository pattern allows sharding of database
-* You can store one piece of data in a seperate database to facilitate distribution
+* You can store one piece of data in a separate database to facilitate distribution
