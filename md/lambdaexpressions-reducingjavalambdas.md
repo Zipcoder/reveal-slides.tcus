@@ -28,7 +28,6 @@
 
 
 -
--
 ### Functional Interfaces
 | Name       | Has Return-Value | Takes Argument 1 | Takes Argument 2 |
 |------------|---------|------------------|------------------|
