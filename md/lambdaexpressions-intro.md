@@ -53,7 +53,7 @@
 
 
 -
-### Relevant Functional Interfaces
+### Functional Interfaces
 | Name       | Has Return-Value | Takes Argument 1 | Takes Argument 2 |
 |------------|---------|------------------|------------------|
 | Runnable  | No      | No       | No      |
@@ -65,7 +65,7 @@
 
 
 -
-### Relevant Functional Interfaces
+### Functional Interfaces
 * A `Runnable` is no-argument, void-returning.
 * A `Function` is single-argument, non-void-returning.
 * A `Predicate` is single-argument, boolean-returning.

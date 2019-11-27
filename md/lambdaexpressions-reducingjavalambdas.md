@@ -29,6 +29,29 @@
 
 -
 -
+### Functional Interfaces
+| Name       | Has Return-Value | Takes Argument 1 | Takes Argument 2 |
+|------------|---------|------------------|------------------|
+| Runnable  | No      | No       | No      |
+| Supplier   | Yes     | No       | No      |
+| Consumer   | No      | Yes      | No      |
+| BiConsumer | No      | Yes      | Yes     |
+| Function   | Yes     | Yes      | No      |
+| BiFunction | Yes     | Yes      | Yes     |
+
+
+-
+### Functional Interfaces
+* A `Runnable` is no-argument, void-returning.
+* A `Function` is single-argument, non-void-returning.
+* A `Predicate` is single-argument, boolean-returning.
+* A `Consumer` is single-argument, void-returning.
+* A `Supplier` is no-argument, non-void-returning.
+* A `BiConsumer` is two-argument, void-returning.
+* A `BiFunction` is two-argument, non-void-returning.
+
+
+-
 ### Function as BiFunction
 * Given a function `Function<Integer, String>`, one can express a functionally equivalent `BiFunction<Integer, Object, String>`.
   * By omitting the second argument of the `BiFunction`, we acquire a single-argument method
