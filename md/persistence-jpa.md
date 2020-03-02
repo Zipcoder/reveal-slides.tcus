@@ -5,7 +5,7 @@ Java Persistence API
 -
 ## JPA Specification
 
-- Part of Java EE spec
+- Part of Java EE spec (Enterprise Edition)
 - Contained in the `javax.persistence` package
 - Implemented by many other libraries
 
@@ -33,7 +33,7 @@ Java Persistence API
 
 - Spring's DAO objects
 - The way to use your data
-- Part of spring framework
+- Part of Spring framework
 - Used to provide JPA implementation
 - Automatically implemented by Spring Boot (during startup)
 - Extend JPARepository or CRUDRepository

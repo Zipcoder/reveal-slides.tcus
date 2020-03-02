@@ -127,7 +127,7 @@ TODO: Code example with JPA
 
 TODO: maybe a database schema diagram
 
-### What is Objet Oriented Programming?
+### What is Object Oriented Programming?
 
 * Objects
 * Classes
@@ -245,7 +245,11 @@ public class Book {
 
 ### CRUD Operations
 
-TODO: need some text for below
+An **EntityManagerFactory** instance is obtained by using a static factory method of the JPA bootstrap class, **Persistence**. The **EntityManagerFactory** instance, when constructed, opens the database. If the database does not yet exist a new database file is created.
+
+The **createEntityManagerFactory** method takes as an argument a name of a persistence unit.
+
+An **EntityManager** instance may represent either a remote connection to a **remote** database server (in client-server mode) or a **local** connection to a local database file (in embedded mode). The functionality in both cases is the same. 
 
 ```
 public class Main{
