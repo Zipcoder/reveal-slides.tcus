@@ -51,8 +51,8 @@ class Container {
 ```Java
 Container container = new Container();
 String hello = "Hello, World!"
-// String s = c.get(); // This doesn't work
-String s = (String)c.get(); //Must be cast
+// String s = container.get(); // This doesn't work
+String s = (String) container.get(); //Must be cast
 ```
 
 -
