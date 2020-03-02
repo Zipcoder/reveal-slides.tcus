@@ -10,6 +10,8 @@
 <p class="fragment fade-up">Wildcards</p>
 <p class="fragment fade-up">Type Erasure</p>
 <p class="fragment fade-up">Polymorphism and Bridge Methods</p>
+<p class="fragment fade-up">Enums</p>
+<p class="fragment fade-up">Reflection and Why it works</p>
 
 
 -
