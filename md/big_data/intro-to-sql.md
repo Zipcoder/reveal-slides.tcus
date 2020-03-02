@@ -118,7 +118,7 @@ Many to Many - One item in table A has many items in table B. One item in table 
 
 ### MySQL
 
-Mysql is a popular Relational Database Management System (RDBMS). It runs on most systems so it can be run directly on your own machine, but its best to run it on a docker instance running linux. 
+MySQL is a popular Relational Database Management System (RDBMS). It runs on most systems, so it can be run directly on your own machine. It is often preferred to run it on a Docker instance running LINUX. 
 
 -
 
@@ -132,10 +132,59 @@ In order to connect to a MySQL instance, you need to know a few things
 * Password - The password for the user (This could be blank)
 
 -
+### MySQL: Installing via HomeBrew
 
-### MySQL
+Homebrew is a package manager for Mac that is one of the most common ways to install an app locally.
 
-The easiest way to install a local MySQL instance on any machine is with a docker container. The following line will start up an instance
+To install Homebrew, open **Terminal** and run:
+
+```
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+Note: Homebrew will download and install Command Line Tools for Xcode as part of the installation process, which may take a while.
+
+
+-
+### MySQL: Installing via HomeBrew (continued)
+
+Then install MySQL using Homebrew:
+
+```
+$ brew install mysql
+```
+
+Install brew services:
+
+```
+$ brew tap homebrew/services ```
+
+-
+### MySQL: Installing via HomeBrew (continued)
+
+Load and start the MySQL service:
+
+```
+$ brew services start mysql ```
+
+Expected output: 
+
+```
+Successfully started mysql (label: homebrew.mxcl.mysql)
+```
+
+Open Terminal and execute the following command to set the root password:
+
+```
+mysqladmin -u root password 'yourpassword'
+```
+
+Now your MySQL server is ready.
+
+-
+### MySQL: Installing via Docker
+
+Another easy way to install a local MySQL instance on any machine is with a **Docker** container. The following line will start up an instance: 
 
 ```
 $ docker pull mysql
@@ -152,7 +201,6 @@ Password: password
 ```
 
 -
-
 ### MySQL
 
 Once you have connected, it is advised for security reasons that you create a new user. The current user is the root user which will always have all privledges and it is insecure to use it for general purposes. To make a new user and give them permissions to do anything (ergo an admin user) you may use the following SQL Script
