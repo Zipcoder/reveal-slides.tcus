@@ -43,8 +43,8 @@ String str = "Hello";
 ```
 If used in a conditional:
 ```Java
-( str instanceof String //true
-( Object.class.isInstance(str) // true
+( str instanceof String ) //true
+( Object.class.isInstance(str) ) // true
 ( str.getClass() == String.class )// true
 ( str.getClass() == Object.class ) // false
 ( str.getClass().equals(Object.class) ) //false
