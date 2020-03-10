@@ -246,14 +246,13 @@ Expected result:
 | Database              |
 +-----------------------+
 | information_schema    |
-| db_example            |
 | mysql                 |
 | performance_schema    |
 | sys                   |
 | zc_de001              |
 | zipcode               |
 +-----------------------+
-7 rows in set (0.00 sec)
+6 rows in set (0.00 sec)
 
 ```
  
