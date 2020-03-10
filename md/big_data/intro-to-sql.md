@@ -1035,6 +1035,6 @@ HAVING COUNT(a_s.assignment_id) > 1;
 
 -
 
-<img src="http://img.petshow.cc/ueditor/2016_01/2417092214536265621569945175386650530.jpg">
+<img src="../img/bunnies/t1-505860-lacie_bunny.jpg">
 
 DBA corgis hope you're `HAVING` a blast!
