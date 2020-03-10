@@ -1062,4 +1062,3 @@ HAVING COUNT(a_s.assignment_id) > 1;
 
 <img src="./img/bunnies/t1-505860-lacie_bunny.jpg">
 
-DBA corgis hope you're `HAVING` a blast!
