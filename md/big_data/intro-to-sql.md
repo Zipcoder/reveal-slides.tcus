@@ -465,6 +465,7 @@ ALTER TABLE table_name
 `ALTER TABLE ADD` statement appends a new column to a table.
 
 In this statement, you must specify the following:
+ 
   - the name of the table in which you want to add the new column
   - the name of the column, data type, and constraint if applicable
 
@@ -493,11 +494,13 @@ ADD
 ### Schemas and Tables: ALTER TABLE CHANGE
 
 Sometimes, you will need to rename a column and retain its data. For this, you will use `CHANGE` clause, specifying the following:
-    - the name of the table in which you want to rename the column.
-    - the name of the column that you want to rename and its desired settings.
+   
+  - the name of the table in which you want to rename the column.
+  - the name of the column that you want to rename and its desired settings.
 
 ```SQL
-ALTER TABLE table_name CHANGE old_name new_name data_type column_constraint;
+ALTER TABLE table_name 
+CHANGE old_name new_name data_type column_constraint;
 
 ```
 
@@ -518,8 +521,9 @@ ALTER TABLE table_name
 ### Schemas and Tables: ALTER TABLE DROP COLUMN
 
 Sometimes, you need to remove one or more columns from a table. To do this, you use the `ALTER TABLE DROP COLUMN` statement. In this statement, you must specify the following:
-    - the name of the table from which you want to delete the column.
-    - the name of the column that you want to delete.
+  
+  - the name of the table from which you want to delete the column.
+  - the name of the column that you want to delete.
 
 ```SQL
 ALTER TABLE table_name
