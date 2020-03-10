@@ -355,6 +355,28 @@ CREATE TABLE zipcode.assignments
 Here we are creating a table similar to the last two, but making the URL a fixed length `CHAR` field and making that unique. Why?
 
 -
+#### Sidenote: CHAR vs VARCHAR
+
+`CHAR` is fixed-length, and `VARCHAR` is variable length. `CHAR` always uses the same amount of storage space per entry, while `VARCHAR` only uses the amount necessary to store the actual text. They also differ in maximum length, and in whether trailing spaces are retained.
+
+If your content is a fixed size, you'll get better performance with CHAR.
+
+-
+
+The following table illustrates the differences between `CHAR` and `VARCHAR` by showing the result of storing various string values into `CHAR(4)` and `VARCHAR(4)` columns (assuming that the column uses a single-byte character set such as latin1).
+
+
+| Value	| CHAR(4)	| Storage Required | VARCHAR(4)| Storage Required |
+|:--------|:--------|:-----------------|:----------|:-----------------|
+| '' |	'    '	| 4 bytes	| ''	| 1 byte |
+| 'ab'	| 'ab  '	| 4 bytes	| 'ab'	| 3 bytes |
+| 'abcd'	| 'abcd'	| 4 bytes	| 'abcd'	| 5 bytes |
+| 'abcdefgh' | 'abcd' |	4 bytes | 'abcd' | 5 bytes |
+
+
+[(It gets deeper)](https://dev.mysql.com/doc/refman/5.7/en/char.html)
+
+-
 
 ### Schemas and Tables
 
