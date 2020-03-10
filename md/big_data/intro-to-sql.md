@@ -744,7 +744,7 @@ DELIMITER ;
 CALL increment_years_experience;
 ```
 
-This procedure can be called instead of a developer trying to write their own update statement. This gives us control over the data and ensures it's quality remains up to a standard. 
+This procedure can be called instead of a developer trying to write their own update statement. This gives us control over the data, ensuring its quality remains up to a standard. 
 
 -
 -
@@ -1060,6 +1060,6 @@ HAVING COUNT(a_s.assignment_id) > 1;
 
 -
 
-<img src="../img/bunnies/t1-505860-lacie_bunny.jpg">
+<img src="./img/bunnies/t1-505860-lacie_bunny.jpg">
 
 DBA corgis hope you're `HAVING` a blast!
