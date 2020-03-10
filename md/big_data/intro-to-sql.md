@@ -598,9 +598,7 @@ Let's start by inserting a few teachers.
 
 ### Seeding a Database: INSERT
 
-Puts data into a table.
-
-Inserts will generally have 3 parts
+`INSERT` puts data into a table. Inserts will generally have 3 parts:
 
 - Reference to the table you want to insert into
 - The columns you want to fill
