@@ -14,100 +14,11 @@
 - Putting it into code
 
 -
--
+
 
 ### What is a database?
 
 A database is an organized collection of data. A database will usually have some sort of api to query the data. Using a Structured Query Language (SQL) will allow you to interact with the data in a predictable way. A query in this case is a statement you ask a database. A properly made database will be able to answer a query with all relevent information.
-
-What makes a database relational though?
-
--
-
-### Indexing
-
-"
-A database index is a data structure that improves the speed of data retrieval operations on a database table at the cost of additional writes and storage space to maintain the index data structure
-"
-
-Basically, you put a sepcial tag on a piece of data so that you can find it faster. This requires extra work and takes more space on disk, but will help speed up your databse.
-
--
-
-### Indexing
-
-Most sql data sets will have columns based on the fields of an item and rows for each of the individaul items. When written out it sort of looks like an excel spreadsheet.
-
-| First Name | Last Name | Age | Gender |
-|:-----------|:----------|:----|:-------|
-| Leon       | Hunter    | 24  | Male   |
-| Wilhem     | Alcivar   | 23  | NULL   |
-| Nhu        | Nguyen    | NULL| Female |
-
--
-
-### Indexing
-
-Issue: Let us say we want to find out Leon's age. We might tell our databse to return all the info related to the row with the first name of Leon. For now that would work since we only have one Leon in the databse, but what if we hired another Leon? We could ask for only Leon Hunter, but we really cannot rely on this data always being unique. 
-
-| First Name | Last Name | Age | Gender |
-|:-----------|:----------|:----|:-------|
-| Leon       | Hunter    | 24  | Male   |
-| Leon       | Smith     | 24  | Male   |
-
--
-
-### Indexing
-
-Solution: Add a unique id to each row. 
-
-| ID | First Name | Last Name | Age | Gender |
-|:---|:-----------|:----------|:----|:-------|
-| 1  | Leon       | Hunter    | 24  | Male   |
-| 2  | Wilhem.    | Alcivar   | 23  | NULL   |
-| 3  | Nhu.       | Nguyen    | NULL| Female |
-
-We can denote this id as the `PRIMARY KEY` which will make this an index. Searching for a row by its id will not only help us get only the data we want, but it will also be faster by a mesurable degree
-
--
-
-### Indexing
-
-Lets say we keep a list of phone numbers now: 
-
-| ID | Phone Number | Phone Owner |
-|:---|:-------------|:------------|
-| 1  | 555-321-4547 | Wilhem      |
-| 2  | 555-221-4548 | Leon        |
-| 3  | 555-782-4549 | Nhu         |
-
-Same issue as before. That owner there refers to only one person now, but how can we make sure that we match it to the correct person?
-
--
-
-### Indexing
-
-Solution: Use the person's unique id to identify who this number belongs to
-
-| ID | Phone Number | Phone Owner ID |
-|:---|:-------------|:---------------|
-| 1  | 555-321-4547 | 2              |
-| 2  | 555-221-4548 | 1              |
-| 3  | 555-782-4549 | 3              |
-
-To find out who owns the phone number we would take that id and search for it in the Person list that we made above. This is a relationship. Relational data uses these kinds of relationships
-
--
-
-### Relationships
-
-Say we have tables A and B.
-
-One to One - One item in table A has one item in table B. One item in table B has one item in table A
-
-One to Many - One item in table A has many items in table B. One item in table B has one item in table A
-
-Many to Many - One item in table A has many items in table B. One item in table B has many items in table A
 
 -
 -
@@ -124,10 +35,10 @@ MySQL is a popular Relational Database Management System (RDBMS). It runs on mos
 
 ### MySQL
 
-In order to connect to a MySQL instance, you need to know a few things
+In order to connect to a MySQL instance, you need to know a few things:
 
 * Host - this is usually a url or ip address for a server
-* Port - Port listening for a connection. Defaults to 3306
+* Port - Port listening for a connection (defaults to 3306)
 * Username - The MySQL user you are connecting with
 * Password - The password for the user (This could be blank)
 
@@ -138,10 +49,10 @@ Homebrew is a package manager for Mac that is one of the most common ways to ins
 
 To install Homebrew, open **Terminal** and run:
 
-```
+```Shell
 $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
 
+```
 Note: Homebrew will download and install Command Line Tools for Xcode as part of the installation process, which may take a while.
 
 
@@ -150,63 +61,133 @@ Note: Homebrew will download and install Command Line Tools for Xcode as part of
 
 Then install MySQL using Homebrew:
 
-```
+```Shell
 $ brew install mysql
+
 ```
 
 Install brew services:
 
+```Shell
+$ brew tap homebrew/services 
 ```
-$ brew tap homebrew/services ```
 
 -
 ### MySQL: Installing via HomeBrew (continued)
 
 Load and start the MySQL service:
 
+```Shell
+$ brew services start mysql 
 ```
-$ brew services start mysql ```
 
 Expected output: 
 
-```
+```Shell
 Successfully started mysql (label: homebrew.mxcl.mysql)
+
 ```
 
 Open Terminal and execute the following command to set the root password:
 
-```
+```Shell
 mysqladmin -u root password 'yourpassword'
+
 ```
 
 Now your MySQL server is ready.
+
+-
+### Installing MySQL on MacOS Catalina and later: 
+
+Catalina threw us a whammy! 
+
+To install MySQL successfully on Catalina, first make sure no other versions are running on your machine: 
+
+```Shell
+$ sudo ps ax | grep mysql
+```
+
+If you see more lines in the response than the one that contains `grep mysql`, then you'll need to locate the `mysql` folders and remove them. 
+
+To search for them, press `⌘` and the space bar and enter `mysqladmin` into the prompt, followed by selecting "Show All In Finder" in the left rail.  
+
+
+-
+### Installing MySQL on MacOS Catalina and later (continued): 
+
+Once all the other versions are removed, reboot your computer and install the DMG package from: 
+<a href="https://dev.mysql.com/downloads/mysql/" target="_blank">https://dev.mysql.com/downloads/mysql/</a>
+
+Once you have successfully installed the package, add the mysql binary to the bash profile: 
+
+```Shell
+$ nano ~/.bash_profile
+```
+
+At the bottom of the file, add th following line: 
+
+```Shell
+export PATH="$PATH:/usr/local/mysql/bin"
+```
+Quit **Terminal**, and restart it, opening a new **Terminal** window. You should now be able to connect to **MySQL** successfully.
+
 
 -
 ### MySQL: Installing via Docker
 
 Another easy way to install a local MySQL instance on any machine is with a **Docker** container. The following line will start up an instance: 
 
-```
+```Shell
 $ docker pull mysql
 $ docker run --name local-mysql -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 -d mysql
+
 ```
 
 This will allow you to connect using the following 
 
-```
+```Shell
 Host: localhost
 Port: 3306
 User: root
 Password: password
+
 ```
 
 -
+
+### MySQL
+
+Once installed, you can connect to your MySQL server via the command line: 
+
+```Shell
+$ mysql -u root -p
+```
+
+You will be prompted to enter the password: 
+
+```Shell
+Enter password: 
+```
+
+Once the password is entered correctly, you will be connected, and a MySQL prompt will appear:
+
+```SQL
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> 
+
+```
+To disconnect, type `exit`.
+-
+
 ### MySQL
 
 Once you have connected, it is advised for security reasons that you create a new user. The current user is the root user which will always have all privledges and it is insecure to use it for general purposes. To make a new user and give them permissions to do anything (ergo an admin user) you may use the following SQL Script
 
-```
+```Shell
 GRANT ALL PRIVILEGES ON *.* TO 'new_user'@'localhost' IDENTIFIED BY 'password';
+
 ```
 
 This will create a user with username `new_user` and password `password`. Note if you forget the root password and this password you will not have a way of resetting this.
@@ -233,43 +214,117 @@ Lets say we are designing a database for our backend developers. They are creati
 
 First we'll need to make a schema. To do this we can run the following script
 
-```
-CREATE SCHEMA zipcode
+```SQL
+CREATE SCHEMA zipcode;
+
 ```
 
 -
+
 ### Schemas and Tables
 
 What have we just done? _We created a SCHEMA_
 
 - Created a home for all data related to an application
-- Allowed ourselves to manage multiple applications in the same databse without worrying about collisions
+- Allowed ourselves to manage multiple applications in the same database without worrying about collisions
+
+
+
+-
+-
+### Schemas and Tables: SHOW DATABASES
+
+To display the databases that exist on your server, use the `SHOW DATABASES` command:
+
+```SQL
+SHOW DATABASES;
+```
+Expected result: 
+
+```SQL
++-----------------------+
+| Database              |
++-----------------------+
+| information_schema    |
+| db_example            |
+| mysql                 |
+| performance_schema    |
+| sys                   |
+| zc_de001              |
+| zipcode               |
++-----------------------+
+7 rows in set (0.00 sec)
+
+```
+ 
+
+
+-
+-
+### Schemas and Tables: USE
+- Select the database (schema) so that you can run queries and commands against it. 
+- If no database has been selected, you must specify the schema in each query
+
+```SQL 
+USE zipcode;
+```
+
+Expected result: 
+
+```SQL
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+```
+
+
+-
+-
+### Schemas and Tables: CREATE TABLE
+- Creates a table.
+- Must be done before putting any data in.
+- This is where you define what your table will look like.
+- Can be modified later by doing an ALTER TABLE.
+- Defines the table name, column names, datatypes, and special rules / constraints.
+- Also how you link to other tables.
 
 -
 
-### Schemas and Tables
+### Schemas and Tables: CREATE TABLE syntax
+```SQL
+CREATE TABLE table_name (
+  column1 datatype,
+  column2 datatype,
+  column3 datatype
+);
+```
+
+-
+
+### Schemas and Tables: CREATE TABLE example
 
 Teachers have a name and a specialty. We are going to create a table with these fields as well as a unique identifier. To create a a table we use the `CREATE TABLE` command. Let's make the Teacher Table
 
-```
+```SQL
 CREATE TABLE zipcode.teachers
 (
     id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
     specialty ENUM('FRONT END', 'MIDDLE TIER', 'DATA TIER')
 );
-CREATE UNIQUE INDEX teachers_id_uindex ON zipcode.teachers (id);
+
 ```
 
 In this query we create each column followed by the properties of the columns. We are using the `INTEGER`, `VARCHAR`, and `ENUM` data types
 
 -
 
-### Schemas and Tables
+### Schemas and Tables: CREATE TABLE example 
 
-Next let us make a student table. The students will have a name, and a classroom as well notes from the teachers on a particular student
+Next, let's make a student table. The students will have a name, and a classroom as well notes from the teachers on a particular student
 
-```
+```SQL
 CREATE TABLE zipcode.students
 (
     id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -277,129 +332,229 @@ CREATE TABLE zipcode.students
     classroom TINYTEXT,
     notes TEXT
 );
-CREATE UNIQUE INDEX students_id_uindex ON zipcode.students (id);
+
 ```
 
-In this query we create each of these columns and are using `INTEGER`, `VARCHAR`, `TINYTEXT`, and `TEXT`.
+In this query, we create each of these columns and are using `INTEGER`, `VARCHAR`, `TINYTEXT`, and `TEXT`.
 
 -
 
-### Schemas and Tables
+### Schemas and Tables: CREATE TABLE example 
 
 Lastly we need an assignment table. This should just have the assignment name and a link to the assignment
 
-```
+```SQL
 CREATE TABLE zipcode.assignments
 (
     id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name TINYTEXT NOT NULL,
     URL CHAR(255) NOT NULL
 );
-CREATE UNIQUE INDEX assignments_id_uindex ON zipcode.assignments (id);
-CREATE UNIQUE INDEX assignments_URL_uindex ON zipcode.assignments (URL);
+
 ```
 
-We are creating a table similar to the last two, but notice we are making the URL a fixed length `CHAR` field and making that unique. Why?
+Here we are creating a table similar to the last two, but making the URL a fixed length `CHAR` field and making that unique. Why?
 
 -
 
 ### Schemas and Tables
 
-Last but not least we'll be creating the teacher_meta table. In the meta table, the developers wanna keep track of the number of years a teacher has worked here and the room number of the teacher's office.
+Lastly, we'll create the **teacher_meta** table. In the meta table, the developers want to keep track of the number of years a teacher has worked here, and the room number of the teacher's office.
 
-```
+```SQL
 CREATE TABLE zipcode.teacher_meta
 (
     id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
     room_number TINYINT UNSIGNED,
     years TINYINT UNSIGNED
 );
-CREATE UNIQUE INDEX teacher_meta_id_uindex ON zipcode.teacher_meta (id);
 ```
 
-Here we use the `TINYINT` column and make those unsigned
+Here, we use the `TINYINT` column and make those unsigned
+
+
+-
+-
+
+### Schemas and Tables: SHOW TABLES
+To display the tables in your chosen database (schema), use the `SHOW TABLES` command:
+
+```SQL
+SHOW TABLES;
+```
+
+Expected result: 
+
+```SQL
++--------------------+
+| Tables_in_zipcode  |
++--------------------+
+| assignment_student |
+| assignments        |
+| students           |
+| teacher_meta       |
+| teachers           |
++--------------------+
+5 rows in set (0.00 sec)
+```
+
 
 -
 
-### Schemas and Tables
+### Schemas and Tables: DESCRIBE
 
-Now we have tables but we have learned that teachers are actually going to have a first name and last name and the devs have said they want these to be two separate fields. Before we continue let's `ALTER` this table.
+To display the details of a table settings, use the `DESCRIBE` command: 
 
-We are going to `ADD` first name amd last name. Then we will `DROP` name. 
+```SQL
+describe teachers;
+```
+Expected result:
+
+```Shell
++------------+---------------------------------------------+------+-----+---------+----------------+
+| Field      | Type                                        | Null | Key | Default | Extra          |
++------------+---------------------------------------------+------+-----+---------+----------------+
+| id         | int(11)                                     | NO   | PRI | NULL    | auto_increment |
+| specialty  | enum('FRONT END','MIDDLE TIER','DATA TIER') | YES  |     | NULL    |                |
+| first_name | varchar(25)                                 | NO   |     | NULL    |                |
+| last_name  | varchar(25)                                 | NO   |     | NULL    |                |
++------------+---------------------------------------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+```
+
+-
+-
+
+### Schemas and Tables: ALTER TABLE
+
+Now we have tables, but we have learned that teachers are actually going to have a first name and last name, and the developers have said that they want these to be two separate fields. Before we continue, let's `ALTER` this table.
+
+-
+
+### Schemas and Tables: ALTER TABLE Syntax
+
+```SQL
+ALTER TABLE table_name
+    [alter_specification [, alter_specification] ...]
+```
+
+-
+### Schemas and Tables: ALTER TABLE ADD
+
+`ALTER TABLE ADD` statement appends a new column to a table.
+
+In this statement, you must specify the following:
+    - the name of the table in which you want to add the new column
+    - the name of the column, data type, and constraint if applicable
+
+```SQL
+ALTER TABLE table_name
+ADD column_name data_type column_constraint;
 
 ```
-ALTER TABLE zipcode.teachers ADD first_name VARCHAR(25) NOT NULL;
-ALTER TABLE zipcode.teachers ADD last_name VARCHAR(25) NOT NULL;
+
+-
+### Schemas and Tables: ALTER TABLE ADD
+
+If you want to add multiple columns to a table at once using a single ALTER TABLE statement, specify a comma-separated list of columns that you want to add to a table after the ADD clause:
+
+```SQL
+ALTER TABLE table_name
+ADD 
+    column_name_1 data_type_1 column_constraint_1,
+    column_name_2 data_type_2 column_constraint_2,
+    ...,
+    column_name_n data_type_n column_constraint_n;
+
+```
+
+-
+### Schemas and Tables: ALTER TABLE CHANGE
+
+Sometimes, you will need to rename a column and retain its data. For this, you will use `CHANGE` clause, specifying the following:
+    - the name of the table in which you want to rename the column.
+    - the name of the column that you want to rename and its desired settings.
+
+```SQL
+ALTER TABLE table_name CHANGE old_name new_name data_type column_constraint;
+
+```
+
+-
+### Schemas and Tables: ALTER TABLE CHANGE
+
+If you want to chang multiple columns in the same statement:
+
+```SQL
+ALTER TABLE table_name 
+    CHANGE old_name new_name data_type column_constraint, 
+    CHANGE old_name2 new_name3 data_type column_constraint,   
+    CHANGE old_name3 new_name3 data_type column_constraint ;
+
+```
+
+-
+### Schemas and Tables: ALTER TABLE DROP COLUMN
+
+Sometimes, you need to remove one or more columns from a table. To do this, you use the `ALTER TABLE DROP COLUMN` statement. In this statement, you must specify the following:
+    - the name of the table from which you want to delete the column.
+    - the name of the column that you want to delete.
+
+```SQL
+ALTER TABLE table_name
+DROP COLUMN column_name;
+
+```
+
+-
+### Schemas and Tables: ALTER TABLE DROP COLUMN - a note
+
+Sometimes a **constraint** on the column will require additional steps before dropping it. For example, if the column that you want to delete has a `CHECK` **constraint**, you must delete the **constraint** first before removing the column. 
+
+We'll more talk about adding and dropping contraints later. 
+
+-
+### Schemas and Tables: ALTER TABLE DROP COLUMN Syntax
+
+To delete multiple columns at once, specify columns that you want to drop as a list of comma-separated columns in the `DROP COLUMN` clause:
+
+```SQL
+ALTER TABLE table_name
+DROP COLUMN column_name_1, DROP column_name_2,...;
+```
+
+Now, back to our updates as requested by the developers.
+
+-
+
+### Schemas and Tables: ALTER TABLE example
+
+For our change according to developer request, we are going to `ADD` **firstname** and **lastname** columns. Then, we will `DROP` the **name** column. 
+
+```SQL
+ALTER TABLE zipcode.teachers 
+    ADD 
+    firstname VARCHAR(25) NOT NULL,
+    lastname VARCHAR(25) NOT NULL;
+    
 ALTER TABLE zipcode.teachers DROP name;
 ```
 
--
-
-### One to One
-With those tables made, we're gonna have to set this table up with `FOREIGN KEY`s.
-
-The first thing we will be creating is a One to One relationship between teachers and teacher_meta.
-
-```
-ALTER TABLE zipcode.teacher_meta ADD teacher_id int NOT NULL;
-CREATE UNIQUE INDEX teacher_meta_teacher_id_uindex ON zipcode.teacher_meta (teacher_id);
-ALTER TABLE zipcode.teacher_meta
-ADD CONSTRAINT teacher_meta_teachers_id_fk
-FOREIGN KEY (teacher_id) REFERENCES teachers (id);
-```
-
-Here we add teacher_id to the teacher_meta table so that one teacher meta will belong to a teacher. To ensure that each teacher has only one meta, we also make teacher_id on this table unique.
--
-
-### One to Many
-
-Next we'll create the One to Many relationship between teachers and assignments.
-
-One teacher will have many assignments that they've created, and every assignment will belong to one teacher. To get this we will have to add a column called teacher_id on assignment and then mark that as a `FOREIGN KEY`
-
-```
-ALTER TABLE zipcode.assignments ADD teacher_id INTEGER NULL;
-ALTER TABLE zipcode.assignments
-ADD CONSTRAINT teacher___fk
-FOREIGN KEY (teacher_id) REFERENCES teachers (id);
-```
+This will add our new columns to the `teachers` table, in the order they were entered, and remove the `name` column completely.
 
 -
+### Schemas and Tables: ALTER TABLE example
 
-### Many to Many
+After our updates, the developers have requested that we change the **firstname** and **lastname** columns to **first_name** and **last_name**. 
 
-Next we'll want to create the relationship between students and assignments. In this case, one student can have many assignments, but each of those assignments can also belong to many students. Where should be put the `FOREIGN KEY`?
-
-- In the student table with `assignment_id`
-- In the assignment table with `student_id`
-
--
-
-### Many to Many
-
-Both of those options are wrong. To effectively match up a many to many relationship, we will need a pivot table
-
-a pivot table will have foreign keys to both tables meaning that you can have the same student id match up to multiple assignments and vice verca.
-
-We're also going to create a unique constraint to make sure that the same assignment can't be attached to one student more than once.
-
--
-
-### Many to Many
+```SQL
+ALTER TABLE teachers CHANGE firstname first_name varchar(255);
 
 ```
-CREATE TABLE zipcode.assignment_student
-(
-    assignment_id INTEGER NOT NULL,
-    student_id INTEGER NOT NULL,
-    CONSTRAINT students__fk FOREIGN KEY (student_id) 
-    	REFERENCES students (id),
-    CONSTRAINT assignments___fk FOREIGN KEY (assignment_id) 
-    	REFERENCES assignments (id)
-);
-CREATE UNIQUE INDEX assignment_id_student_id_uindex
-	ON zipcode.assignment_student (assignment_id, student_id);
-```
+
+This change the names of the columns, while leaving it's underlying settings, and their content intact in the `teachers` table.
+
+
 
 -
 -
@@ -408,7 +563,7 @@ CREATE UNIQUE INDEX assignment_id_student_id_uindex
 
 -
 
-### Inserts
+### Seeding a Database: INSERT
 
 Our database is set up for our devs to use, but they've asked us to create some mock data for them to demo their app. To do this we'll have to `INSERT` some data.
 
@@ -416,21 +571,51 @@ Let's start by inserting a few teachers.
 
 -
 
-### Inserts
+### Seeding a Database: INSERT
+
+Puts data into a table.
 
 Inserts will generally have 3 parts
 
 - Reference to the table you want to insert into
 - The columns you want to fill
 - The values to fill those columns with
+    - Must provide all required values.
+      - This means columns that specify the following:
+        - `NOT NULL`
+        - Do not have a `DEFAULT`
+        - Are not `AUTO_INCREMENT` columns
+    - If `NULL` values are allowed, those columns can be excluded in the `INSERT`.
 
-Let's create a teacher and then that teacher's meta.
+Let's create a teacher, and then that teacher's meta info.
+
+-
+### Seeding a Database: INSERT syntax -- No column names
+- Without specifying columns, you must make sure that every column is accounted for in the insert.
+```SQL
+INSERT INTO table
+VALUES(column1_value, column2_value);
+```
+
+-
+### Seeding a Database: INSERT example -- No column names
+```SQL
+INSERT INTO zipcode.teachers
+    VALUES ('FRONT END', 'John', 'Smith');
+```
+
+-
+### Seeding a Database: INSERT syntax -- With column names
+```SQL
+INSERT INTO table(column1_name, column2_name)
+VALUES(column1_value, column2_value);
+```
 
 -
 
-### Inserts
+### Seeding a Database: INSERT example -- With column names
 
-```
+```SQL
 INSERT INTO zipcode.teachers (first_name, last_name, specialty)
     VALUES ('John', 'Smith', 'FRONT END');
 
@@ -444,7 +629,7 @@ Here we are creating a new row in the teachers table. The first_name is set to J
 
 We now have one teacher in this table and we can add a few more, but instead of running them one by one, we can also just add many at the same time.
 
-```
+```SQL
 INSERT INTO zipcode.teachers (first_name, last_name, specialty)
     VALUES ('Tabitha', 'Schultz', 'MIDDLE TIER'),
       ('Jane', 'Herman', 'DATA TIER');
@@ -456,14 +641,14 @@ INSERT INTO zipcode.teachers (first_name, last_name, specialty)
 
 With the ability to insert data, we can also start populating the other tables
 
-```
+```SQL
 INSERT INTO zipcode.teacher_meta (teacher_id, years, room_number)
     VALUES (1, 3, 2),
       (2, 3, 2),
       (3, 10, 1);
 ```
 
-```
+```SQL
 INSERT INTO zipcode.students (name, classroom, notes)
   VALUES  ('Linnell McLanachan', '1A', 'Likes Data'),
 	('Lorianna Henrion', '1A', 'Loves Data'),
@@ -471,22 +656,25 @@ INSERT INTO zipcode.students (name, classroom, notes)
 	('Archaimbaud Lougheid', '2A', 'Would rather do nothing other than sit down in front of a mountain of data and read through it like a book. SERIOUSLY needs to seek help about this because there is no way it is healthy for this person to like data any more than they do'),
 	('Dun Pettet', '2A', NULL ),
 	('Hymie Parrington', '2A', 'Enjoys the Star Wars prequels');
+	
 ```
 
 -
 
 ### Inserts
 
-```
+```SQL
 INSERT INTO zipcode.assignments (name, URL, teacher_id)
   VALUES ('Pokemon Lab', 'https://github.com/Zipcoder/PokemonSqlLab', 3),
   ('Poll App', 'https://github.com/Zipcoder/CR-MacroLabs-Spring-QuickPollApplication', 3),
   ('Sum or Product', 'https://github.com/Zipcoder/ZCW-MicroLabs-JavaFundamentals-SumOrProduct', 2);
+  
 ```
 
-```
+```SQL
 INSERT INTO zipcode.assignment_student (assignment_id, student_id)
     VALUES (1, 1), (1, 2), (1,3), (1,4), (1,5), (1,6), (2, 1);
+    
 ```
 
 -
@@ -501,7 +689,7 @@ Our devs inform us that they want a way to increment the number of years each te
 
 ### Updates
 
-```
+```SQL
 UPDATE zipcode.teacher_meta
 SET years = years+1;
 ```
@@ -509,6 +697,8 @@ SET years = years+1;
 Here we are able to increment the years by setting years = to whatever it's own value is plus one. This works because SQL will go row by row. In each row, the years variable is set to whatever the value is in that particular row. 
 
 -
+-
+
 
 ### Stored Procedures
 
