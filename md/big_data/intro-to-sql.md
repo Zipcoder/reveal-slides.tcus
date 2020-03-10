@@ -465,8 +465,8 @@ ALTER TABLE table_name
 `ALTER TABLE ADD` statement appends a new column to a table.
 
 In this statement, you must specify the following:
-    - the name of the table in which you want to add the new column
-    - the name of the column, data type, and constraint if applicable
+  - the name of the table in which you want to add the new column
+  - the name of the column, data type, and constraint if applicable
 
 ```SQL
 ALTER TABLE table_name
