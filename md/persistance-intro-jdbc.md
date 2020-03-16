@@ -150,13 +150,13 @@ First, we must get the mysql connecter for java. This can be done using the pom.
 <dependency>
     <groupId>mysql</groupId>
     <artifactId>mysql-connector-java</artifactId>
-    <version>5.1.10</version>
+    <version>5.1.47</version>
 </dependency>
 ```
 
 -
 
-The DriverManager object will need 3 pieces of information to create a connection to a database
+The DriverManager object will need 3 pieces of information to create a connection to a database:
 
 ```
     static String username = "user name here";
@@ -167,7 +167,7 @@ The DriverManager object will need 3 pieces of information to create a connectio
 
 -
 
-Calling the _.getConnection()_, passing the previous aurgments with hopefully return a Connection object the references the connection to the database
+Calling the _.getConnection()_ method with the previous variables as arguments will hopefully return a Connection object that references the connection to the database:
 
 ```
         Connection conn = null;
@@ -191,11 +191,11 @@ Calling the _.getConnection()_, passing the previous aurgments with hopefully re
 
 -
 
-#### Exception Handling
+### Exception Handling
 
-JDBC methods throw SQLException
+JDBC methods throw `SQLException`
 
-SQLException extended from the Exception class
+`SQLException` extended from the `Exception` class
 
 * getMessage()
 * getLocalizedMessage()
@@ -232,14 +232,14 @@ SQLException extended from the Exception class
 
 ### Static SQL statement
 
-Two Interfaces for executing static sql statements
+Two Interfaces for executing static SQL statements
 
 * Statement
 * ResultSet
 
 -
 
-#### Statement Interface
+####   Interface
 
 used for executing a static SQL Statement
 
@@ -251,7 +251,7 @@ __Methods__
 
 -
 
-```
+```Java
 Connection conn DriverManager.getConnection(mySqlCS, mySqlUser, mySqlPwd);
 
 Statement stmt = conn.createStatement();
@@ -270,15 +270,17 @@ Statement stmt = conn.createStatement();
 
 #### ResultSet Interface
 
-A ResultSet is a multidimensional array that return a database statement
+A ResultSet is a multidimensional array that is returned by a database statement
 
-Java.Sql.ResultSet interface represents the result set of a database query
+java.sql.ResultSet interface represents the result set of a database query
 
 -
+#### ResultSet Interface
 
 When the ResultSet is first returned, the starting cursor position is before the first row of data
 
 -
+#### ResultSet Interface
 
 ```
 Connection conn DriverManager.getConnection(mySqlCS, mySqlUser, mySqlPwd);
@@ -289,6 +291,7 @@ ResultSet rs = stmt.executeQuery("select * from player");
 ```
 
 -
+#### ResultSet Interface Methods
 
 Methods of the ResultSet can be divided into 3 categories
 
@@ -330,9 +333,9 @@ rs.getString("first_name")
 
 __ResultSet Types__
 
-* Type_ Forward_Only
-* Type_ Scroll_Insensitive
-* Type_ Scroll_Sensitive
+* TYPE_ FORWARD_ONLY
+* TYPE_ SCROLL_INSENSITIVE
+* TYPE_ SCROLL_SENSITIVE
 
 __ResultSet Concurrency Type__
 
@@ -376,72 +379,78 @@ The following will make changes to the actual
 
 ### Prepared statements
 
-* What is a PreparedStatement
-* How to create a PreparedStatement
-* Setting Parameters of a PreparedStatement
-* Executing a PreparedStatement
-* Reusing a PreparedStatement
+
+<ul>
+<li class="fragment fade-up">What is a`PreparedStatement`?</li>
+<li class="fragment fade-up">How to create a `PreparedStatement`</li>
+<li class="fragment fade-up">Setting Parameters of a `PreparedStatement`</li>
+<li class="fragment fade-up">Executing a `PreparedStatement`</li>
+<li class="fragment fade-up">Reusing a `PreparedStatement`</li>
+</ul>
+-
+
+`PreparedStatement` is a subclass of `Statement`
 
 -
 
-PreparedStatement is a subclass of Statement
-
--
-
-__Benefits__
+PreparedStatement: __Benefits__
 
 * Improves performance of an application
-* Easy to Set SQL parameter values
-* Prevents SQL Dependency Injection Attacks
+* Easy to set SQL parameter values
+* Prevents **SQL Injection** Attacks
 
 -
+###PreparedStatement: example
 
-```
-Select * from Employees Where Salary < 10000 and department_id = 50;
-```
 
-```
-Select * from Employees Where Salary < {some value}
-	and department_id = {some value};
+Say you have the following query: 
+```SQL
+SELECT * FROM Employees WHERE Salary < 10000 AND department_id = 50;
 ```
 
+It can be re-written using place-holders for the values:
+```SQL
+SELECT * FROM Employees WHERE Salary < {some value}
+	AND department_id = {some value};
 ```
-Select * from Employees Where Salary < ? and department_id = ?;
+to become: 
+```SQL
+SELECT * FROM Employees WHERE Salary < ? AND department_id = ?;
 
 ```
 
 -
+###PreparedStatement: example (continued)
 
-To use SQL statements that takes variable value a _?_ is used as a parameter place holder. Now we can use the same statement with different values each time we execute
+To use SQL statements that takes variable value, a `?` is used as a parameter place holder. Now, we can use the same statement with different values each time we execute it:
 
-__Example__
 
-```
+```Java
 PreparedStatement pstmt = conn.createStatement(
-	"select * from Employees where salary < ? and
-	department_id = ?");
+	"SELECT * FROM Employees WHERE Salary < ? AND department_id = ?");
 ```
 -
+###PreparedStatement: example (continued)
 
-To bind the values of the parameters us:
+To bind the values of the parameters, use:
 
-setXxx() - where Xxx is the data type of the value
+`setXxx()` - where `Xxx` is the data type of the value,
 
-__Examples__
+__for example:__
 
-* setInt(P1,P2)
-* setString(P1, P2)
-* setDouble(P1, P2)
+* `setInt(P1,P2)`
+* `setString(P1, P2)`
+* `setDouble(P1, P2)`
 
 _note: P1 = Position (1 based), P2 = Value_
 
 -
+
 Examples of setting the values to a prepared statement
 
-```
+```Java 
 PreparedStatement pstmt = conn.createStatement(
-	"select * from Employees
-	where salary < ? and department_id = ?");
+	"SELECT * FROM Employees WHERE Salary < ? AND department_id = ?");
 
 pstmt.setDouble(1, 1000)
 pstmt.setInt(2, 50)
@@ -459,15 +468,15 @@ pstmt.setInt(2, 50)
 
 #### Inserting Data
 General Example SQL Insert statement
-```
-Insert into TableName values(value1, value2, ...);
+```SQL
+INSERT INTO TableName VALUES(value1, value2, ...);
 ```
 
 -
 Practical Example of SQL Insert statement
 
-```
-Insert into Employees values(
+```SQL
+INSERT INTO Employees VALUES(
 		435, momo, momo@gmail.com,'2019-03-22', 50000);
 ```
 
@@ -475,8 +484,8 @@ Insert into Employees values(
 Example of Prepared Statement
 ```
 PreparedStatement pstmt = conn.prepareStatement(
-	insert into NewEmployees
-	values (?,?,?,?,?));
+	INSERT INTO NewEmployees
+	VALUES (?,?,?,?,?));
 ```
 
 -
@@ -485,7 +494,7 @@ PreparedStatement pstmt = conn.prepareStatement(
 Example Prepared Statement SQL
 
 ```
-update Employees set salary = ? where Employee_Id = ?
+UPDATE Employees SET salary = ? WHERE Employee_Id = ?
 ```
 
 -
@@ -494,7 +503,7 @@ update Employees set salary = ? where Employee_Id = ?
 Example Prepared Statement SQL
 
 ```
-delete from Employees where Employee_Id = ?
+DELETE FROM Employees WHERE Employee_Id = ?
 ```
 
 -
@@ -555,3 +564,10 @@ delete from Employees where Employee_Id = ?
 
 * Repository pattern allows sharding of database
 * You can store one piece of data in a separate database to facilitate distribution
+
+
+
+-
+-
+
+ <img src="../img/bunnies/fluffy-bunny.jpg">
