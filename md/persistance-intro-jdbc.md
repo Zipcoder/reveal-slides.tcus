@@ -74,61 +74,64 @@ __Types of Drivers__
 #### Type 1 : JDBC-ODBC bridge
 __Advantages__
 
-* It is very easy to use
-* Almost any database is supported
+<ul>
+<li class="fragment fade-up">It is very easy to use</li>
+<li class="fragment fade-up">Almost any database is supported</li>
+</ul>
 
 __Disadvantages__
-
-* Performance will not be efficient
-* ODBC Driver needs to be installed
-* Type 1 drivers are not portable
-* Not suitable for Applets
-
+<ul>
+<li class="fragment fade-up">Performance will not be efficient</li>
+<li class="fragment fade-up">ODBC Driver needs to be installed</li>
+<li class="fragment fade-up">Type 1 drivers are not portable</li>
+<li class="fragment fade-up">Not suitable for Applets</li>
+</ul>
 -
 
 #### Type 2 : Native-API driver
 __Advantages__
-
-* Faster than Type 1 Driver
+<ul>
+<li class="fragment fade-up">Faster than Type 1 Driver</li>
+</ul>
 
 __Disadvantages__
-
-* Client Side library is not available for all databases
-* Vendor Client Library needs to be installed
-* It is a Platform Dependent
-* Not Thread Safe
-
+<ul>
+<li class="fragment fade-up">Client Side library is not available for all databases</li>
+<li class="fragment fade-up">Vendor Client Library needs to be installed</li>
+<li class="fragment fade-up">It is a Platform Dependent
+<li class="fragment fade-up">Not Thread Safe</a>
+</ul>
 -
 
 #### Type 3 : Network-Protocol driver (Middleware driver)
 __Advantages__
-
-* No additional library installation is required on client system
-* No changes are required at client for any DB
-* Supports Caching of Connection, Query Results, Load Balancing Logging and Auditing etc.
-* A Single Driver can handle any database provided the middleware supports it
-
+<ul>
+<li class="fragment fade-up">No additional library installation is required on client system</li>
+<li class="fragment fade-up">No changes are required at client for any DB</li>
+<li class="fragment fade-up">Supports Caching of Connection, Query Results, Load Balancing Logging and Auditing etc.</li>
+<li class="fragment fade-up">A Single Driver can handle any database provided the middleware supports it</li>
+</ul>
 __Disadvantages__
-
-* Performance will be slow
-* Requires Database-specific coding
-* Maintenance of Network Protocol driver becomes costly
-
+<ul>
+<li class="fragment fade-up">Performance will be slow</li>
+<li class="fragment fade-up">Requires Database-specific coding</li>
+<li class="fragment fade-up">Maintenance of Network Protocol driver becomes costly</li>
+</ul>
 -
 
 #### Type 4 : Database-Protocol driver (Pure Java driver)
 __Advantages__
+<ul>
+<li class="fragment fade-up">Platform Independent</li>
+<li class="fragment fade-up">No intermediate format is required</li>
+<li class="fragment fade-up">Application connects directly to the database server</li>
+<li class="fragment fade-up">Performance will be very fast</li>
+<li class="fragment fade-up">JVM manages all aspects</li>
+</ul>
+__Disadvantages__
 
-* Platform Independent
-* No intermediate format is required
-* Application connects directly to the database server
-* Performance will be very fast
-* JVM manages all aspects
-
-__Disadvatages__
-
-* Drivers are database dependent
-
+<li class="fragment fade-up">Drivers are database dependent</li>
+</ul>
 -
 
 #### Overview : Recommendations:
@@ -232,14 +235,14 @@ JDBC methods throw `SQLException`
 
 ### Static SQL statement
 
-Two Interfaces for executing static SQL statements
+Two Interfaces for executing static SQL statements:
 
 * Statement
 * ResultSet
 
 -
 
-####   Interface
+#### Statement Interface
 
 used for executing a static SQL Statement
 
@@ -426,7 +429,7 @@ To use SQL statements that takes variable value, a `?` is used as a parameter pl
 
 
 ```Java
-PreparedStatement pstmt = conn.createStatement(
+PreparedStatement pstmt = conn.prepareStatement(
 	"SELECT * FROM Employees WHERE Salary < ? AND department_id = ?");
 ```
 -
@@ -449,7 +452,7 @@ _note: P1 = Position (1 based), P2 = Value_
 Examples of setting the values to a prepared statement
 
 ```Java 
-PreparedStatement pstmt = conn.createStatement(
+PreparedStatement pstmt = conn.prepareStatement(
 	"SELECT * FROM Employees WHERE Salary < ? AND department_id = ?");
 
 pstmt.setDouble(1, 1000)
@@ -483,9 +486,9 @@ INSERT INTO Employees VALUES(
 -
 Example of Prepared Statement
 ```
-PreparedStatement pstmt = conn.prepareStatement(
+PreparedStatement pstmt = conn.prepareStatement("
 	INSERT INTO NewEmployees
-	VALUES (?,?,?,?,?));
+	VALUES (?,?,?,?,?)");
 ```
 
 -
