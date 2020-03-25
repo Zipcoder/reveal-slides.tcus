@@ -114,7 +114,7 @@ public class TiggerService {
 
 -
 ### @Autowired:  Disambiguation - @Profile
-Using @Profile annotation, you can applay conditional usage on beans or components of the same name:
+Using @Profile annotation, you can apply conditional usage on beans or components of the same name:
 
 ```Java
 @Component("dbJawn")
