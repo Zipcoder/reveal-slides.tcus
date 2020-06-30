@@ -137,41 +137,41 @@ public class Person {
 ## Instance-Methods : declaration
 
 Below is an example of a method declaration and its parts: 
- 
+ <img src="https://raw.githubusercontent.com/Zipcoder/reveal-slides.tcus/master/img/method_sig.png" class="diagram" >
 
 
 -
-## Access Modifiers
+## Method declaration: Access Modifiers
 
 description...
 
 -
-## Optional Specifiers
+## Method declaration: Optional Specifiers
 
 description...
 
 -
-## Return Type
+## Method declaration: Return Type
 
 description...
 
 -
-## Method Name
+## Method declaration: Method Name
 
 description...
 
 -
-## Parameter List
+## Method declaration: Parameter List
 
 description...
 
 -
-## Optional Exception List
+## Method declaration: Optional Exception List
 
 description...
 
 -
-## Method Body
+## Method declaration: Method Body
 
 description...
 
