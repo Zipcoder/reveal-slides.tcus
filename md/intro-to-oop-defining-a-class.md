@@ -84,11 +84,16 @@
 * Whitespace is irrelevant to the Java compiler
 
 
--
-# Encapulsation
-* Classes *encapsulate* several **data-fields** and behaviors into a single entity.
-* **Encapsulation** is combining class-members (methods and variables) in a single scope.
 
+-
+-
+# Encapsulation
+
+*Encapsulation* is simply combining data (variables) and behavior (methods) in one package and hiding the implementation details from the users of the objects.
+
+
+* Classes *encapsulate* several **data-fields** and behaviors into a single entity.
+* **Encapsulation** combines class-members (methods and variables) in a single scope.
 
 -
 -
@@ -126,6 +131,23 @@ public class Person {
 * method-names should describe the intended behavior of the object
 * methods of an object have hidden implementation
 * methods describe a "can perform" relationship.
+
+
+-
+## Instance-Methods : declaration
+
+Below is an example of a method declaration and its parts: 
+ 
+
+
+-
+## Access Modifiers
+## Optional Specifiers
+## Return Type
+## Method Name
+## Parameter List
+## Optional Exception List
+## Method Body
 
 
 -
