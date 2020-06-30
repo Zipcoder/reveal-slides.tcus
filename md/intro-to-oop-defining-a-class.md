@@ -142,19 +142,46 @@ Below is an example of a method declaration and its parts:
 
 -
 ## Access Modifiers
+
+description...
+
+-
 ## Optional Specifiers
+
+description...
+
+-
 ## Return Type
+
+description...
+
+-
 ## Method Name
+
+description...
+
+-
 ## Parameter List
+
+description...
+
+-
 ## Optional Exception List
+
+description...
+
+-
 ## Method Body
+
+description...
+
 
 
 -
 -
 ## Instance-Variables (Fields)
-* field-values of an object are made available to users via the object's **getters**
-* variable-values of an object can be manipulated by the user via the object's **setters**
+* field-values of an object are made available to users via the object's **getters** (accessors)
+* variable-values of an object can be manipulated by the user via the object's **setters** (mutators)
 * the aggregation of an object's variable's values determines the object's **state**.
 * fields describe a "has a" relationship.
 
