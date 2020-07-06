@@ -145,20 +145,50 @@ Below is an example of a method declaration and its parts:
 
 description...
 
+- public
+- private 
+- protected
+
+
 -
 ## Method declaration: Optional Specifiers
 
 description...
 
+- static
+- abstract
+- final
+- synchronized (Covered in our Concurrency lesson)
+
+
 -
 ## Method declaration: Return Type
 
-description...
+Next, we indicate our return type, which tells what type of object is returned by the method. The return type can be an actual Java type, such as **String** or **int**, or **void** which indicates that the method does not return anything.
 
+```Java
+
+int integerReturnMethod() {
+    int temp = 7;
+    return temp; 
+}
+int longReturnMethod() {
+    int temp = 7F; // DOES NOT COMPILE
+    return temp;
+}
+```
 -
 ## Method declaration: Method Name
 
-description...
+The method name is how we identify and call the method at hand. The main convention to observe is that the name cannot begin with a number, and may only contain letters, numbers, \$, or \_. Also, reserved words, such as \"void\" are not allowed. 
+
+```Java
+public void jump7Feet() { }
+public void 7FootJump() { } // DOES NOT COMPILE 
+public jump7Feet void() { } // DOES NOT COMPILE 
+public void Jump_$() { }
+public void() { } // DOES NOT COMPILE
+```
 
 -
 ## Method declaration: Parameter List
@@ -176,6 +206,9 @@ description...
 description...
 
 
+-
+
+## Varargs
 
 -
 -
@@ -185,6 +218,31 @@ description...
 * the aggregation of an object's variable's values determines the object's **state**.
 * fields describe a "has a" relationship.
 
+-
+-
+# Access Modifiers
+
+You already saw that there are four access modifiers: public, private, protected, and default access. We are going to discuss them in order from most restrictive to least restrictive:
+
+- **private**: Only accessible within the same class
+- **default** (package private) access: private and other classes in the same 
+- **package protected**: default access and child classes
+- **public**: protected and classes in the other packages
+
+-
+## Access Modifiers : Private Access
+
+
+
+-
+
+##Access Modifiers : Default (Package Private) Access
+
+-
+## Access Modifiers : Protected Access
+
+-
+## Access Modifiers : Public Access
 
 
 -
