@@ -622,7 +622,7 @@ public class Person { // class signature
 	}
 
 	public void setName(String differentName) { // method signature
-		this.myname = differentName; // setting instance variable
+		this.myName = differentName; // setting instance variable
 	}
 
 	public String getName() {
