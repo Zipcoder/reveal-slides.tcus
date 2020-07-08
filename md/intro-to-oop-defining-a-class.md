@@ -143,22 +143,22 @@ Below is an example of a method declaration and its parts:
 -
 ## Method declaration: Access Modifiers
 
-description...
+Java's four choices of access modifier:
 
-- public
-- private 
-- protected
-
+- **public**: method can be called from any class.
+- **private**: method can only be called from within the same class.
+- **protected**: method can only be called from classes in the same package or subclasses. (subclasses will be discusses further later)
+- **Default (Package Private) Access**:  method can only be called from classes in the same package. (achieved by simply omitting the modifier)
 
 -
 ## Method declaration: Optional Specifiers
 
-description...
+There are several optional specifiers, these are some of the ones we will cover:
 
-- static
-- abstract
-- final
-- synchronized (Covered in our Concurrency lesson)
+- **static**: Used for class methods.
+- **abstract**: Used when not providing a method body.
+- **final**: Used when a method is not allowed to be overridden by a subclass. (we'll cover subclasses in depth later)
+- **synchronized**: (we'll cover in our Concurrency lesson)
 
 
 -
@@ -180,7 +180,7 @@ int longReturnMethod() {
 -
 ## Method declaration: Method Name
 
-The method name is how we identify and call the method at hand. The main convention to observe is that the name cannot begin with a number, and may only contain letters, numbers, \$, or \_. Also, reserved words, such as \"void\" are not allowed. 
+The method name is how we identify and call the method at hand. The main convention to observe is that the name cannot begin with a number, and may only contain letters, numbers, $, or _. Also, reserved words, such as "void" are not allowed. 
 
 ```Java
 public void jump7Feet() { }
@@ -193,23 +193,55 @@ public void() { } // DOES NOT COMPILE
 -
 ## Method declaration: Parameter List
 
-description...
+The parameter list doesn't *need* to contain any parameters. Multiple parameters are separated by a comma. You identify the parameter's type and the variable name for use in the method. 
+
+Below are some examples of valid and invalid uses:
+
+```Java
+public void jump() { }
+public void hop { } // DOES NOT COMPILE
+public void leap(int a) { }
+public void bounce(int a; int b) { } // DOES NOT COMPILE 
+public void vault(int a, int b) { }
+```
 
 -
 ## Method declaration: Optional Exception List
 
-description...
+
+Exception lists are optional in a method signature. Here we are showing where it goes if used, but we'll cover them in more depth when we discuss exceptions specifically. Multiple exceptions are separated by commas.
+
+```Java
+public void zeroExceptions() { }
+public void oneException() throws IllegalArgumentException { } 
+public void twoExceptions() throws
+IllegalArgumentException, InterruptedException { }
+```
 
 -
 ## Method declaration: Method Body
 
-description...
+The last part of a method declaration is the method body (except for abstract methods and interfaces, we'll discuss those in detail later). A method body is simply a code block, indicated by has braces containing zero or more Java statements. 
 
+```Java
+public void jump() { }
+public void hop; // DOES NOT COMPILE 
+public void leap(int a) { int distance = 7; }
+```
 
+-
 -
 
 ## Varargs
 
+A method may use a vararg parameter (variable argu- ment) as if it was an array. However, a vararg parameter **MUST** be the **last** element in a method’s parameter list. This means you can only have one vararg parameter per method.
+
+```Java
+public void jump(int... nums) { }
+public void leap(int start, int... nums) { }
+public void hop(int... nums, int start) { } // DOES NOT COMPILE 
+public void bounce(int... start, int... nums) { } // DOES NOT COMPILE
+```
 -
 -
 ## Instance-Variables (Fields)
@@ -222,7 +254,7 @@ description...
 -
 # Access Modifiers
 
-You already saw that there are four access modifiers: public, private, protected, and default access. We are going to discuss them in order from most restrictive to least restrictive:
+Below are the four access modifiers, in order from most restrictive to least restrictive:
 
 - **private**: Only accessible within the same class
 - **default** (package private) access: private and other classes in the same 
@@ -232,17 +264,231 @@ You already saw that there are four access modifiers: public, private, protected
 -
 ## Access Modifiers : Private Access
 
-
+Private access is easy. Only code in the same class can call private methods or access private fields.
 
 -
 
 ##Access Modifiers : Default (Package Private) Access
 
+When there is no access modifier, Java uses the default, which is package private access. This means that the member is “private” to classes in the same package. In other words, only classes in the package may access it.
+
 -
 ## Access Modifiers : Protected Access
 
+Protected access allows everything that default (package private) access allows and more. The protected access modifier adds the ability to access members of a parent class. We'll discuss sublasses and superclasses in depth later. 
+
 -
 ## Access Modifiers : Public Access
+
+Public access means anyone can access the member from anywhere.
+
+-
+## Access Modifiers :Summary
+
+| Can access | If that member is private? | If that member has default (package private) access? | If that member is protected? | If that member is public?
+|----------|-------------|------|------|------|
+| Member in the same class | Yes |    Yes | Yes | Yes |
+| Member in another class in same package | No |    Yes | Yes | Yes |
+| Member in a superclass in a different package |  No | No | Yes | Yes|
+| Method/field in a non- superclass class in a different package |    No   | No | No | Yes |
+
+-
+-
+## Static Methods and Fields
+
+Except for the **main()** method, we’ve been looking at instance methods. Static methods don’t require an instance of the class. They are shared among all users of the class. Think of a static member as being a member of the single class object that exists independently of any instances of that class.
+
+-
+## Static Methods
+- Do we really need to create an instance of the object Calculator for the method add to do its job?
+- No, we do not. We can just call Calculator.add(x,y);
+- Static methods, unlike instance methods are available as soon as the program is started, and are available until the program has completed.
+
+-
+## Static Methods
+
+...which means you can call a static member from its classname. For example, **System.out.println()** or the familiar **main()** method:
+
+```Java
+public class Turtle {
+    public static int quantity = 0; // static variable 
+    public static void main(String[] args) { // static method
+        System.out.println(quantity); 
+    }
+}
+```
+-
+## Static Methods
+
+Just like the JVM basically calls Turtle.main() to run our program, you can do this too, by having a TurtleTester that calls the **main()** method.
+
+```Java
+public class TurtleTester {
+    public static void main(String[] args) {
+        Turtle.main(new String[0]); // call static method 
+    }
+}
+```
+
+-
+## Static Methods and Fields
+
+
+In addition to main() methods, static methods have two main purposes:
+
+- For utility or helper methods that don’t require any object state. (i.e. **Math.round()** )
+- For state that is shared by all instances of a class, like a counter. All instances must share the same state. Methods that merely use that state should be static as well.
+
+
+-
+## Static Methods and Fields
+
+Usually, to access a static member, just put the classname before the method or variable and you are done.
+
+```Java
+System.out.println(Turtle.quantity); // print the Turtle quantity
+Turtle.main(new String[0]); //run our main() method
+```
+
+Both of these are nice and easy. There is one rule that is trickier...
+
+-
+## Static Methods and Fields
+
+You can call a static method from an instance of the object too! The compiler checks for the type of the reference and uses that instead of the object (sneaky, right?).
+
+```Java
+Turtle t = new Turtle();
+System.out.println(t.quantity); // t is a Turtle
+t = null;
+System.out.println(t.quantity); // t is still a Turtle
+```
+
+The output of this code is 0, printed twice. The second line sees that **t** is a **Turtle** and **quantity** is a static variable, so it reads that static variable. The fourth line does the same thing. Java doesn’t care that **t** happens to be null. Since we are looking for a static member, it doesn’t matter.
+
+-
+## Static Methods and Fields
+
+```Java
+Turtle.quantity = 3;
+Turtle leo = new Turtle(); 
+Turtle mikey = new Turtle(); 
+leo.quantity = 5;
+mikey.quantity = 4; 
+System.out.println(Turtle.quantity);
+```
+
+There is only one **quantity** variable since it is static. It is set to 3, then 5, and finally winds up as 4. 
+
+-
+
+# Static vs. Instance
+
+A static member cannot call an instance member. This shouldn’t be a surprise since static doesn’t require any instances of the class to be around.
+
+```Java
+public class Static {
+    private String name = "My Super-cool Static Class";
+    public static void primero() { }
+    public static void segundo() { }
+    public void tercero() { System.out.println(name); } 
+    public static void main(String args[]) {
+        primero();
+        segundo();
+        tercero(); // DOES NOT COMPILE
+    }
+}
+```
+-
+
+### Static vs. instance calls
+
+| Type |Calling| Legal? | How?|
+|----------|-------------|------|------|------|
+| Static method| Another static method or variable| Yes| Using the classname| 
+|Static method| An instance method or variable|No||
+|Instance method |A static method or variable | Yes |Using the classname or a reference variable |
+|Instance method | Another instance method or variable | Yes |Using a reference variable|
+
+-
+### Static vs. instance calls
+
+```Java
+public class Gorilla {
+    public static int count;
+    public static void addGorilla() { count++; } 
+    public void babyGorilla() { count++; } 
+    public void announceBabies() {
+        addGorilla();
+        babyGorilla(); 
+    }
+    public static void announceBabiesToEveryone() { 
+        addGorilla();
+        babyGorilla(); // DOES NOT COMPILE
+    }
+    public int total;
+    public static average = total / count; // DOES NOT COMPILE
+}
+```
+
+-
+### Static Variables
+
+Some static variables are meant to change as the program runs (i.e. counters, meant to increase over time). Similar to instance variables, you can initialize a static variable in its declaration:
+
+```Java
+public class Initializers {
+    private static int counter = 0; // initialization
+}
+```
+
+-
+
+### Static Variables
+
+**Constants** are static variables that are meant to never change during the program. Use the **final** modifier to ensure the variable never changes. **static final** constants use a different naming convention than other variables. They use all uppercase letters with underscores between “words.” 
+
+```Java
+public class Initializers {
+    private static final int NUM_BUCKETS = 45; 
+    public static void main(String[] args) {
+        NUM_BUCKETS = 5; // DOES NOT COMPILE 
+    }
+}
+```
+
+
+
+-
+
+### Static Variables
+
+
+```Java
+private static final ArrayList<String> values = new ArrayList<>(); 
+public static void main(String[] args) {
+    values.add("changed"); 
+}
+```
+This, however WILL compile, since **values** is a **reference variable**. We are allowed to call methods on reference variables. The compiler checks that we don’t try to reassign the final values to point to a **different** object.
+
+-
+
+### Static Initialization
+
+Static initializers use the **static** keyword to specify they should be run when the class is first used.
+
+```Java
+private static final int NUM_SECONDS_PER_HOUR; 
+
+static {
+    int numSecondsPerMinute = 60;
+    int numMinutesPerHour = 60;
+    NUM_SECONDS_PER_HOUR = numSecondsPerMinute * numMinutesPerHour;
+}
+```
+Since the variable **NUM_SECONDS_PER_HOUR** is declared as a constant, but not initialized, it can be initialized in a static block. 
+
 
 
 -
@@ -384,3 +630,7 @@ public class Person { // class signature
 	}
 }
 ```
+
+-
+-
+<img src="https://raw.githubusercontent.com/Zipcoder/reveal-slides.tcus/master/img/bunnies/cute-bunny77.jpg">

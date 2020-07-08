@@ -101,6 +101,7 @@ body {
 .reveal strong,
 .reveal b {
   font-weight: bold;
+  color: #efe45e;
 }
 
 .reveal em {
@@ -201,10 +202,12 @@ body {
   margin: auto;
   border-collapse: collapse;
   border-spacing: 0;
+  font-size: 1.5rem;
 }
 
 .reveal table th {
   font-weight: bold;
+  color: #efe45e;
 }
 
 .reveal table th,
