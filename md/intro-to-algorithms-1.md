@@ -93,7 +93,7 @@ Hence, <span class="texhtml">log<sub><i>10</i></sub> (<i>1000</i>) = 3</span>
 -
 ##Linear search
 	
-...stuff
+A linear search (also knon as "sequential search") is a method for finding an element within a list by  sequentially checking each element of the list until a match is found or the whole list has been searched. 
 
 -
 -
