@@ -373,3 +373,10 @@ p.fragment.fade-up.visible {
 .reveal li {
   font-size: 0.90em;
 }
+
+.reveal code {
+    text-transform: none;
+}
+.reveal h2 code, .reveal h1 code {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+}

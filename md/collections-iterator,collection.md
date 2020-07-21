@@ -35,7 +35,7 @@
 
 
 -
-## Collection Interface
+## `Collection` Interface
 * Fundamental interface for `Collection` classes in java.
 
 ```java
@@ -59,7 +59,7 @@ public interface Collection<E> extends Iterable<E> {
 
 -
 -
-## Collection Interface
+## `Collection` Interface
 ### `boolean add(E element)`
 * Attempts to add an element to the `Collection`
 * returns `true` if adding the element changes the `Collection`, else `false`.
@@ -79,7 +79,7 @@ public void demo() {
 
 -
 -
-## Collection Interface
+## `Collection` Interface
 ### `boolean addAll(Collection)`
 * Attempts to add a collection of elements to the `Collection`
 * returns `true` if adding the elements changes the `Collection`, else `false`.
@@ -87,7 +87,7 @@ public void demo() {
 ```java
 public void demo() {
   Collection<String> set = new HashSet<>();
-  String[] valuesToBeAdded = {"Froilan", "Wilhem", "Leon", "Nhu", "Kris"};
+  String[] valuesToBeAdded = {"Rick", "Beth", "Summer", "Morty", "Jerry"};
   Collection<String> valuesAsList = Arrays.asList(valueToBeAdded);
   System.out.println(set.addAll(list)); // prints true
 }
@@ -99,7 +99,7 @@ public void demo() {
 
 -
 -
-## Collection Interface
+## `Collection` Interface
 ### `boolean remove(Object)`
 * Attempts to remove an object from the `Collection`
 * returns `true` if removing the element changes the `Collection`, else returns `false`
@@ -117,7 +117,7 @@ public void demo() {
 
 -
 -
-## Collection Interface
+## `Collection` Interface
 ### `boolean removeAll(Collection)`
 * Attempts to remove a collection of elements from the `Collection`
 * returns `true` if removing the elements changes the `Collection`, else returns `false`
@@ -141,7 +141,7 @@ public void demo() {
 
 -
 -
-## Collection Interface
+## `Collection` Interface
 ### `boolean retainAll(Collection)`
 * Retains only the elements in this collection that are contained in the specified collection.
 * returns `true` if retaining the elements changes the `Collection`, else returns `false`
@@ -169,7 +169,7 @@ public void demo() {
 
 -
 -
-## Collection Interface
+## `Collection` Interface
 ### `boolean isEmpty()`
 * returns `true` if the size of the `Collection` is `0`, else returns `false`.
 
@@ -184,7 +184,7 @@ public void demo() {
 
 -
 -
-## Collection Interface
+## `Collection` Interface
 ### `int size()`
 * Returns the number of elements in the `Collection`.
 
@@ -201,7 +201,7 @@ public void demo() {
 
 -
 -
-## Collection Interface
+## `Collection` Interface
 ### `void clear()`
 * Removes all elements from the `Collection`.
 
@@ -217,7 +217,7 @@ public void demo() {
 
 -
 -
-## Collection Interface
+## `Collection` Interface
 ### `Object[] toArray()`
 * Populates a new `Object[]` with the elements from this `Collection`
 
@@ -234,7 +234,7 @@ public void demo() {
 
 -
 -
-## Collection Interface
+## `Collection` Interface
 ### `E[] toArray(E[])`
 * Populates a new array of the _respective type_ with the elements from this `Collection`
 
@@ -254,7 +254,7 @@ public void demo() {
 
 
 -
-# Iterator interface
+## `Iterator` interface
 * `Iterator` is used to visit the elements in the `Collection`, one by one.
 
 ```java
@@ -279,7 +279,7 @@ public interface Iterator<E> {
 
 -
 -
-## Collection Interface<br>`Iterator<E> iterator()`
+## `Collection` Interface<br>`Iterator<E> iterator()`
 * Returns an object that implements the `Iterator` interface
 
 
@@ -290,7 +290,7 @@ public interface Iterator<E> {
 
 
 -
-# Iterable Interface
+# `Iterable` Interface
 * `Iterable` ensures the implementing class is a valid candidate for the `foreach` loop
 * `Collection` extends `Iterable`, therefore all `Collection` types are valid candidates for the `foreach` loop.
 * All `Iterable`s must provide an implementation for `Iterator<E> iterator()`.
@@ -299,7 +299,7 @@ public interface Iterator<E> {
 
 
 -
-# Iterable Interface
+# `Iterable` Interface
 
 ```java
 public interface Iterator<E> {
@@ -315,7 +315,7 @@ public interface Iterator<E> {
 
 -
 -
-## Iterator Interface
+## `Iterator` Interface
 * Repeatedly calling the `next()` method enables you to visit each element from the collection, one by one.
 *  `NoSuchElementException` is thrown upon invoking `next()` on an `Iterator` that has reached the end of the collection.
 	* This can be prevented by evaluating the `hasNext()` method before calling `next()`.
@@ -336,7 +336,7 @@ public static void printIterable(Iterable<Object> iterable) {
 
 -
 -
-## Iterator Interface
+## `Iterator` Interface
 * As of Java8, you can call the `forEachRemaining` method with a `Consumer` lambda expression.
 * The lambda expression is invoked with each element of the iterator, until there are none left.
 
@@ -352,7 +352,7 @@ public static void printIterable(Iterable<Object> iterable) {
 
 -
 -
-## Iterator Interface<br>`next()`
+## `Iterator` Interface<br>`next()`
 * Think of Java iterators as being _between_ elements.
 * When you call `next`, the iterator jumps over the next element, and it returns a reference to the element that it just passed.
 <br><img src = "https://i.giphy.com/media/AkEctVBhHuvtu/giphy-downsized.gif">
@@ -361,7 +361,7 @@ public static void printIterable(Iterable<Object> iterable) {
 
 -
 -
-## Iterator Interface<br>`remove()`
+## `Iterator` Interface<br>`remove()`
 * removes the element that was returned by the last call to `next()`
 * Often, you may need to view an element before deciding to delete it.
 * It is illegal to call `remove()` if it wasn’t preceded by a call to `next()`.
@@ -417,6 +417,8 @@ public class MyCollection<E> extends AbstractCollection<E>  {
     public int size() {
         List<E> list = new ArrayList<>();
         iterator().forEachRemaining(list::add);
+/* `::` method reference operator, calling the method by referring to it 
+with the help of its class directly - we'll explain this further */
         return list.size();
     }
 }
