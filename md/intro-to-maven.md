@@ -46,7 +46,7 @@
   </aside>
 -
 -
-# The pox.xml file
+# The pom.xml file
   <p class="fragment fade-up">(Project Object Model)</p>
   <p class="fragment fade-up">- Project details</p>
   <p class="fragment fade-up">- Project properties</p>
@@ -56,7 +56,7 @@
     It is an XML file that contains information about the project and configuration details used by Maven to build the project.
   </aside>
 -
-#pox.xml
+#pom.xml
   ![](img/intro-to-maven/pomFile.png)
 -
 -
