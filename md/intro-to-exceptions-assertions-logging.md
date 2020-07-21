@@ -13,6 +13,25 @@
 <p class="fragment fade-up">Logging</a>
 
 
+-
+-
+
+
+### ....a brief introduction:
+
+There are myriad reasons a program could fail:
+
+- The code attempts to connect to an API or site, but the connection is offline 
+- An error in the codeattempts to to access an invalid index in an array 
+- A method calls another with a value that is unsupported or has the wrong Object type
+
+A couple of those are errors in the code, while one of them is clearly out of the control of the coder. However, one can anticipate such errors and handle them when they occur. 
+
+-
+### 
+
+
+
 
 
 -
@@ -52,7 +71,29 @@
 	- `SQLException` can be thrown as a result of a faulty network connection.
 
 
+-
 
+### Throwing Exceptions
+
+Here are a couple oways an exception can be thrown:
+
+- With a coding mistake: 
+    
+    ```Java
+String[] myEmptyArray = new String[0];
+System.out.println(myEmptyArray[0]);
+    ```
+    (throws an ArrayIndexOutOfBoundsException, since there is no index 0 in this array)
+    
+- By throwing one explicitly, using the **throw** keyword:
+
+    ```Java
+throw new Exception();
+throw new Exception("Oops! Something broke.");
+throw new RuntimeException();
+throw new RuntimeException("Oops! I broke something.");
+    ```
+    
 
 
 
@@ -403,14 +444,65 @@ class BookExample {
 
 
 
+-
+
+### Exceptions and Interitance
 
 
+When a method overrides a method in a superclass or interface, it is not allowed to add checked exceptions. It is allowed to declare **fewer** exceptions or declare a subclass of a declared exception. Methods declare exceptions with the keyword **throws**.
+
+-
+### Exceptions and Interitance (continued)
+
+Adding a checked exception to a method won't compile:
+
+```Java
+class HasNoMovesException extends Exception { } 
+class Dancer {
+    public void dance() { }
+ }
+class Boogie extends Dancer {
+    public void dance() throws HasNoMovesException { 
+     // DOES NOT COMPILE
+    }
+}
+```
+-
+
+### Exceptions and Interitance (continued)
+
+...declaring fewer exceptions, or declaring a subclass of the exception type are perfectly legal, however.
+
+```Java
+class Dancer {
+    public void hop() throws HasNoMovesException { }
+}
+class Boogie extends Dancer {
+    public void dance() { } 
+}
+```
 
 
+```Java
 
+class Dancer {
+    public void dance() throws Exception { }
+}
+class Boogie extends Dancer {
+    public void dance() throws HasNoMovesException { } 
+}
+```
 
+-
 
+You could also throw it explicitly: 
 
+```Java
+
+public void dance() {
+    throw new RuntimeException("I have no moves!");
+}
+```
 
 
 
