@@ -302,9 +302,15 @@ public interface Iterator<E> {
 # `Iterable` Interface
 
 ```java
-public interface Iterator<E> {
-  Iterator<E> iterator();
-  forEach(Consumer<? super E> E);
+public interface Iterable<T> {
+  Iterator<T> iterator();
+
+    default void forEach(Consumer<? super T> action){
+        Objects.requireNonNull(action);
+        for (T t : this) {
+            action.accept(t);
+        }
+    }
 }
 ```
 
