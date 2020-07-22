@@ -6,9 +6,11 @@
 
 -
 -
-# Stack, LinkedList, Queue
+# `Stack`, `LinkedList`, `Queue`
 -
 -
+### What we'll cover
+
 <p class="fragment fade-up">What is a Stack?</p>
 <p class="fragment fade-up">The Stack Interface</p>
 <p class="fragment fade-up">Stack Methods</p>
@@ -18,7 +20,14 @@
 
 -
 -
-## What is a Stack?
+
+### `Stack`
+
+<img src="https://github.com/Zipcoder/reveal-slides.tcus/blob/master/img/stackcards.jpg?raw=true">
+
+-
+
+## What is a `Stack`?
 * Models a real-life stack.
 * Gives client access to a `Stack` with only the top-most card accessible.
 	* LIFO
@@ -30,18 +39,19 @@
 
 
 -
-## Shortcomings of Java's Stack class
+## Shortcomings of Java's `Stack` class
 * Should have been interface
 * Stack is a subclass of `Vector` is a subclass of `AbstractList`
 	* client has ability to insert into/remove from anywhere in the stack.
 	* violates the nature of a stack
 
 -
-## Stack interface
-	* pop
-	* push
-	* peek
-	* isEmpty
+## `Stack` methods
+
+- pop()
+- push()
+- peek()
+- isEmpty()
 
 
 
@@ -52,12 +62,12 @@
 
 -
 -
-### `isEmpty`
-* returns true if `Stack` contains no elements
+### `isEmpty()`
+* returns **true** if `Stack` contains no elements
 
 
 -
-### `isEmpty` example
+### `isEmpty()` example
 
 ```java
 @Test
@@ -78,14 +88,14 @@ true
 
 -
 -
-### `push`
+### `push()`
 * populates the `Stack` with the respective argument
 * newly inserted element is considered to be the `head` or top-of-stack
 
 
 
 -
-### `push` example
+### `push()` example
 
 ```java
 @Test
@@ -110,11 +120,11 @@ false
 
 -
 -
-### `peek`
-* views the most recently added item
+### `peek()`
+* views the most **recently added** item
 
 -
-### `peek` example
+### `peek()` example
 
 ```java
 @Test
@@ -138,11 +148,11 @@ Hello world
 
 -
 -
-### `pop`
-* removes and returns the most recently added element
+### `pop()`
+* **removes and returns** the most recently added element
 
 -
-### `pop` example
+### `pop()` example
 ```java
 @Test
 public void demo() {
@@ -171,7 +181,10 @@ java.util.EmptyStackException
 
 
 
+-
+### `Stack` Methods
 
+<img src="https://github.com/Zipcoder/reveal-slides.tcus/blob/master/img/stack.png?raw=true">
 
 
 
@@ -179,7 +192,7 @@ java.util.EmptyStackException
 
 -
 -
-## LinkedList
+## `LinkedList`
 * `LinkedList` is quicker than `ArrayList` at removal/insertion of elements in the middle of the list.
 * `LinkedList` values are stored as `Node` objects.
 	* Each `Node` is a separate object with a `data` and `next` field.
@@ -187,7 +200,7 @@ java.util.EmptyStackException
 
 
 -
-### Node
+### `Node`
 ```
 class Node<DataType> {
 	DataType data;
@@ -205,7 +218,7 @@ class Node<DataType> {
 
 
 -
-### LinkedList
+### `LinkedList`
 
 ```java
 class LinkedList<DataType> {
@@ -215,9 +228,9 @@ class LinkedList<DataType> {
 
 
 -
-### LinkedList
-* Iterating a linked list
-* Requires client to continually check if `next` is null, if not `this.head = next`
+### `LinkedList`
+* Iterating a linked list:
+    * Requires client to continually check if `next` is null, if not `this.head = next`
 
 
 
@@ -231,12 +244,21 @@ class LinkedList<DataType> {
 
 -
 -
-# Queue Interface
+# `Queue` Interface
 * Specifies that you can
 	* add elements at the tail end of the queue,
 	* remove elements at the head,
 	* find out how many elements are in the queue.
 * FIFO implementation
+
+
+
+-
+
+## `Queue` Interface
+
+
+<img src="https://github.com/Zipcoder/reveal-slides.tcus/blob/master/img/queue.png?raw=true">
 
 
 -
@@ -254,7 +276,7 @@ public interface Queue<E> {	void add(E element);
 
 -
 -
-### Queue API Structure
+### `Queue` API Structure
 * There are 3 primary types of Queue-Operations
 	* Adding: `add(e)` /  `offer(e)`
 	* Removing: `remove()` / `poll()`
@@ -264,12 +286,12 @@ public interface Queue<E> {	void add(E element);
 
 
 -
-## Queue API Structure: Adding
+## `Queue` API Structure: Adding
 
 
 -
 -
-### Queue API Structure<br>`add(e)`
+### `Queue` API Structure<br>`add(e)`
 * Adds an element to the tail of the Queue.
 * Has potential to throw `IllegalStateException`
 	* `IllegalStateException` if the element cannot be added at this time due to capacity restrictions
@@ -280,7 +302,7 @@ public interface Queue<E> {	void add(E element);
 
 -
 -
-### Queue API Structure<br>`offer(e)`
+### `Queue` API Structure<br>`offer(e)`
 * Adds an element to the tail of the Queue.
 * Does not have potential to throw `IllegalStateException`
 	* `ClassCastException` if the class of the specified element prevents it from being added to this queue
@@ -293,18 +315,18 @@ public interface Queue<E> {	void add(E element);
 
 
 -
-## Queue API Structure: Removing
+## `Queue` API Structure: Removing
 
 -
 -
-### Queue API Structure<br>`remove()`
+### `Queue` API Structure<br>`remove()`
 * Removes element at the head of the Queue.
 * Has potential to throw an exception.
 	* `NoSuchElementException` if this queue is empty
 
 -
 -
-### Queue API Structure<br>`poll()`
+### `Queue` API Structure<br>`poll()`
 * Removes element at the head of the Queue.
 * Throws no exceptions
 
@@ -312,13 +334,13 @@ public interface Queue<E> {	void add(E element);
 
 
 -
-## Queue API Structure: Viewing
+## `Queue` API Structure: Viewing
 
 
 
 -
 -
-### Queue API Structure<br>`element()`
+### `Queue` API Structure<br>`element()`
 * Retrieves, but does not remove, the head of the queue.
 * Has the potential to throw an exception
 	* `NoSuchElementException` if this queue is empty
@@ -327,7 +349,7 @@ public interface Queue<E> {	void add(E element);
 
 -
 -
-### Queue API Structure<br>`peek()`
+### `Queue` API Structure<br>`peek()`
 * Retrieves, but does not remove, the head of the queue.
 * Throws no exceptions
 
@@ -344,7 +366,7 @@ Note: `Deque` is often used for stacks as well
 
 -
 -
-### All About Queues
+### All About `Queues`
 * Read more [here](http://www.codejava.net/java-core/collections/java-queue-collection-tutorial-and-examples)
 
 
