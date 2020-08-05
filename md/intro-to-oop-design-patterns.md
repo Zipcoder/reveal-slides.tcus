@@ -194,31 +194,6 @@ public class GoFishGame {
 
 
 
-
--
--
-## Creational Patterns: Factory
-* Problem - Separate the construction of a complex object from its representation so that the same construction process can create different representations
-
--
-### Brief Example
-* Here, the `LicenseBuilder` is a _builder_ of `License` objects.
-```java
-public void demo() {
-		License license = new LicenseBuilder()
-            .setBirthDate(new Date()),
-            .setName("John"),
-            .setAddressLine1("123 Square Lane"),
-            .setCity("Milford"),
-            .setState("Delaware"),
-            .setZipCode(19720);
-            .setLicenseNumber(1238913312)
-            .build();
-}
-```
-
-
-
 -
 -
 ## Creational Patterns: Builder
