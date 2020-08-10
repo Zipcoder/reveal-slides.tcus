@@ -63,15 +63,77 @@ UTF-16 files start with a Byte-Order-Mark (`BOM`) to indicate if they are
 -
 ### Paths
 
-Path objects represent a route to a file, whether it exists or not. Use them to
+A **Path** object represents a hierarchical path on the storage system to a file or directory. In NIO.2, **Path** is a direct replacement for the legacy java.io.**File** class, therefore contains many of the same properties. 
+
+- Path objects represent a route to a file, whether it exists or not. 
+- Use them to
  access, create, modify, or delete files and directories.
 
 -
-### Define relative or absolute paths
 
-- `Path userDir = Paths.get("/", "users", "username");`
-- `Path javaFile = Paths.get("labs", "lab1", "src", "main", "java", "App.java");`
-- `Path roundabout = Paths.get("home", ".", "labs", "..", "documents", "..", ".", "Downloads");`
+### Paths
+
+Since **Path** is an interface, we use the Factory class **Paths** obtain it.
+-
+### Creating Paths: relative or absolute paths
+
+
+
+```java
+Path path1 = Paths.get("someplace/somepic.jpg");
+Path path2 = Paths.get("c:\\someplace\\ThisStuff\\myrecords.csv"); 
+Path path3 = Paths.get("/users/somdir");
+
+```
+-
+
+
+### Creating Paths: relative or absolute paths
+
+```java
+
+Path path1 = Paths.get("someplace","somepic.jpg");
+Path path2 = Paths.get("c:","someplace","ThisStuff","myrecords.csv"); 
+
+Path userDir = Paths.get("/", "users", "username");
+Path javaFile = Paths.get("labs", "lab1", "src", "main", "java", "App.java");
+//roundabout
+Path roundabout = Paths.get("home", ".", "labs", "..", "documents", "..", ".", "Downloads");
+ 
+ 
+```
+-
+### Path: Accessing the FileSystem Object
+
+The **Path.getPath()** method comes from **FileSystem**'s method **getPath()**. Since **FileSystem** class has a protected constructor, the factory class **FileSystems** is used to obtain an instance of **FileSystem**:
+```java
+Path path1 = FileSystems.getDefault().getPath("someplace/somepic.jpg");
+Path path2 = FileSystems.getDefault().getPath("c:","someplace","ThisStuff","myrecords.csv");
+Path path3 = FileSystems.getDefault().getPath("/users/somdir");
+```
+
+-
+### Path: Accessing the FileSystem Object
+
+You can construct **Path** objects for remote file systems: 
+```
+FileSystem fileSystem = FileSystems.getFileSystem( new URI("http://demo.mysfilesystem.com/myfiles"));
+Path path = fileSystem.getPath("bunnies.csv");
+
+```
+also, the file can be retrieved from the path: 
+
+```
+File file = path.toFile();
+```
+
+-
+
+
+#### Remember: 
+
+Path object is **not a file**, it's a representation of a location within the file system. Therefore, most operations available in the Path and Paths classes can be accomplished whether or not referenced file exists. (Hence, the exceptions)
+
 
 -
 ### Resolving or normalizing Paths
@@ -90,6 +152,7 @@ Path objects represent a route to a file, whether it exists or not. Use them to
 -
 ### File operations
 
+
 - `Files.copy(fromPath, toPath, options...)`
 - `Files.move(fromPath, toPath, options...)`
 - `Files.delete(path)`, `Files.deleteIfExists(path)`
@@ -102,6 +165,23 @@ Path objects represent a route to a file, whether it exists or not. Use them to
 |READ |ATOMIC_MOVE    |TRUNCATE_EXISTING|
 |WRITE|COPY_ATTRIBUTES|REPLACE_EXISTING|
 ||||
+
+```
+Files.move(source, target, REPLACE_EXISTING);
+```
+-
+### File operation options
+
+|Enum Value|Usage|
+|:-|:-|
+|NOFOLLOW_LINKS|-Test file existing<br>-Read file data<br>-Copy file<br>-Move file|
+|FOLLOW_LINKS|Traverse a directory treeCopy file|
+|COPY_ATTRIBUTES|Copy file|
+|REPLACE_EXISTING|Move file|
+|ATOMIC_MOVE|Move file|
+
+
+
 
 -
 ### Viewing directory contents
