@@ -536,7 +536,7 @@ DELETE FROM Employees WHERE Employee_Id = ?
 * Data Transfer Object
 * Provides single-domain data
 * Should fully encapsulate object and/or contain subobjects
-* Sould be output and input of a single DAO
+* Should be output and input of a single DAO
 
 -
 
