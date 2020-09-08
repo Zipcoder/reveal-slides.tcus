@@ -216,7 +216,7 @@ To add a link, use the ``<a></a>`` tag, "a" being short for "anchor". You can us
 
 ## Forms - Block
 
-Forms consist of many individual html elements. All HTML forms start with a <form> element, which can contain various form controls.
+Forms consist of many individual html elements. All HTML forms start with a ``<form>`` element, which can contain various form controls.
 
 ```html
 <form>
