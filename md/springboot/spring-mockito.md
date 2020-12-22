@@ -291,4 +291,4 @@ public void shouldFindAllCdsTest() throws Exception {
 
 -
 -
-<img src="/img/bunnies/springbunny.jpg">
+<img src="./img/bunnies/springbunny.jpg">
