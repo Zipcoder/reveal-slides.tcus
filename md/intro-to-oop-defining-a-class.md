@@ -111,13 +111,13 @@ public class Person {
 	// instance variables (fields)
 	private String name;
 	private Integer age;
-	private Boolean isFemale;
+	private Boolean isEnrolled;
 
 	// constructor
-	public Person(String name, Integer age, Boolean isFemale) {
+	public Person(String name, Integer age, Boolean isEnrolled) {
 		this.name = name;
 		this.age = age;
-		this.isFemale = isFemale;
+		this.isDriver = isEnrolled;
 	}
 }
 ```
@@ -542,17 +542,17 @@ public class Person { // class signature
 ```java
 public class Person { // class signature
 	private String myName; // instance variable
-	private Character gender; // instance variable
+	private ShirtSize myShirtSize; // instance variable
 
 	// no-arg constructor
 	public Person() { // constructor signature
 		this.myName = "Leon"; // setting instance variable
-		this.myGender = 'M'; // setting instance variable
+		this.myShirtSize = 'XL'; // setting instance variable
 	}
 
-	public Person(String name, Character gender) { // constructor signature
+	public Person(String name, ShirtSize shirtSize) { // constructor signature
 		this.myName = name; // setting instance variable
-		this.myGender = gender; // setting instance variable
+		this.myShirtSize = shirtSize; // setting instance variable
 	}
 }
 ```
@@ -562,16 +562,16 @@ public class Person { // class signature
 ```java
 public class Person { // class signature
 	private String myName; // instance variable
-	private Character myGender; // instance variable
+	private ShirtSize myShirtSize; // instance variable
 
 	// no-arg constructor
 	public Person() { // constructor signature
-		this("Leon", 'M'); // nested constructor call
+		this("Leon", 'XL'); // nested constructor call
 	}
 
-	public Person(String name, Character gender) { // constructor signature
+	public Person(String name, ShirtSize shirtSize) { // constructor signature
 		this.myName = name; // setting instance variable
-		this.myGender = gender; // setting instance variable
+		this.myShirtSize = shirtSize; // setting instance variable
 	}
 }
 ```
