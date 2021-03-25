@@ -9,7 +9,7 @@
 
 <ul>
 	<li class="fragment fade-up">What is a Stream?</li>
-	<li class="fragment fade-up">Usage	
+	<li class="fragment fade-up">Usage
 	<ul>
 	<li class="fragment fade-up">Stream Creation</li>
 	<li class="fragment fade-up">Extracting Substreams</li>
@@ -149,8 +149,8 @@ public Stream<String> fromEmpty() {
 -
 #`.iterate`
 ```Java
-public Stream<String> fromIterator() {
-	return Stream.iterate(BigInteger.ZERO, n -> n.add(BigInteger.ONE));
+public Stream<Integer> fromIterator() {
+        return Stream.iterate(0, n -> n + 1).limit(10);
 }
 ```
 
@@ -406,7 +406,9 @@ public Optional<String> getRandom(String[] stringArray) {
 -
 # `.of`, `.empty`
 ```Java
-public static Optional<Double> inverse(Double x) {	return x == 0 ? Optional.empty() : Optional.of(1 / x);}
+public static Optional<Double> inverse(Double x) {
+	return x == 0 ? Optional.empty() : Optional.of(1 / x);
+}
 ```
 
 
