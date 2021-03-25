@@ -341,14 +341,14 @@ public int getCount(String[] stringArray) {
 -
 #`.min`, `.max`
 ```Java
-/** @return longest String object in an array using a stream */
-public Optional<String> getMax(String[] stringArray) {
-    return Arrays.stream(stringArray).max(String::compareToIgnoreCase);
+/** @return shortest String object in an array using a stream */
+public Optional<String> getMin(String[] stringArray) {
+    return Arrays.stream(stringArray).min(String::compareToIgnoreCase);
 }
 
 /** @return longest String object in an array using a stream */
 public Optional<String> getMax(String[] stringArray) {
-    return Arrays.stream(stringArray).min(String::compareToIgnoreCase);
+    return Arrays.stream(stringArray).max(String::compareToIgnoreCase);
 }
 ```
 
