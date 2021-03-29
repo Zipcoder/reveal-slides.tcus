@@ -501,10 +501,10 @@ Optional<U> = s.f().flatMap(T::g);
 #Collecting Results
 
 -
-# Relevant Functional Interfaces
+## Relevant Functional Interfaces
 | Name       | Returns | Takes Argument 1 | Takes Argument 2 |
 |------------|---------|------------------|------------------|
-| Runnnable  | No      | No       | No      |
+| Runnable  | No      | No       | No      |
 | Supplier   | Yes     | No       | No      |
 | Consumer   | No      | Yes      | No      |
 | BiConsumer | No      | Yes      | Yes     |
@@ -514,7 +514,7 @@ Optional<U> = s.f().flatMap(T::g);
 
 
 -
-# Relevant Functional Interfaces
+## Relevant Functional Interfaces
 * A `Runnable` is a no-argument, void-returning operation.
 * A `Function` is a single-argument, non-void-returning operation.
 * A `Predicate` is a single-argument, boolean-returning operation.
@@ -527,7 +527,7 @@ Optional<U> = s.f().flatMap(T::g);
 
 
 -
-# Relevant Jargon
+## Relevant Jargon
 * A `classifier` is a predicate used to group a stream.
 * A `lambda` is a function which can be created without belonging to any class.
 * A `method reference` is how java handles the nuance of passing methods as arguments.
@@ -535,23 +535,8 @@ Optional<U> = s.f().flatMap(T::g);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 -
-#Method References `::`
+## Method References `::`
 * Because Java 7 has no syntax to enable a method being passed as an argument, the `::` syntax was introduced in Java 8 to reference methods.
 
 ```
@@ -563,7 +548,7 @@ s.forEach(stringConsumer);
 
 
 -
-#More Method References `::`
+## More Method References `::`
 ```
 class SquareMaker {
      public double square(double num){
@@ -583,7 +568,7 @@ class DemoSquareMaker {
 
 
 -
-#Using `.toArray()` to collect results
+## Using `.toArray()` to collect results
 * It is not possible to create a generic array at runtime.<br>If you want an array of the correct type, pass in the array constructor.
 
 ```
@@ -607,7 +592,7 @@ public class CollectorsDemo {
 
 
 -
-#Using `.collect()`<br>to collect to a `List`
+## Using `.collect()`<br>to collect to a `List`
 
 ```
 public class CollectorsDemo {
@@ -629,7 +614,7 @@ public class CollectorsDemo {
 
 
 -
-#Using `.collect()`<br>to collect to a `Set`
+## Using `.collect()`<br>to collect to a `Set`
 
 ```
 public class CollectorsDemo {
@@ -665,10 +650,10 @@ public class CollectorsDemo {
 
 -
 -
-#Collecting into Maps
+# Collecting into Maps
 
 -
-#Using `.collect()`<br>to collect to a `Map`
+## Using `.collect()`<br>to collect to a `Map`
 
 ```
 public class CollectorsDemo {
@@ -689,7 +674,7 @@ public class CollectorsDemo {
 ```
 
 -
-#Using `.collect()`<br>to collect to a `Map`
+## Using `.collect()`<br>to collect to a `Map`
 * In the common case, when the values should be the actual elements, use `Function.identity()` instead.
 
 ```Java
@@ -723,11 +708,11 @@ public class CollectorsDemo {
 
 -
 -
-#Grouping and Partitioning
+# Grouping and Partitioning
 
 
 -
-#`.groupingBy()`
+## `.groupingBy()`
 * Forming groups of values with the same characteristic is very common, and the `groupingBy` method supports it directly.
 
 ```Java
@@ -738,7 +723,7 @@ public Map<String, List<Locale>> groupingByDemo() {
 ```
 
 -
-#`.partitioningBy()`
+##`.partitioningBy()`
 * Partitioning is a another grouping approach, in which the resultant Map contains two different groups, one for true values and another for false values.
 
 
@@ -766,7 +751,7 @@ public Map<String, List<Locale>> groupingByDemo() {
 
 
 -
-#Downstream Collectors
+## Downstream Collectors
 * The `.groupingBy` method yields a map whose values are lists
 * If you want to process those lists in some way, supply a _downstream collector_.
 * For example, if you want sets, instead of lists, you can use `Collectors.toSet`
@@ -784,7 +769,7 @@ class Demo {
 ```
 
 -
-#Downstream Collectors
+## Downstream Collectors (continued)
 * Several collectors are provided for reducing grouped elements to numbers.
 * `counting` produces a count of collected elements.
 
@@ -803,20 +788,9 @@ class Demo {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 -
 -
-#Reduction Operations
+## Reduction Operations
 * The `reduce` method is a general mechanism for computing a value from a stream.
 
 ```Java
@@ -857,13 +831,13 @@ represents the function call •(v<sub>i</sub>, v<sub>i+1</sub>)
 
 -
 -
-#Primitive Type Streams
+## Primitive Type Streams
 * The stream library has specialized types `IntStream`, `LongStream`, and `DoubleStream` that store primitive values directly without using wrappers.
 * If you want to store `int`, `short`, `char`, `byte`, and `boolean`, use an `IntStream`.
 * If you want to store `float`, or `double`, use `DoubleStream`.
 
 -
-#Populate `IntStream`
+## Populate `IntStream`
 * Use `.of` to populate a stream with respective values
 
 ```Java
@@ -877,7 +851,7 @@ class PrimitiveStreams {
 
 
 -
-#Generate `IntStream`
+## Generate `IntStream`
 * Use `.generate` to create endless stream
 
 ```Java
@@ -892,7 +866,7 @@ class PrimitiveStreams {
 
 
 -
-#Create exclusive range `IntStream`
+## Create exclusive range `IntStream`
 * Use `.range` to generate a set of ints between specified `min` and `max` values
 
 ```Java
@@ -909,7 +883,7 @@ class PrimitiveStreams {
 
 
 -
-#Create inclusive range `IntStream`
+## Create inclusive range `IntStream`
 * Use `.range` to generate a set of ints between specified `min` and `max` values
 
 ```Java
@@ -925,7 +899,7 @@ class PrimitiveStreams {
 ```
 
 -
-#Converting from Primitive to Object stream
+## Converting from Primitive to Object stream
 * Use the `.boxed` method to convert form primitive streams to object streams
 
 ```Java
@@ -953,7 +927,7 @@ public class PrimitiveStreams {
 
 -
 -
-#Parallel Streams
+## Parallel Streams
 * Streams make it easy to parallelize bulk operations.
 * The process is mostly automatic, but you need to take note of the following:
 	1. Use a parallel stream
@@ -965,14 +939,14 @@ public class PrimitiveStreams {
 
 
 -
-#Improper usage
-* Here is an example of somethign you cannot do.
+## Improper usage
+* Here is an example of something you cannot do.
 * Suppose you want to count all short words in a stream of strings.
 
 ```Java
 class Demo {
 	public void demo() {
-		int[] shortWrods = new int[12];
+		int[] shortWords = new int[12];
 		words.parallelStream().forEach(
 			s -> { if(s.length <12) shorts[s.length()]++; });
 			// Error - race condition!
@@ -984,7 +958,7 @@ class Demo {
 
 
 -
-#Proper usage
+# Proper usage
 * It is your responsibility to ensure that any functions passed to parallel stream operations are safe to execute in parallel.
 * The best way to do that is to stay away from mutable state.
 * In this example, you can safely parallelize the computation if you group strings by length and count them.
@@ -992,9 +966,9 @@ class Demo {
 ```Java
 class Demo {
 	public Map<Integer, Long> wordCountMap(Stream<String> words) {
-		Map<Integer, Long> shortWordCounts = words.paralellStream()
-			.filter(s -> s.length() < 10)
-			.collect(groupingBy(String::length, counting()));
+	        Map<Integer, Long> shortWordCounts = words
+            .filter(s -> s.length() < 10)
+            .collect(Collectors.groupingBy(String::length,Collectors.counting()));
 	}
 }
 ```
