@@ -628,7 +628,7 @@ public class CollectorsDemo {
     }
 
     public Set<String> toSet() {
-        return stringStream.collect(Collectors.toSet());
+        return toStream().collect(Collectors.toSet());
     }
 }
 ```
@@ -667,7 +667,7 @@ public class CollectorsDemo {
     }
 
     public Map<Integer, String> toMap() {
-        return stringStream.collect(
+        return toStream().collect(
         	Collectors.toMap(String::hashCode, String::toString));
     }
 }
@@ -689,7 +689,7 @@ public class CollectorsDemo {
     }
 
     public Map<Integer, String> toMap() {
-        return stringStream.collect(
+        return toStream().collect(
         	Collectors.toMap(String::hashCode, Function::identity));
     }
 }
