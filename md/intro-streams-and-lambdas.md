@@ -884,11 +884,10 @@ class Demo {
 
 ```Java
 class Demo {
-  public Map<Integer, Long> wordCountMap(Stream<String> words) {
-	 Map<Integer, Long> shortWordCounts = words
+  public Map<Integer, Long> wordCountMap(List<String> words) {
+    Map<Integer, Long> shortWordCounts = words.parallelStream()
       .filter(s -> s.length() < 10)
-      .collect(Collectors.groupingBy(String::length,Collectors.counting()));
-  }
+      .collect(Collectors.groupingBy(String::length, Collectors.counting()));
 }
 ```
 
