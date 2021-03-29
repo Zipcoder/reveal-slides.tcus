@@ -5,7 +5,7 @@
 -
 -
 
-##What we'll cover
+## What we'll cover
 
 <ul>
 	<li class="fragment fade-up">What is a Stream?</li>
@@ -27,7 +27,7 @@
 
 -
 -
-#What is a Stream?
+# What is a Stream?
 
 * Basic generalization of lists; a sequence of objects
 * Specify what to be done, rather than how to do it
@@ -37,13 +37,13 @@
 
 -
 -
-##Streams, visualized:
+## Streams, visualized:
 <img src="https://github.com/Zipcoder/reveal-slides.tcus/blob/master/img/Streams-50000-foot-view.png?raw=true">
 
 
 -
 -
-#Usage
+## Usage
 ```Java
 // This method definition showcases for-each-loop syntax
 public void forloopPrint(String[] stringArray) {
@@ -60,19 +60,12 @@ public void streamPrint(String[] stringArray) {
 ```
 
 
-
-
-
-
-
-
-
 -
 -
-#Stream Creation
+# Stream Creation
 
 -
-#From Array, strategy 1
+## From Array, strategy 1
 ```Java
 /** @param stringArray source array to create stream
  *  @return stream representation of this array */
@@ -83,7 +76,7 @@ public Stream<String> fromArray1(String[] stringArray) {
 ```
 
 -
-#From Array, strategy 2
+## From Array, strategy 2
 ```Java
 /** @param stringArray source array to create stream
  *  @return stream representation of this array */
@@ -97,7 +90,7 @@ public Stream<String> fromArray2(String[] stringArray) {
 in the Java Standard Libraries.*
 
 -
-#From varargs
+## From varargs
 ```Java
 /** @return stream representation of this array */
 public Stream<String> fromVarargs() {
@@ -107,7 +100,7 @@ public Stream<String> fromVarargs() {
 ```
 
 -
-#From List
+## From List
 ```Java
 /** @param stringList source list to create stream
 *   @return stream representation of this List */
@@ -119,7 +112,7 @@ public Stream<String> fromList(List<String> stringList) {
 
 
 -
-#`.generate`, strategy 1
+## `.generate`, strategy 1
 ```Java
 /** @return endless stream */
 public Stream<String> fromGenerator1() {
@@ -129,7 +122,7 @@ public Stream<String> fromGenerator1() {
 ```
 
 -
-#`.generate`, strategy 2
+## `.generate`, strategy 2
 ```Java
 /** @return endless stream */
 public Stream<Double> fromGenerator2() {
@@ -139,7 +132,7 @@ public Stream<Double> fromGenerator2() {
 ```
 
 -
-#`.empty`
+## `.empty`
 ```Java
 public Stream<String> fromEmpty() {
 	return Stream.empty();
@@ -147,7 +140,7 @@ public Stream<String> fromEmpty() {
 ```
 
 -
-#`.iterate`
+## `.iterate`
 ```Java
 public Stream<Integer> fromIterator() {
         return Stream.iterate(0, n -> n + 1).limit(10);
@@ -167,10 +160,10 @@ public Stream<Integer> fromIterator() {
 
 -
 -
-#Extracting substreams
+# Extracting substreams
 
 -
-#Extracting substreams
+## Extracting substreams
 ```Java
 public Stream<String> getSubStream(String[] stringArray, int startIndex, int endIndex) {
 	return Arrays.stream(stringArray, startIndex, endIndex);
@@ -191,10 +184,10 @@ public Stream<String> getSubStream(String[] stringArray, int endIndex) {
 
 
 -
-#Combining substreams
+# Combining substreams
 
 -
-#`Stream.concat`
+## `Stream.concat`
 * `Stream.concat` concatenates two streams
 
 ```Java
@@ -208,31 +201,19 @@ public Stream<String> combineStreams(String[] array1, String[] array2) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 -
 -
-#Transformations
+# Transformations
 
 -
-#Filter, Map, and FlatMap
+## Filter, Map, and FlatMap
 * The `filter` transformation yields a new stream with elements that match the specified criteria
 * The `map` transformation takes an argument of a function, applies the function to each element, and returns the respective stream
 * The `flatMap` transformation prevents nested stream structures like `Stream<Stream<String>>`
 
 
 -
-#Filter
+## Filter
 * The `filter` transformation yields a new stream with elements that match the specified criteria
 
 ```Java
@@ -249,7 +230,7 @@ public Stream<String>getStringsShorterThan(String[] stringArray, int length) {
 
 
 -
-#Map
+## Map
 * The `map` transformation takes an argument of a function, applies the function to each element, and returns the respective stream
 
 ```Java
@@ -264,7 +245,7 @@ public Stream<Stream<String>> wordsMap(String[] someWords) {
 ```
 
 -
-#FlatMap
+## FlatMap
 * The `flatMap` transformation prevents nested stream structures like `Stream<Stream<String>>`
 
 ```Java
@@ -282,7 +263,7 @@ public Stream<String> wordsFlatMap(String[] stringArray) {
 
 
 -
-#Distinct
+## Distinct
 * The `distinct` transformation returns the stream with duplicates removed
 
 ```Java
@@ -293,7 +274,7 @@ public Stream<String> uniqueWords(String... words) {
 
 
 -
-#Transformations: Sorted
+## Transformations: Sorted
 ```Java
 public Stream<String> sort(String[] words) {
     return Arrays.stream(words).sorted();
@@ -305,17 +286,9 @@ public Stream<String> sort(String[] words) {
 
 
 
-
-
-
-
-
-
-
-
 -
 -
-#Simple Reductions
+## Simple Reductions
 * Reductions are terminal operations
 * They reduce the stream to a nonstream value that can be used in the program.
 * Examples include: `.count`, `.max`, `.min`, `.findFirst`, `.findAny`, `.anyMatch`
@@ -323,13 +296,13 @@ public Stream<String> sort(String[] words) {
 
 
 -
-#`Optional<T>`
+# `Optional<T>`
 * An `Optional<T>` value either wraps the result of a method, or indicates that there is none
 * The purpose of `Optional<T>` is to prevent potential `NullPointerExceptions`
 
 
 -
-#`.count`
+## `.count`
 ```Java
 /** @return number of elements in an array using a stream */
 public int getCount(String[] stringArray) {
@@ -339,7 +312,7 @@ public int getCount(String[] stringArray) {
 
 
 -
-#`.min`, `.max`
+## `.min`, `.max`
 ```Java
 /** @return shortest String object in an array using a stream */
 public Optional<String> getMin(String[] stringArray) {
@@ -355,7 +328,7 @@ public Optional<String> getMax(String[] stringArray) {
 
 
 -
-#`.findFirst`, `.findAny`
+## `.findFirst`, `.findAny`
 ```Java
 /** @return get first String from an array using a stream */
 public Optional<String> getFirst(String[] stringArray) {
@@ -375,7 +348,7 @@ public Optional<String> getRandom(String[] stringArray) {
 
 -
 -
-#More Streams...
+# More Streams...
 <ol>
 	<li class="fragment fade-up">Optional Type</li>
 	<li class="fragment fade-up">Optional Type Usage</li>
@@ -385,26 +358,15 @@ public Optional<String> getRandom(String[] stringArray) {
 
 
 
-
-
-
-
-
-
-
+-
+-
+# Optional Type Creation
 
 
 
 
 -
--
-#Optional Type Creation
-
-
-
-
--
-# `.of`, `.empty`
+## `.of`, `.empty`
 ```Java
 public static Optional<Double> inverse(Double x) {
 	return x == 0 ? Optional.empty() : Optional.of(1 / x);
@@ -415,7 +377,7 @@ public static Optional<Double> inverse(Double x) {
 
 
 -
-# `.ofNullable`
+## `.ofNullable`
 * The `ofNullable` method is intended as a bridge from possibly null values to optional values.
 
 ```Java
@@ -427,31 +389,14 @@ public static Optional<String> demoOfNullable(String arg) {
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-
+-
+# Composing Optional Value Functions<br>With `.flatMap`
 
 
 
 -
--
-#Composing Optional Value Functions<br>With `.flatMap`
-
-
-
--
-##Chaining Method Calls
+## Chaining Method Calls
 * Consider the following:
 	* `S` is a class which contains the definition of method `.f()`
 	* Method `.f()` returns `Optional<T>`
@@ -460,7 +405,7 @@ public static Optional<String> demoOfNullable(String arg) {
 	* you would be able to call them, via <br>`s.f().g()`<br>if these methods returned the raw types rather than the respective `Optional` wrapper type.
 
 -
-#Avoiding `Optional` usage puts code<br>at risk of `NullPointerException`
+# Avoiding `Optional` usage puts code<br>at risk of `NullPointerException`
 ```
 S s = new S();
 U u = s.f().g();
@@ -468,7 +413,7 @@ U u = s.f().g();
 
 
 -
-#`.map` yields (potentially) nested structure
+# `.map` yields (potentially) nested structure
 ```
 S s = new S();
 Optional<Optional<U>> = s.f().map(T::g);
@@ -476,29 +421,16 @@ Optional<Optional<U>> = s.f().map(T::g);
 
 
 -
-#`.flatMap` yields flat structure
+# `.flatMap` yields flat structure
 ```
 S s = new S();
 Optional<U> = s.f().flatMap(T::g);
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 -
 -
-#Collecting Results
+# Collecting Results
 
 -
 ## Relevant Functional Interfaces
@@ -515,13 +447,15 @@ Optional<U> = s.f().flatMap(T::g);
 
 -
 ## Relevant Functional Interfaces
+
 * A `Runnable` is a no-argument, void-returning operation.
+* A `Consumer` is a single-argument, void-returning operation.
 * A `Function` is a single-argument, non-void-returning operation.
 * A `Predicate` is a single-argument, boolean-returning operation.
-* A `Consumer` is a single-argument, void-returning operation.
 * A `Supplier` is a no-argument, non-void-returning operation.
 * A `BiConsumer` is a two-argument, void-returning operation.
 * A `BiFunction` is a two-argument, non-void-returning operation.
+* A `BiPredicate ` is a two-argument, boolean-returning operation..
 
 
 
@@ -529,7 +463,7 @@ Optional<U> = s.f().flatMap(T::g);
 -
 ## Relevant Jargon
 * A `classifier` is a predicate used to group a stream.
-* A `lambda` is a function which can be created without belonging to any class.
+* A `lambda` is a function which can be created **without** belonging to any class.
 * A `method reference` is how java handles the nuance of passing methods as arguments.
 
 
@@ -636,18 +570,6 @@ public class CollectorsDemo {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 -
 -
 # Collecting into Maps
@@ -696,16 +618,6 @@ public class CollectorsDemo {
 ```
 
 
-
-
-
-
-
-
-
-
-
-
 -
 -
 # Grouping and Partitioning
@@ -713,6 +625,7 @@ public class CollectorsDemo {
 
 -
 ## `.groupingBy()`
+
 * Forming groups of values with the same characteristic is very common, and the `groupingBy` method supports it directly.
 
 ```Java
@@ -724,6 +637,7 @@ public Map<String, List<Locale>> groupingByDemo() {
 
 -
 ##`.partitioningBy()`
+
 * Partitioning is a another grouping approach, in which the resultant Map contains two different groups, one for true values and another for false values.
 
 
@@ -752,6 +666,7 @@ public Map<String, List<Locale>> groupingByDemo() {
 
 -
 ## Downstream Collectors
+
 * The `.groupingBy` method yields a map whose values are lists
 * If you want to process those lists in some way, supply a _downstream collector_.
 * For example, if you want sets, instead of lists, you can use `Collectors.toSet`
@@ -770,6 +685,7 @@ class Demo {
 
 -
 ## Downstream Collectors (continued)
+
 * Several collectors are provided for reducing grouped elements to numbers.
 * `counting` produces a count of collected elements.
 
@@ -791,6 +707,7 @@ class Demo {
 -
 -
 ## Reduction Operations
+
 * The `reduce` method is a general mechanism for computing a value from a stream.
 
 ```Java
@@ -832,12 +749,14 @@ represents the function call •(v<sub>i</sub>, v<sub>i+1</sub>)
 -
 -
 ## Primitive Type Streams
-* The stream library has specialized types `IntStream`, `LongStream`, and `DoubleStream` that store primitive values directly without using wrappers.
+
+* The stream library has specialized types `IntStream`, `LongStream`, and `DoubleStream` that store primitive values directly **without** using wrappers.
 * If you want to store `int`, `short`, `char`, `byte`, and `boolean`, use an `IntStream`.
 * If you want to store `float`, or `double`, use `DoubleStream`.
 
 -
 ## Populate `IntStream`
+
 * Use `.of` to populate a stream with respective values
 
 ```Java
