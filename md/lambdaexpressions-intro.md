@@ -254,7 +254,7 @@ public class MainClass {
 public class MainClass {
   public void demo() {
     Consumer<String> consumer = this::someConsumerMethod;
-	result = consumer.accept("Hello world");
+	 consumer.accept("Hello world");
   }
 
   public void someConsumerMethod(String str) {
@@ -272,7 +272,7 @@ public class MainClass {
 public class MainClass {
   public void demo() {
     Consumer<String> consumer = MainClass::someConsumerMethod;
-    result = consumer.accept("Hello world");
+    consumer.accept("Hello world");
   }
 
   public static void someConsumerMethod(String str) {
@@ -293,7 +293,7 @@ public class MainClass {
 ```java
 public class MainClass {
   public void demo() {
-    Conusmer<String> consumer = (str) -> System.out.println(str);
+    Consumer<String> consumer = (str) -> System.out.println(str);
     consumer.accept("Hello world");
   }
 }
@@ -350,7 +350,7 @@ public class MainClass {
 public class MainClass {
   public void demo() {
     BiConsumer<String> consumer = MainClass::someConsumerMethod;
-    String result = consumer.accept("Hello", "World");
+    consumer.accept("Hello", "World");
   }
 
   public static void someConsumerMethod(String str1, String str2) {
