@@ -965,10 +965,10 @@ class Demo {
 
 ```Java
 class Demo {
-	public Map<Integer, Long> wordCountMap(Stream<String> words) {
-	   Map<Integer, Long> shortWordCounts = words
-        .filter(s -> s.length() < 10)
-        .collect(Collectors.groupingBy(String::length,Collectors.counting()));
-	}
+  public Map<Integer, Long> wordCountMap(Stream<String> words) {
+	 Map<Integer, Long> shortWordCounts = words
+      .filter(s -> s.length() < 10)
+      .collect(Collectors.groupingBy(String::length,Collectors.counting()));
+  }
 }
 ```
