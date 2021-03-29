@@ -888,6 +888,7 @@ class Demo {
     Map<Integer, Long> shortWordCounts = words.parallelStream()
       .filter(s -> s.length() < 10)
       .collect(Collectors.groupingBy(String::length, Collectors.counting()));
+    return shortWordCounts;
 }
 ```
 
