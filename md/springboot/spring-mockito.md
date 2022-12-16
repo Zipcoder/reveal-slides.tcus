@@ -4,7 +4,6 @@
 
 -
 -
--
 ## Reminder: Why we test
 
 * To ensure modules work to achieve desired functionality
