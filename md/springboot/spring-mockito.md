@@ -4,6 +4,7 @@
 
 -
 -
+##Integration Testing
 
 * A style of testing by which we test multiple modules together to show functionality in a service
 
@@ -61,6 +62,17 @@ Often times we want a test to run without having to rely on another class workin
 
 -
 
+#Mocking in Tests
+
+
+Components often depend on accessing external systems, when implemented in production.
+
+Because of this, we need a way to isolate tests on the functionality of features without needing to bring the entire class heirarchy for the tests to work. 
+
+We can insert Mockito mocks into Spring Beans for unit testing by using dependency injection, thus allowing us to introduce that isolation.
+
+-
+
 ## Mocking in Tests
 
 Regardless of whether or not as class is available to you, it is always better to write tests assuming that dependencies will always function exactly as expected. 
@@ -68,13 +80,17 @@ Regardless of whether or not as class is available to you, it is always better t
 *We are not writing a test for the dependencies of the module*
 
 To ensure that a dependency will work as expected we use a technique called Mocking
+
 -
 
 ## Mocking in Tests
 
 Mocking is the method by which we make a fake class to inject into a module. Spring Boot uses Mockito to create mocks of beans called MockBeans
 
+
+
 -
+
 
 ## Mocking in Tests
 
@@ -82,7 +98,7 @@ Spring Boot supports the `@MockBean` annotation
 
 @MockBean instructs Spring to include a class in the Application Context that mutes the true implentation. 
 
-
+ 
 -
 
 ## Mocking in Tests
@@ -276,18 +292,6 @@ No matter what slice we use the structure will usually be the same.
 1. Mock any dependencies and supply mock returns
 2. Invoke the method we are testing
 3. Write assertions based on the behavior we expect
-
--
--
-
-#Mocks
-
-Components often depend on accessing external systems, when implemented in production.
-
-Because of this, we need a way to isolate tests on the functionality of features without needing to bring the entire class heirarchy for the tests to work. 
-
-We can insert Mockito mocks into Spring Beans for unit testing by using dependency injection, thus allowing us to introduce that isolation.
-
 
 
 -
