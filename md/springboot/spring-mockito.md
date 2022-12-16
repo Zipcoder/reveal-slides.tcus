@@ -4,6 +4,15 @@
 
 -
 -
+-
+## Reminder: Why we test
+
+* To ensure modules work to achieve desired functionality
+* To validate new code does not break old functionality
+* To allow multiple developers to quickly validate code
+
+-
+
 ##Integration Testing
 
 * A style of testing by which we test multiple modules together to show functionality in a service
